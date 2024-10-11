@@ -9,7 +9,7 @@ public class Conexao {
 
     public boolean conectar(){
         try{
-//          informando qual driver será utilizado praa a conexão
+//          informando qual driver será utilizado para a conexão
             Class.forName("org.postgresql.Driver");
             //fazendo a conexão
             conn = DriverManager.getConnection("","postgres","");
@@ -33,7 +33,7 @@ public class Conexao {
             }
             return true;
         }catch (SQLException sqle) {
-            System.out.println("Servidor não encontrado\n" + sqlex);
+            System.out.println("Servidor não encontrado\n" + sqle);
             return false;
         }
     }
