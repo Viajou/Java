@@ -12,7 +12,6 @@ public class AdminDAO {
     private Connection conn;
     private PreparedStatement psmt;
     private Conexao conexao = new Conexao();
-    private Admin admin = new Admin();
     // metodo para leitura da tabela admin
     public ResultSet buscar(){
         conexao.conectar();
@@ -31,12 +30,12 @@ public class AdminDAO {
         }
     }
     //Uma sobrecarga no metodo buscar, para fazer uma leitura na tabela pela pk dela
-    public ResultSet buscar(int pk){
+    public ResultSet buscar(int id){
         conexao.conectar();
         ResultSet rset = null;
         try {
             psmt = conn.prepareStatement("Select * from admin where id = ? ");
-            psmt.setInt(1,pk);
+            psmt.setInt(1,id);
             rset = psmt.executeQuery();
             return rset;
         }catch (SQLException sqle){
@@ -49,10 +48,10 @@ public class AdminDAO {
         }
     }
     //método para adicionar um admim na tabela
-    public int inserirAdmin(){
+    public int inserirAdmin(Admin admin){
         conexao.conectar();
         try {
-            psmt = conn.prepareStatement("INSERT INTO admin VALUES (?,?,?)");
+            psmt = conn.prepareStatement("INSERT INTO admin(nome,email,senha) VALUES (?,?,?)");
             psmt.setString(1,admin.getNome());
             psmt.setString(2, admin.getEmail());
             psmt.setString(3,admin.getSenha());
@@ -68,7 +67,7 @@ public class AdminDAO {
     }
     // Os métodos a seguir se referem a mudança de um campo na tabela admin
     // Método para mudar o nome de usuario dos admin
-    public int atualizarNome(int id){
+    public int atualizarNome(int id,Admin admin){
         conexao.conectar();
         try {
             ResultSet busca = buscar(id);
@@ -91,8 +90,8 @@ public class AdminDAO {
         }
     }
     // Método para mudar o e-mail de usuario dos admin
-    public int atualizarEmail(int id){
-       conexao.conectar();
+    public int atualizarEmail(int id, Admin admin){
+        conexao.conectar();
         try {
             ResultSet busca = buscar(id);
             //verificando se existe o adminitrador
@@ -112,7 +111,7 @@ public class AdminDAO {
         }
     }
     // Método para mudar a senha de usuario dos admin
-    public int atualizarSenha(int id){
+    public int atualizarSenha(int id, Admin admin){
         conexao.conectar();
         try {
             ResultSet busca = buscar(id);
