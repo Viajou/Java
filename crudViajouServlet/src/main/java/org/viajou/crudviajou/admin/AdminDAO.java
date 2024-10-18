@@ -9,16 +9,17 @@ import java.sql.SQLException;
 
 public class AdminDAO {
     //Declarando as variaveis do método
-    private Connection conn;
-    private PreparedStatement psmt;
-    private Conexao conexao = new Conexao();
+//    private Connection conn;
+//    private PreparedStatement psmt;
+//    private Conexao conexao = new Conexao();
     // metodo para leitura da tabela admin
     public ResultSet buscar(){
+        Conexao conexao = new Conexao();
         conexao.conectar();
         ResultSet rset = null;
         try {
             //usando o psmt para fazer um instrução sql
-            psmt = conn.prepareStatement("SELECT * FROM admin");
+             PreparedStatement psmt = conn.prepareStatement("SELECT * FROM admin");
             rset = psmt.executeQuery();
             return rset;
             // Fazendo o catch para verificar se o sql apresentar algum erro séra apresentado retonar uma string

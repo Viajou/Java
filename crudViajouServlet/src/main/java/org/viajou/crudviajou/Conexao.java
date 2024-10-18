@@ -7,6 +7,10 @@ import java.sql.SQLException;
 public class Conexao {
     private Connection conn;
 
+    public Connection getConn() {
+        return conn;
+    }
+
     public boolean conectar(){
         try{
 //          informando qual driver será utilizado para a conexão
