@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class EventoDao {
+public class EventoDAO {
     //Declarando as variaveis do método
     private Connection conn;
     private PreparedStatement psmt;
