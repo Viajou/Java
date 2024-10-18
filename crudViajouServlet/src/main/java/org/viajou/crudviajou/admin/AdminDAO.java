@@ -18,6 +18,7 @@ public class AdminDAO {
         conexao.conectar();
         ResultSet rset = null;
         try {
+            Connection conn = conexao.getConn();
             //usando o psmt para fazer um instrução sql
              PreparedStatement psmt = conn.prepareStatement("SELECT * FROM admin");
             rset = psmt.executeQuery();
@@ -32,10 +33,14 @@ public class AdminDAO {
     }
     //Uma sobrecarga no metodo buscar, para fazer uma leitura na tabela pela pk dela
     public ResultSet buscar(int id){
+        //declarando objetos
+        Conexao conexao = new Conexao();
         conexao.conectar();
         ResultSet rset = null;
+        conexao.conectar();
         try {
-            psmt = conn.prepareStatement("Select * from admin where id = ? ");
+            Connection conn = conexao.getConn();
+            PreparedStatement psmt = conn.prepareStatement("Select * from admin where id = ? ");
             psmt.setInt(1,id);
             rset = psmt.executeQuery();
             return rset;
@@ -50,9 +55,14 @@ public class AdminDAO {
     }
     //método para adicionar um admim na tabela
     public int inserirAdmin(Admin admin){
+        //declarando objetos
+        Conexao conexao = new Conexao();
+        conexao.conectar();
+        ResultSet rset = null;
         conexao.conectar();
         try {
-            psmt = conn.prepareStatement("INSERT INTO admin(nome,email,senha) VALUES (?,?,?)");
+            Connection conn = conexao.getConn();
+            PreparedStatement psmt  = conn.prepareStatement("INSERT INTO admin(nome,email,senha) VALUES (?,?,?)");
             psmt.setString(1,admin.getNome());
             psmt.setString(2, admin.getEmail());
             psmt.setString(3,admin.getSenha());
@@ -69,12 +79,15 @@ public class AdminDAO {
     // Os métodos a seguir se referem a mudança de um campo na tabela admin
     // Método para mudar o nome de usuario dos admin
     public int atualizarNome(int id,Admin admin){
+        Conexao conexao = new Conexao();
         conexao.conectar();
+        ResultSet rset = null;
         try {
             ResultSet busca = buscar(id);
             //verificando se existe o adminitrador
             if (busca.next()) {
-                psmt = conn.prepareStatement("UPDATE admin SET nome =  ? WHERE id = ? ");
+                Connection conn = conexao.getConn();
+                PreparedStatement psmt = conn.prepareStatement("UPDATE admin SET nome =  ? WHERE id = ? ");
                 //usar metodods get e set da classe admim, execto id
                 psmt.setString(1, admin.getNome());
                 psmt.setInt(2, id);
@@ -92,12 +105,16 @@ public class AdminDAO {
     }
     // Método para mudar o e-mail de usuario dos admin
     public int atualizarEmail(int id, Admin admin){
+        Conexao conexao = new Conexao();
+        conexao.conectar();
+        ResultSet rset = null;
         conexao.conectar();
         try {
             ResultSet busca = buscar(id);
             //verificando se existe o adminitrador
             if (busca.next()) {
-                psmt = conn.prepareStatement("UPDATE admin SET email =  ? WHERE id = ? ");
+                Connection conn = conexao.getConn();
+                PreparedStatement psmt = conn.prepareStatement("UPDATE admin SET email =  ? WHERE id = ? ");
                 psmt.setString(1, admin.getEmail());
                 psmt.setInt(2, id);
                 psmt.execute();
@@ -113,12 +130,16 @@ public class AdminDAO {
     }
     // Método para mudar a senha de usuario dos admin
     public int atualizarSenha(int id, Admin admin){
+        Conexao conexao = new Conexao();
+        conexao.conectar();
+        ResultSet rset = null;
         conexao.conectar();
         try {
             ResultSet busca = buscar(id);
             //verificando se existe o adminitrador
             if (busca.next()) {
-                psmt = conn.prepareStatement("UPDATE admin SET senha =  ? WHERE id = ? ");
+                Connection conn = conexao.getConn();
+                PreparedStatement psmt = conn.prepareStatement("UPDATE admin SET senha =  ? WHERE id = ? ");
                 psmt.setString(1, admin.getSenha());
                 psmt.setInt(2, id);
                 psmt.execute();
@@ -135,12 +156,16 @@ public class AdminDAO {
     }
     // Método excluir um usuario da tabela admin
     public int deletarAdmin(int id){
+        Conexao conexao = new Conexao();
+        conexao.conectar();
+        ResultSet rset = null;
         conexao.conectar();
         try {
             ResultSet busca = buscar(id);
             //verificando se existe o adminitrador
             if (busca.next()) {
-                psmt = conn.prepareStatement("Delete from admin where id = ?  ");
+                Connection conn = conexao.getConn();
+                PreparedStatement psmt = conn.prepareStatement("Delete from admin where id = ?  ");
                 psmt.setInt(1, id);
                 psmt.execute();
                 return 0;
