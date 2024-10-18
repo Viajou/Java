@@ -37,7 +37,6 @@ public class AdminDAO {
         Conexao conexao = new Conexao();
         conexao.conectar();
         ResultSet rset = null;
-        conexao.conectar();
         try {
             Connection conn = conexao.getConn();
             PreparedStatement psmt = conn.prepareStatement("Select * from admin where id = ? ");
@@ -58,8 +57,6 @@ public class AdminDAO {
         //declarando objetos
         Conexao conexao = new Conexao();
         conexao.conectar();
-        ResultSet rset = null;
-        conexao.conectar();
         try {
             Connection conn = conexao.getConn();
             PreparedStatement psmt  = conn.prepareStatement("INSERT INTO admin(nome,email,senha) VALUES (?,?,?)");
@@ -78,10 +75,9 @@ public class AdminDAO {
     }
     // Os métodos a seguir se referem a mudança de um campo na tabela admin
     // Método para mudar o nome de usuario dos admin
-    public int atualizarNome(int id,Admin admin){
+    public int alterarNome(int id,Admin admin){
         Conexao conexao = new Conexao();
         conexao.conectar();
-        ResultSet rset = null;
         try {
             ResultSet busca = buscar(id);
             //verificando se existe o adminitrador
@@ -104,10 +100,8 @@ public class AdminDAO {
         }
     }
     // Método para mudar o e-mail de usuario dos admin
-    public int atualizarEmail(int id, Admin admin){
+    public int alterarEmail(int id, Admin admin){
         Conexao conexao = new Conexao();
-        conexao.conectar();
-        ResultSet rset = null;
         conexao.conectar();
         try {
             ResultSet busca = buscar(id);
@@ -129,10 +123,8 @@ public class AdminDAO {
         }
     }
     // Método para mudar a senha de usuario dos admin
-    public int atualizarSenha(int id, Admin admin){
+    public int alterarSenha(int id, Admin admin){
         Conexao conexao = new Conexao();
-        conexao.conectar();
-        ResultSet rset = null;
         conexao.conectar();
         try {
             ResultSet busca = buscar(id);
@@ -155,10 +147,8 @@ public class AdminDAO {
         }
     }
     // Método excluir um usuario da tabela admin
-    public int deletarAdmin(int id){
+    public int alterarAdmin(int id){
         Conexao conexao = new Conexao();
-        conexao.conectar();
-        ResultSet rset = null;
         conexao.conectar();
         try {
             ResultSet busca = buscar(id);
