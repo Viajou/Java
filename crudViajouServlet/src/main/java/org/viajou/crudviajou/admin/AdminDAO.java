@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class AdminDAO {
     //Declarando as variaveis do método
 //    private Connection conn;
-//    private PreparedStatement psmt;
+//    private PreparedStatement pstmt;
 //    private Conexao conexao = new Conexao();
     // metodo para leitura da tabela admin
     public ResultSet buscar(){
@@ -19,9 +19,9 @@ public class AdminDAO {
         ResultSet rset = null;
         try {
             Connection conn = conexao.getConn();
-            //usando o psmt para fazer um instrução sql
-             PreparedStatement psmt = conn.prepareStatement("SELECT * FROM admin");
-            rset = psmt.executeQuery();
+            //usando o pstmt para fazer um instrução sql
+             PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM admin");
+            rset = pstmt.executeQuery();
             return rset;
             // Fazendo o catch para verificar se o sql apresentar algum erro séra apresentado retonar uma string
         }catch (SQLException sqle){
@@ -40,9 +40,9 @@ public class AdminDAO {
         conexao.conectar();
         try {
             Connection conn = conexao.getConn();
-            PreparedStatement psmt = conn.prepareStatement("Select * from admin where id = ? ");
-            psmt.setInt(1,id);
-            rset = psmt.executeQuery();
+            PreparedStatement pstmt = conn.prepareStatement("Select * from admin where id = ? ");
+            pstmt.setInt(1,id);
+            rset = pstmt.executeQuery();
             return rset;
         }catch (SQLException sqle){
             //cath para retornar erro de Sql
@@ -62,11 +62,11 @@ public class AdminDAO {
         conexao.conectar();
         try {
             Connection conn = conexao.getConn();
-            PreparedStatement psmt  = conn.prepareStatement("INSERT INTO admin(nome,email,senha) VALUES (?,?,?)");
-            psmt.setString(1,admin.getNome());
-            psmt.setString(2, admin.getEmail());
-            psmt.setString(3,admin.getSenha());
-            psmt.execute();
+            PreparedStatement pstmt  = conn.prepareStatement("INSERT INTO admin(nome,email,senha) VALUES (?,?,?)");
+            pstmt.setString(1,admin.getNome());
+            pstmt.setString(2, admin.getEmail());
+            pstmt.setString(3,admin.getSenha());
+            pstmt.execute();
             return 1;
         }catch (SQLException sqle){
             // retornado -1 para enviar para uma pagina especifica
@@ -78,7 +78,7 @@ public class AdminDAO {
     }
     // Os métodos a seguir se referem a mudança de um campo na tabela admin
     // Método para mudar o nome de usuario dos admin
-    public int atualizarNome(int id,Admin admin){
+    public int alterarNome(int id,Admin admin){
         Conexao conexao = new Conexao();
         conexao.conectar();
         ResultSet rset = null;
@@ -87,11 +87,11 @@ public class AdminDAO {
             //verificando se existe o adminitrador
             if (busca.next()) {
                 Connection conn = conexao.getConn();
-                PreparedStatement psmt = conn.prepareStatement("UPDATE admin SET nome =  ? WHERE id = ? ");
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE admin SET nome =  ? WHERE id = ? ");
                 //usar metodods get e set da classe admim, execto id
-                psmt.setString(1, admin.getNome());
-                psmt.setInt(2, id);
-                psmt.execute();
+                pstmt.setString(1, admin.getNome());
+                pstmt.setInt(2, id);
+                pstmt.execute();
                 return 1;
             }
             return 0;
@@ -104,7 +104,7 @@ public class AdminDAO {
         }
     }
     // Método para mudar o e-mail de usuario dos admin
-    public int atualizarEmail(int id, Admin admin){
+    public int alterarEmail(int id, Admin admin){
         Conexao conexao = new Conexao();
         conexao.conectar();
         ResultSet rset = null;
@@ -114,10 +114,10 @@ public class AdminDAO {
             //verificando se existe o adminitrador
             if (busca.next()) {
                 Connection conn = conexao.getConn();
-                PreparedStatement psmt = conn.prepareStatement("UPDATE admin SET email =  ? WHERE id = ? ");
-                psmt.setString(1, admin.getEmail());
-                psmt.setInt(2, id);
-                psmt.execute();
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE admin SET email =  ? WHERE id = ? ");
+                pstmt.setString(1, admin.getEmail());
+                pstmt.setInt(2, id);
+                pstmt.execute();
                 return 1;
             }
             return 0;
@@ -129,7 +129,7 @@ public class AdminDAO {
         }
     }
     // Método para mudar a senha de usuario dos admin
-    public int atualizarSenha(int id, Admin admin){
+    public int alterarSenha(int id, Admin admin){
         Conexao conexao = new Conexao();
         conexao.conectar();
         ResultSet rset = null;
@@ -139,10 +139,10 @@ public class AdminDAO {
             //verificando se existe o adminitrador
             if (busca.next()) {
                 Connection conn = conexao.getConn();
-                PreparedStatement psmt = conn.prepareStatement("UPDATE admin SET senha =  ? WHERE id = ? ");
-                psmt.setString(1, admin.getSenha());
-                psmt.setInt(2, id);
-                psmt.execute();
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE admin SET senha =  ? WHERE id = ? ");
+                pstmt.setString(1, admin.getSenha());
+                pstmt.setInt(2, id);
+                pstmt.execute();
                 return 1;
             }
             return 0;
@@ -165,9 +165,9 @@ public class AdminDAO {
             //verificando se existe o adminitrador
             if (busca.next()) {
                 Connection conn = conexao.getConn();
-                PreparedStatement psmt = conn.prepareStatement("Delete from admin where id = ?  ");
-                psmt.setInt(1, id);
-                psmt.execute();
+                PreparedStatement pstmt = conn.prepareStatement("Delete from admin where id = ?  ");
+                pstmt.setInt(1, id);
+                pstmt.execute();
                 return 0;
             }
             return 1;
