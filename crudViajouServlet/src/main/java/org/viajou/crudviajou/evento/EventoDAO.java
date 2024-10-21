@@ -30,9 +30,6 @@ public class EventoDAO {
         }
     }
 
-    //Uma sobrecarga no metodo buscar, para fazer uma leitura na tabela pela pk dela
-    public ResultSet buscar(int id){
-
     //Uma sobrecarga no metod
     // o buscar, para fazer uma leitura na tabela pela pk dela
     public ResultSet buscar(int pk){
