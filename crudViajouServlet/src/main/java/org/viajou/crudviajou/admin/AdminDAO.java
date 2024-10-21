@@ -13,7 +13,7 @@ public class AdminDAO {
 //    private Connection conn;
 //    private PreparedStatement pstmt;
 //    private Conexao conexao = new Conexao();
-    
+
 // metodo para leitura da tabela admin
     public ResultSet buscar(){
         Conexao conexao = new Conexao();
