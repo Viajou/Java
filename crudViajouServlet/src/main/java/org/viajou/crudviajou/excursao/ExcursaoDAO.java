@@ -5,15 +5,18 @@ import java.sql.*;
 
 public class ExcursaoDAO {
 
+    Conexao conexao = new Conexao();
+    Excursao excursao = new Excursao();
+    ResultSet rset;
 
+
+    private PreparedStatement pstmt;
+    private Connection conn;
 
     public ResultSet buscar() {
-        Conexao conexao = new Conexao();
-        conexao.conectar();
-        ResultSet rset = null;
         try{
-            Connection conn = conexao.getConn();
-            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM excursao");
+            conexao.conectar();
+            pstmt = conn.prepareStatement("SELECT * FROM excursao");
             rset = pstmt.executeQuery();
             return rset;
 
@@ -28,14 +31,12 @@ public class ExcursaoDAO {
     }
 
     public ResultSet buscar(int id) {
-        Conexao conexao = new Conexao();
-        conexao.conectar();
-        ResultSet rset = null;
         try{
-            Connection conn = conexao.getConn();
-            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM excursao");
+            conexao.conectar();
+            pstmt = conn.prepareStatement("SELECT * FROM excursao");
             rset = pstmt.executeQuery();
             return rset;
+
         }catch (SQLException sqle){
             sqle.printStackTrace();
             System.out.println(sqle.getMessage());
@@ -47,20 +48,18 @@ public class ExcursaoDAO {
     }
 
     public int inserirExcursao(Excursao excursao) {
-        Conexao conexao = new Conexao();
-        conexao.conectar();
         try {
-            Connection conn = conexao.getConn();
-            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO excursao(nomeEmpresa, capacidade, duracao, site, precoTotal, dataInicio, dataTermino, categoria, idAtracao) VALUES (?,?,?,?,?,?,?,?,?)");
-            pstmt.setString(1, excursao.getNomeEmpresa());
+            conexao.conectar();
+            pstmt = conn.prepareStatement("INSERT INTO excursao(nome_empresa, capacidade, duracao, site, preco_total, data_inicio, data_termino, categoria, ID_atracao) VALUES (?,?,?,?,?,?,?,?,?)");
+            pstmt.setString(1, excursao.getNome_empresa());
             pstmt.setInt(2, excursao.getCapacidade());
             pstmt.setString(3, excursao.getDuracao());
             pstmt.setString(4, excursao.getSite());
-            pstmt.setDouble(5, excursao.getPrecoTotal());
-            pstmt.setDate(6, (Date) excursao.getDataInicio());
-            pstmt.setDate(7, (Date) excursao.getDataTermino());
+            pstmt.setDouble(5, excursao.getPreco_total());
+            pstmt.setDate(6, (Date) excursao.getData_inicio());
+            pstmt.setDate(7, (Date) excursao.getData_termino());
             pstmt.setString(8, excursao.getCategoria());
-            pstmt.setInt(9, excursao.getIdAtracao());
+            pstmt.setInt(9, excursao.getID_atracao());
             return 1;
         }catch (SQLException sqle){
             sqle.printStackTrace();
@@ -71,16 +70,13 @@ public class ExcursaoDAO {
         }
     }
 
-    public int alterarNomeEmpresa(int id, String nomeEmpresa) {
-        Conexao conexao = new Conexao();
-        conexao.conectar();
+    public int alterarNome_empresa(int id, String nome_empresa) {
         try{
-            Connection conn = conexao.getConn();
             ResultSet busca = buscar(id);
             if (busca.next()) {
                 conexao.conectar();
-                PreparedStatement pstmt = conn.prepareStatement("UPDATE excursao SET nome_empresa = ? WHERE id = ?");
-                pstmt.setString(1, nomeEmpresa);
+                pstmt = conn.prepareStatement("UPDATE excursao SET nome_empresa = ? WHERE id = ?");
+                pstmt.setString(1, nome_empresa);
                 pstmt.setInt(2, id);
                 pstmt.execute();
                 return 1;
@@ -97,14 +93,11 @@ public class ExcursaoDAO {
     }
 
     public int alterarCapacidade(int id, int capacidade) {
-        Conexao conexao = new Conexao();
-        conexao.conectar();
         try {
-            Connection conn = conexao.getConn();
             ResultSet busca = buscar(id);
             if (busca.next()) {
                 conexao.conectar();
-                PreparedStatement pstmt = conn.prepareStatement("UPDATE excursao SET capacidade = ? WHERE id = ?");
+                pstmt = conn.prepareStatement("UPDATE excursao SET capacidade = ? WHERE id = ?");
                 pstmt.setInt(1, capacidade);
                 pstmt.setInt(2, id);
                 pstmt.execute();
@@ -122,14 +115,11 @@ public class ExcursaoDAO {
     }
 
     public int alterarDuracao(int id, String duracao) {
-        Conexao conexao = new Conexao();
-        conexao.conectar();
         try {
-            Connection conn = conexao.getConn();
             ResultSet busca = buscar(id);
             if (busca.next()) {
                 conexao.conectar();
-                PreparedStatement pstmt = conn.prepareStatement("UPDATE excursao SET duracao = ? WHERE id = ?");
+                pstmt = conn.prepareStatement("UPDATE excursao SET duracao = ? WHERE id = ?");
                 pstmt.setString(1, duracao);
                 pstmt.setInt(2, id);
                 pstmt.execute();
@@ -147,14 +137,11 @@ public class ExcursaoDAO {
     }
 
     public int alterarSite(int id, String site) {
-        Conexao conexao = new Conexao();
-        conexao.conectar();
         try {
-            Connection conn = conexao.getConn();
             ResultSet busca = buscar(id);
             if (busca.next()) {
                 conexao.conectar();
-                PreparedStatement pstmt = conn.prepareStatement("UPDATE excursao SET site = ? WHERE id = ?");
+                pstmt = conn.prepareStatement("UPDATE excursao SET site = ? WHERE id = ?");
                 pstmt.setString(1, site);
                 pstmt.setInt(2, id);
                 pstmt.execute();
@@ -171,15 +158,13 @@ public class ExcursaoDAO {
         }
     }
 
-    public int alterarPrecoTotal(int id, double precoTotal) {
-        Conexao conexao = new Conexao();
-        conexao.conectar();
+    public int alterarPreco_total(int id, double preco_total) {
         try {
-            Connection conn = conexao.getConn();
             ResultSet busca = buscar(id);
             if (busca.next()) {
-                PreparedStatement pstmt = conn.prepareStatement("UPDATE excursao SET preco_total = ? WHERE id = ?");
-                pstmt.setDouble(1, precoTotal);
+                conexao.conectar();
+                pstmt = conn.prepareStatement("UPDATE excursao SET preco_total = ? WHERE id = ?");
+                pstmt.setDouble(1, preco_total);
                 pstmt.setInt(2, id);
                 pstmt.execute();
                 return 1;
@@ -195,15 +180,13 @@ public class ExcursaoDAO {
         }
     }
 
-    public int alterarDataInicio(int id, Date dataInicio) {
-        Conexao conexao = new Conexao();
-        conexao.conectar();
+    public int alterarData_inicio(int id, Date data_inicio) {
         try {
-            Connection conn = conexao.getConn();
             ResultSet busca = buscar(id);
             if (busca.next()) {
-                PreparedStatement pstmt = conn.prepareStatement("UPDATE excursao SET data_inicio = ? WHERE id = ?");
-                pstmt.setDate(1, dataInicio);
+                conexao.conectar();
+                pstmt = conn.prepareStatement("UPDATE excursao SET data_inicio = ? WHERE id = ?");
+                pstmt.setDate(1, data_inicio);
                 pstmt.setInt(2, id);
                 pstmt.execute();
                 return 1;
@@ -219,15 +202,13 @@ public class ExcursaoDAO {
         }
     }
 
-    public int alterarData_termino(int id, Date dataTermino) {
-        Conexao conexao = new Conexao();
-        conexao.conectar();
+    public int alterarData_termino(int id, Date data_termino) {
         try {
-            Connection conn = conexao.getConn();
             ResultSet busca = buscar(id);
             if (busca.next()) {
-                PreparedStatement pstmt = conn.prepareStatement("UPDATE excursao SET data_termino = ? WHERE id = ?");
-                pstmt.setDate(1, dataTermino);
+                conexao.conectar();
+                pstmt = conn.prepareStatement("UPDATE excursao SET data_termino = ? WHERE id = ?");
+                pstmt.setDate(1, data_termino);
                 pstmt.setInt(2, id);
                 pstmt.execute();
                 return 1;
@@ -244,13 +225,11 @@ public class ExcursaoDAO {
     }
 
     public int alterarCategoria(int id, String categoria) {
-        Conexao conexao = new Conexao();
-        conexao.conectar();
         try {
-            Connection conn = conexao.getConn();
             ResultSet busca = buscar(id);
             if (busca.next()) {
-                PreparedStatement pstmt = conn.prepareStatement("UPDATE excursao SET categoria = ? WHERE id = ?");
+                conexao.conectar();
+                pstmt = conn.prepareStatement("UPDATE excursao SET categoria = ? WHERE id = ?");
                 pstmt.setString(1, categoria);
                 pstmt.setInt(2, id);
                 pstmt.execute();
@@ -268,13 +247,11 @@ public class ExcursaoDAO {
     }
 
     public int deletarExcursao(int id){
-        Conexao conexao = new Conexao();
         conexao.conectar();
         try {
-            Connection conn = conexao.getConn();
             ResultSet busca = buscar(id);
             if (busca.next()) {
-                PreparedStatement pstmt = conn.prepareStatement("DELETE FROM excursao WHERE id = ?");
+                pstmt = conn.prepareStatement("DELETE FROM excursao WHERE id = ?");
                 pstmt.setInt(1,id);
                 pstmt.execute();
                 return 1;

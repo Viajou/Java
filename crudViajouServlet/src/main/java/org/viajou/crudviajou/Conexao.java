@@ -10,6 +10,10 @@ public class Conexao {
         return conn;
     }
 
+    public Connection getConn() {
+        return conn;
+    }
+
     public boolean conectar(){
         try{
 //          informando qual driver será utilizado para a conexão
