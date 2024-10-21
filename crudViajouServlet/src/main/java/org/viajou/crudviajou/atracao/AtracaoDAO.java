@@ -8,9 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AtracaoDAO {
-
-
-
     public ResultSet buscar() {
         Conexao conexao = new Conexao();
         conexao.conectar();

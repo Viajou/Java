@@ -8,10 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AdminDAO {
-    //Declarando as variaveis do método
-//    private Connection conn;
-//    private PreparedStatement psmt;
-//    private Conexao conexao = new Conexao();
+
+
     // metodo para leitura da tabela admin
     public ResultSet buscar(){
         Conexao conexao = new Conexao();
