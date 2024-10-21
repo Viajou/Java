@@ -10,6 +10,9 @@ public class Conexao {
         return conn;
     }
 
+    public Connection getConn() {
+        return conn;
+    }
 
     public boolean conectar(){
         try{
