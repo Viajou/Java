@@ -37,7 +37,6 @@ public class AdminDAO {
         Conexao conexao = new Conexao();
         conexao.conectar();
         ResultSet rset = null;
-        conexao.conectar();
         try {
             Connection conn = conexao.getConn();
             PreparedStatement pstmt = conn.prepareStatement("Select * from admin where id = ? ");
@@ -57,8 +56,6 @@ public class AdminDAO {
     public int inserirAdmin(Admin admin){
         //declarando objetos
         Conexao conexao = new Conexao();
-        conexao.conectar();
-        ResultSet rset = null;
         conexao.conectar();
         try {
             Connection conn = conexao.getConn();
@@ -81,7 +78,6 @@ public class AdminDAO {
     public int alterarNome(int id,Admin admin){
         Conexao conexao = new Conexao();
         conexao.conectar();
-        ResultSet rset = null;
         try {
             ResultSet busca = buscar(id);
             //verificando se existe o adminitrador
@@ -107,8 +103,6 @@ public class AdminDAO {
     public int alterarEmail(int id, Admin admin){
         Conexao conexao = new Conexao();
         conexao.conectar();
-        ResultSet rset = null;
-        conexao.conectar();
         try {
             ResultSet busca = buscar(id);
             //verificando se existe o adminitrador
@@ -132,8 +126,6 @@ public class AdminDAO {
     public int alterarSenha(int id, Admin admin){
         Conexao conexao = new Conexao();
         conexao.conectar();
-        ResultSet rset = null;
-        conexao.conectar();
         try {
             ResultSet busca = buscar(id);
             //verificando se existe o adminitrador
@@ -155,10 +147,8 @@ public class AdminDAO {
         }
     }
     // Método excluir um usuario da tabela admin
-    public int deletarAdmin(int id){
+    public int alterarAdmin(int id){
         Conexao conexao = new Conexao();
-        conexao.conectar();
-        ResultSet rset = null;
         conexao.conectar();
         try {
             ResultSet busca = buscar(id);
