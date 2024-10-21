@@ -51,15 +51,15 @@ public class ExcursaoDAO {
         try {
             conexao.conectar();
             pstmt = conn.prepareStatement("INSERT INTO excursao(nome_empresa, capacidade, duracao, site, preco_total, data_inicio, data_termino, categoria, ID_atracao) VALUES (?,?,?,?,?,?,?,?,?)");
-            pstmt.setString(1, excursao.getNome_empresa());
+            pstmt.setString(1, excursao.getNomeEmpresa());
             pstmt.setInt(2, excursao.getCapacidade());
             pstmt.setString(3, excursao.getDuracao());
             pstmt.setString(4, excursao.getSite());
-            pstmt.setDouble(5, excursao.getPreco_total());
-            pstmt.setDate(6, (Date) excursao.getData_inicio());
-            pstmt.setDate(7, (Date) excursao.getData_termino());
+            pstmt.setDouble(5, excursao.getPrecoTotal());
+            pstmt.setDate(6, (Date) excursao.getDataInicio());
+            pstmt.setDate(7, (Date) excursao.getDataTermino());
             pstmt.setString(8, excursao.getCategoria());
-            pstmt.setInt(9, excursao.getID_atracao());
+            pstmt.setInt(9, excursao.getIdAtracao());
             return 1;
         }catch (SQLException sqle){
             sqle.printStackTrace();
