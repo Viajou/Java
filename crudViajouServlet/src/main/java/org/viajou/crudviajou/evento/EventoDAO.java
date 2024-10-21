@@ -32,7 +32,7 @@ public class EventoDAO {
 
     //Uma sobrecarga no metod
     // o buscar, para fazer uma leitura na tabela pela pk dela
-    public ResultSet buscar(int pk){
+    public ResultSet buscar(int id){
 
         Conexao conexao = new Conexao();
         conexao.conectar();
