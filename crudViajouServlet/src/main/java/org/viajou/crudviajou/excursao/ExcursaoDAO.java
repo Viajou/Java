@@ -70,7 +70,7 @@ public class ExcursaoDAO {
         }
     }
 
-    public int alterarNome_empresa(int id, String nome_empresa) {
+    public int alterarNomeEmpresa(int id, String nome_empresa) {
         try{
             ResultSet busca = buscar(id);
             if (busca.next()) {
