@@ -5,34 +5,34 @@ import java.util.Date;
 public class Excursao {
 
 
-        private String nome_empresa;
+        private String nomeEmpresa;
         private int capacidade;
         private String duracao;
         private String site;
-        private double preco_total;
-        private Date data_inicio;
-        private Date data_termino;
+        private double precoTotal;
+        private Date dataInicio;
+        private Date dataTermino;
         private String categoria;
-        private int ID_atracao;
+        private int idAtracao;
 
     public Excursao() {
-        this.nome_empresa = nome_empresa;
+        this.nomeEmpresa = nomeEmpresa;
         this.capacidade = capacidade;
         this.duracao = duracao;
         this.site = site;
-        this.preco_total = preco_total;
-        this.data_inicio = data_inicio;
-        this.data_termino = data_termino;
+        this.precoTotal = precoTotal;
+        this.dataInicio = dataInicio;
+        this.dataTermino = dataTermino;
         this.categoria = categoria;
-        this.ID_atracao = ID_atracao;
+        this.idAtracao = idAtracao;
     }
 
-    public String getNome_empresa() {
-            return nome_empresa;
+    public String getNomeEmpresa() {
+            return nomeEmpresa;
         }
 
-        public void setNome_empresa(String nome_empresa) {
-            this.nome_empresa = nome_empresa;
+        public void setNomeEmpresa(String nomeEmpresa) {
+            this.nomeEmpresa = nomeEmpresa;
         }
 
         public int getCapacidade() {
@@ -59,28 +59,28 @@ public class Excursao {
             this.site = site;
         }
 
-        public double getPreco_total() {
-            return preco_total;
+        public double getPrecoTotal() {
+            return precoTotal;
         }
 
-        public void setPreco_total(double preco_total) {
-            this.preco_total = preco_total;
+        public void setPrecoTotal(double precoTotal) {
+            this.precoTotal = precoTotal;
         }
 
-        public Date getData_inicio() {
-            return data_inicio;
+        public Date getDataInicio() {
+            return dataInicio;
         }
 
-        public void setData_inicio(Date data_inicio) {
-            this.data_inicio = data_inicio;
+        public void setDataInicio(Date dataInicio) {
+            this.dataInicio = dataInicio;
         }
 
-        public Date getData_termino() {
-            return data_termino;
+        public Date getDataTermino() {
+            return dataTermino;
         }
 
-        public void setData_termino(Date data_termino) {
-            this.data_termino = data_termino;
+        public void setDataTermino(Date dataTermino) {
+            this.dataTermino = dataTermino;
         }
 
         public String getCategoria() {
@@ -91,22 +91,22 @@ public class Excursao {
             this.categoria = categoria;
         }
 
-        public int getID_atracao() {
-            return ID_atracao;
+        public int getIdAtracao() {
+            return idAtracao;
         }
 
-        public String toString() {
-            return "Excursao{" +
-                    "nome_empresa='" + nome_empresa + '\'' +
-                    ", capacidade=" + capacidade +
-                    ", duracao='" + duracao + '\'' +
-                    ", site='" + site + '\'' +
-                    ", preco_total=" + preco_total +
-                    ", data_inicio=" + data_inicio +
-                    ", data_termino=" + data_termino +
-                    ", categoria='" + categoria + '\'' +
-                    ", ID_atracao=" + ID_atracao +
-                    '}';
 
-        }
+    public String toString() {
+        return "Excursao{" +
+                "nomeEmpresa='" + nomeEmpresa + '\'' +
+                ", capacidade=" + capacidade +
+                ", duracao='" + duracao + '\'' +
+                ", site='" + site + '\'' +
+                ", precoTotal=" + precoTotal +
+                ", dataInicio=" + dataInicio +
+                ", dataTermino=" + dataTermino +
+                ", categoria='" + categoria + '\'' +
+                ", idAtracao=" + idAtracao +
+                '}';
+    }
 }
