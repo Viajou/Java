@@ -5,64 +5,70 @@ public class Admin {
     private String nome;
     private String email;
     private String senha;
-    private String url_imagem;
+    private String urlImagem;
 
+// Métodos Construtores
+
+    // Construtor Vazio
     public Admin() {
     }
 
-    // criando o metodo construdor para ppoter iniciar o objeto junto com as variaveis.
-    public Admin(String nome, String email, String senha, String url_imagem) {
+    // Construtor com todos os atributos da classe, exceto o ID por ser serial
+    public Admin(String nome, String email, String senha, String urlImagem) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
-        this.url_imagem = url_imagem;
+        this.urlImagem = urlImagem;
     }
 
+//  Métodos Getters e Setters
+    // O ID não pode ser alterado, então apenas o método get é criado para acessá-lo
     public int getId() {
-        return id;
+        return this.id;
     }
 
-    //criando os metodos get e set de todas as variaveis
+    // Nome
     public String getNome() {
-        return nome;
+        return this.nome;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
     }
 
+    // Email
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public void setEmail(String email) {
         this.email = email;
     }
 
+    // Senha
     public String getSenha() {
-        return senha;
+        return this.senha;
     }
 
     public void setSenha(String senha) {
         this.senha = senha;
     }
 
-    public String getUrl_imagem() {
-        return url_imagem;
+    // UrlImagem
+    public String getUrlImagem() {
+        return this.urlImagem;
     }
 
-    public void setUrl_imagem(String url_imagem) {
-        this.url_imagem = url_imagem;
+    public void setUrl_imagem(String urlImagem) {
+        this.urlImagem = urlImagem;
     }
-    //    fazendo o toString para a saida do objeto podemos ver os valores de cada variavel
-//    e não o endereo de memoria
-    @Override
+
+    //     Método toString para acessar os valores de cada atributo na saída de dados
+    //    ao invés do endereço de memória
     public String toString() {
-        return "Admin.AdminTabela{" +
-                "nome='" + this.nome + '\'' +
-                ", email='" + this.email + '\'' +
-                ", senha='" + this.senha + '\'' +
-                ", url_imagem='" + this.url_imagem + '\'' +
-                '}';
+        return "Nome: " + this.nome +
+                "\nEmail:" + this.email +
+                "\nSenha: " + this.senha +
+                "\nURL da imagem: " + this.urlImagem;
     }
 }
