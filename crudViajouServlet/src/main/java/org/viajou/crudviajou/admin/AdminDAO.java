@@ -9,164 +9,260 @@ import java.sql.SQLException;
 
 public class AdminDAO {
 
-    //Declarando as variaveis do método
-//    private Connection conn;
-//    private PreparedStatement pstmt;
-//    private Conexao conexao = new Conexao();
-
-// metodo para leitura da tabela admin
+// Metodo para leitura da tabela admin
     public ResultSet buscar(){
+//  Instanciando os objetos
+
+        // Instanciando o objeto da classe Conexao, que possui os métodos para conectar e desconectar do o banco de dados
         Conexao conexao = new Conexao();
+
+        // Conectando com o BD
         conexao.conectar();
         ResultSet rset = null;
         try {
+            // Inicializando o objeto da classe Connection com o método getConn da classe Conexao
             Connection conn = conexao.getConn();
-            //usando o pstmt para fazer um instrução sql
-             PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM admin");
+
+            // Usando o objeto da classe PreparedStatement para fazer uma instrução sql
+            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM admin");
+
+            // Executando a busca
             rset = pstmt.executeQuery();
+
+            // Caso a busca ocorra corretamente, o método retorna o resultado
             return rset;
-            // Fazendo o catch para verificar se o sql apresentar algum erro séra apresentado retonar uma string
-        }catch (SQLException sqle){
+        } catch (SQLException sqle) {
+            // Caso ocorra alguma exceção SQL, ela cai no catch
             return rset;
-        }finally {
-            //usando o finally para toda fez antes do return use o método desconectar
+        } finally {
+            // Desconectando do BD ao final do try
             conexao.desconectar();
         }
     }
-    //Uma sobrecarga no metodo buscar, para fazer uma leitura na tabela pela pk dela
+
+//  Metodo para leitura da tabela admin com base em um ID
     public ResultSet buscar(int id){
-        //declarando objetos
+//  Instanciando os objetos
+
+        // Instanciando o objeto da classe Conexao, que possui os métodos para conectar e desconectar do o banco de dados
         Conexao conexao = new Conexao();
+
+        // Conectando com o BD
         conexao.conectar();
         ResultSet rset = null;
         try {
+            // Inicializando o objeto da classe Connection com o método getConn da classe Conexao
             Connection conn = conexao.getConn();
-            PreparedStatement pstmt = conn.prepareStatement("Select * from admin where id = ? ");
+
+            //Usando o objeto da classe PreparedStatement para fazer uma instrução sql
+            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM admin WHERE id = ? ");
             pstmt.setInt(1,id);
+
+            // Executando a busca
             rset = pstmt.executeQuery();
+            // Caso a busca ocorra corretamente, o método retorna o resultado
             return rset;
-        }catch (SQLException sqle){
-            //cath para retornar erro de Sql
+        } catch (SQLException sqle){
+            // Caso ocorra alguma exceção SQL, ela cai no catch
             return rset;
         }
         finally {
-            //usando o finally para toda vez antes do return use o método desconectar
+            // Desconectando do BD ao final do try
             conexao.desconectar();
         }
     }
-    //método para adicionar um admim na tabela
+//  Método para adicionar um admim na tabela
     public int inserirAdmin(Admin admin){
-        //declarando objetos
+//  Instanciando os objetos
+
+        // Instanciando o objeto da classe Conexao, que possui os métodos para conectar e desconectar do o banco de dados
         Conexao conexao = new Conexao();
+
+        // Conectando com o BD
         conexao.conectar();
         try {
+            // Inicializando o objeto da classe Connection com o método getConn da classe Conexao
             Connection conn = conexao.getConn();
+
+            // Usando o objeto da classe PreparedStatement para fazer uma instrução sql
             PreparedStatement pstmt  = conn.prepareStatement("INSERT INTO admin(nome,email,senha) VALUES (?,?,?)");
+
+            // Inserindo o nome do novo adminstrador com base no objeto no parâmetro do metodo
             pstmt.setString(1,admin.getNome());
+
+            // Inserindo o email do novo adminstrador com base no objeto no parâmetro
             pstmt.setString(2, admin.getEmail());
+
+            // Inserindo a senha do novo adminstrador com base no objeto no parâmetro
             pstmt.setString(3,admin.getSenha());
+
+            // Executando a inserção
             pstmt.execute();
             return 1;
         }catch (SQLException sqle){
-            // retornado -1 para enviar para uma pagina especifica
+            // Retornado -1 para enviar para uma pagina especifica
             return -1;
         }finally {
-            //usando o finally para toda vez antes do return use o método desconectar
+            // Desconectando do BD ao final do try
             conexao.desconectar();
         }
     }
-    // Os métodos a seguir se referem a mudança de um campo na tabela admin
-    // Método para mudar o nome de usuario dos admin
-    public int alterarNome(int id,Admin admin){
+
+// Alterações na tabela admin
+    // Método para alterar o nome de usuário do admin
+    public int alterarNome(int id, String nome){
+        // Instanciando o objeto da classe Conexao, que possui os métodos para conectar e desconectar do o banco de dados
         Conexao conexao = new Conexao();
+
+        // Conectando com o BD
         conexao.conectar();
         try {
+            // Verificando se o administrador existe
             ResultSet busca = buscar(id);
-            //verificando se existe o adminitrador
+
+            // Verificando se a busca teve resultados
             if (busca.next()) {
+                // Inicializando o objeto da classe Connection com o método getConn da classe Conexao
                 Connection conn = conexao.getConn();
+
+                // Usando o objeto da classe PreparedStatement para fazer uma instrução sql
                 PreparedStatement pstmt = conn.prepareStatement("UPDATE admin SET nome =  ? WHERE id = ? ");
-                //usar metodods get e set da classe admim, execto id
-                pstmt.setString(1, admin.getNome());
+
+                // Alterando a tabela usando as informações passadas no parâmetro
+                pstmt.setString(1, nome);
                 pstmt.setInt(2, id);
+
+                // Executando a alteração
                 pstmt.execute();
+
+                // Caso a alteração ocorra corretamente, o retorno é 1
                 return 1;
             }
+            // Caso não existam usuários com o id do parâmetro, o retorno é 0
             return 0;
         }catch (SQLException sqle){
+            // Caso ocorra alguma exceção SQL, o retorno é -1
             return -1;
         }
         finally {
-            //usando o finally para toda vez antes do return use o método desconectar
+            // Desconectando do BD ao final do try
             conexao.desconectar();
         }
     }
-    // Método para mudar o e-mail de usuario dos admin
-    public int alterarEmail(int id, Admin admin){
+    // Método para alterar o e-mail do admin
+    public int alterarEmail(int id, String email){
+        // Instanciando o objeto da classe Conexao, que possui os métodos para conectar e desconectar do o banco de dados
         Conexao conexao = new Conexao();
+
+        // Conectando com o DB
         conexao.conectar();
         try {
+            // Verificando se o adminstrador existe
             ResultSet busca = buscar(id);
-            //verificando se existe o adminitrador
+
+            // Verificando se a busca teve resultados
             if (busca.next()) {
+                // Inicializando o objeto da classe Connection com o método getConn da classe Conexao
                 Connection conn = conexao.getConn();
+
+                // Usando o objeto da classe PreparedStatement para fazer uma instrução sql
                 PreparedStatement pstmt = conn.prepareStatement("UPDATE admin SET email =  ? WHERE id = ? ");
-                pstmt.setString(1, admin.getEmail());
+
+                // Alterando a tabela usando as informações passadas no parâmetro
+                pstmt.setString(1, email);
                 pstmt.setInt(2, id);
+
+                // Executando a alteração
                 pstmt.execute();
+
+                // Caso a alteração ocorra corretamente, o retorno é 1
                 return 1;
             }
+            // Caso não existam usuários com o id do parâmetro, o retorno é 0
             return 0;
         }catch (SQLException sqle){
+            // Caso ocorra alguma exceção SQL, o retorno é -1
             return -1;
         }
         finally {
+            // Desconectando do BD ao final do try
             conexao.desconectar();
         }
     }
-    // Método para mudar a senha de usuario dos admin
-    public int alterarSenha(int id, Admin admin){
+    // Método para mudar a senha do admin
+    public int alterarSenha(int id, String senha){
+        // Instanciando o objeto da classe Conexao, que possui os métodos para conectar e desconectar do o banco de dados
         Conexao conexao = new Conexao();
+
+        // Conectando com o BD
         conexao.conectar();
         try {
+            // Verificando se o administrador existe
             ResultSet busca = buscar(id);
-            //verificando se existe o adminitrador
+
+            // Verificando se a busca teve resultados
             if (busca.next()) {
+                // Inicializando o objeto da classe Connection com o método getConn da classe Conexao
                 Connection conn = conexao.getConn();
+                // Usando o objeto da classe PreparedStatement para fazer uma instrução sql
                 PreparedStatement pstmt = conn.prepareStatement("UPDATE admin SET senha =  ? WHERE id = ? ");
-                pstmt.setString(1, admin.getSenha());
+
+                // Alterando a tabela usando as informações passadas no parâmetro
+                pstmt.setString(1, senha);
                 pstmt.setInt(2, id);
+
+                // Executando a alteração
                 pstmt.execute();
+
+                // Caso a alteração ocorra corretamente, o retorno é 1
                 return 1;
             }
+            // Caso não existam usuários com o id do parâmetro, o retorno é 0
             return 0;
         }catch (SQLException sqle){
+            // Caso ocorra alguma exceção SQL, o retorno é -1
             return -1;
         }
         finally {
-            //usando o finally para toda vez antes do return use o método desconectar
+            // Desconectando do BD ao final do try
             conexao.desconectar();
         }
     }
     // Método excluir um usuario da tabela admin
-    public int alterarAdmin(int id){
+    public int deletarAdmin(int id){
+        // Instanciando o objeto da classe Conexao, que possui os métodos para conectar e desconectar do o banco de dados
         Conexao conexao = new Conexao();
+
+        // Conectando com o DB
         conexao.conectar();
         try {
+            // Verificando se o adminstrador existe
             ResultSet busca = buscar(id);
-            //verificando se existe o adminitrador
+
+            // Verificando se a busca teve resultados
             if (busca.next()) {
+                // Inicializando o objeto da classe Connection com o método getConn da classe Conexao
                 Connection conn = conexao.getConn();
-                PreparedStatement pstmt = conn.prepareStatement("Delete from admin where id = ?  ");
+
+                // Usando o objeto da classe PreparedStatement para fazer uma instrução sql
+                PreparedStatement pstmt = conn.prepareStatement("DELETE FROM admin WHERE id = ?");
+
+                // Deletando a informação da tabela com base no ID passado no parâmetro
                 pstmt.setInt(1, id);
+
+                // Executando a deleção
                 pstmt.execute();
-                return 0;
+
+                // Caso a deleção ocorra corretamente, o retorno é 1
+                return 1;
             }
-            return 1;
+            // Caso não existam usuários com o id do parâmetro, o retorno é 0
+            return 0;
         }catch (SQLException sqle){
+            // Caso ocorra alguma exceção SQL, o retorno é -1
             return -1;
         }finally {
-            //usando o finally para toda vez antes do return use o método desconectar
+            // Desconectando do BD ao final do try
             conexao.desconectar();
         }
     }

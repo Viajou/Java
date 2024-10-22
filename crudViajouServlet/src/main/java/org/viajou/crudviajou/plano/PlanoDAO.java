@@ -17,8 +17,7 @@ public class PlanoDAO  {
             rset = pstmt.executeQuery();
             return rset; // caso a busca ocorra corretamente, o método retorna o resultado
         }catch (SQLException e){
-            // Caso ocorra alguma exceção SQL, ela cai cai no catch
-            System.out.println("Erro ao executar a busca");
+            // Caso ocorra alguma exceção SQL, ela cai no catch
             return rset;
         }
         finally {
