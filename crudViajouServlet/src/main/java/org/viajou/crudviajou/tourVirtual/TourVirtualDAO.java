@@ -57,7 +57,7 @@ public class TourVirtualDAO {
         try {
             conexao.conectar();
             Connection conn = conexao.getConn();
-            pstmt = conn.prepareStatement("INSERT INTO tour_virtual(descricao, video, media_classificacao, qnt_classificacao, preco, id_atracao, id_figurinhas) VALUES (?,?,?,?,?,?,?)");
+            pstmt = conn.prepareStatement("INSERT INTO tour_virtual(descricao, video, media_classificacao, qnt_classificacao, preco, idAtracao, id_figurinhas) VALUES (?,?,?,?,?,?,?)");
             pstmt.setString(1, tourVirtual.getDescricao());
             pstmt.setString(2, tourVirtual.getVideo());
             pstmt.setDouble(3, tourVirtual.getMediaClassificacao());
@@ -187,7 +187,7 @@ public class TourVirtualDAO {
         try{
             conn = conexao.getConn();
             conexao.conectar();
-            pstmt = conn.prepareStatement("UPDATE tour_virtual SET id_atracao = ? WHERE id = ?");
+            pstmt = conn.prepareStatement("UPDATE tour_virtual SET idAtracao = ? WHERE id = ?");
             pstmt.setInt(1,idAtracao);
             pstmt.setInt(2, id);
             pstmt.executeUpdate();

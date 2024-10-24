@@ -50,7 +50,7 @@ public class ExcursaoDAO {
     public int inserirExcursao(Excursao excursao) {
         try {
             conexao.conectar();
-            pstmt = conn.prepareStatement("INSERT INTO excursao(nome_empresa, capacidade, duracao, site, preco_total, data_inicio, data_termino, categoria, ID_atracao) VALUES (?,?,?,?,?,?,?,?,?)");
+            pstmt = conn.prepareStatement("INSERT INTO excursao(nome_empresa, capacidade, duracao, site, preco_total, dataInicio, dataTermino, categoria, idAtracao) VALUES (?,?,?,?,?,?,?,?,?)");
             pstmt.setString(1, excursao.getNomeEmpresa());
             pstmt.setInt(2, excursao.getCapacidade());
             pstmt.setString(3, excursao.getDuracao());
@@ -180,13 +180,13 @@ public class ExcursaoDAO {
         }
     }
 
-    public int alterarData_inicio(int id, Date data_inicio) {
+    public int alterardataInicio(int id, Date dataInicio) {
         try {
             ResultSet busca = buscar(id);
             if (busca.next()) {
                 conexao.conectar();
-                pstmt = conn.prepareStatement("UPDATE excursao SET data_inicio = ? WHERE id = ?");
-                pstmt.setDate(1, data_inicio);
+                pstmt = conn.prepareStatement("UPDATE excursao SET dataInicio = ? WHERE id = ?");
+                pstmt.setDate(1, dataInicio);
                 pstmt.setInt(2, id);
                 pstmt.execute();
                 return 1;
@@ -202,13 +202,13 @@ public class ExcursaoDAO {
         }
     }
 
-    public int alterarData_termino(int id, Date data_termino) {
+    public int alterardataTermino(int id, Date dataTermino) {
         try {
             ResultSet busca = buscar(id);
             if (busca.next()) {
                 conexao.conectar();
-                pstmt = conn.prepareStatement("UPDATE excursao SET data_termino = ? WHERE id = ?");
-                pstmt.setDate(1, data_termino);
+                pstmt = conn.prepareStatement("UPDATE excursao SET dataTermino = ? WHERE id = ?");
+                pstmt.setDate(1, dataTermino);
                 pstmt.setInt(2, id);
                 pstmt.execute();
                 return 1;

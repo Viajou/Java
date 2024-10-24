@@ -1,6 +1,7 @@
 package org.viajou.crudviajou.admin;
 
 public class Admin {
+    // Declarando os atributos
     private int id;
     private String nome;
     private String email;
@@ -9,16 +10,16 @@ public class Admin {
 
 // Métodos Construtores
 
-    // Construtor Vazio
-    public Admin() {
-    }
-
     // Construtor com todos os atributos da classe, exceto o ID por ser serial
     public Admin(String nome, String email, String senha, String urlImagem) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
         this.urlImagem = urlImagem;
+    }
+
+    // Construtor Vazio
+    public Admin() {
     }
 
 //  Métodos Getters e Setters
@@ -37,9 +38,7 @@ public class Admin {
     }
 
     // Email
-    public String getEmail() {
-        return this.email;
-    }
+    public String getEmail() { return this.email; }
 
     public void setEmail(String email) {
         this.email = email;
@@ -63,8 +62,7 @@ public class Admin {
         this.urlImagem = urlImagem;
     }
 
-    //     Método toString para acessar os valores de cada atributo na saída de dados
-    //    ao invés do endereço de memória
+    //     Método toString
     public String toString() {
         return "Nome: " + this.nome +
                 "\nEmail:" + this.email +
