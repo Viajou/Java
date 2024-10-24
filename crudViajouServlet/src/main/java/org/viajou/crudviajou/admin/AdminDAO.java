@@ -2,10 +2,8 @@ package org.viajou.crudviajou.admin;
 
 import org.viajou.crudviajou.Conexao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.LocalDate;
 
 public class AdminDAO {
 
@@ -62,10 +60,11 @@ public class AdminDAO {
         conexao.conectar();
         try {
             Connection conn = conexao.getConn();
-            PreparedStatement pstmt  = conn.prepareStatement("INSERT INTO admin(nome,email,senha) VALUES (?,?,?)");
+            PreparedStatement pstmt  = conn.prepareStatement("INSERT INTO admin(nome,email,senha,url_imagem) VALUES (?,?,?,?)");
             pstmt.setString(1,admin.getNome());
             pstmt.setString(2, admin.getEmail());
             pstmt.setString(3,admin.getSenha());
+            pstmt.setString(4,admin.getUrlImagem());
             pstmt.execute();
             return 1;
         } catch (SQLException sqle){
@@ -84,6 +83,9 @@ public class AdminDAO {
 
         // Conectando com o BD
         conexao.conectar();
+
+        // Obtendo a data atual
+        Date dataAtual = Date.valueOf(LocalDate.now());
         try {
             // Verificando se o administrador existe
             ResultSet busca = buscar(id);
@@ -91,9 +93,10 @@ public class AdminDAO {
             // Verificando se a busca teve resultados
             if (busca.next()) {
                 Connection conn = conexao.getConn();
-                PreparedStatement pstmt = conn.prepareStatement("UPDATE admin SET nome =  ? WHERE id = ? ");
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE admin SET nome =  ? ,data_atualizacao = ? WHERE id = ? ");
                 pstmt.setString(1, nome);
-                pstmt.setInt(2, id);
+                pstmt.setDate(2, dataAtual);
+                pstmt.setInt(3, id);
                 pstmt.execute();
                 return 1;
             }
@@ -113,6 +116,9 @@ public class AdminDAO {
 
         // Conectando com o DB
         conexao.conectar();
+
+        // Obtendo a data atual
+        Date dataAtual = Date.valueOf(LocalDate.now());
         try {
             // Verificando se o adminstrador existe
             ResultSet busca = buscar(id);
@@ -120,9 +126,10 @@ public class AdminDAO {
             // Verificando se a busca teve resultados
             if (busca.next()) {
                 Connection conn = conexao.getConn();
-                PreparedStatement pstmt = conn.prepareStatement("UPDATE admin SET email =  ? WHERE id = ? ");
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE admin SET email =  ?,data_atualizacao = ? WHERE id = ? ");
                 pstmt.setString(1, email);
-                pstmt.setInt(2, id);
+                pstmt.setDate(2, dataAtual);
+                pstmt.setInt(3, id);
                 pstmt.execute();
 
                 return 1;
@@ -143,6 +150,9 @@ public class AdminDAO {
 
         // Conectando com o BD
         conexao.conectar();
+
+        // Obtendo a data atual
+        Date dataAtual = Date.valueOf(LocalDate.now());
         try {
             // Verificando se o administrador existe
             ResultSet busca = buscar(id);
@@ -150,9 +160,44 @@ public class AdminDAO {
             // Verificando se a busca teve resultados
             if (busca.next()) {
                 Connection conn = conexao.getConn();
-                PreparedStatement pstmt = conn.prepareStatement("UPDATE admin SET senha =  ? WHERE id = ? ");
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE admin SET senha =  ?,data_atualizacao = ? WHERE id = ? ");
                 pstmt.setString(1, senha);
-                pstmt.setInt(2, id);
+                pstmt.setDate(2, dataAtual);
+                pstmt.setInt(3, id);
+                pstmt.execute();
+
+                return 1;
+            }
+            // Caso não existam usuários com o id do parâmetro, o retorno é 0
+            return 0;
+        } catch (SQLException sqle){
+            return -1;
+        } finally {
+            // Desconectando do BD ao final do try
+            conexao.desconectar();
+        }
+    }
+    // Método para alterar a url do admin
+    public int alterarUrl(int id, String url_imagem){
+        // Instanciando os objetos
+        Conexao conexao = new Conexao();
+
+        // Conectando com o BD
+        conexao.conectar();
+
+        // Obtendo a data atual
+        Date dataAtual = Date.valueOf(LocalDate.now());
+        try {
+            // Verificando se o administrador existe
+            ResultSet busca = buscar(id);
+
+            // Verificando se a busca teve resultados
+            if (busca.next()) {
+                Connection conn = conexao.getConn();
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE admin SET url_imagem =  ?,,data_atualizacao = ? WHERE id = ? ");
+                pstmt.setString(1, url_imagem);
+                pstmt.setDate(2, dataAtual);
+                pstmt.setInt(3, id);
                 pstmt.execute();
 
                 return 1;
