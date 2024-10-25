@@ -3,7 +3,7 @@ package org.viajou.crudviajou.evento;
 import java.sql.Date;
 import java.sql.Time;
 
-public class Evento {
+public class Eventos {
     // Declarando dos atributos
     private int id;
     private String faixaEtaria;
@@ -20,7 +20,7 @@ public class Evento {
 //  Métodos Construtores
 
     // Construtor com todos os atributos da classe, exceto o ID por ser serial
-    public Evento(int capacidade, String categoria, Date dataInicio, Date dataTermino, String descricao, String faixaEtaria, Time horario, int idAtracao, int idTourVirtual, double precoPessoa) {
+    public Eventos(int capacidade, String categoria, Date dataInicio, Date dataTermino, String descricao, String faixaEtaria, Time horario, int idAtracao, int idTourVirtual, double precoPessoa) {
         this.capacidade = capacidade;
         this.categoria = categoria;
         this.dataInicio = dataInicio;
@@ -34,7 +34,7 @@ public class Evento {
     }
 
     // Construtor Vazio
-    public Evento() {
+    public Eventos() {
     }
 
 //  Métodos Getters e Setters
