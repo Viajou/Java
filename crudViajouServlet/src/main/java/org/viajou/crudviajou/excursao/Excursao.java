@@ -14,6 +14,9 @@ public class Excursao {
         private String categoria;
         private int idAtracao;
 
+    public Excursao() {
+    }
+
     public Excursao(String novoNomeEmpresa, int novaCapacidade, String novaDuracao, String novoSite, double novoPrecoTotal, java.sql.Date novaDataInicio, java.sql.Date novaDataTermino, String novaCategoria, int novoIdAtracao) {
         this.nomeEmpresa = nomeEmpresa;
         this.capacidade = capacidade;

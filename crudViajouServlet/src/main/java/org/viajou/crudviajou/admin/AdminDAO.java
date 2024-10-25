@@ -177,8 +177,8 @@ public class AdminDAO {
             conexao.desconectar();
         }
     }
-    // Método para alterar a url do admin
-    public int alterarUrl(int id, String url_imagem){
+    // Método para alterar a url da imagem do admin
+    public int alterarUrlImagem(int id, String url_imagem){
         // Instanciando os objetos
         Conexao conexao = new Conexao();
 

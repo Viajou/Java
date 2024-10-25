@@ -32,13 +32,9 @@ public class ExcursaoDAO {
 
     public ResultSet buscar(int id) {
         try{
-<<<<<<< HEAD
             Connection conn = conexao.getConn();
-            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM excursao WHERE id = ?");
-=======
             conexao.conectar();
-            pstmt = conn.prepareStatement("SELECT * FROM excursao");
->>>>>>> d66e4e48449120020e22a6ea0a11971a712fc0a1
+            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM excursao WHERE id = ?");
             rset = pstmt.executeQuery();
             return rset;
 
@@ -207,13 +203,8 @@ public class ExcursaoDAO {
         }
     }
 
-<<<<<<< HEAD
-    public int alterarDataTermino(int id, Date dataTermino) {
-        Conexao conexao = new Conexao();
-        conexao.conectar();
-=======
+
     public int alterardataTermino(int id, Date dataTermino) {
->>>>>>> d66e4e48449120020e22a6ea0a11971a712fc0a1
         try {
             ResultSet busca = buscar(id);
             if (busca.next()) {

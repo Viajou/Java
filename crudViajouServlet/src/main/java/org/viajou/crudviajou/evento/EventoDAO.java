@@ -33,24 +33,18 @@ public class EventoDAO {
     //Uma sobrecarga no metod
     // o buscar, para fazer uma leitura na tabela pela pk dela
     public ResultSet buscar(int id){
-<<<<<<< HEAD
-=======
 
->>>>>>> d66e4e48449120020e22a6ea0a11971a712fc0a1
         Conexao conexao = new Conexao();
         conexao.conectar();
         ResultSet rset = null;
         try {
             Connection conn = conexao.getConn();
-<<<<<<< HEAD
             PreparedStatement psmt = conn.prepareStatement("SELECT * FROM evento WHERE id = ? ");
             psmt.setInt(1,id);
             rset = psmt.executeQuery();
-=======
             PreparedStatement pstmt = conn.prepareStatement("Select * from evento where id = ? ");
             pstmt.setInt(1,id);
             rset = pstmt.executeQuery();
->>>>>>> d66e4e48449120020e22a6ea0a11971a712fc0a1
             return rset;
         }catch (SQLException sqle){
             //cath para retornar erro de Sql
