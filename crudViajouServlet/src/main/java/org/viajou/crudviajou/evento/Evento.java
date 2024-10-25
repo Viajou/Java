@@ -4,36 +4,44 @@ import java.sql.Date;
 import java.sql.Time;
 
 public class Evento {
-    // declarando as variaveis da tabela
-    private String faixa_etaria;
+    // Declarando dos atributos
+    private int id;
+    private String faixaEtaria;
     private String descricao;
     private String categoria;
     private int capacidade;
     private Time horario;
-    private Date data_inicio;
-    private Date data_termino;
-    private Double preco_pessoa;
-    private int id_atracao;
-    private int id_tour_virtual;
-    //Métodos construdores
+    private Date dataInicio;
+    private Date dataTermino;
+    private double precoPessoa;
+    private int idAtracao;
+    private int idTourVirtual;
 
+//  Métodos Construtores
+
+    // Construtor com todos os atributos da classe, exceto o ID por ser serial
+    public Evento(int capacidade, String categoria, Date dataInicio, Date dataTermino, String descricao, String faixaEtaria, Time horario, int idAtracao, int idTourVirtual, double precoPessoa) {
+        this.capacidade = capacidade;
+        this.categoria = categoria;
+        this.dataInicio = dataInicio;
+        this.dataTermino = dataTermino;
+        this.descricao = descricao;
+        this.faixaEtaria = faixaEtaria;
+        this.horario = horario;
+        this.idAtracao = idAtracao;
+        this.idTourVirtual = idTourVirtual;
+        this.precoPessoa = precoPessoa;
+    }
+
+    // Construtor Vazio
     public Evento() {
     }
 
-    public Evento(int capacidade, String categoria, Date data_inicio, Date data_termino, String descricao, String faixa_etaria, Time horario, int id_atracao, int id_tour_virtual, Double preco_pessoa) {
-        this.capacidade = capacidade;
-        this.categoria = categoria;
-        this.data_inicio = data_inicio;
-        this.data_termino = data_termino;
-        this.descricao = descricao;
-        this.faixa_etaria = faixa_etaria;
-        this.horario = horario;
-        this.id_atracao = id_atracao;
-        this.id_tour_virtual = id_tour_virtual;
-        this.preco_pessoa = preco_pessoa;
-    }
-    //Métodos gets e sets
+//  Métodos Getters e Setters
+    // O ID não pode ser alterado, então apenas o método get é criado para acessá-lo
+    public int getId(){ return this.id; }
 
+    // Capacidade
     public int getCapacidade() {
         return this.capacidade;
     }
@@ -42,6 +50,7 @@ public class Evento {
         this.capacidade = capacidade;
     }
 
+    // Categoria
     public String getCategoria() {
         return this.categoria;
     }
@@ -50,30 +59,32 @@ public class Evento {
         this.categoria = categoria;
     }
 
-    public Date getData_inicio() {
-        return this.data_inicio;
+    // DataInicio
+    public Date getDataInicio() {
+        return this.dataInicio;
     }
 
-    public void setData_inicio(Date data_inicio) {
-        this.data_inicio = data_inicio;
+    public void setDataInicio(Date dataInicio) { this.dataInicio = dataInicio; }
+
+    // DataTermino
+    public Date getDataTermino() {
+        return this.dataTermino;
     }
 
-    public Date getData_termino() {
-        return this.data_termino;
+    public void setdataTermino(Date dataTermino) {
+        this.dataTermino = dataTermino;
     }
 
-    public void setData_termino(Date data_termino) {
-        this.data_termino = data_termino;
+    // FaixaEtaria
+    public String getFaixaEtaria() {
+        return this.faixaEtaria;
     }
 
-    public String getFaixa_etaria() {
-        return this.faixa_etaria;
+    public void setFaixaEtaria(String faixaEtaria) {
+        this.faixaEtaria = faixaEtaria;
     }
 
-    public void setFaixa_etaria(String faixa_etaria) {
-        this.faixa_etaria = faixa_etaria;
-    }
-
+    // Descricao
     public String getDescricao() {
         return this.descricao;
     }
@@ -82,6 +93,7 @@ public class Evento {
         this.descricao = descricao;
     }
 
+    // Horario
     public Time getHorario() {
         return this.horario;
     }
@@ -90,33 +102,35 @@ public class Evento {
         this.horario = horario;
     }
 
-    public int getId_atracao() {
-        return this.id_atracao;
+    // IdAtracao
+    public int getIdAtracao() {
+        return this.idAtracao;
     }
 
-    public int getId_tour_virtual() {
-        return this.id_tour_virtual;
+    // IdTourVirtual
+    public int getIdTourVirtual() {
+        return this.idTourVirtual;
     }
 
-    public Double getPreco_pessoa() {
-        return this.preco_pessoa;
+    // PrecoPessoa
+    public double getPrecoPessoa() {
+        return this.precoPessoa;
     }
 
-    public void setPreco_pessoa(Double preco_pessoa) {
-        this.preco_pessoa = preco_pessoa;
+    public void setPrecoPessoa(double precoPessoa) {
+        this.precoPessoa = precoPessoa;
     }
-    //Fazendo o ToString
-    @Override
+
+    //Método toString
     public String toString() {
-        return "capacidade=" + this.capacidade +
-                ", faixa_etaria='" + this.faixa_etaria + '\'' +
-                ", descricao='" + this.descricao + '\'' +
-                ", categoria='" + this.categoria + '\'' +
-                ", horario=" + this.horario +
-                ", data_inicio=" + this.data_inicio +
-                ", data_termino=" + this.data_termino +
-                ", preco_pessoa=" + this.preco_pessoa +
-                ", id_atracao=" + this.id_atracao +
-                ", id_tour_virtual=" + this.id_tour_virtual;
+        return "Capacidade: "+ this.capacidade +
+                "\nFaixa etária: "+ this.faixaEtaria +
+                "\nDescrição: "+ this.descricao +
+                "\nCategoria: "+ this.categoria +
+                "\nHorário: "+ this.horario +
+                "\nData de início do evento: "+ this.dataInicio +
+                "\nData de término do evento: "+ this.dataTermino +
+                "\nId da atração: "+ this.idAtracao+
+                "\nId do Tour Virtual: "+ this.idTourVirtual;
     }
 }

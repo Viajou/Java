@@ -17,9 +17,9 @@ public class EventoDAO {
         ResultSet rset = null;
         try {
             Connection conn = conexao.getConn();
-            //usando o psmt para fazer um instrução sql
-            PreparedStatement psmt = conn.prepareStatement("SELECT * FROM evento");
-            rset = psmt.executeQuery();
+            //usando o pstmt para fazer um instrução sql
+            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM evento");
+            rset = pstmt.executeQuery();
             return rset;
             // Fazendo o catch para verificar se o sql apresentar algum erro séra apresentado retonar uma string
         }catch (SQLException sqle){
@@ -29,17 +29,28 @@ public class EventoDAO {
             conexao.desconectar();
         }
     }
+
     //Uma sobrecarga no metod
     // o buscar, para fazer uma leitura na tabela pela pk dela
     public ResultSet buscar(int id){
+<<<<<<< HEAD
+=======
+
+>>>>>>> d66e4e48449120020e22a6ea0a11971a712fc0a1
         Conexao conexao = new Conexao();
         conexao.conectar();
         ResultSet rset = null;
         try {
             Connection conn = conexao.getConn();
+<<<<<<< HEAD
             PreparedStatement psmt = conn.prepareStatement("SELECT * FROM evento WHERE id = ? ");
             psmt.setInt(1,id);
             rset = psmt.executeQuery();
+=======
+            PreparedStatement pstmt = conn.prepareStatement("Select * from evento where id = ? ");
+            pstmt.setInt(1,id);
+            rset = pstmt.executeQuery();
+>>>>>>> d66e4e48449120020e22a6ea0a11971a712fc0a1
             return rset;
         }catch (SQLException sqle){
             //cath para retornar erro de Sql
@@ -55,18 +66,18 @@ public class EventoDAO {
         conexao.conectar();
         try {
             Connection conn = conexao.getConn();
-            PreparedStatement psmt = conn.prepareStatement("INSERT INTO evento(faixa_etaria,descricao,categoria,capacidade,horario,data_inicio,data_termino,preco_pessoa,id_atracao,id_tour_virtual) VALUES(?,?,?,?,?,?,?,?,?,?) ");
-            psmt.setString(1, evento.getFaixa_etaria());
-            psmt.setString(2, evento.getDescricao());
-            psmt.setString(3, evento.getCategoria());
-            psmt.setInt(4, evento.getCapacidade());
-            psmt.setTime(5, evento.getHorario());
-            psmt.setDate(6, evento.getData_inicio());
-            psmt.setDate(7, evento.getData_termino());
-            psmt.setDouble(8, evento.getPreco_pessoa());
-            psmt.setInt(9, evento.getId_atracao());
-            psmt.setInt(10, evento.getId_tour_virtual());
-            psmt.execute();
+            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO evento(faixaEtaria,descricao,categoria,capacidade,horario,dataInicio,dataTermino,precoPessoa,idAtracao,idTourVirtual) VALUES(?,?,?,?,?,?,?,?,?,?) ");
+            pstmt.setString(1, evento.getfaixaEtaria());
+            pstmt.setString(2, evento.getDescricao());
+            pstmt.setString(3, evento.getCategoria());
+            pstmt.setInt(4, evento.getCapacidade());
+            pstmt.setTime(5, evento.getHorario());
+            pstmt.setDate(6, evento.getdataInicio());
+            pstmt.setDate(7, evento.getdataTermino());
+            pstmt.setDouble(8, evento.getprecoPessoa());
+            pstmt.setInt(9, evento.getidAtracao());
+            pstmt.setInt(10, evento.getidTourVirtual());
+            pstmt.execute();
             return 1;
         }catch (SQLException sqle){
             return -1;
@@ -83,11 +94,10 @@ public class EventoDAO {
             Connection conn = conexao.getConn();
             ResultSet busca = buscar(id);
             if (busca.next()){
-                PreparedStatement psmt = conn.prepareStatement("UPDATE evento SET faixa_etaria = ? WHERE id = ? ");
-                psmt.setString(1, evento.getFaixa_etaria());
-                psmt.setInt(2, id);
-                psmt.execute();
-                return 1;
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE evento SET faixaEtaria = ? WHERE id = ? ");
+                pstmt.setString(1, evento.getfaixaEtaria());
+                pstmt.setInt(2, id);
+                return  pstmt.executeUpdate();
             }
             return 0;
         }catch (SQLException sqle){
@@ -104,10 +114,10 @@ public class EventoDAO {
             Connection conn = conexao.getConn();
             ResultSet busca = buscar(id);
             if (busca.next()){
-                PreparedStatement psmt = conn.prepareStatement("UPDATE evento SET descricao = ? WHERE id = ? ");
-                psmt.setString(1, evento.getDescricao());
-                psmt.setInt(2, id);
-                psmt.execute();
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE evento SET descricao = ? WHERE id = ? ");
+                pstmt.setString(1, evento.getDescricao());
+                pstmt.setInt(2, id);
+                pstmt.execute();
                 return 1;
             }
             return 0;
@@ -125,10 +135,10 @@ public class EventoDAO {
             Connection conn = conexao.getConn();
             ResultSet busca = buscar(id);
             if (busca.next()){
-                PreparedStatement psmt = conn.prepareStatement("UPDATE evento SET categoria = ? WHERE id = ? ");
-                psmt.setString(1, evento.getCategoria());
-                psmt.setInt(2, id);
-                psmt.execute();
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE evento SET categoria = ? WHERE id = ? ");
+                pstmt.setString(1, evento.getCategoria());
+                pstmt.setInt(2, id);
+                pstmt.execute();
                 return 1;
             }
             return 0;
@@ -146,10 +156,10 @@ public class EventoDAO {
             Connection conn = conexao.getConn();
             ResultSet busca = buscar(id);
             if (busca.next()){
-                PreparedStatement psmt = conn.prepareStatement("UPDATE evento SET capacidade = ? WHERE id = ? ");
-                psmt.setInt(1, evento.getCapacidade());
-                psmt.setInt(2, id);
-                psmt.execute();
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE evento SET capacidade = ? WHERE id = ? ");
+                pstmt.setInt(1, evento.getCapacidade());
+                pstmt.setInt(2, id);
+                pstmt.execute();
                 return 1;
             }
             return 0;
@@ -167,10 +177,10 @@ public class EventoDAO {
             Connection conn = conexao.getConn();
             ResultSet busca = buscar(id);
             if (busca.next()){
-                PreparedStatement psmt = conn.prepareStatement("UPDATE evento SET horario = ? WHERE id = ? ");
-                psmt.setTime(1, evento.getHorario());
-                psmt.setInt(2, id);
-                psmt.execute();
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE evento SET horario = ? WHERE id = ? ");
+                pstmt.setTime(1, evento.getHorario());
+                pstmt.setInt(2, id);
+                pstmt.execute();
                 return 1;
             }
             return 0;
@@ -188,10 +198,10 @@ public class EventoDAO {
             Connection conn = conexao.getConn();
             ResultSet busca = buscar(id);
             if (busca.next()){
-                PreparedStatement psmt = conn.prepareStatement("UPDATE evento SET data_inicio = ? WHERE id = ? ");
-                psmt.setDate(1, evento.getData_inicio());
-                psmt.setInt(2, id);
-                psmt.execute();
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE evento SET dataInicio = ? WHERE id = ? ");
+                pstmt.setDate(1, evento.getdataInicio());
+                pstmt.setInt(2, id);
+                pstmt.execute();
                 return 1;
             }
             return 0;
@@ -209,10 +219,10 @@ public class EventoDAO {
             Connection conn = conexao.getConn();
             ResultSet busca = buscar(id);
             if (busca.next()){
-                PreparedStatement psmt = conn.prepareStatement("UPDATE evento SET data_termino = ? WHERE id = ? ");
-                psmt.setDate(1, evento.getData_termino());
-                psmt.setInt(2, id);
-                psmt.execute();
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE evento SET dataTermino = ? WHERE id = ? ");
+                pstmt.setDate(1, evento.getdataTermino());
+                pstmt.setInt(2, id);
+                pstmt.execute();
                 return 1;
             }
             return 0;
@@ -230,10 +240,10 @@ public class EventoDAO {
             Connection conn = conexao.getConn();
             ResultSet busca = buscar(id);
             if (busca.next()){
-                PreparedStatement psmt = conn.prepareStatement("UPDATE evento SET preco_pessoa = ? WHERE id = ? ");
-                psmt.setDouble(1, evento.getPreco_pessoa());
-                psmt.setInt(2, id);
-                psmt.execute();
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE evento SET precoPessoa = ? WHERE id = ? ");
+                pstmt.setDouble(1, evento.getprecoPessoa());
+                pstmt.setInt(2, id);
+                pstmt.execute();
                 return 1;
             }
             return 0;
@@ -251,9 +261,9 @@ public class EventoDAO {
             Connection conn = conexao.getConn();
             ResultSet busca = buscar(id);
             if (busca.next()){
-                PreparedStatement psmt = conn.prepareStatement("DELETE FROM evento WHERE id = ? ");
-                psmt.setInt(1, id);
-                psmt.execute();
+                PreparedStatement pstmt = conn.prepareStatement("DELETE FROM evento WHERE id = ? ");
+                pstmt.setInt(1, id);
+                pstmt.execute();
                 return 1;
             }
             return 0;

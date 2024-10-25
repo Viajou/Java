@@ -2,167 +2,240 @@ package org.viajou.crudviajou.admin;
 
 import org.viajou.crudviajou.Conexao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.LocalDate;
 
 public class AdminDAO {
 
+// Método para leitura da tabela admin
 
-    // metodo para leitura da tabela admin
     public ResultSet buscar(){
+    //  Instanciando os objetos
         Conexao conexao = new Conexao();
-        conexao.conectar();
         ResultSet rset = null;
+
+        // Conectando com o BD
+        conexao.conectar();
         try {
             Connection conn = conexao.getConn();
-            //usando o psmt para fazer um instrução sql
-             PreparedStatement psmt = conn.prepareStatement("SELECT * FROM admin");
-            rset = psmt.executeQuery();
+            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM admin");
+            rset = pstmt.executeQuery();
             return rset;
-            // Fazendo o catch para verificar se o sql apresentar algum erro séra apresentado retonar uma string
-        }catch (SQLException sqle){
+        } catch (SQLException sqle) {
             return rset;
-        }finally {
-            //usando o finally para toda fez antes do return use o método desconectar
+        } finally {
+            // Desconectando do BD ao final do try
             conexao.desconectar();
         }
     }
-    //Uma sobrecarga no metodo buscar, para fazer uma leitura na tabela pela pk dela
+
+//  Metodo para leitura da tabela admin com base em um ID
     public ResultSet buscar(int id){
-        //declarando objetos
+
+    //  Instanciando os objetos
         Conexao conexao = new Conexao();
-        conexao.conectar();
         ResultSet rset = null;
+
+        // Conectando com o BD
+        conexao.conectar();
         try {
             Connection conn = conexao.getConn();
-            PreparedStatement psmt = conn.prepareStatement("Select * from admin where id = ? ");
-            psmt.setInt(1,id);
-            rset = psmt.executeQuery();
+            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM admin WHERE id = ? ");
+            pstmt.setInt(1,id);
+            rset = pstmt.executeQuery();
             return rset;
-        }catch (SQLException sqle){
-            //cath para retornar erro de Sql
+        } catch (SQLException sqle){
             return rset;
-        }
-        finally {
-            //usando o finally para toda vez antes do return use o método desconectar
+        } finally {
+            // Desconectando do BD ao final do try
             conexao.desconectar();
         }
     }
-    //método para adicionar um admim na tabela
+//  Método para adicionar um admim na tabela
     public int inserirAdmin(Admin admin){
-        //declarando objetos
+    //  Instanciando os objetos
         Conexao conexao = new Conexao();
+
+        // Conectando com o BD
         conexao.conectar();
         try {
             Connection conn = conexao.getConn();
-            PreparedStatement psmt  = conn.prepareStatement("INSERT INTO admin(nome,email,senha) VALUES (?,?,?)");
-            psmt.setString(1,admin.getNome());
-            psmt.setString(2, admin.getEmail());
-            psmt.setString(3,admin.getSenha());
-            psmt.execute();
+            PreparedStatement pstmt  = conn.prepareStatement("INSERT INTO admin(nome,email,senha,url_imagem) VALUES (?,?,?,?)");
+            pstmt.setString(1,admin.getNome());
+            pstmt.setString(2, admin.getEmail());
+            pstmt.setString(3,admin.getSenha());
+            pstmt.setString(4,admin.getUrlImagem());
+            pstmt.execute();
             return 1;
-        }catch (SQLException sqle){
-            // retornado -1 para enviar para uma pagina especifica
+        } catch (SQLException sqle){
             return -1;
-        }finally {
-            //usando o finally para toda vez antes do return use o método desconectar
+        } finally {
+            // Desconectando do BD ao final do try
             conexao.desconectar();
         }
     }
-    // Os métodos a seguir se referem a mudança de um campo na tabela admin
-    // Método para mudar o nome de usuario dos admin
-    public int alterarNome(int id,Admin admin){
+
+// Alterações na tabela admin
+    // Método para alterar o nome de usuário do admin
+    public int alterarNome(int id, String nome){
+        // Instanciando os objetos
         Conexao conexao = new Conexao();
+
+        // Conectando com o BD
         conexao.conectar();
+
+        // Obtendo a data atual
+        Date dataAtual = Date.valueOf(LocalDate.now());
         try {
+            // Verificando se o administrador existe
             ResultSet busca = buscar(id);
-            //verificando se existe o adminitrador
+
+            // Verificando se a busca teve resultados
             if (busca.next()) {
                 Connection conn = conexao.getConn();
-                PreparedStatement psmt = conn.prepareStatement("UPDATE admin SET nome =  ? WHERE id = ? ");
-                //usar metodods get e set da classe admim, execto id
-                psmt.setString(1, admin.getNome());
-                psmt.setInt(2, id);
-                psmt.execute();
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE admin SET nome =  ? ,data_atualizacao = ? WHERE id = ? ");
+                pstmt.setString(1, nome);
+                pstmt.setDate(2, dataAtual);
+                pstmt.setInt(3, id);
+                pstmt.execute();
                 return 1;
             }
+            // Caso não existam usuários com o id do parâmetro, o retorno é 0
             return 0;
-        }catch (SQLException sqle){
+        } catch (SQLException sqle){
             return -1;
-        }
-        finally {
-            //usando o finally para toda vez antes do return use o método desconectar
+        } finally {
+            // Desconectando do BD ao final do try
             conexao.desconectar();
         }
     }
-    // Método para mudar o e-mail de usuario dos admin
-    public int alterarEmail(int id, Admin admin){
+    // Método para alterar o e-mail do admin
+    public int alterarEmail(int id, String email){
+        // Instanciando os objetos
         Conexao conexao = new Conexao();
+
+        // Conectando com o DB
         conexao.conectar();
+
+        // Obtendo a data atual
+        Date dataAtual = Date.valueOf(LocalDate.now());
         try {
+            // Verificando se o adminstrador existe
             ResultSet busca = buscar(id);
-            //verificando se existe o adminitrador
+
+            // Verificando se a busca teve resultados
             if (busca.next()) {
                 Connection conn = conexao.getConn();
-                PreparedStatement psmt = conn.prepareStatement("UPDATE admin SET email =  ? WHERE id = ? ");
-                psmt.setString(1, admin.getEmail());
-                psmt.setInt(2, id);
-                psmt.execute();
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE admin SET email =  ?,data_atualizacao = ? WHERE id = ? ");
+                pstmt.setString(1, email);
+                pstmt.setDate(2, dataAtual);
+                pstmt.setInt(3, id);
+                pstmt.execute();
+
                 return 1;
             }
+            // Caso não existam usuários com o id do parâmetro, o retorno é 0
             return 0;
-        }catch (SQLException sqle){
+        } catch (SQLException sqle){
             return -1;
-        }
-        finally {
+        } finally {
+            // Desconectando do BD ao final do try
             conexao.desconectar();
         }
     }
-    // Método para mudar a senha de usuario dos admin
-    public int alterarSenha(int id, Admin admin){
+    // Método para alterar a senha do admin
+    public int alterarSenha(int id, String senha){
+        // Instanciando os objetos
         Conexao conexao = new Conexao();
+
+        // Conectando com o BD
         conexao.conectar();
+
+        // Obtendo a data atual
+        Date dataAtual = Date.valueOf(LocalDate.now());
         try {
+            // Verificando se o administrador existe
             ResultSet busca = buscar(id);
-            //verificando se existe o adminitrador
+
+            // Verificando se a busca teve resultados
             if (busca.next()) {
                 Connection conn = conexao.getConn();
-                PreparedStatement psmt = conn.prepareStatement("UPDATE admin SET senha =  ? WHERE id = ? ");
-                psmt.setString(1, admin.getSenha());
-                psmt.setInt(2, id);
-                psmt.execute();
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE admin SET senha =  ?,data_atualizacao = ? WHERE id = ? ");
+                pstmt.setString(1, senha);
+                pstmt.setDate(2, dataAtual);
+                pstmt.setInt(3, id);
+                pstmt.execute();
+
                 return 1;
             }
+            // Caso não existam usuários com o id do parâmetro, o retorno é 0
             return 0;
-        }catch (SQLException sqle){
+        } catch (SQLException sqle){
             return -1;
-        }
-        finally {
-            //usando o finally para toda vez antes do return use o método desconectar
+        } finally {
+            // Desconectando do BD ao final do try
             conexao.desconectar();
         }
     }
-    // Método excluir um usuario da tabela admin
-    public int alterarAdmin(int id){
+    // Método para alterar a url do admin
+    public int alterarUrl(int id, String url_imagem){
+        // Instanciando os objetos
         Conexao conexao = new Conexao();
+
+        // Conectando com o BD
         conexao.conectar();
+
+        // Obtendo a data atual
+        Date dataAtual = Date.valueOf(LocalDate.now());
         try {
+            // Verificando se o administrador existe
             ResultSet busca = buscar(id);
-            //verificando se existe o adminitrador
+
+            // Verificando se a busca teve resultados
             if (busca.next()) {
                 Connection conn = conexao.getConn();
-                PreparedStatement psmt = conn.prepareStatement("Delete from admin where id = ?  ");
-                psmt.setInt(1, id);
-                psmt.execute();
-                return 0;
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE admin SET url_imagem =  ?,,data_atualizacao = ? WHERE id = ? ");
+                pstmt.setString(1, url_imagem);
+                pstmt.setDate(2, dataAtual);
+                pstmt.setInt(3, id);
+                pstmt.execute();
+
+                return 1;
             }
-            return 1;
-        }catch (SQLException sqle){
+            // Caso não existam usuários com o id do parâmetro, o retorno é 0
+            return 0;
+        } catch (SQLException sqle){
             return -1;
-        }finally {
-            //usando o finally para toda vez antes do return use o método desconectar
+        } finally {
+            // Desconectando do BD ao final do try
+            conexao.desconectar();
+        }
+    }
+    // Método para excluir um usuario da tabela admin
+    public int deletarAdmin(int id){
+        // Instanciando os objetos
+        Conexao conexao = new Conexao();
+
+        // Conectando com o DB
+        conexao.conectar();
+        try {
+            // Verificando se o adminstrador existe
+            ResultSet busca = buscar(id);
+
+            // Verificando se a busca teve resultados
+            if (busca.next()) {
+                Connection conn = conexao.getConn();
+                PreparedStatement pstmt = conn.prepareStatement("DELETE FROM admin WHERE id = ?");
+                pstmt.setInt(1, id);
+                pstmt.execute();
+                return 1;
+            }
+            // Caso não existam usuários com o id do parâmetro, o retorno é 0
+            return 0;
+        } catch (SQLException sqle){
+            return -1;
+        } finally {
+            // Desconectando do BD ao final do try
             conexao.desconectar();
         }
     }
