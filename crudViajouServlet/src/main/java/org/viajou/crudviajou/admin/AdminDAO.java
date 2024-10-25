@@ -102,7 +102,7 @@ public class AdminDAO {
             }
             // Caso não existam usuários com o id do parâmetro, o retorno é 0
             return 0;
-        } catch (SQLException sqle){
+        } catch (SQLException sqle) {
             return -1;
         } finally {
             // Desconectando do BD ao final do try
