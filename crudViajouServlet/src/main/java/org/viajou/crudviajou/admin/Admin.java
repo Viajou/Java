@@ -55,8 +55,8 @@ public class Admin {
 
     // UrlImagem
     public String getUrlImagem() { return this.urlImagem; }
-    
-    public void setUrl_imagem(String urlImagem) { this.urlImagem = urlImagem; }
+
+    public void setUrlImagem(String urlImagem) { this.urlImagem = urlImagem; }
 
     //     Método toString
     public String toString() {
