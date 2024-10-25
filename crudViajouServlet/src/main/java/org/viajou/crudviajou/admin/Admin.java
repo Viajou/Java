@@ -58,6 +58,7 @@ public class Admin {
 
     public void setUrlImagem(String urlImagem) { this.urlImagem = urlImagem; }
 
+
     //     Método toString
     public String toString() {
         return "Nome: " + this.nome +

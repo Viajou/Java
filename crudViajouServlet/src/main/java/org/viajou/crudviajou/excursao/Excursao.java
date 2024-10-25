@@ -3,6 +3,7 @@ package org.viajou.crudviajou.excursao;
 import java.util.Date;
 
 public class Excursao {
+<<<<<<< HEAD
     // Declarando os atributos
     private String nomeEmpresa;
     private int capacidade;
@@ -16,6 +17,21 @@ public class Excursao {
 //  Métodos construtores
     // Construto
     public Excursao(String nomeEmpresa, int capacidade, String duracao, String site, double precoTotal, java.sql.Date dataInicio, java.sql.Date dataTermino, String categoria, int idAtracao) {
+
+        private String nomeEmpresa;
+        private int capacidade;
+        private String duracao;
+        private String site;
+        private double precoTotal;
+        private Date dataInicio;
+        private Date dataTermino;
+        private String categoria;
+        private int idAtracao;
+
+    public Excursao() {
+    }
+
+    public Excursao(String novoNomeEmpresa, int novaCapacidade, String novaDuracao, String novoSite, double novoPrecoTotal, java.sql.Date novaDataInicio, java.sql.Date novaDataTermino, String novaCategoria, int novoIdAtracao) {
         this.nomeEmpresa = nomeEmpresa;
         this.capacidade = capacidade;
         this.duracao = duracao;
