@@ -5,7 +5,7 @@ public class Admin {
     private String nome;
     private String email;
     private String senha;
-    private String url_imagem;
+    private String urlImagem;
 
     public Admin() {
     }
@@ -15,7 +15,7 @@ public class Admin {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
-        this.url_imagem = url_imagem;
+        this.urlImagem = url_imagem;
     }
 
     public int getId() {
@@ -47,12 +47,12 @@ public class Admin {
         this.senha = senha;
     }
 
-    public String getUrl_imagem() {
-        return url_imagem;
+    public String getUrlImagem() {
+        return urlImagem;
     }
 
-    public void setUrl_imagem(String url_imagem) {
-        this.url_imagem = url_imagem;
+    public void setUrlImagem(String urlImagem) {
+        this.urlImagem = urlImagem;
     }
     //    fazendo o toString para a saida do objeto podemos ver os valores de cada variavel
 //    e não o endereo de memoria
@@ -62,7 +62,7 @@ public class Admin {
                 "nome='" + this.nome + '\'' +
                 ", email='" + this.email + '\'' +
                 ", senha='" + this.senha + '\'' +
-                ", url_imagem='" + this.url_imagem + '\'' +
+                ", url_imagem='" + this.urlImagem + '\'' +
                 '}';
     }
 }

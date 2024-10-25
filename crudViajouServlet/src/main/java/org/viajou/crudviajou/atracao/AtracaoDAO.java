@@ -48,7 +48,7 @@ public class AtracaoDAO {
         }
     }
 
-    public int inserir(Atracao atracao) {
+    public int inserirAtracao(Atracao atracao) {
         Conexao conexao = new Conexao();
         conexao.conectar();
         try {

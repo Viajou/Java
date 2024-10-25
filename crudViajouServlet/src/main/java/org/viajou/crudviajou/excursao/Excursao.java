@@ -3,8 +3,7 @@ package org.viajou.crudviajou.excursao;
 import java.util.Date;
 
 public class Excursao {
-
-
+    
         private String nomeEmpresa;
         private int capacidade;
         private String duracao;
@@ -15,7 +14,7 @@ public class Excursao {
         private String categoria;
         private int idAtracao;
 
-    public Excursao() {
+    public Excursao(String novoNomeEmpresa, int novaCapacidade, String novaDuracao, String novoSite, double novoPrecoTotal, java.sql.Date novaDataInicio, java.sql.Date novaDataTermino, String novaCategoria, int novoIdAtracao) {
         this.nomeEmpresa = nomeEmpresa;
         this.capacidade = capacidade;
         this.duracao = duracao;

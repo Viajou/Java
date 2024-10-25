@@ -33,7 +33,7 @@ public class ExcursaoDAO {
         ResultSet rset = null;
         try{
             Connection conn = conexao.getConn();
-            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM excursao");
+            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM excursao WHERE id = ?");
             rset = pstmt.executeQuery();
             return rset;
         }catch (SQLException sqle){
@@ -219,7 +219,7 @@ public class ExcursaoDAO {
         }
     }
 
-    public int alterarData_termino(int id, Date dataTermino) {
+    public int alterarDataTermino(int id, Date dataTermino) {
         Conexao conexao = new Conexao();
         conexao.conectar();
         try {
@@ -289,8 +289,6 @@ public class ExcursaoDAO {
             conexao.desconectar();
         }
     }
-
-
 
 
 }
