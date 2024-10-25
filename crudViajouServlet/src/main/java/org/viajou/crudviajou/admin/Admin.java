@@ -15,11 +15,7 @@ public class Admin {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
-<<<<<<< HEAD
-        this.urlImagem = url_imagem;
-=======
         this.urlImagem = urlImagem;
->>>>>>> d66e4e48449120020e22a6ea0a11971a712fc0a1
     }
 
     // Construtor Vazio
@@ -57,37 +53,16 @@ public class Admin {
         this.senha = senha;
     }
 
-<<<<<<< HEAD
-    public String getUrlImagem() {
-        return urlImagem;
-    }
-
-    public void setUrlImagem(String urlImagem) {
-=======
     // UrlImagem
-    public String getUrlImagem() {
-        return this.urlImagem;
-    }
-
-    public void setUrl_imagem(String urlImagem) {
->>>>>>> d66e4e48449120020e22a6ea0a11971a712fc0a1
-        this.urlImagem = urlImagem;
-    }
+    public String getUrlImagem() { return this.urlImagem; }
+    
+    public void setUrl_imagem(String urlImagem) { this.urlImagem = urlImagem; }
 
     //     Método toString
     public String toString() {
-<<<<<<< HEAD
-        return "Admin.AdminTabela{" +
-                "nome='" + this.nome + '\'' +
-                ", email='" + this.email + '\'' +
-                ", senha='" + this.senha + '\'' +
-                ", url_imagem='" + this.urlImagem + '\'' +
-                '}';
-=======
         return "Nome: " + this.nome +
                 "\nEmail:" + this.email +
                 "\nSenha: " + this.senha +
                 "\nURL da imagem: " + this.urlImagem;
->>>>>>> d66e4e48449120020e22a6ea0a11971a712fc0a1
     }
 }

@@ -3,18 +3,19 @@ package org.viajou.crudviajou.excursao;
 import java.util.Date;
 
 public class Excursao {
-    
-        private String nomeEmpresa;
-        private int capacidade;
-        private String duracao;
-        private String site;
-        private double precoTotal;
-        private Date dataInicio;
-        private Date dataTermino;
-        private String categoria;
-        private int idAtracao;
-
-    public Excursao(String novoNomeEmpresa, int novaCapacidade, String novaDuracao, String novoSite, double novoPrecoTotal, java.sql.Date novaDataInicio, java.sql.Date novaDataTermino, String novaCategoria, int novoIdAtracao) {
+    // Declarando os atributos
+    private String nomeEmpresa;
+    private int capacidade;
+    private String duracao;
+    private String site;
+    private double precoTotal;
+    private Date dataInicio;
+    private Date dataTermino;
+    private String categoria;
+    private int idAtracao;
+//  Métodos construtores
+    // Construto
+    public Excursao(String nomeEmpresa, int capacidade, String duracao, String site, double precoTotal, java.sql.Date dataInicio, java.sql.Date dataTermino, String categoria, int idAtracao) {
         this.nomeEmpresa = nomeEmpresa;
         this.capacidade = capacidade;
         this.duracao = duracao;
@@ -26,86 +27,80 @@ public class Excursao {
         this.idAtracao = idAtracao;
     }
 
-    public String getNomeEmpresa() {
-            return nomeEmpresa;
-        }
+    public String getNomeEmpresa() { return this.nomeEmpresa; }
 
-        public void setNomeEmpresa(String nomeEmpresa) {
+    public void setNomeEmpresa(String nomeEmpresa) {
             this.nomeEmpresa = nomeEmpresa;
         }
 
-        public int getCapacidade() {
-            return capacidade;
-        }
+    public int getCapacidade() { return this.capacidade; }
 
-        public void setCapacidade(int capacidade) {
+    public void setCapacidade(int capacidade) {
             this.capacidade = capacidade;
         }
 
-        public String getDuracao() {
-            return duracao;
+    public String getDuracao() {
+            return this.duracao;
         }
 
-        public void setDuracao(String duracao) {
+    public void setDuracao(String duracao) {
             this.duracao = duracao;
         }
 
-        public String getSite() {
-            return site;
+    public String getSite() {
+            return this.site;
         }
 
-        public void setSite(String site) {
+    public void setSite(String site) {
             this.site = site;
         }
 
-        public double getPrecoTotal() {
-            return precoTotal;
+    public double getPrecoTotal() {
+            return this.precoTotal;
         }
 
-        public void setPrecoTotal(double precoTotal) {
+    public void setPrecoTotal(double precoTotal) {
             this.precoTotal = precoTotal;
         }
 
-        public Date getDataInicio() {
-            return dataInicio;
+    public Date getDataInicio() {
+            return this.dataInicio;
         }
 
-        public void setDataInicio(Date dataInicio) {
+    public void setDataInicio(Date dataInicio) {
             this.dataInicio = dataInicio;
         }
 
-        public Date getDataTermino() {
-            return dataTermino;
+    public Date getDataTermino() {
+            return this.dataTermino;
         }
 
-        public void setDataTermino(Date dataTermino) {
+    public void setDataTermino(Date dataTermino) {
             this.dataTermino = dataTermino;
         }
 
-        public String getCategoria() {
-            return categoria;
+    public String getCategoria() {
+            return this.categoria;
         }
 
-        public void setCategoria(String categoria) {
+    public void setCategoria(String categoria) {
             this.categoria = categoria;
         }
 
-        public int getIdAtracao() {
-            return idAtracao;
+    public int getIdAtracao() {
+            return this.idAtracao;
         }
 
 
     public String toString() {
-        return "Excursao{" +
-                "nomeEmpresa='" + nomeEmpresa + '\'' +
-                ", capacidade=" + capacidade +
-                ", duracao='" + duracao + '\'' +
-                ", site='" + site + '\'' +
-                ", precoTotal=" + precoTotal +
-                ", dataInicio=" + dataInicio +
-                ", dataTermino=" + dataTermino +
-                ", categoria='" + categoria + '\'' +
-                ", idAtracao=" + idAtracao +
-                '}';
+        return "Nome da Empresa: "+ nomeEmpresa +
+                "\nCapacidade: "+ capacidade +
+                "\nDuracao: "+ duracao +
+                "\nSite: "+ site +
+                "\nPreco total: "+ precoTotal +
+                "\nData de início: "+ dataInicio +
+                "\nData de termino: "+ dataTermino +
+                "\nCategoria: "+ categoria +
+                "idAtracao: "+ idAtracao;
     }
 }
