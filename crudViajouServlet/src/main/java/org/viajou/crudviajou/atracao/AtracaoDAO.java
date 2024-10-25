@@ -53,7 +53,10 @@ public class AtracaoDAO {
     }
 
     public int inserirAtracao(Atracao atracao) {
+<<<<<<< HEAD
+=======
         // Instanciando os objetos
+>>>>>>> d66e4e48449120020e22a6ea0a11971a712fc0a1
         Conexao conexao = new Conexao();
 
         // Conectando com o BD
