@@ -15,8 +15,22 @@ public class DeletarAdmin extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html");
-        // Obtendo os dados da URL (Query String)
+        AdminDAO adminDAO = new AdminDAO();
+
+        // Obtendo o dado da URL (Query String)
         int id = Integer.parseInt(request.getParameter("id"));
+
+        // Atualizando o nome da empresa no banco de dados
+        int resultado = adminDAO.deletarAdmin(id);
+
+        // Redirecionando para a página de confirmação
+        if (resultado > 0) {
+            request.getSession().setAttribute("mensagem", "Admin deletado com sucesso!");
+            response.sendRedirect("paginaSucesso.jsp");
+        } else {
+            request.getSession().setAttribute("mensagem", "Erro ao deletar admin!");
+            response.sendRedirect("paginaErro.jsp");
+        }
 
     }
 }
