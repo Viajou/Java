@@ -1,0 +1,43 @@
+.fundo_cinza {
+    display: flex;
+    height: 74.63vh; /* 806px -> 74.63vh, baseado numa altura de 1080px */
+    background-color: #E9E2EE;
+    justify-content: center;
+}
+
+#splash {
+    display: flex;
+    align-items: center;
+}
+
+.fundo_cinza > .titulo > h1 {
+    font-family: LevenimBold;
+    color: #413752;
+    font-size: 2.6vw; /* 50px -> 2.6vw, baseado numa largura de 1920px */
+    letter-spacing: 0.15px;
+    margin-left: 3.125vw; /* 60px -> 3.125vw */
+}
+
+.fundo_cinza > .titulo > p {
+    font-family: Levenim;
+    color: #413752;
+    letter-spacing: 0.15px;
+    margin-left: 3.125vw; /* 60px -> 3.125vw */
+}
+
+.titulo {
+    width: 26.04vw; /* 500px -> 26.04vw */
+    float: right;
+    padding-top: 18.52vh; /* 200px -> 18.52vh */
+}
+
+#play {
+    width: 10.42vw; /* 200px -> 10.42vw */
+    margin-left: 3.125vw; /* 60px -> 3.125vw */
+    padding-top: 5.56vh; /* 60px -> 5.56vh */
+}
+
+#imagemCelular {
+    max-height: 90vh;
+    max-width: 20vw;
+}

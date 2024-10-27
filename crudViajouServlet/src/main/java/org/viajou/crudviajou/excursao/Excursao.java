@@ -3,7 +3,7 @@ package org.viajou.crudviajou.excursao;
 import java.util.Date;
 
 public class Excursao {
-    
+
         private String nomeEmpresa;
         private int capacidade;
         private String duracao;
