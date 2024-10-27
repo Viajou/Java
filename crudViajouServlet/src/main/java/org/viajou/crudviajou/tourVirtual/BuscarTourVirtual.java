@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.sql.ResultSet;
 
 @WebServlet (name = "helloServlet", value = "/hello-servlet")
-public class buscarTourVirtual extends HttpServlet {
+public class BuscarTourVirtual extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException  {
 
