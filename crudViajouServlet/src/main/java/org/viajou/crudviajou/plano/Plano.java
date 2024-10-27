@@ -3,6 +3,7 @@ package org.viajou.crudviajou.plano;
 import java.sql.Date;
 
 public class Plano {
+    // Declarando os atributos
     private String descricao;
     private boolean livrePropaganda;
     private String nome;
@@ -10,87 +11,55 @@ public class Plano {
     private Date dataCriacao;
     private Date dataAtualizacao;
 
-
-    // Métodos Construtores
-    public Plano(){
-
-    }
-
-    public Plano(String descricao, boolean livrePropaganda, String nome, double preco, Date dataCriacao, Date dataAtualizacao) {
+// Métodos Construtores
+    // Construtor com todos os atributos da classe, exceto o ID por ser serial
+    public Plano(String descricao, boolean livrePropaganda, String nome, double preco) {
         this.descricao = descricao;
         this.livrePropaganda=livrePropaganda;
         this.nome = nome;
         this.preco = preco;
-        this.dataCriacao = dataCriacao;
-        this.dataAtualizacao = dataAtualizacao;
     }
+
+    // Construtor Vazio
+    public Plano() {}
 
     // Getters e Setters
-    // descricao
-    public String getDescricao() {
-        return descricao;
-    }
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
+    // Descricao
+    public String getDescricao() { return this.descricao; }
 
-    // livrePropaganda
-    public boolean getLivrePropaganda(){
-        return livrePropaganda;
-    }
-    public void setLivrePropaganda(boolean livrePropaganda){
-        this.livrePropaganda=livrePropaganda;
-    }
+    public void setDescricao(String descricao) { this.descricao = descricao; }
 
-    // nome
-    public String getNome() {
-        return nome;
-    }
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    // LivrePropaganda
+    public boolean isLivrePropaganda(){ return this.livrePropaganda; }
 
-    // preco
-    public double getPreco() {
-        return preco;
-    }
-    public void setPreco(double preco) {
-        this.preco = preco;
-    }
+    public void setLivrePropaganda(boolean livrePropaganda){ this.livrePropaganda = livrePropaganda; }
 
-    // dataCriacao
-    public Date getDataCriacao() {
-        return dataCriacao;
-    }
-    public void setDataCriacao(Date dataCriacao) {
-        this.dataCriacao = dataCriacao;
-    }
+    // Nome
+    public String getNome() { return this.nome; }
 
-    // dataAtualizacao
-    public Date getDataAtualizacao() {
-        return dataAtualizacao;
-    }
-    public void setDataAtualizacao(Date dataAtualizacao) {
-        this.dataAtualizacao = dataAtualizacao;
-    }
+    public void setNome(String nome) { this.nome = nome; }
 
-    @Override
+    // Preco
+    public double getPreco() { return this.preco; }
+
+    public void setPreco(double preco) { this.preco = preco; }
+
+    // DataCriacao
+    public Date getDataCriacao() { return this.dataCriacao; }
+
+    // DataAtualizacao
+    public Date getDataAtualizacao() { return this.dataAtualizacao; }
+
+    public void setDataAtualizacao(Date dataAtualizacao) { this.dataAtualizacao = dataAtualizacao; }
+
+    // Método toString
     public String toString() {
-        if (livrePropaganda){
-            return "Descrição: " + descricao +
-                    "\nPlano é livre de propagandas? Sim" +
-                    "\nNome: " + nome +
-                    "\nPreço: " + preco +
-                    "\nData de criação: " + dataCriacao +
-                    "\nData da última atualizacao: " + dataAtualizacao;
-        }
-        else {
-            return "Descrição: " + descricao +
-                    "\nPlano é livre de propagandas? Não" +
-                    "\nNome: " + nome +
-                    "\nPreço: " + preco +
-                    "\nData de criação: " + dataCriacao +
-                    "\nData da última atualizacao: " + dataAtualizacao;
-        }
+        return "Descrição: " + descricao +
+                "\nPlano é livre de propagandas?: "+ livrePropaganda +
+                "\nNome: " + nome +
+                "\nPreço: " + preco +
+                "\nData de criação: " + dataCriacao +
+                "\nData da última atualizacao: " + dataAtualizacao;
+
     }
 }
