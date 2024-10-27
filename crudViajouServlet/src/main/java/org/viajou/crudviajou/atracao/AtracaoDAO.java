@@ -53,7 +53,10 @@ public class AtracaoDAO {
     }
 
     public int inserirAtracao(Atracao atracao) {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 230b086696e5787d35bbaad7bd19c7612716caaf
         // Instanciando os objetos
         Conexao conexao = new Conexao();
 
@@ -94,7 +97,7 @@ public class AtracaoDAO {
                 pstmt.execute();
                 return 1;
             }
-            // Caso não existam usuários com o id do parâmetro, o retorno é 0
+            // Caso não existam atrações com o id do parâmetro, o retorno é 0
             return 0;
         } catch (SQLException sqle){
             return -1;
@@ -112,7 +115,7 @@ public class AtracaoDAO {
         // Conectando com o BD
         conexao.conectar();
         try{
-            // Verificando se o adminstrador existe
+            // Verificando se o atração existe
             ResultSet busca = buscar(id);
 
             // Verificando se a busca teve resultados
@@ -124,7 +127,7 @@ public class AtracaoDAO {
                 pstmt.execute();
                 return 1;
             }
-            // Caso não existam usuários com o id do parâmetro, o retorno é 0
+            // Caso não existam atrações com o id do parâmetro, o retorno é 0
             return 0;
         } catch (SQLException sqle){
             return -1;
@@ -142,7 +145,7 @@ public class AtracaoDAO {
         // Conectando com o DB
         conexao.conectar();
         try{
-            // Verificando se o adminstrador existe
+            // Verificando se o atração existe
             ResultSet busca = buscar(id);
 
             // Verificando se a busca teve resultados
@@ -154,7 +157,7 @@ public class AtracaoDAO {
                 pstmt.execute();
                 return 1;
             }
-            // Caso não existam usuários com o id do parâmetro, o retorno é 0
+            // Caso não existam atrações com o id do parâmetro, o retorno é 0
             return 0;
         }catch (SQLException sqle){
             return -1;
@@ -185,7 +188,7 @@ public class AtracaoDAO {
                 pstmt.execute();
                 return 1;
             }
-            // Caso não existam usuários com o id do parâmetro, o retorno é 0
+            // Caso não existam atrações com o id do parâmetro, o retorno é 0
             return 0;
         }catch (SQLException sqle){
             return -1;
@@ -203,7 +206,7 @@ public class AtracaoDAO {
         // Conectando com o BD
         conexao.conectar();
         try{
-            // Verificando se o administrador existe
+            // Verificando se a atração existe
             ResultSet busca = buscar(id);
 
             // Verificando se a busca teve resultados
@@ -215,7 +218,7 @@ public class AtracaoDAO {
                 pstmt.execute();
                 return 1;
             }
-            // Caso não existam usuários com o id do parâmetro, o retorno é 0
+            // Caso não existam atrações com o id do parâmetro, o retorno é 0
             return 0;
         } catch (SQLException sqle){
             return -1;
@@ -241,7 +244,7 @@ public class AtracaoDAO {
                 pstmt.execute();
                 return 1;
             }
-            // Caso não existam usuários com o id do parâmetro, o retorno é 0
+            // Caso não existam atrações com o id do parâmetro, o retorno é 0
             return 0;
         } catch (SQLException e){
             return -1;

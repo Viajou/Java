@@ -3,7 +3,7 @@ package org.viajou.crudviajou.evento;
 import java.sql.Date;
 import java.sql.Time;
 
-public class Evento {
+public class Eventos {
     // Declarando dos atributos
     private int id;
     private String faixaEtaria;
@@ -16,11 +16,13 @@ public class Evento {
     private double precoPessoa;
     private int idAtracao;
     private int idTourVirtual;
+    private Date dataCriacao;
+    private Date dataAtualizacao;
 
 //  Métodos Construtores
 
     // Construtor com todos os atributos da classe, exceto o ID por ser serial
-    public Evento(int capacidade, String categoria, Date dataInicio, Date dataTermino, String descricao, String faixaEtaria, Time horario, int idAtracao, int idTourVirtual, double precoPessoa) {
+    public Eventos(int capacidade, String categoria, Date dataInicio, Date dataTermino, String descricao, String faixaEtaria, Time horario, int idAtracao, int idTourVirtual, double precoPessoa, Date dataCriacao) {
         this.capacidade = capacidade;
         this.categoria = categoria;
         this.dataInicio = dataInicio;
@@ -34,7 +36,7 @@ public class Evento {
     }
 
     // Construtor Vazio
-    public Evento() {
+    public Eventos() {
     }
 
 //  Métodos Getters e Setters
@@ -121,16 +123,25 @@ public class Evento {
         this.precoPessoa = precoPessoa;
     }
 
+    // DataCriacao
+    public Date getDataCriacao() { return this.dataCriacao; }
+
+    // DataAtualizacao
+    public Date getDataAtualizacao() { return this.dataAtualizacao; }
+    public void setDataAtualizacao(Date dataAtualizacao) { this.dataAtualizacao = dataAtualizacao; }
+
     //Método toString
     public String toString() {
-        return "Capacidade: "+ this.capacidade +
-                "\nFaixa etária: "+ this.faixaEtaria +
-                "\nDescrição: "+ this.descricao +
-                "\nCategoria: "+ this.categoria +
-                "\nHorário: "+ this.horario +
-                "\nData de início do evento: "+ this.dataInicio +
-                "\nData de término do evento: "+ this.dataTermino +
-                "\nId da atração: "+ this.idAtracao+
-                "\nId do Tour Virtual: "+ this.idTourVirtual;
+        return "Capacidade: " + this.capacidade +
+                "\nFaixa etária: " + this.faixaEtaria +
+                "\nDescrição: " + this.descricao +
+                "\nCategoria: " + this.categoria +
+                "\nHorário: " + this.horario +
+                "\nData de início do evento: " + this.dataInicio +
+                "\nData de término do evento: " + this.dataTermino +
+                "\nId da atração: " + this.idAtracao+
+                "\nId do Tour Virtual: " + this.idTourVirtual +
+                "\nData de criação do evento: " + this.dataCriacao +
+                "\nData da última atualizacao: " + this.dataAtualizacao;
     }
 }

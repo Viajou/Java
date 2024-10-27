@@ -8,7 +8,6 @@ import java.time.LocalDate;
 public class AdminDAO {
 
 // Método para leitura da tabela admin
-
     public ResultSet buscar(){
     //  Instanciando os objetos
         Conexao conexao = new Conexao();
@@ -126,7 +125,7 @@ public class AdminDAO {
             }
             // Caso não existam usuários com o id do parâmetro, o retorno é 0
             return 0;
-        } catch (SQLException sqle){
+        } catch (SQLException sqle) {
             return -1;
         } finally {
             // Desconectando do BD ao final do try
@@ -201,8 +200,8 @@ public class AdminDAO {
             conexao.desconectar();
         }
     }
-    // Método para alterar a url do admin
-    public int alterarUrl(int id, String url_imagem){
+    // Método para alterar a url da imagem do admin
+    public int alterarUrlImagem(int id, String urlImagem){
         // Instanciando os objetos
         Conexao conexao = new Conexao();
 
@@ -219,7 +218,7 @@ public class AdminDAO {
             if (busca.next()) {
                 Connection conn = conexao.getConn();
                 PreparedStatement pstmt = conn.prepareStatement("UPDATE admin SET url_imagem =  ?,,data_atualizacao = ? WHERE id = ? ");
-                pstmt.setString(1, url_imagem);
+                pstmt.setString(1, urlImagem);
                 pstmt.setDate(2, dataAtual);
                 pstmt.setInt(3, id);
                 pstmt.execute();

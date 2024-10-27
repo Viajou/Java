@@ -3,6 +3,7 @@ package org.viajou.crudviajou.excursao;
 import java.util.Date;
 
 public class Excursao {
+<<<<<<< HEAD
 
         private String nomeEmpresa;
         private int capacidade;
@@ -13,8 +14,26 @@ public class Excursao {
         private Date dataTermino;
         private String categoria;
         private int idAtracao;
+=======
+    // Declarando os atributos
+    private int id;
+    private String nomeEmpresa;
+    private int capacidade;
+    private String duracao;
+    private String site;
+    private double precoTotal;
+    private Date dataInicio;
+    private Date dataTermino;
+    private String categoria;
+    private int idAtracao;
+    private Date dataCriacao;
+    private Date dataAtualizacao;
+//  Métodos construtores
+>>>>>>> 230b086696e5787d35bbaad7bd19c7612716caaf
 
-    public Excursao(String novoNomeEmpresa, int novaCapacidade, String novaDuracao, String novoSite, double novoPrecoTotal, java.sql.Date novaDataInicio, java.sql.Date novaDataTermino, String novaCategoria, int novoIdAtracao) {
+  // Construtor com todos os atributos da classe, exceto o ID por ser serial
+    public Excursao(String nomeEmpresa, int capacidade, String duracao, String site, double precoTotal,
+                    java.sql.Date dataInicio, java.sql.Date dataTermino, String categoria, int idAtracao) {
         this.nomeEmpresa = nomeEmpresa;
         this.capacidade = capacidade;
         this.duracao = duracao;
@@ -25,87 +44,78 @@ public class Excursao {
         this.categoria = categoria;
         this.idAtracao = idAtracao;
     }
+    // Construtor Vazio
+    public Excursao() {}
 
-    public String getNomeEmpresa() {
-            return nomeEmpresa;
-        }
+// Getters e Setters
+    // O ID não pode ser alterado, então apenas o método get é criado para acessá-lo
+    public int getId() { return this.id; }
 
-        public void setNomeEmpresa(String nomeEmpresa) {
-            this.nomeEmpresa = nomeEmpresa;
-        }
+    // NomeEmpresa
+    public String getNomeEmpresa() { return this.nomeEmpresa; }
 
-        public int getCapacidade() {
-            return capacidade;
-        }
+    public void setNomeEmpresa(String nomeEmpresa) { this.nomeEmpresa = nomeEmpresa; }
 
-        public void setCapacidade(int capacidade) {
-            this.capacidade = capacidade;
-        }
+    // Capacidade
+    public int getCapacidade() { return this.capacidade; }
 
-        public String getDuracao() {
-            return duracao;
-        }
+    public void setCapacidade(int capacidade) { this.capacidade = capacidade; }
 
-        public void setDuracao(String duracao) {
-            this.duracao = duracao;
-        }
+    // Duracao
+    public String getDuracao() { return this.duracao; }
 
-        public String getSite() {
-            return site;
-        }
+    public void setDuracao(String duracao) { this.duracao = duracao; }
 
-        public void setSite(String site) {
-            this.site = site;
-        }
+    // Site
+    public String getSite() { return this.site; }
 
-        public double getPrecoTotal() {
-            return precoTotal;
-        }
-
-        public void setPrecoTotal(double precoTotal) {
-            this.precoTotal = precoTotal;
-        }
-
-        public Date getDataInicio() {
-            return dataInicio;
-        }
-
-        public void setDataInicio(Date dataInicio) {
-            this.dataInicio = dataInicio;
-        }
-
-        public Date getDataTermino() {
-            return dataTermino;
-        }
-
-        public void setDataTermino(Date dataTermino) {
-            this.dataTermino = dataTermino;
-        }
-
-        public String getCategoria() {
-            return categoria;
-        }
-
-        public void setCategoria(String categoria) {
-            this.categoria = categoria;
-        }
-
-        public int getIdAtracao() {
-            return idAtracao;
-        }
+    public void setSite(String site) { this.site = site; }
 
 
+    // PrecoTotal
+    public double getPrecoTotal() { return this.precoTotal; }
+
+    public void setPrecoTotal(double precoTotal) { this.precoTotal = precoTotal; }
+
+    // DataInicio
+    public Date getDataInicio() { return this.dataInicio; }
+
+    public void setDataInicio(Date dataInicio) { this.dataInicio = dataInicio; }
+
+    // DataTermino
+    public Date getDataTermino() { return this.dataTermino; }
+
+    public void setDataTermino(Date dataTermino) { this.dataTermino = dataTermino; }
+
+
+    // Categoria
+    public String getCategoria() { return this.categoria; }
+
+    public void setCategoria(String categoria) { this.categoria = categoria; }
+
+    // IdAtracao
+    public int getIdAtracao() { return this.idAtracao; }
+
+    // DataCriacao
+    public Date getDataCriacao() { return dataCriacao; }
+
+    // DataAtualizacao
+    public Date getDataAtualizacao() { return this.dataAtualizacao;}
+
+    public void setDataAtualizacao(Date dataAtualizacao) {}
+
+// toString
     public String toString() {
-        return "Excursao{" +
-                "nomeEmpresa='" + nomeEmpresa + '\'' +
-                ", capacidade=" + capacidade +
-                ", duracao='" + duracao + '\'' +
-                ", site='" + site + '\'' +
-                ", precoTotal=" + precoTotal +
-                ", dataInicio=" + dataInicio +
-                ", dataTermino=" + dataTermino +
-                ", categoria='" + categoria + '\'' +
-                ", idAtracao=" + idAtracao +
-                '}';
+        return "Nome da Empresa: " + nomeEmpresa +
+                "\nCapacidade: " + capacidade +
+                "\nDuracao: " + duracao +
+                "\nSite: " + site +
+                "\nPreco total: " + precoTotal +
+                "\nData de início: " + dataInicio +
+                "\nData de termino: " + dataTermino +
+                "\nCategoria: " + categoria +
+                "\nidAtracao: " + idAtracao +
+                "\nData de criacao: " + dataCriacao +
+                "\nData da última atualização: " + dataAtualizacao;
     }
 }
