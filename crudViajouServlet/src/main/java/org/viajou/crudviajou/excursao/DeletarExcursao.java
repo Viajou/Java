@@ -17,7 +17,7 @@ import java.util.Date;
         int id = Integer.parseInt(request.getParameter("id"));
 
         // Atualizando o nome da empresa no banco de dados
-        int resultado = excursaoDAO.deletarExcursao(id);
+        int resultado = excursaoDAO.de(id);
 
         // Redirecionando para a página de confirmação
         if (resultado > 0) {

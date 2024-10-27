@@ -1,5 +1,7 @@
 package org.viajou.crudviajou.admin;
 
+import java.util.Date;
+
 public class Admin {
     // Declarando os atributos
     private int id;
@@ -7,11 +9,13 @@ public class Admin {
     private String email;
     private String senha;
     private String urlImagem;
+    private Date dataCriacao;
+    private Date dataAtualizacao;
 
 // Métodos Construtores
 
     // Construtor com todos os atributos da classe, exceto o ID por ser serial
-    public Admin(String nome, String email, String senha, String urlImagem) {
+    public Admin(String nome, String email, String senha, String urlImagem, Date dataCriacao) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
@@ -53,22 +57,41 @@ public class Admin {
         this.senha = senha;
     }
 
-
-    // UrlImagem
+<<<<<<< HEAD
     public String getUrlImagem() {
-        return urlImagem;
+        return this.urlImagem;
     }
 
     public void setUrlImagem(String urlImagem) {
         this.urlImagem = urlImagem;
-
     }
+=======
+    // UrlImagem
+    public String getUrlImagem() { return this.urlImagem; }
 
-    //     Método toString
+    public void setUrlImagem(String urlImagem) { this.urlImagem = urlImagem; }
+>>>>>>> 230b086696e5787d35bbaad7bd19c7612716caaf
+
+    // DataCriacao
+    public Date getDataCriacao() { return this.dataCriacao; }
+
+    // DataAtualizacao
+    public Date getDataAtualizacao() { return dataAtualizacao; }
+
+    public void setDataAtualizacao(Date dataAtualizacao) { this.dataAtualizacao = dataAtualizacao; }
+
+    // Método toString
     public String toString() {
         return "Nome: " + this.nome +
                 "\nEmail:" + this.email +
                 "\nSenha: " + this.senha +
+<<<<<<< HEAD
                 "\nURL da imagem: " + this.urlImagem;
+
+=======
+                "\nURL da imagem: " + this.urlImagem +
+                "\nData de criação do admin: "+ this.dataCriacao +
+                "\nData da última atualização: "+ this.dataAtualizacao;
+>>>>>>> 230b086696e5787d35bbaad7bd19c7612716caaf
     }
 }

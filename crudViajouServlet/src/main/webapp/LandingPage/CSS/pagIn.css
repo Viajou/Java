@@ -1,0 +1,109 @@
+
+
+.tela{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 200px;
+}
+
+/* Estilo do título principal */
+.titulo{
+    font-family: LevenimBold;
+
+}
+
+.titulo > .sj{
+    color: rgba(65, 55, 82, 1);
+    font-size: 76px;
+    width: 500px;
+    margin: 10px;
+    padding: 0px;
+}
+
+/* Estilo do subtítulo */
+.titulo > .subtitulo{
+    color: gray;
+    padding-left: 15px;
+    width: 490px;
+}
+
+/* Estilo da imagem na tela principal */
+.imagem_inicio{
+    padding-right: 50px;
+    width: 500px;
+    height: 550px;
+    padding-top: 30px;
+}
+
+/* Estilo do botão "começar" */
+.comecar{
+    background-color: rgba(56,36,105,1);
+    color: white;
+    padding: 10px;
+    border-radius: 50px;
+    width: 120px;
+    margin-left: 10px;
+    margin-right: 20px;
+    margin-top: 10px;
+    font-size: 18px;
+    font-family: LevenimBold;
+}
+
+/* Estilo do container de blocos */
+.container_bloco{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* Estilo dos blocos */
+.bloco{
+    background-color:#9BDAD3;
+    border-radius: 10px;
+    height: 250px;
+    width: 1400px;
+    margin-left: 30px;
+    margin-top: 50px;
+}
+
+.bloco > h5{
+    font-size: 30px;
+    margin-bottom: 0px;
+    padding-top: 20px;
+    padding-left: 20px;
+    font-family: LevenimBold;
+}
+
+.bloco > .subtitulo{
+    font-size: 23px;
+    padding-top: 0px;
+    margin-top: 0px;
+    padding-left: 20px;
+    width: 280px;
+    font-family: Levenim;
+}
+
+/* Estilo dos botões dentro dos blocos */
+.botoes{
+    display: flex;
+    font-size: 16px;
+}
+
+.botoes > .botao{
+    background-color: white;
+    height: 25px;
+    width: 100px;
+    padding-left: 10px;
+    margin-left: 20px;
+    border-radius: 8px;
+}
+
+.botoes > .botao2{
+    background-color: white;
+    height: 25px;
+    width: 100px;
+    padding-left: 10px;
+    margin-left: 20px;
+    border-radius: 8px;
+}

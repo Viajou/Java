@@ -19,6 +19,7 @@
   </properties>
 
   <dependencies>
+
 <dependency>
       <groupId>jakarta.servlet</groupId>
       <artifactId>jakarta.servlet-api</artifactId>
@@ -36,7 +37,8 @@
         <artifactId>junit-jupiter-engine</artifactId>
         <version>${junit.version}</version>
         <scope>test</scope>
-      </dependency>  </dependencies>
+      </dependency>
+  </dependencies>
 
   <build>
     <plugins>

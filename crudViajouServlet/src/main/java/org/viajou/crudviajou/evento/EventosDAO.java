@@ -6,7 +6,7 @@ import java.sql.*;
 
 public class EventosDAO {
 //  Método para leitura da tabela eventos
-    public ResultSet busca(){
+    public ResultSet buscar(){
         //  Instanciando os objetos
         Conexao conexao = new Conexao();
         ResultSet rset = null;
@@ -30,10 +30,10 @@ public class EventosDAO {
     public ResultSet buscar(int id){
         // Instanciando os objetos
         Conexao conexao = new Conexao();
+        ResultSet rset = null;
 
         // Conectando com o BD
         conexao.conectar();
-        ResultSet rset = null;
         try {
             Connection conn = conexao.getConn();
             PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM eventos WHERE id = ? ");
@@ -96,7 +96,7 @@ public class EventosDAO {
                 PreparedStatement pstmt = conn.prepareStatement("UPDATE eventos SET faixaEtaria = ? WHERE id = ? ");
                 pstmt.setString(1, faixaEtaria);
                 pstmt.setInt(2, id);
-                return  pstmt.executeUpdate();
+                return  pstmt.execute();
             }
             // Caso não existam eventos com o id do parâmetro, o retorno é 0
             return 0;
@@ -202,7 +202,7 @@ public class EventosDAO {
         // Conectando com o BD
         conexao.conectar();
         try {
-            // Verificando se o administrador existe
+            // Verificando se o evento existe
             ResultSet busca = buscar(id);
             if (busca.next()){
                 Connection conn = conexao.getConn();
@@ -212,7 +212,7 @@ public class EventosDAO {
                 pstmt.execute();
                 return 1;
             }
-            // Caso não existam usuários com o id do parâmetro, o retorno é 0
+            // Caso não existam eventos com o id do parâmetro, o retorno é 0
             return 0;
         } catch (SQLException sqle){
             return -1;
@@ -258,7 +258,7 @@ public class EventosDAO {
         // Conectando com o DB
         conexao.conectar();
         try {
-            // Verificando se o adminstrador existe
+            // Verificando se o evento existe
             ResultSet busca = buscar(id);
 
             // Verificando se a busca teve resultados
@@ -281,19 +281,24 @@ public class EventosDAO {
     }
     //Método para alterar o preço por pessoa de um evento
     public int alterarPrecoPessoa(int id, double precoPessoa){
+        // Instanciando os objetos
         Conexao conexao = new Conexao();
+
+        // Conectando com o BD
         conexao.conectar();
         try {
-            Connection conn = conexao.getConn();
+            // Verificando se o evento existe
             ResultSet busca = buscar(id);
+            // Verificando se a busca teve resultados
             if (busca.next()){
+                Connection conn = conexao.getConn();
                 PreparedStatement pstmt = conn.prepareStatement("UPDATE eventos SET precoPessoa = ? WHERE id = ? ");
                 pstmt.setDouble(1, precoPessoa);
                 pstmt.setInt(2, id);
                 pstmt.execute();
                 return 1;
             }
-            // Caso não existam usuários com o id do parâmetro, o retorno é 0
+            // Caso não existam eventos com o id do parâmetro, o retorno é 0
             return 0;
         } catch (SQLException sqle){
             return -1;
@@ -310,8 +315,10 @@ public class EventosDAO {
         // Conectando com o DB
         conexao.conectar();
         try {
-            // Verificando se o adminstrador existe
+            // Verificando se o evento existe
             ResultSet busca = buscar(id);
+
+            // Verificando se a busca teve resultados
             if (busca.next()){
                 Connection conn = conexao.getConn();
                 PreparedStatement pstmt = conn.prepareStatement("DELETE FROM eventos WHERE id = ? ");
@@ -319,7 +326,7 @@ public class EventosDAO {
                 pstmt.execute();
                 return 1;
             }
-            // Caso não existam usuários com o id do parâmetro, o retorno é 0
+            // Caso não existam eventos com o id do parâmetro, o retorno é 0
             return 0;
         } catch (SQLException sqle){
             return -1;

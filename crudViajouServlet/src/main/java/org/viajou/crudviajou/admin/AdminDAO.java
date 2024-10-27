@@ -8,7 +8,6 @@ import java.time.LocalDate;
 public class AdminDAO {
 
 // Método para leitura da tabela admin
-
     public ResultSet buscar(){
     //  Instanciando os objetos
         Conexao conexao = new Conexao();
@@ -51,6 +50,30 @@ public class AdminDAO {
             conexao.desconectar();
         }
     }
+
+    public ResultSet buscar(String email){
+
+        //  Instanciando os objetos
+        Conexao conexao = new Conexao();
+        ResultSet rset = null;
+
+        // Conectando com o BD
+        conexao.conectar();
+        try {
+            Connection conn = conexao.getConn();
+            PreparedStatement pstmt = conn.prepareStatement("SELECT email FROM admin WHERE email = ? ");
+            pstmt.setString(1,email);
+            rset = pstmt.executeQuery();
+            return rset;
+        } catch (SQLException sqle){
+            return rset;
+        } finally {
+            // Desconectando do BD ao final do try
+            conexao.desconectar();
+        }
+    }
+
+
 //  Método para adicionar um admim na tabela
     public int inserirAdmin(Admin admin){
     //  Instanciando os objetos
@@ -178,7 +201,7 @@ public class AdminDAO {
         }
     }
     // Método para alterar a url da imagem do admin
-    public int alterarUrlImagem(int id, String url_imagem){
+    public int alterarUrlImagem(int id, String urlImagem){
         // Instanciando os objetos
         Conexao conexao = new Conexao();
 
@@ -195,7 +218,7 @@ public class AdminDAO {
             if (busca.next()) {
                 Connection conn = conexao.getConn();
                 PreparedStatement pstmt = conn.prepareStatement("UPDATE admin SET url_imagem =  ?,,data_atualizacao = ? WHERE id = ? ");
-                pstmt.setString(1, url_imagem);
+                pstmt.setString(1, urlImagem);
                 pstmt.setDate(2, dataAtual);
                 pstmt.setInt(3, id);
                 pstmt.execute();

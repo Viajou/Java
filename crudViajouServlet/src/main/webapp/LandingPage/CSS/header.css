@@ -1,0 +1,98 @@
+/* Definição de fontes */
+@font-face {
+    font-family: LevenimBold;
+    src: url("../../Fonte/levenim-mt-bold.ttf");
+}
+
+@font-face {
+    font-family: Levenim;
+    src: url("../../Fonte/levenim-mt-2.ttf");
+}
+
+/* Estilo do corpo da página */
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgba(249, 241, 254, 1);
+}
+
+/* Estilo do cabeçalho */
+header{
+    top: 0;
+    position: sticky;
+    background-color: rgb(249, 241, 254, 0.76);
+    backdrop-filter: blur(4px);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22px;
+    font-family: LevenimBold;
+    height: 75px;
+    z-index: 10;
+}
+
+h1{
+    color: #413752;
+}
+
+/* Estilo do menu no cabeçalho */
+.menu{
+    margin-right: 80px;
+    padding-top: 10px;
+    width: 50%;
+}
+
+.menu > ul{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.nav_links{
+    text-decoration: none;
+    color: #000;
+    transition: 0.2s;
+}
+
+.nav_links:hover{
+    color: rgba(142, 112, 214, 1);
+    transition: 0.2s;
+}
+
+
+/* Estilo do botão "entrar" */
+.entrar{
+    background-color: rgb(249, 241, 254, 0.76);
+    color: #382469;
+    padding: 10px;
+    border: 3px solid #382469;
+    border-radius: 50px;
+    width: 100px;
+    margin-right: 20px;
+    font-size: 18px;
+    font-family: LevenimBold;
+    a{
+        text-decoration: none;
+    }
+}
+
+/* Estilo do botão "viajou" */
+.viajou{
+    width: 120px;
+    padding-left: 20px;
+}
+
+
+
+/* Estilo global de margem e preenchimento */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+ 
+
