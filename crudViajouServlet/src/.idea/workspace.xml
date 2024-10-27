@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c326d31-00e7-4738-8c26-23aaa3c11f01" name="Changes" comment="" />
+    <list default="true" id="0c326d31-00e7-4738-8c26-23aaa3c11f01" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/org/viajou/crudviajou/admin/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/java/org/viajou/crudviajou/admin/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/org/viajou/crudviajou/admin/AdminDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/java/org/viajou/crudviajou/admin/AdminDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/org/viajou/crudviajou/atracao/Atracao.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/java/org/viajou/crudviajou/atracao/Atracao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/org/viajou/crudviajou/evento/Eventos.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/java/org/viajou/crudviajou/evento/Eventos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/org/viajou/crudviajou/evento/EventosDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/java/org/viajou/crudviajou/evento/EventosDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/org/viajou/crudviajou/excursao/Excursao.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/java/org/viajou/crudviajou/excursao/Excursao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/org/viajou/crudviajou/excursao/ExcursaoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/java/org/viajou/crudviajou/excursao/ExcursaoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/org/viajou/crudviajou/plano/Plano.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/java/org/viajou/crudviajou/plano/Plano.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/org/viajou/crudviajou/plano/PlanoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/java/org/viajou/crudviajou/plano/PlanoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/org/viajou/crudviajou/tourVirtual/TourVirtual.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/java/org/viajou/crudviajou/tourVirtual/TourVirtual.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/org/viajou/crudviajou/tourVirtual/TourVirtualDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/java/org/viajou/crudviajou/tourVirtual/TourVirtualDAO.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,9 +28,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2nFaPxBAzN2yknscT3UMXGNklDV" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -21,8 +39,13 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Java",
+    "git-widget-placeholder": "Merging main",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/sofiasantana-ieg/OneDrive - Instituto Germinare/1º TECH - 2S/PI/git Java/Java/crudViajouServlet/src/main/java",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -30,8 +53,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.22855.74" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.22855.74" />
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.419" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.419" />
       </set>
     </attachedChunks>
   </component>
@@ -44,6 +67,18 @@
       <option name="presentableId" value="Default" />
       <updated>1728571262520</updated>
       <workItem from="1728571265997" duration="25000" />
+      <workItem from="1729903760171" duration="26000" />
+      <workItem from="1729903864564" duration="276000" />
+      <workItem from="1729962842390" duration="1475000" />
+      <workItem from="1729987396945" duration="841000" />
+      <workItem from="1729988354809" duration="11000" />
+      <workItem from="1729988399645" duration="11000" />
+      <workItem from="1729988440262" duration="25000" />
+      <workItem from="1729988565813" duration="11000" />
+      <workItem from="1729988848336" duration="5439000" />
+      <workItem from="1730039882894" duration="196000" />
+      <workItem from="1730040427879" duration="2217000" />
+      <workItem from="1730059173176" duration="201000" />
     </task>
     <servers />
   </component>

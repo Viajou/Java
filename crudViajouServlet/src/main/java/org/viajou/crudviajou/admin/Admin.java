@@ -1,5 +1,7 @@
 package org.viajou.crudviajou.admin;
 
+import java.util.Date;
+
 public class Admin {
     // Declarando os atributos
     private int id;
@@ -7,11 +9,13 @@ public class Admin {
     private String email;
     private String senha;
     private String urlImagem;
+    private Date dataCriacao;
+    private Date dataAtualizacao;
 
 // Métodos Construtores
 
     // Construtor com todos os atributos da classe, exceto o ID por ser serial
-    public Admin(String nome, String email, String senha, String urlImagem) {
+    public Admin(String nome, String email, String senha, String urlImagem, Date dataCriacao) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
@@ -58,12 +62,21 @@ public class Admin {
 
     public void setUrlImagem(String urlImagem) { this.urlImagem = urlImagem; }
 
+    // DataCriacao
+    public Date getDataCriacao() { return this.dataCriacao; }
 
-    //     Método toString
+    // DataAtualizacao
+    public Date getDataAtualizacao() { return dataAtualizacao; }
+
+    public void setDataAtualizacao(Date dataAtualizacao) { this.dataAtualizacao = dataAtualizacao; }
+
+    // Método toString
     public String toString() {
         return "Nome: " + this.nome +
                 "\nEmail:" + this.email +
                 "\nSenha: " + this.senha +
-                "\nURL da imagem: " + this.urlImagem;
+                "\nURL da imagem: " + this.urlImagem +
+                "\nData de criação do admin: "+ this.dataCriacao +
+                "\nData da última atualização: "+ this.dataAtualizacao;
     }
 }

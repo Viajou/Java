@@ -1,5 +1,7 @@
 package org.viajou.crudviajou.atracao;
 
+import java.util.Date;
+
 public class Atracao {
     // Declatrando os atributos
     private int id;
@@ -8,6 +10,8 @@ public class Atracao {
     private String endereco;
     private boolean acessibilidade;
     private String categoria;
+    private Date dataCriacao;
+    private Date dataAtualizacao;
 
 // Métodos Construtores
 
@@ -71,12 +75,22 @@ public class Atracao {
         this.categoria = categoria;
     }
 
-//  Método toString
+    // DataCriacao
+    public Date getDataCriacao() { return this.dataCriacao; }
+
+    // DataAtualizacao
+    public Date getDataAtualizacao() { return this.dataAtualizacao; }
+
+    public void setDataAtualizacao(Date dataAtualizacao) { this.dataAtualizacao = dataAtualizacao; }
+
+    //  Método toString
     public String toString() {
         return "Descrição: " + this.descricao +
                 "\nNome: " + this.nome +
                 "\nEndereco: " + this.endereco +
-                "\nÉ acessivel?" + this.acessibilidade+
-                "\nCategoria: " + this.categoria;
+                "\nÉ acessivel? " + this.acessibilidade +
+                "\nCategoria: " + this.categoria +
+                "\nData de criação da atração: " + this.dataCriacao +
+                "\nData da última atualização: " + this.dataAtualizacao;
     }
 }
