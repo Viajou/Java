@@ -1,0 +1,75 @@
+footer{
+    background-color: #382469;
+    height: 100%;
+}
+
+#viajou_pequena{
+    margin-top: 60px;
+}
+
+#texto{
+    width: 300px;
+    margin-left: 70px;
+    color: rgba(142, 112, 214, 1);
+    font-family: Levenim;
+}
+
+hr{
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(142, 112, 214, 1);
+}
+
+h4{
+    padding-bottom: 20px;
+    font-family: Levenim ;
+    text-align: center;
+    color: rgba(142, 112, 214, 1);
+}
+
+#final{
+    padding-top: 200px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+#lista{
+    width: 600px;
+    margin-top: 100px;
+    margin-left: 200px;
+}
+
+#lista>ul{
+    display: flex;
+    justify-content: space-around;
+    list-style: none; 
+}
+
+#lista>ul>li{
+    font-family: LevenimBold;
+    color: #E9E2EE;
+    font-size: 20px;
+}
+
+.lista_identada{
+    margin-top: 5px;
+    list-style: none;
+    font-family: Levenim;
+    font-size: 15px;
+    color: rgba(142, 112, 214, 1);
+}
+
+.redes{
+    width: 35px;
+}
+
+#contatos{
+    display: flex;
+    justify-content: space-between;
+    width: 140px;
+    padding-top: 10px;
+}

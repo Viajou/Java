@@ -27,7 +27,7 @@ import java.util.Date;
             // Instanciando o DAO para alterar os dados
             ExcursaoDAO excursaoDAO = new ExcursaoDAO();
             excursaoDAO.alterarNomeEmpresa(id, novoNomeEmpresa);
-            excursaoDAO.alterarCapacidade(novaCapacidade, id);
+            excursaoDAO.alterarCapacidade(id,novaCapacidade);
             excursaoDAO.alterarDuracao(id, novaDuracao);
             excursaoDAO.alterarSite(id, novoSite);
             excursaoDAO.alterarPrecoTotal(id, novoPrecoTotal);

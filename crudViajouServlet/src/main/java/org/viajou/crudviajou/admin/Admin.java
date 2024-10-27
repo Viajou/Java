@@ -57,10 +57,20 @@ public class Admin {
         this.senha = senha;
     }
 
+<<<<<<< HEAD
+    public String getUrlImagem() {
+        return this.urlImagem;
+    }
+
+    public void setUrlImagem(String urlImagem) {
+        this.urlImagem = urlImagem;
+    }
+=======
     // UrlImagem
     public String getUrlImagem() { return this.urlImagem; }
 
     public void setUrlImagem(String urlImagem) { this.urlImagem = urlImagem; }
+>>>>>>> 230b086696e5787d35bbaad7bd19c7612716caaf
 
     // DataCriacao
     public Date getDataCriacao() { return this.dataCriacao; }
@@ -75,8 +85,13 @@ public class Admin {
         return "Nome: " + this.nome +
                 "\nEmail:" + this.email +
                 "\nSenha: " + this.senha +
+<<<<<<< HEAD
+                "\nURL da imagem: " + this.urlImagem;
+
+=======
                 "\nURL da imagem: " + this.urlImagem +
                 "\nData de criação do admin: "+ this.dataCriacao +
                 "\nData da última atualização: "+ this.dataAtualizacao;
+>>>>>>> 230b086696e5787d35bbaad7bd19c7612716caaf
     }
 }

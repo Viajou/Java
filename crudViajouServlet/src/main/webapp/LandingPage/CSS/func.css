@@ -1,0 +1,62 @@
+.func{
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    font-family: LevenimBold;
+}
+
+/* Estilo da seção de funcionalidades */
+.funcionalidades{
+    background-color: rgb(228, 228, 228);
+    padding: 20px;
+}
+
+/* Estilo do container de funcionalidades */
+.container_func{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+/* Estilo dos blocos de funcionalidades */
+.bloco_func{
+    background-color: rgb(255, 255, 255);
+    justify-items: center;
+    height: 200px;
+    width: 250px;
+    border-radius: 8px;
+    border: 3px solid #9BDAD3;
+    padding: 10px;
+    margin: 10px;
+}
+
+.bloco_func:hover{
+    background-color: rgb(241, 241, 241);
+    transition: 0.5s;
+}
+
+/* Estilo dos círculos dentro dos blocos de funcionalidades */
+.circulo{
+    background-color: #9BDAD3;
+    color: #9BDAD3;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+    border-radius: 80px;
+}
+
+.bloco_func > h6{
+    font-size: 20px;
+    font-family: LevenimBold;
+    margin-bottom: 2px;
+    margin-top: 0px;
+}
+
+.bloco_func > p{
+    font-size: 16px;
+    font-family: Levenim;
+    margin-top: 0px;
+}
