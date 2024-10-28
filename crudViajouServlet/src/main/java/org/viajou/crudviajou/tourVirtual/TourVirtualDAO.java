@@ -221,7 +221,7 @@ public class TourVirtualDAO {
         }
     }
 
-    public int alterarIdAtracao(int id, int idAtracao,){
+    public int alterarIdAtracao(int id, int idAtracao){
         // Instanciando os objetos
         Conexao conexao = new Conexao();
 

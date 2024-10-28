@@ -37,12 +37,9 @@ public class ExcursaoDAO {
         try{
             Connection conn = conexao.getConn();
             PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM excursao WHERE id = ?");
-<<<<<<< HEAD
             conexao.conectar();
             pstmt = conn.prepareStatement("SELECT * FROM excursao");
-=======
             pstmt.setInt(1, id);
->>>>>>> 230b086696e5787d35bbaad7bd19c7612716caaf
             rset = pstmt.executeQuery();
             return rset;
 
@@ -260,13 +257,9 @@ public class ExcursaoDAO {
         }
     }
 
-<<<<<<< HEAD
 
-    public int alterardataTermino(int id, Date dataTermino) {
-=======
     public int alterarDataTermino(int id, Date dataTermino) {
         // Instanciando os objetos
->>>>>>> 230b086696e5787d35bbaad7bd19c7612716caaf
         Conexao conexao = new Conexao();
 
         // Conectando com o BD

@@ -11,7 +11,6 @@ import org.viajou.crudviajou.admin.AdminDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import org.mindrot.jbcrypt.BCrypt;
 
 @WebServlet(name = "LoginServlet", value = "/LoginServlet")
 public class Login extends HttpServlet {
@@ -25,13 +24,13 @@ public class Login extends HttpServlet {
         String senhaInserida = request.getParameter("senha");
         String senhaCerta = String.valueOf(adminDAO.buscar(emailInserido));
 
-        if (BCrypt.checkpw(senhaInserida,senhaCerta)) {
-            RequestDispatcher rd;
-            rd = getServletContext().getRequestDispatcher("/pages/listagemAdministradores.jsp");
-            rd.include(request, response);
-        } else {
-            out.println("Senha incorreta");
-        }
+//        if (BCrypt.checkpw(senhaInserida,senhaCerta)) {
+//            RequestDispatcher rd;
+//            rd = getServletContext().getRequestDispatcher("/pages/listagemAdministradores.jsp");
+//            rd.include(request, response);
+//        } else {
+//            out.println("Senha incorreta");
+//        }
 
 
     }

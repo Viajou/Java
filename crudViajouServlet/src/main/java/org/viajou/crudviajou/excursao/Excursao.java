@@ -3,18 +3,6 @@ package org.viajou.crudviajou.excursao;
 import java.util.Date;
 
 public class Excursao {
-<<<<<<< HEAD
-
-        private String nomeEmpresa;
-        private int capacidade;
-        private String duracao;
-        private String site;
-        private double precoTotal;
-        private Date dataInicio;
-        private Date dataTermino;
-        private String categoria;
-        private int idAtracao;
-=======
     // Declarando os atributos
     private int id;
     private String nomeEmpresa;
@@ -28,8 +16,6 @@ public class Excursao {
     private int idAtracao;
     private Date dataCriacao;
     private Date dataAtualizacao;
-//  Métodos construtores
->>>>>>> 230b086696e5787d35bbaad7bd19c7612716caaf
 
   // Construtor com todos os atributos da classe, exceto o ID por ser serial
     public Excursao(String nomeEmpresa, int capacidade, String duracao, String site, double precoTotal,
