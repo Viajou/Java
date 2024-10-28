@@ -34,7 +34,7 @@ public class BuscarPlano extends HttpServlet {
             request.getRequestDispatcher("/WEB-INF/views/erro.jsp").forward(request, response);
         }
         catch (Exception e) {
-            request.setAttribute("erro", "Erro ao buscar a excursão.");
+            request.setAttribute("erro", "Erro ao buscar o plano.");
             request.getRequestDispatcher("/WEB-INF/views/erro.jsp").forward(request, response);
         }
     }
