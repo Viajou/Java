@@ -1,0 +1,105 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: LevenimBold;
+    src: url("../Fonte/levenim-mt-bold.ttf");
+}
+
+@font-face {
+    font-family: Levenim;
+    src: url("../Fonte/levenim-mt-2.ttf");
+}
+
+#fundo {
+    background-image: url(../images/Fundo_roxo.svg);
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#ImagemLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#ImagemLogin > img {
+    width: 50vw;
+    max-width: 300px; /* Limita a largura máxima */
+    height: auto; /* Mantém a proporção da imagem */
+    transition: 0.3s;
+}
+
+#formulario {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+form {
+    width: 40vw;
+    max-width: 300px; /* Limita a largura máxima */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-family: LevenimBold;
+    color: white;
+    margin-top: 20px;
+    width: 100%; /* Alinha o label com o input */
+}
+
+input {
+    width: 100%; /* Ocupa toda a largura do form */
+    height: 5vh;
+    max-height: 50px; /* Limita a altura */
+    border: none;
+    border-radius: 10px;
+    color: #805CD8;
+    font-family: Levenim;
+    padding-left: 1rem;
+    transition: 0.3s;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 5px #805CD8;
+}
+
+button {
+    background-color: #805CD8;
+    color: white;
+    width: 100%; /* Ocupa toda a largura do form */
+    height: 5vh;
+    max-height: 50px; /* Limita a altura */
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: 0.3s;
+    font-family: LevenimBold;
+}
+
+button:active {
+    background-color: #544086;
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,62 @@
+.Nosso_time{
+    margin-bottom: 80px;
+}
+
+.Nosso_time>h1{
+    font-family: LevenimBold;
+    text-align: center;
+    padding: 50px;
+    
+}
+
+
+
+.foto1>img, .foto2>img, .foto3>img, .foto4>img, .foto5>img{
+    width: 260px;
+    height: 260px;
+
+}
+
+.Pessoas{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.desc, .desc2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+
+
+.desc>p:first-child{
+   font-family: Levenim;
+   color: #B2B2B2;
+}
+
+.desc>p{
+    font-family: LevenimBold;
+    color: #8E70D6;
+}
+
+.desc>h2{
+    font-family: LevenimBold;
+ }
+
+.desc2>p:first-child{
+    font-family: Levenim;
+    color: #B2B2B2;
+ }
+ 
+.desc2>p{
+    font-family: LevenimBold;
+    color: #6EC9BF;
+}
+ 
+.desc2>h2{
+    font-family: LevenimBold;
+}
