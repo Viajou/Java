@@ -10,19 +10,15 @@ import java.io.IOException;
 
 @WebServlet(name = "helloServlet", value = "/hello-servlet")
 public class BuscarPlano extends HttpServlet {
-    private String message;
-
-    public void init() {
-        message = "Hello World!";
-    }
-
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
 
-        PlanoDAO planoDAO = new PlanoDAO();
-
         try{
+            //obtendo dados do formulário
             int id = Integer.parseInt(request.getParameter("id"));
+            //instanciando um objeto a classe PlanoDAO
+            PlanoDAO planoDAO = new PlanoDAO();
+            //chamando métodos para buscar
             planoDAO.buscar(id);
             if(planoDAO.buscar(id) != null){
                 request.setAttribute("plano", planoDAO.buscar(id));
@@ -34,7 +30,7 @@ public class BuscarPlano extends HttpServlet {
             request.getRequestDispatcher("/WEB-INF/views/erro.jsp").forward(request, response);
         }
         catch (Exception e) {
-            request.setAttribute("erro", "Erro ao buscar a excursão.");
+            request.setAttribute("erro", "Erro ao buscar o plano.");
             request.getRequestDispatcher("/WEB-INF/views/erro.jsp").forward(request, response);
         }
     }

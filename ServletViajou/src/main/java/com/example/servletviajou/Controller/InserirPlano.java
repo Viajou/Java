@@ -13,13 +13,7 @@ import java.sql.SQLException;
 
 @WebServlet(name = "InserirPlano", value = "/InserirPlano-servlet")
 public class InserirPlano extends HttpServlet {
-    private String message;
-
-    public void init() {
-        message = "Hello World!";
-    }
-
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
 
         PlanoDAO planoDAO = new PlanoDAO();
@@ -39,19 +33,20 @@ public class InserirPlano extends HttpServlet {
             if(!rs.next()){
                 int num = planoDAO.inserirPlano(novoPlano);
                 if (num == 1) {
-                    request.setAttribute("retorno", "certo");
+                    request.setAttribute("mensagem", "certo");
                 } else if (num == 0) {
-                    request.setAttribute("retorno", "notfound");
+                    request.setAttribute("mensagem", "notfound");
                 } else {
-                    request.setAttribute("retorno", "erro");
+                    request.setAttribute("mensagem", "erro");
                 }
             }
             else{
-                request.setAttribute("retorno", "existente");  // Categoria já existe
+                request.setAttribute("mensagem", "existente");  // Categoria já existe
             }
         }
         catch (SQLException e) {
-            throw new RuntimeException(e);
+            request.setAttribute("erro", "Erro ao buscar o plano.");
+            request.getRequestDispatcher("/WEB-INF/views/erro.jsp").forward(request, response);
         }
     }
 }
