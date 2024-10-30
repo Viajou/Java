@@ -19,10 +19,12 @@ public class BuscarPlano extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
 
-        PlanoDAO planoDAO = new PlanoDAO();
-
         try{
+            //obtendo dados do formulário
             int id = Integer.parseInt(request.getParameter("id"));
+            //instanciando um objeto a classe PlanoDAO
+            PlanoDAO planoDAO = new PlanoDAO();
+            //chamando métodos para buscar
             planoDAO.buscar(id);
             if(planoDAO.buscar(id) != null){
                 request.setAttribute("plano", planoDAO.buscar(id));
