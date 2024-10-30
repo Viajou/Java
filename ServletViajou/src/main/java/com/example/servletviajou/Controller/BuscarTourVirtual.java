@@ -23,14 +23,27 @@ public class BuscarTourVirtual extends HttpServlet {
             TourVirtualDAO tourVirtualDAO = new TourVirtualDAO();
 
             // chamando os métodos buscar
-            ResultSet rs = tourVirtualDAO.buscar(id);
 
-            if (rs != null) {
-                request.setAttribute("tourVirtual", tourVirtualDAO.buscar(id));
+            // buscar com id
+            ResultSet rsComId = tourVirtualDAO.buscar(id);
+
+            if (rsComId.next()) {
+                request.setAttribute("mensagem", tourVirtualDAO.buscar(id));
                 request.getRequestDispatcher("tourVirtualDetalhes.jsp").forward(request, response);
             } else{
                request.setAttribute("erro", "Tour virtual não encontrado!");
                request.getRequestDispatcher("erro.jsp").forward(request, response);
+            }
+
+            // buscar sem id
+            ResultSet rsSemId = tourVirtualDAO.buscar();
+
+            if(rsSemId.next()) {
+                request.setAttribute("mensagem", tourVirtualDAO.buscar(id));
+                request.getRequestDispatcher("tourVirtualDetalhes.jsp").forward(request, response);
+            } else{
+                request.setAttribute("erro", "Tour virtual não encontrado!");
+                request.getRequestDispatcher("erro.jsp").forward(request, response);
             }
 
         } catch (NumberFormatException nfe){
