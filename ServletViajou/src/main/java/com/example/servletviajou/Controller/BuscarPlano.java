@@ -7,6 +7,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 @WebServlet(name = "helloServlet", value = "/hello-servlet")
 public class BuscarPlano extends HttpServlet {
@@ -18,11 +20,25 @@ public class BuscarPlano extends HttpServlet {
             int id = Integer.parseInt(request.getParameter("id"));
             //instanciando um objeto a classe PlanoDAO
             PlanoDAO planoDAO = new PlanoDAO();
-            //chamando métodos para buscar
-            planoDAO.buscar(id);
-            if(planoDAO.buscar(id) != null){
+            //chamando métodos para buscar com id
+            ResultSet comID = planoDAO.buscar(id);
+            if(comID.next()){
                 request.setAttribute("plano", planoDAO.buscar(id));
                 request.getRequestDispatcher("/WEB-INF/views/excursaoDetalhes.jsp").forward(request, response);
+            }
+            else{
+                request.setAttribute("erro", "Plano não encontrado!");
+                request.getRequestDispatcher("erro.jsp").forward(request, response);
+            }
+            //chamando métodos para chamar sem id
+            ResultSet semID = planoDAO.buscar();
+            if(semID.next()){
+                request.setAttribute("plano", planoDAO.buscar(id));
+                request.getRequestDispatcher("/WEB-INF/views/excursaoDetalhes.jsp").forward(request, response);
+            }
+            else{
+                request.setAttribute("erro", "Plano não encontrado!");
+                request.getRequestDispatcher("erro.jsp").forward(request, response);
             }
         }
         catch (NumberFormatException e) {
