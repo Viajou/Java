@@ -13,12 +13,6 @@ import java.sql.SQLException;
 
 @WebServlet(name = "InserirPlano", value = "/InserirPlano-servlet")
 public class InserirPlano extends HttpServlet {
-    private String message;
-
-    public void init() {
-        message = "Hello World!";
-    }
-
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
 
