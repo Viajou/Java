@@ -34,8 +34,8 @@ public class AlterarTourVirtual extends HttpServlet {
            tourVirtualDAO.alterarMediaClassificacao(id,novaMediaClassificacao);
            tourVirtualDAO.alterarQntClassificacao(id, novaQntClassificacao);
            tourVirtualDAO.alterarVideo(id, novoVideo);
-//           tourVirtualDAO.alterarIdAtracao(id,nov);
-//           tourVirtualDAO.alterarIdFigurinhas(idFigurinhas, id);
+           tourVirtualDAO.alterarIdAtracao(id,idAtracao);
+          tourVirtualDAO.alterarIdFigurinhas(id, idFigurinhas);
 
            // enviando os dados para a página JSP
            request.getRequestDispatcher("tourVirtual.jsp").forward(request, response);

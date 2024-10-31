@@ -1,7 +1,9 @@
 package com.example.servletviajou.DAO;
 
+import com.example.servletviajou.Conexao;
 import com.example.servletviajou.Model.Atracao;
 import com.example.servletviajou.Conexao;
+
 
 import java.sql.*;
 import java.time.LocalDate;

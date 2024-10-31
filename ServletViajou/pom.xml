@@ -32,9 +32,15 @@
       <scope>test</scope>
     </dependency>
       <dependency>
+<<<<<<< HEAD
           <groupId>io.github.cdimascio</groupId>
           <artifactId>dotenv-java</artifactId>
           <version>2.2.0</version>
+=======
+          <groupId>org.mindrot</groupId>
+          <artifactId>jbcrypt</artifactId>
+          <version>0.4</version>
+>>>>>>> 11ebb63810d566457277f854ec00fb5d789f13a2
       </dependency>
       <dependency>
         <groupId>org.junit.jupiter</groupId>
@@ -45,7 +51,10 @@
 
   </dependencies>
 
-  <build>
+
+
+
+    <build>
     <plugins>
 <plugin>
         <groupId>org.apache.maven.plugins</groupId>
