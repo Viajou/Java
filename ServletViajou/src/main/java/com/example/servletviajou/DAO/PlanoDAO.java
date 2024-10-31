@@ -5,6 +5,8 @@ import java.sql.*;
 import com.example.servletviajou.Conexao;
 import com.example.servletviajou.Model.Plano;
 
+import com.example.servletviajou.Conexao;
+
 
 public class PlanoDAO  {
 

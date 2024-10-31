@@ -2,12 +2,11 @@ package com.example.servletviajou.DAO;
 
 import com.example.servletviajou.Conexao;
 import com.example.servletviajou.Model.Atracao;
+import com.example.servletviajou.Conexao;
 
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.LocalDate;
 
 public class AtracaoDAO {
 
@@ -43,6 +42,7 @@ public class AtracaoDAO {
         try{
             Connection conn = conexao.getConn();
             PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM atracao WHERE id = ?");
+            pstmt.setInt(1, id);
             rset = pstmt.executeQuery();
             return rset;
 
@@ -62,12 +62,13 @@ public class AtracaoDAO {
         conexao.conectar();
         try {
             Connection conn = conexao.getConn();
-            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO atracao(descricao,nome,endereco,acessibilidade,categoria) VALUES ?,?,?,?,?");
+            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO atracao(descricao,nome,endereco,acessibilidade,categoria) VALUES (?,?,?,?,?)");
             pstmt.setString(1, atracao.getDescricao());
             pstmt.setString(2, atracao.getNome());
             pstmt.setString(3, atracao.getEndereco());
             pstmt.setBoolean(4, atracao.getAcessibilidade());
             pstmt.setString(5, atracao.getCategoria());
+            pstmt.execute();
             return 1;
         } catch (SQLException sqle){
             return -1;
@@ -86,12 +87,15 @@ public class AtracaoDAO {
         // Conectando com o BD
         conexao.conectar();
         try{
-            Connection conn = conexao.getConn();
             ResultSet busca = buscar(id);
-            if (busca.next()) {;
-                PreparedStatement pstmt = conn.prepareStatement("UPDATE atracao SET descricao = ? WHERE id = ?");
+            if (busca.next()) {
+                Connection conn = conexao.getConn();
+                // Obtendo a data atual
+                Date dataAtual = Date.valueOf(LocalDate.now());
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE atracao SET descricao = ?,data_atualizacao = ? WHERE id = ?");
                 pstmt.setString(1, descricao);
-                pstmt.setInt(2, id);
+                pstmt.setDate(2, dataAtual);
+                pstmt.setInt(3, id);
                 pstmt.execute();
                 return 1;
             }
@@ -119,9 +123,12 @@ public class AtracaoDAO {
             // Verificando se a busca teve resultados
             if (busca.next()) {
                 Connection conn = conexao.getConn();
-                PreparedStatement pstmt = conn.prepareStatement("UPDATE atracao SET nome = ? WHERE id = ?");
+                // Obtendo a data atual
+                Date dataAtual = Date.valueOf(LocalDate.now());
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE atracao SET nome = ?, data_atualizacao = ? WHERE id = ?");
                 pstmt.setString(1, nome);
-                pstmt.setInt(2, id);
+                pstmt.setDate(2, dataAtual);
+                pstmt.setInt(3, id);
                 pstmt.execute();
                 return 1;
             }
@@ -149,9 +156,12 @@ public class AtracaoDAO {
             // Verificando se a busca teve resultados
             if (busca.next()) {
                 Connection conn = conexao.getConn();
-                PreparedStatement pstmt = conn.prepareStatement("UPDATE atracao SET endereco = ? WHERE id = ?");
+                // Obtendo a data atual
+                Date dataAtual = Date.valueOf(LocalDate.now());
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE atracao SET endereco = ?, data_atualizacao = ? WHERE id = ?");
                 pstmt.setString(1, endereco);
-                pstmt.setInt(2, id);
+                pstmt.setDate(2, dataAtual);
+                pstmt.setInt(3, id);
                 pstmt.execute();
                 return 1;
             }
@@ -180,9 +190,12 @@ public class AtracaoDAO {
             // Verificando se a busca teve resultados
             if (busca.next()) {
                 Connection conn = conexao.getConn();
-                PreparedStatement pstmt = conn.prepareStatement("UPDATE atracao SET acessibilidade = ? WHERE id = ?");
+                // Obtendo a data atual
+                Date dataAtual = Date.valueOf(LocalDate.now());
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE atracao SET acessibilidade = ?, data_atualizacao = ? WHERE id = ?");
                 pstmt.setBoolean(1, acessibilidade);
-                pstmt.setInt(2, id);
+                pstmt.setDate(2, dataAtual);
+                pstmt.setInt(3, id);
                 pstmt.execute();
                 return 1;
             }
@@ -210,9 +223,12 @@ public class AtracaoDAO {
             // Verificando se a busca teve resultados
             if (busca.next()) {
                 Connection conn = conexao.getConn();
-                PreparedStatement pstmt = conn.prepareStatement("UPDATE atracao SET categoria = ? WHERE id = ?");
+                // Obtendo a data atual
+                Date dataAtual = Date.valueOf(LocalDate.now());
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE atracao SET categoria = ?, data_atualizacao = ? WHERE id = ?");
                 pstmt.setString(1, categoria);
-                pstmt.setInt(2, id);
+                pstmt.setDate(2, dataAtual);
+                pstmt.setInt(3, id);
                 pstmt.execute();
                 return 1;
             }
@@ -233,8 +249,10 @@ public class AtracaoDAO {
         // Conectando com o BD
         conexao.conectar();
         try {
-            // Verifciando se a a busca teve resultados
+            // Verificando se a a busca teve resultados
             ResultSet busca = buscar(id);
+
+            // Verificando se a busca teve resultados
             if (busca.next()) {
                 Connection conn = conexao.getConn();
                 PreparedStatement pstmt = conn.prepareStatement("DELETE FROM atracao WHERE id = ?");
