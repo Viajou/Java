@@ -24,7 +24,7 @@ public class Login extends HttpServlet {
         String senhaInserida = request.getParameter("senha");
         String senhaCerta = String.valueOf(adminDAO.buscar(emailInserido));
 
-        if (BCrypt.checkpw(senhaInserida,senhaCerta)) {
+        if (senhaInserida == senhaCerta) {
             RequestDispatcher rd;
             rd = getServletContext().getRequestDispatcher("index.jsp");
             rd.include(request, response);
