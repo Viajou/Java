@@ -298,7 +298,7 @@ public class TourVirtualDAO {
             }
             // Caso não existam tours com o id do parâmetro, o retorno é 0
             return 0;
-        } catch (SQLException e) {
+        } catch (SQLException sqle) {
             return -1;
         } finally {
             conexao.desconectar();

@@ -10,11 +10,6 @@ import java.io.IOException;
 
 @WebServlet(name = "DeletarPlano", value = "/DeletarPlano-servlet")
 public class DeletarPlano extends HttpServlet {
-    private String message;
-
-    public void init() {
-        message = "Hello World!";
-    }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");

@@ -1,0 +1,135 @@
+.planos{
+    color: rgba(65, 55, 82, 1);
+    font-family: LevenimBold;
+    text-align: center;
+    font-size: 40px;
+    margin: 15px;
+    margin-top: 100px;
+}
+
+.preco{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.viajante{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    height: 550px;
+    border-radius: 37px;
+    box-shadow: 0px 0px 15px  rgba(0, 0, 0, 0.2);
+    margin: 25px;
+}
+.viajante>img{
+    width: 302px;
+    margin-bottom: 25px;
+}
+.viajante>p{
+    text-align: center;
+    font-family: Levenim;
+    margin-top: 25px;
+    width: 180px;
+}
+
+.texto_viajante{
+    display: flex;
+    align-items: center;  
+    color: rgba(56,36,105,1);  
+}
+
+.risco{
+    height: 50px;
+    width: 0px;
+    border: 2px solid rgba(56,36,105,1);
+    margin-right: 10px;
+}
+
+.texto_viajante>h2{
+    font-family: LevenimBold;
+    text-align: center; 
+
+}
+
+.texto_viajante>h3{
+    font-family: LevenimBold;
+    font-size: 35px;
+    text-align: center;
+    margin-right: 20px;
+      
+}
+
+.texto_viajante>p{
+    font-family: LevenimBold;
+    text-align: center;
+    width: 50px;
+      
+}
+
+.team{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    height: 550px;
+    border-radius: 37px;
+    margin: 25px;
+    box-shadow: 0px 0px 15px  rgba(0, 0, 0, 0.2);
+}
+.team>img{
+    width: 302px;
+    margin-bottom: 25px;
+}
+
+.texto_team{
+    display: flex;
+    align-items: center;
+    color: rgba(56,36,105,1);
+    
+}
+
+.risco2{
+    height: 50px;
+    width: 0px;
+    border: 2px solid rgba(56,36,105,1);
+    margin-right: 5px;
+}
+
+.texto_team>h2{
+    font-family: LevenimBold;
+    text-align: center;  
+}
+
+.texto_team>h3{
+    font-family: LevenimBold;
+    font-size: 35px;
+    text-align: center;
+    margin-right: 20px;
+      
+}
+
+.texto_team>h3>span{
+    font-family: LevenimBold;
+    font-size: 20px;
+    text-align: center;
+    vertical-align: top;
+      
+}
+
+.texto_team>p{
+    font-family: LevenimBold;
+    text-align: center;
+    width: 50px;
+      
+}
+
+.team>p{
+    font-family: Levenim;
+    text-align: center;
+    width: 180px;
+    padding-top: 25px;
+      
+}
