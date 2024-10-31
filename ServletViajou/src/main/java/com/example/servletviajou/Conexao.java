@@ -1,4 +1,4 @@
-package org.viajou.crudviajou;
+package com.example.servletviajou;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

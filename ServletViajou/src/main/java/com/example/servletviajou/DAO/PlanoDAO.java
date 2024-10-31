@@ -2,8 +2,9 @@ package com.example.servletviajou.DAO;
 
 import java.sql.*;
 
+import com.example.servletviajou.Conexao;
 import com.example.servletviajou.Model.Plano;
-import org.viajou.crudviajou.Conexao;
+
 
 public class PlanoDAO  {
 

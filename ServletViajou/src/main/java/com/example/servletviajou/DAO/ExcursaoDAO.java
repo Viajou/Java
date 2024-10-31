@@ -1,6 +1,7 @@
 package com.example.servletviajou.DAO;
+import com.example.servletviajou.Conexao;
 import com.example.servletviajou.Model.Excursao;
-import org.viajou.crudviajou.Conexao;
+
 
 import java.sql.*;
 

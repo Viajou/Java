@@ -1,7 +1,7 @@
 package com.example.servletviajou.DAO;
 
+import com.example.servletviajou.Conexao;
 import com.example.servletviajou.Model.TourVirtual;
-import org.viajou.crudviajou.Conexao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
