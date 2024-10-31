@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0024d61f-0973-4260-b50d-24e7e01f197f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../../../../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Conexao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Login.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/Admin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/AdminDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/DeletarAdmin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/InserirAdmin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/atracao/AlterarAtracao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/atracao/Atracao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/atracao/AtracaoDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/atracao/BuscarAtracao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/atracao/DeletarAtracao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/atracao/InserirAtracao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/evento/Eventos.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/evento/EventosDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/excursao/AlterarExcursao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/excursao/BuscarExcursao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/excursao/DeletarExcursao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/excursao/Excursao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/excursao/ExcursaoDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/excursao/InserirExcursao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plano/DeletarPlano.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plano/InserirPlano.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plano/Plano.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plano/PlanoDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourVirtual/AlterarTourVirtual.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourVirtual/BuscarTourVirtual.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourVirtual/DeletarTourVirtual.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourVirtual/InserirTourVirtual.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourVirtual/TourVirtual.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourVirtual/TourVirtualDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/Cascanding-styles-sheets/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/Fonte/levenim-mt-2.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/Fonte/levenim-mt-bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/LandingPage/CSS/baixeApp.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/LandingPage/CSS/exper.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/LandingPage/CSS/footer.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/LandingPage/CSS/func.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/LandingPage/CSS/header.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/LandingPage/CSS/missao.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/LandingPage/CSS/pagIn.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/LandingPage/CSS/planos.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/LandingPage/CSS/somos.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/LandingPage/CSS/time.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/LandingPage/HTML/viajouPage.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/error.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/Bianca.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/Breno.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/Bruna.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/Desktop - 12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/Email.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/Evelyn.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/Explorar paulista (1).svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/Explorar paulista.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/Foto_time.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/Fundo_roxo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/Gabi.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/Gabriel.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/Heloisa.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/ImagemLogin.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/Insta.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/Joao.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/Melissa.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/Pesquisa de peril img (1).svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/Rectangle 399.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/Sofia.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/Splash.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/Teams.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/Tela Home img (1).svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/Tela excursão img (1).svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/Viajou logo pequena.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/botao-editar-eventos.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/excluir-crud-eventos.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/foto_login.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/fotos_polaroid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/fundo-crud2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/fundo-login-crud.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/fundo_login.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/google play.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/icone-eventos-crud.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/icone-excursao-crud.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/icone-interprise.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/icone-panos-crud.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/icone-team.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/icone-user-crud.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/icone-viagemVirtual-crud.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/icone-viajante.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/icone-viajou.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/icone2_telaMuseu.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/icone3_telaMuseu.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/icone_empresa.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/icone_loc_pagApp.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/icone_team+.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/icone_telaMuseu.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/icone_viajante.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/img-exursao-crud-temp.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/img-preco-team.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/img-preco-viajante.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/logo-login-crud.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/logo_Viajou.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/paulista_telaInicial.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/pesq_exc_telas.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/pontilhado-crud.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/rastro1.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/rastro2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/syst.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/telaInicial.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/tela_turismo_museu.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/images/viajou logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../webapp/landingPage.html" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../../../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="2o4279E2kttDLY0vQvFBqHtgfba" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0024d61f-0973-4260-b50d-24e7e01f197f" name="Changes" comment="" />
+      <created>1730114356317</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1730114356317</updated>
+      <workItem from="1730114357424" duration="1713000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
