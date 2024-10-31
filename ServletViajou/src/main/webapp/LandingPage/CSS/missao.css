@@ -1,0 +1,107 @@
+.missao{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.missao > .textoT{
+    text-align: center;
+    margin-top: 100px;
+}
+
+.missao > .textoT > h6{
+    font-family: LevenimBold;
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+
+.missao > .textoT > p{
+    font-family: Levenim;
+    font-size: 25px;
+    width: 700px;
+}
+
+/* Estilo do cont_tela */
+.cont_tela{  
+    flex-wrap: wrap;
+    background-image: url(../../images/icone_loc_pagApp.svg);
+    background-size: 1300px;
+    background-repeat: no-repeat;
+    height: 2100px;
+}
+
+/* Estilo do cont_telaIn */
+.cont_telaIn{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    top: 150px;
+}
+.cont_telaIn > img{
+    height: 30%;
+    flex-wrap: wrap;
+    width: 45%;
+    margin-top: 80px;
+}
+
+.cont_telaIn{
+    display: flex;
+    flex-wrap: wrap;
+    z-index: 1;
+}
+
+/* Estilo do texto na cont_telaIn */
+.texto{
+    margin-top: 250px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.texto > h6{
+    font-size: 30px;
+    font-family: LevenimBold;
+    margin-bottom: 5px;
+}
+
+.texto > p{
+    font-size: 25px;
+    font-family: Levenim;
+    width: 500px;
+}
+
+/* Estilo do cont_telaIn2 */
+.cont_telaIn2{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 300px;
+    position: relative;
+    bottom: 100px;
+}
+
+.cont_telaIn2 > img{
+    padding-top: 100px;
+    height: 25%;
+    width: 60%;
+}
+
+/* Estilo do texto2 */
+.texto2{
+    margin-top: 300px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.texto2 > h6{
+    font-size: 30px;
+    font-family: LevenimBold;
+    margin-bottom: 5px;
+}
+
+.texto2 > p{
+    font-size: 25px;
+    font-family: Levenim;
+    width: 500px;
+}
