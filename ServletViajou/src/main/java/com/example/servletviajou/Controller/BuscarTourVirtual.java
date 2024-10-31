@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 @WebServlet (name = "BuscarTourVirtual", value = "/BuscarTourVirtual-servlet")
 public class BuscarTourVirtual extends HttpServlet {
@@ -48,6 +49,9 @@ public class BuscarTourVirtual extends HttpServlet {
 
         } catch (NumberFormatException nfe){
             request.setAttribute("erro", "Erro! ID inválido!");
+            request.getRequestDispatcher("erro.jsp").forward(request, response);
+        } catch (SQLException sqle){
+            request.setAttribute("erro", "Erro! SQLException: " + sqle.getMessage());
             request.getRequestDispatcher("erro.jsp").forward(request, response);
         }
 

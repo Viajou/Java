@@ -50,7 +50,7 @@ public class InserirTourVirtual extends HttpServlet {
             }
 
         } catch(SQLException sqle){
-            request.setAttribute("mensagem", "Erro ao inserir informações no tour virtual:"+nfe.getMessage());
+            request.setAttribute("mensagem", "Erro ao inserir informações no tour virtual:"+sqle.getMessage());
             request.getRequestDispatcher("erro.jsp").forward(request, response);
 
         }
