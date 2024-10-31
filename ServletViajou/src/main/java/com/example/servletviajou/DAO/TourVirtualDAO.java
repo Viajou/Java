@@ -1,7 +1,7 @@
 package com.example.servletviajou.DAO;
 
 import com.example.servletviajou.Model.TourVirtual;
-import org.viajou.crudviajou.Conexao;
+import com.example.servletviajou.Conexao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,6 +18,7 @@ public class TourVirtualDAO {
         conexao.conectar();
         try {
             Connection conn = conexao.getConn();
+
             conexao.conectar();
             PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM tour_virtual");
             rset = pstmt.executeQuery();

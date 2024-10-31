@@ -1,7 +1,7 @@
 package com.example.servletviajou.DAO;
 
 import com.example.servletviajou.Model.Admin;
-import org.viajou.crudviajou.Conexao;
+import com.example.servletviajou.Conexao;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -108,8 +108,6 @@ public class AdminDAO {
         // Conectando com o BD
         conexao.conectar();
 
-        // Obtendo a data atual
-        Date dataAtual = Date.valueOf(LocalDate.now());
         try {
             // Verificando se o administrador existe
             ResultSet busca = buscar(id);
@@ -117,6 +115,8 @@ public class AdminDAO {
             // Verificando se a busca teve resultados
             if (busca.next()) {
                 Connection conn = conexao.getConn();
+                // Obtendo a data atual
+                Date dataAtual = Date.valueOf(LocalDate.now());
                 PreparedStatement pstmt = conn.prepareStatement("UPDATE admin SET nome =  ? ,data_atualizacao = ? WHERE id = ? ");
                 pstmt.setString(1, nome);
                 pstmt.setDate(2, dataAtual);
@@ -141,8 +141,7 @@ public class AdminDAO {
         // Conectando com o DB
         conexao.conectar();
 
-        // Obtendo a data atual
-        Date dataAtual = Date.valueOf(LocalDate.now());
+
         try {
             // Verificando se o adminstrador existe
             ResultSet busca = buscar(id);
@@ -150,6 +149,8 @@ public class AdminDAO {
             // Verificando se a busca teve resultados
             if (busca.next()) {
                 Connection conn = conexao.getConn();
+                // Obtendo a data atual
+                Date dataAtual = Date.valueOf(LocalDate.now());
                 PreparedStatement pstmt = conn.prepareStatement("UPDATE admin SET email =  ?,data_atualizacao = ? WHERE id = ? ");
                 pstmt.setString(1, email);
                 pstmt.setDate(2, dataAtual);
@@ -175,8 +176,7 @@ public class AdminDAO {
         // Conectando com o BD
         conexao.conectar();
 
-        // Obtendo a data atual
-        Date dataAtual = Date.valueOf(LocalDate.now());
+
         try {
             // Verificando se o administrador existe
             ResultSet busca = buscar(id);
@@ -184,6 +184,8 @@ public class AdminDAO {
             // Verificando se a busca teve resultados
             if (busca.next()) {
                 Connection conn = conexao.getConn();
+                // Obtendo a data atual
+                Date dataAtual = Date.valueOf(LocalDate.now());
                 PreparedStatement pstmt = conn.prepareStatement("UPDATE admin SET senha =  ?,data_atualizacao = ? WHERE id = ? ");
                 pstmt.setString(1, senha);
                 pstmt.setDate(2, dataAtual);
@@ -209,8 +211,7 @@ public class AdminDAO {
         // Conectando com o BD
         conexao.conectar();
 
-        // Obtendo a data atual
-        Date dataAtual = Date.valueOf(LocalDate.now());
+
         try {
             // Verificando se o administrador existe
             ResultSet busca = buscar(id);
@@ -218,6 +219,8 @@ public class AdminDAO {
             // Verificando se a busca teve resultados
             if (busca.next()) {
                 Connection conn = conexao.getConn();
+                // Obtendo a data atual
+                Date dataAtual = Date.valueOf(LocalDate.now());
                 PreparedStatement pstmt = conn.prepareStatement("UPDATE admin SET url_imagem =  ?,,data_atualizacao = ? WHERE id = ? ");
                 pstmt.setString(1, urlImagem);
                 pstmt.setDate(2, dataAtual);

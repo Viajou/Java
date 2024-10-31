@@ -3,7 +3,7 @@ package com.example.servletviajou.DAO;
 import java.sql.*;
 
 import com.example.servletviajou.Model.Plano;
-import org.viajou.crudviajou.Conexao;
+import com.example.servletviajou.Conexao;
 
 public class PlanoDAO  {
 
