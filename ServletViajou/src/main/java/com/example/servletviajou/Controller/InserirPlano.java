@@ -44,7 +44,7 @@ public class InserirPlano extends HttpServlet {
                 request.setAttribute("mensagem", "existente");  // Categoria já existe
             }
         }
-        catch (SQLException e) {
+        catch (SQLException sqle) {
             request.setAttribute("erro", "Erro ao buscar o plano.");
             request.getRequestDispatcher("/WEB-INF/views/erro.jsp").forward(request, response);
         }

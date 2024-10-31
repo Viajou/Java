@@ -24,7 +24,7 @@ public class BuscarPlano extends HttpServlet {
             ResultSet comID = planoDAO.buscar(id);
             if(comID.next()){
                 request.setAttribute("plano", planoDAO.buscar(id));
-                request.getRequestDispatcher("/WEB-INF/views/excursaoDetalhes.jsp").forward(request, response);
+                request.getRequestDispatcher("/WEB-INF/views/planoDetalhes.jsp").forward(request, response);
             }
             else{
                 request.setAttribute("erro", "Plano não encontrado!");
@@ -34,7 +34,7 @@ public class BuscarPlano extends HttpServlet {
             ResultSet semID = planoDAO.buscar();
             if(semID.next()){
                 request.setAttribute("plano", planoDAO.buscar(id));
-                request.getRequestDispatcher("/WEB-INF/views/excursaoDetalhes.jsp").forward(request, response);
+                request.getRequestDispatcher("/WEB-INF/views/planoDetalhes.jsp").forward(request, response);
             }
             else{
                 request.setAttribute("erro", "Plano não encontrado!");
