@@ -13,14 +13,18 @@ public class Conexao {
     public Connection getConn() {
         return conn;
     }
+
     Dotenv dotenv = Dotenv.load();
-    private String url = dotenv.get("db_conexao");
+    String url = dotenv.get("db_conexao");
+    String user = dotenv.get("db_usuario");
+    String password = dotenv.get("db_senha");
+
     public boolean conectar(){
         try{
 //          informando qual driver será utilizado para a conexão
             Class.forName("org.postgresql.Driver");
             //fazendo a conexão
-            conn = DriverManager.getConnection(url);
+            conn = DriverManager.getConnection(url, user, password);
             return true;
         }
         catch (SQLException sqle){
