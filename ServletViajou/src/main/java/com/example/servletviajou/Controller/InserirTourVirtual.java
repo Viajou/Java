@@ -35,40 +35,24 @@ public class InserirTourVirtual extends HttpServlet {
         try{
             ResultSet rs = tourVirtualDAO.buscar(idAtracao);
 
-            if(!rs.next()){
+            if(!rs.next()) {
                 int num = tourVirtualDAO.inserirTourVirtual(novoTourVirtual);
-                if(num == 1){
+                if (num == 1) {
                     request.setAttribute("mensagem", "certo");
-                }
-                if(num == 0){
+                } else if (num == 0) {
                     request.setAttribute("erro", "notFound");
-                }
-<<<<<<< HEAD
-
-                else if (num == -1){
+                } else if (num == -1) {
                     request.setAttribute("erro", "erro");
-=======
-<<<<<<< HEAD
                 else{
-                    request.setAttribute("erro", "erro");
-<<<<<<< HEAD
-=======
-=======
-                else if (num == -1){
-                    request.setAttribute("ero", "erro");
->>>>>>> 2a3613cf9b8004cce0c646ea62daf5ab215cd75c
->>>>>>> bb49e2d4ac276ea5cadb3a82b1731510a754a0fc
->>>>>>> 1fbafbd0528ec78f11c14ea31fde10f8ad369130
+                        request.setAttribute("erro", "erro");
+                    }
+                    request.setAttribute("erro", "existente");  // esse tour virtual já existe
                 }
-                request.setAttribute("erro", "existente");  // esse tour virtual já existe
             }
-
-        } catch(SQLException sqle){
+        }
+        catch(SQLException sqle){
             request.setAttribute("mensagem", "Erro ao inserir informações no tour virtual:"+sqle.getMessage());
             request.getRequestDispatcher("erro.jsp").forward(request, response);
-
         }
-
-
     }
 }
