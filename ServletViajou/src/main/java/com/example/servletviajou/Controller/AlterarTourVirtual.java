@@ -37,91 +37,91 @@ public class AlterarTourVirtual extends HttpServlet {
             retorno = tourVirtualDAO.alterarDescricao(id, novaDescricao);
 
             if (retorno == 1) {
-                request.setAttribute("mensagem", "Alteração realizada com sucesso!")
+                request.setAttribute("mensagem", "Alteração realizada com sucesso!");
             }
             else if (retorno == 0) {
-                request.setAttribute("mensagem", "Não foi possível alterar nesse momento")
+                request.setAttribute("mensagem", "Não foi possível alterar nesse momento");
             }
             else if (retorno == -1) {
-                request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração")
+                request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração");
             }
 
             // alterarPreco
             retorno = tourVirtualDAO.alterarPreco(id, novoPreco);
 
             if (retorno == 1) {
-                request.setAttribute("mensagem", "Alteração realizada com sucesso!")
+                request.setAttribute("mensagem", "Alteração realizada com sucesso!");
             }
             else if (retorno == 0) {
-                request.setAttribute("mensagem", "Não foi possível alterar nesse momento")
+                request.setAttribute("mensagem", "Não foi possível alterar nesse momento");
             }
             else if (retorno == -1) {
-                request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração")
+                request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração");
             }
 
             // alterarMediaClassificacao
             retorno = tourVirtualDAO.alterarMediaClassificacao(id, novaMediaClassificacao);
 
             if (retorno == 1) {
-                request.setAttribute("mensagem", "Alteração realizada com sucesso!")
+                request.setAttribute("mensagem", "Alteração realizada com sucesso!");
             }
             else if (retorno == 0) {
-                request.setAttribute("mensagem", "Não foi possível alterar nesse momento")
+                request.setAttribute("mensagem", "Não foi possível alterar nesse momento");
             }
             else if (retorno == -1) {
-                request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração")
+                request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração");
             }
 
             // alterarQntClassificacao
             retorno = tourVirtualDAO.alterarQntClassificacao(id, novaQntClassificacao);
 
             if (retorno == 1) {
-                request.setAttribute("mensagem", "Alteração realizada com sucesso!")
+                request.setAttribute("mensagem", "Alteração realizada com sucesso!");
             }
             else if (retorno == 0) {
-                request.setAttribute("mensagem", "Não foi possível alterar nesse momento")
+                request.setAttribute("mensagem", "Não foi possível alterar nesse momento");
             }
             else if (retorno == -1) {
-                request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração")
+                request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração");
             }
 
             // alterarVideo
             retorno = tourVirtualDAO.alterarVideo(id, novoVideo);
 
             if (retorno == 1) {
-                request.setAttribute("mensagem", "Alteração realizada com sucesso!")
+                request.setAttribute("mensagem", "Alteração realizada com sucesso!");
             }
             else if (retorno == 0) {
-                request.setAttribute("mensagem", "Não foi possível alterar nesse momento")
+                request.setAttribute("mensagem", "Não foi possível alterar nesse momento");
             }
             else if (retorno == -1) {
-                request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração")
+                request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração");
             }
 
             // alterarIdAtracao
             retorno = tourVirtualDAO.alterarIdAtracao(id, idAtracao);
 
             if (retorno == 1) {
-                request.setAttribute("mensagem", "Alteração realizada com sucesso!")
+                request.setAttribute("mensagem", "Alteração realizada com sucesso!");
             }
             else if (retorno == 0) {
-                request.setAttribute("mensagem", "Não foi possível alterar nesse momento")
+                request.setAttribute("mensagem", "Não foi possível alterar nesse momento");
             }
             else if (retorno == -1) {
-                request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração")
+                request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração");
             }
 
             // alterarIdFigurinhas
             retorno = tourVirtualDAO.alterarIdFigurinhas(id, idFigurinhas);
 
             if (retorno == 1) {
-                request.setAttribute("mensagem", "Alteração realizada com sucesso!")
+                request.setAttribute("mensagem", "Alteração realizada com sucesso!");
             }
             else if (retorno == 0) {
-                request.setAttribute("mensagem", "Não foi possível alterar nesse momento")
+                request.setAttribute("mensagem", "Não foi possível alterar nesse momento");
             }
             else if (retorno == -1) {
-                request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração")
+                request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração");
             }
 
             // enviando os dados para a página JSP
