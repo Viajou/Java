@@ -29,7 +29,7 @@ public class DeletarPlano extends HttpServlet {
         }
         else if(resultado == -1){
             request.getSession().setAttribute("erro","Erro! Não foi possível deletar esse plano");
-            response.sendRedirect("paginaErro.jsp");
+            request.getRequestDispatcher("erro.jsp").forward(request, response);
         }
     }
 }
