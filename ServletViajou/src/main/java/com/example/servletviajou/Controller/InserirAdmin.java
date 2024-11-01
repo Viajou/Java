@@ -31,7 +31,7 @@ public class InserirAdmin extends HttpServlet {
         AdminDAO adminDAO = new AdminDAO();
 
         //Criando objeto de excursao
-        Admin novoAdmin = new Admin(nome,email,senha,urlImagem,null);
+        Admin novoAdmin = new Admin(nome,email,senha,urlImagem);
 
         try {
             // Verificando se o email já está cadastrado

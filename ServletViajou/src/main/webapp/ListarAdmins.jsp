@@ -1,19 +1,21 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
-<%@ page import="java.util.List" %>
-<%@ page import="com.example.servletviajou.Model.Admin" %>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.SQLException" %>
+<%@ page import="com.example.servletviajou.DAO.AdminDAO" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page pageEncoding="UTF-8" %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/svg+xml" href="images/icone-viajou.svg">
+    <link rel="shortcut icon" type="imagex/svg" href="images/icone-viajou.svg">
     <title>Crud</title>
-    <link rel="stylesheet" href="crud.css">
+    <link rel="stylesheet" href="Cascanding-styles-sheets/crud.css">
 </head>
 <body>
 <header>
-    <img src="images/Viajou logo pequena.svg" alt="" id="Viajou-logo">
+    <img src="images/Viajou logo pequena.svg" alt="Viajou Logo" id="Viajou-logo">
 </header>
 <aside>
     <nav>
@@ -42,20 +44,22 @@
             </thead>
             <tbody>
             <%
-                List<Admin> membros = (List<Admin>) request.getAttribute("membros");
-                for (Admin membro : membros) {
+                AdminDAO adminDAO = new AdminDAO();
+                ResultSet busca = adminDAO.buscar();
+
+                try {
+                    while ((busca.next())) {
             %>
             <tr>
-                <td><div class="img"></div></td>
-                <td><%= membro.getId() %></td>
-                <td><%= membro.getNome() %></td>
-                <td><%= membro.getEmail() %></td>
-                <td id="opcoes">
-                    <img src="/images/lapis.svg" alt="">
-                    <img src="/images/lixo.svg" alt="">
-                </td>
+                <td><img class="img" src="<%= busca.getString("url_imagem")%>" alt="Foto de Perfil"></td>
+                <td><%= busca.getInt("id") %></td>
+                <td><%= busca.getString("nome") %></td>
+                <td><%= busca.getString("email") %></td>
             </tr>
             <%
+                    }
+                } catch (SQLException sqle) {
+                    sqle.getMessage();
                 }
             %>
             </tbody>
