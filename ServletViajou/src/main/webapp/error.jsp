@@ -1,19 +1,18 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: brenosouza-ieg
-  Date: 21/10/2024
-  Time: 09:06
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/erro.css">
 </head>
 <body>
-    <%@page isErrorPage="true"%>
-    <img src="" alt="Imagem de erro"><img>
-    <h2>Ops, parece que tivemos algum problema.</h2>
-    <p>Tente novamente mais tarde.</p>
+<div>
+    <img src="<%= request.getContextPath() %>/images/erro.svg" alt="">
+    <h1>Ops, parece que tivemos algum problema</h1>
+    <p>Tente novamente mais tarde</p>
+</div>
 </body>
 </html>
+
