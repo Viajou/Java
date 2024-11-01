@@ -95,8 +95,10 @@ button:active {
     background-color: #544086;
 }
 
-
-
+#senha_incorreta{
+    font-family: LevenimBold;
+    margin-right: auto;
+}
 
 
 
