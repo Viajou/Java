@@ -64,7 +64,7 @@ public class AdminDAO {
         conexao.conectar();
         try {
             Connection conn = conexao.getConn();
-            PreparedStatement pstmt = conn.prepareStatement("SELECT email FROM admin WHERE email = ? ");
+            PreparedStatement pstmt = conn.prepareStatement("SELECT senha FROM admin WHERE email = ? ");
             pstmt.setString(1,email);
             rset = pstmt.executeQuery();
             return rset;
