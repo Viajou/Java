@@ -1,5 +1,6 @@
 //package org.viajou.crudviajou;
 package com.example.servletviajou;
+
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -7,9 +8,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import com.example.servletviajou.DAO.AdminDAO;
-
 import java.io.IOException;
-import java.io.PrintWriter;
 import org.mindrot.jbcrypt.BCrypt;
 
 @WebServlet(name = "LoginServlet", value = "/LoginServlet")
@@ -17,24 +16,20 @@ public class Login extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         AdminDAO adminDAO = new AdminDAO();
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
 
         String emailInserido = request.getParameter("email");
         String senhaInserida = request.getParameter("senha");
         String senhaCerta = String.valueOf(adminDAO.buscar(emailInserido));
 
-        if (senhaInserida == senhaCerta) {
-            RequestDispatcher rd;
-            rd = getServletContext().getRequestDispatcher("index.jsp");
-            rd.include(request, response);
+        if (senhaCerta == senhaInserida) {
+            // Redireciona para a página inicial caso o login seja bem-sucedido
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/index.jsp");
+            rd.forward(request, response);
         } else {
-            out.println("Senha incorreta");
-            RequestDispatcher rd;
-            rd = getServletContext().getRequestDispatcher("index.jsp");
-            rd.include(request, response);
+            // Define a mensagem de erro e redireciona para a página de login
+            request.setAttribute("errorMessage", "Senha incorreta.");
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/index.jsp");
+            rd.forward(request, response);
         }
-
-
     }
 }
