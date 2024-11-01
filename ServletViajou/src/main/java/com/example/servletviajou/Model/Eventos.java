@@ -22,7 +22,8 @@ public class Eventos {
 //  Métodos Construtores
 
     // Construtor com todos os atributos da classe, exceto o ID por ser serial
-    public Eventos(int capacidade, String categoria, Date dataInicio, Date dataTermino, String descricao, String faixaEtaria, Time horario, int idAtracao, int idTourVirtual, double precoPessoa, Date dataCriacao) {
+    public Eventos(int id, int capacidade, String categoria, Date dataInicio, Date dataTermino, String descricao, String faixaEtaria, Time horario, int idAtracao, int idTourVirtual, double precoPessoa, Date dataCriacao) {
+        this.id = id;
         this.capacidade = capacidade;
         this.categoria = categoria;
         this.dataInicio = dataInicio;
@@ -33,6 +34,7 @@ public class Eventos {
         this.idAtracao = idAtracao;
         this.idTourVirtual = idTourVirtual;
         this.precoPessoa = precoPessoa;
+        this.dataCriacao = dataCriacao;
     }
 
     // Construtor Vazio
