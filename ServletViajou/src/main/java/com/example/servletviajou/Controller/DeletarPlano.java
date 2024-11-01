@@ -19,13 +19,17 @@ public class DeletarPlano extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
 
         int resultado = planoDAO.deletarPlano(id);
-        if (resultado > 0) {
+        if (resultado == 1) {
             request.getSession().setAttribute("mensagem", "Plano deletado com sucesso!");
             response.sendRedirect("paginaSucesso.jsp");
         }
-        else{
-            request.getSession().setAttribute("mensagem", "Erro ao deletar plano.");
+        else if(resultado == 0){
+            request.getSession().setAttribute("erro", "Erro! Não foi possível deletar esse plano");
             response.sendRedirect("paginaErro.jsp");
+        }
+        else if(resultado == -1){
+            request.getSession().setAttribute("erro","Erro! Não foi possível deletar esse plano");
+            request.getRequestDispatcher("erro.jsp").forward(request, response);
         }
     }
 }

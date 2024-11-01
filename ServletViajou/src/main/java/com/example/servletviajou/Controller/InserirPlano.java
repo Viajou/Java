@@ -36,7 +36,7 @@ public class InserirPlano extends HttpServlet {
                     request.setAttribute("mensagem", "certo");
                 } else if (num == 0) {
                     request.setAttribute("mensagem", "notfound");
-                } else {
+                } else if(num == -1){
                     request.setAttribute("mensagem", "erro");
                 }
             }
