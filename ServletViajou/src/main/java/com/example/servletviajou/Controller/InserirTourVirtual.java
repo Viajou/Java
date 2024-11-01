@@ -43,8 +43,16 @@ public class InserirTourVirtual extends HttpServlet {
                 if(num == 0){
                     request.setAttribute("erro", "notFound");
                 }
+<<<<<<< HEAD
                 else if (num == -1){
                     request.setAttribute("erro", "erro");
+=======
+                else if (num == -1) {
+                    request.setAttribute("erro", "erro");
+                }else{
+                    request.setAttribute("erro", "erro");
+
+>>>>>>> c3784e9b47c7c99edb2de8355250dfb4d8244318
                 }
                 request.setAttribute("erro", "existente");  // esse tour virtual já existe
             }
