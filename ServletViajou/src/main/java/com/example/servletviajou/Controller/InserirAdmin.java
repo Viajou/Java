@@ -53,6 +53,6 @@ public class InserirAdmin extends HttpServlet {
         }
 
         // Redirecionando para uma página de confirmação ou erro
-        request.getRequestDispatcher("/resultado-admin.jsp").forward(request, response);
+        request.getRequestDispatcher("/ListarAdmins.jsp").forward(request, response);
     }
 }
