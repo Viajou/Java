@@ -38,6 +38,6 @@ public class AlterarAdmin extends HttpServlet {
             req.setAttribute("mensagem", "Erro ao alterar admin: " + e.getMessage());
 
         }
-        req.getRequestDispatcher("/WEB-INF/jsp/admin.jsp").forward(req, resp);
+        req.getRequestDispatcher("/ListarAdmins.jsp").forward(req, resp);
     }
 }
