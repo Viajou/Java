@@ -20,7 +20,7 @@ public class AdminDAO {
         conexao.conectar();
         try {
             Connection conn = conexao.getConn();
-            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM admin");
+            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM admin order by id");
             rset = pstmt.executeQuery();
             return rset;
         } catch (SQLException sqle) {

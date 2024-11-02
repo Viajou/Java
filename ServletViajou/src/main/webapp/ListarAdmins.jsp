@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="imagex/svg" href="images/icone-viajou.svg">
-    <title>Crud</title>
+    <title>Listar Admins</title>
     <link rel="stylesheet" href="Cascanding-styles-sheets/crud.css">
 </head>
 <body>
@@ -31,6 +31,15 @@
 </aside>
 <main>
     <h1>Membros</h1>
+    <a href="BuscarAdminPorId.jsp">
+        <button>Buscar</button>
+    </a>
+    <a href="InserirAdmin.jsp">
+        <button>
+            Inserir Admin
+        </button>
+    </a>
+
     <section class="table-section">
         <table>
             <thead>
@@ -39,33 +48,37 @@
                 <th>ID</th>
                 <th>Nome</th>
                 <th>Email</th>
+                <th>Data criação</th>
+                <th>Data Atualização</th>
                 <th>Opções</th>
             </tr>
             </thead>
 
-            <a href=InserirAdmin.jsp>
-                <button>
-                    Inserir Admin
-                </button>
-            </a>
-            <a href="AlterarAdmin.jsp">
-                <button>
-                    Alterar admin
-                </button>
-            </a>
+
             <tbody>
             <%
                 AdminDAO adminDAO = new AdminDAO();
                 ResultSet busca = adminDAO.buscar();
 
                 try {
-                    while ((busca.next())) {
+                    while (busca.next()) {
+                        int adminId = busca.getInt("id");
             %>
             <tr>
-                <td><img class="img" src="<%= busca.getString("url_imagem")%>" alt="Foto de Perfil"></td>
-                <td><%= busca.getInt("id") %></td>
+                <td><img class="img" src="<%= busca.getString("url_imagem") %>" alt="Foto de Perfil"></td>
+                <td><%= adminId %></td>
                 <td><%= busca.getString("nome") %></td>
                 <td><%= busca.getString("email") %></td>
+                <td><%= busca.getString("data_criacao") %></td>
+                <td><%= busca.getString("data_atualizacao") %></td>
+                <td>
+                    <a href="AlterarAdmin.jsp?id=<%= adminId %>">
+                        <button>Alterar</button>
+                    </a>
+                    <a href="DeletarAdminServlet?id=<%= adminId %>" onclick="return confirm('Tem certeza que deseja deletar este admin?')">
+                        <button>Deletar</button>
+                    </a>
+                </td>
             </tr>
             <%
                     }
@@ -79,3 +92,5 @@
 </main>
 </body>
 </html>
+
+

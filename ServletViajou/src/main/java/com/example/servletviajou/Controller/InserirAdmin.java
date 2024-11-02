@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -24,13 +25,15 @@ public class InserirAdmin extends HttpServlet {
         String email = request.getParameter("email");
         String senha = request.getParameter("senha");
         String urlImagem = request.getParameter("urlImagem");
+        Date dataCriacao = Date.valueOf(request.getParameter("dataCriacao"));
+        Date dataAtualizacao = Date.valueOf(request.getParameter("dataAtualizacao"));
 
 
         // Criando o objeto Atracao
         AdminDAO adminDAO = new AdminDAO();
 
         //Criando objeto de excursao
-        Admin novoAdmin = new Admin(nome,email,senha,urlImagem);
+        Admin novoAdmin = new Admin(nome,email,senha,urlImagem,dataCriacao,dataAtualizacao);
 
         try {
             // Verificando se o email já está cadastrado
