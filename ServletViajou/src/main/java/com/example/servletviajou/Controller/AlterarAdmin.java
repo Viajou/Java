@@ -28,7 +28,7 @@ public class AlterarAdmin extends HttpServlet {
             AdminDAO adminDAO = new AdminDAO();
 
             ResultSet busca = adminDAO.buscar(id);
-            String senhaCerta = String.valueOf(busca.getString("senha"));
+            String senhaCerta = busca.getString("senha");
 
             if (senhaAtual.equals(senhaCerta)){
                 adminDAO.alterarNome(id, nome);

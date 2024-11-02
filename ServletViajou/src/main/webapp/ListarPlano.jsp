@@ -1,6 +1,7 @@
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.SQLException" %>
 <%@ page import="com.example.servletviajou.DAO.AdminDAO" %>
+<%@ page import="com.example.servletviajou.DAO.PlanoDAO" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page pageEncoding="UTF-8" %>
 
@@ -23,7 +24,7 @@
         <ul>
             <li><a href="ListarAdmins.jsp"><img src="images/icone-user-crud.svg" alt="">Admin</a></li>
             <li><a href="#"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
-            <li><a href="ListarPlano.jsp"><img src="images/icone-panos-crud.svg" alt="">Planos</a></li>
+            <li><a href="#"><img src="images/icone-panos-crud.svg" alt="">Planos</a></li>
             <li><a href="#"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
             <li><a href="#"><img src="images/icone-eventos-crud.svg" alt="">Atração</a></li>
             <li><a href="#"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
@@ -31,7 +32,7 @@
     </nav>
 </aside>
 <main>
-    <h1>Administradores</h1>
+    <h1>Planos</h1>
 
     <div class="button-group">
 
@@ -39,7 +40,7 @@
             <button class="inserir">Adicionar</button>
         </a>
 
-        <form action="BuscarAdminPorIdServlet" method="get" class="search-form">
+        <form action=buscarPlano-servlet method="get" class="search-form">
             <input type="text" name="search" placeholder="Buscar admin..." required>
             <button type="submit">Buscar</button>
         </form>
@@ -56,10 +57,11 @@
         <table>
             <thead>
             <tr>
-                <th>Imagem</th>
                 <th>ID</th>
                 <th>Nome</th>
-                <th>Email</th>
+                <th>Descricao</th>
+                <th>Livre propagarnda</th>
+                <th>Preço</th>
                 <th>Criação</th>
                 <th>Atualização</th>
                 <th>Opções</th>
@@ -69,29 +71,28 @@
             <%
                 ResultSet busca = (ResultSet) request.getAttribute("resultados");
                 if (busca == null) {
-                    AdminDAO adminDAO = new AdminDAO();
-                    busca = adminDAO.buscar();
+                    PlanoDAO planoDAO = new PlanoDAO();
+                    busca = planoDAO.buscar();
                 }
             %>
             <%
                 try {
                     while (busca.next()) {
-                        int adminId = busca.getInt("id");
+                        int planoId = busca.getInt("id");
             %>
             <tr>
-                <td><img class="img" src="<%= busca.getString("url_imagem") %>" alt="Foto de Perfil"></td>
-                <td><%= adminId %></td>
+                <td><%= planoId %></td>
                 <td><%= busca.getString("nome") %></td>
                 <td><%= busca.getString("email") %></td>
                 <td><%= busca.getString("data_criacao") %></td>
                 <td><%= busca.getString("data_atualizacao") %></td>
                 <td>
-                    <a href="AlterarAdmin.jsp?id=<%= adminId %>">
+                    <a href="AlterarAdmin.jsp?id=<%= planoId %>">
                         <button class="alterar">
                             <img src="images/lapis.svg" alt=""></img>
                         </button>
                     </a>
-                    <a href="DeletarAdminServlet?id=<%= adminId %>" onclick="return confirm('Tem certeza que deseja deletar este admin?')">
+                    <a href="DeletarAdminServlet?id=<%= planoId %>" onclick="return confirm('Tem certeza que deseja deletar este admin?')">
                         <button class="deletar">
                             <img src="images/lixeira.svg" alt=""></img>
                         </button>
