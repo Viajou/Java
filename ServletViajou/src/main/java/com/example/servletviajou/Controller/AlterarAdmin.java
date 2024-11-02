@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name = "LoginServlet", value = "/LoginServlet")
+@WebServlet(name = "alterarAdmin", value = "/alterarAdmin-servlet")
 public class AlterarAdmin extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -38,6 +38,7 @@ public class AlterarAdmin extends HttpServlet {
             req.setAttribute("mensagem", "Erro ao alterar admin: " + e.getMessage());
 
         }
+
         req.getRequestDispatcher("ListarAdmins.jsp").forward(req, resp);
     }
 }

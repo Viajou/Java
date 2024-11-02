@@ -50,6 +50,17 @@
                 <th>Data Atualização</th>
             </tr>
             </thead>
+
+            <a href=InserirAdmin.jsp>
+                <button>
+                    Inserir Admin
+                </button>
+            </a>
+            <a href="AlterarAdmin.jsp">
+                <button>
+                    Alterar admin
+                </button>
+            </a>
             <tbody>
             <%
                 AdminDAO adminDAO = new AdminDAO();
