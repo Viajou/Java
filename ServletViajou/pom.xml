@@ -36,10 +36,7 @@
           <groupId>io.github.cdimascio</groupId>
           <artifactId>dotenv-java</artifactId>
           <version>2.2.0</version>
-<<<<<<< HEAD
-=======
 
->>>>>>> c3784e9b47c7c99edb2de8355250dfb4d8244318
       </dependency>
 
   <dependency>
