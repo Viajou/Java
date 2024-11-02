@@ -35,6 +35,12 @@ public class Login extends HttpServlet {
 
             // Verifica se a senha inserida corresponde à senha armazenada
             if (senhaInserida.equals(senhaCerta)) {
+                // Após validar o login
+                String urlImagem = resultados.getString("url_imagem");
+                String nomeAdmin = resultados.getString("nome");
+
+                request.getSession().setAttribute("nomeAdmin", nomeAdmin);
+                request.getSession().setAttribute("urlImagem", urlImagem);
                 // Redireciona para a página inicial caso o login seja bem-sucedido
                 request.getRequestDispatcher("ListarAdmins.jsp").forward(request, response);
             } else {

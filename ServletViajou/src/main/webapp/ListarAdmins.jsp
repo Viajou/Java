@@ -9,14 +9,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="imagex/svg" href="images/icone-viajou.svg">
+    <link rel="shortcut icon" type="image/svg+xml" href="images/icone-viajou.svg">
     <title>Listar Admins</title>
     <link rel="stylesheet" href="Cascanding-styles-sheets/crud.css">
-    <link rel="stylesheet" href="Cascanding-styles-sheets/botoes.css"></link>
+    <link rel="stylesheet" href="Cascanding-styles-sheets/botoes.css">
 </head>
 <body>
 <header>
     <img src="images/Viajou logo pequena.svg" alt="Viajou Logo" id="Viajou-logo">
+    <%
+        // Recupera a URL da imagem e nome do admin armazenados na sessão
+        HttpSession sessao = request.getSession();
+        String urlImagem = (String) sessao.getAttribute("urlImagem");
+        String nomeAdmin = (String) sessao.getAttribute("nomeAdmin");
+    %>
+
+    <!-- Adiciona a imagem do admin logado, se existir -->
+    <div class="usuario">
+        <img src="<%= urlImagem %>" alt="Imagem do Admin" class="admin-image">
+        <h3 class="admin-name"><%= nomeAdmin %></h3>
+    </div>
 </header>
 <aside>
     <nav>
@@ -34,7 +46,6 @@
     <h1>Administradores</h1>
 
     <div class="button-group">
-
         <a href="InserirAdmin.jsp">
             <button class="inserir">Adicionar</button>
         </a>
@@ -43,11 +54,9 @@
             <input type="text" name="search" placeholder="Buscar admin..." required>
             <button type="submit">Buscar</button>
         </form>
-        <a href="ListarAdmins.jsp"> <!-- Substitua "ListarAdmins.jsp" pela URL da sua página de listagem -->
+        <a href="ListarAdmins.jsp">
             <button class="all">All</button>
         </a>
-
-
     </div>
 
 
@@ -88,12 +97,12 @@
                 <td>
                     <a href="AlterarAdmin.jsp?id=<%= adminId %>">
                         <button class="alterar">
-                            <img src="images/lapis.svg" alt=""></img>
+                            <img src="images/lapis.svg" alt="">
                         </button>
                     </a>
                     <a href="DeletarAdminServlet?id=<%= adminId %>" onclick="return confirm('Tem certeza que deseja deletar este admin?')">
                         <button class="deletar">
-                            <img src="images/lixeira.svg" alt=""></img>
+                            <img src="images/lixeira.svg" alt="">
                         </button>
                     </a>
                 </td>

@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 @WebServlet("/BuscarAdminPorIdServlet")
 public class BuscarAdminPorIdServlet extends HttpServlet {
@@ -21,14 +22,15 @@ public class BuscarAdminPorIdServlet extends HttpServlet {
             if (search != null && !search.isEmpty()) {
                 int adminId = Integer.parseInt(search);
                 busca = adminDAO.buscar(adminId);
-            } else {
-                busca = adminDAO.buscar();
+                request.setAttribute("resultados", busca);
             }
-            request.setAttribute("resultados", busca);
+
+            // Redireciona para a página de listagem
             request.getRequestDispatcher("ListarAdmins.jsp").forward(request, response);
-        } catch (Exception e) {
-            e.printStackTrace();
-            response.sendRedirect("ListarAdmins.jsp?erro=Erro na busca");
+        } catch (NumberFormatException e) {
+            // Trata o caso onde o ID não é um número válido
+            request.setAttribute("errorMessage", "Por favor, insira um ID válido.");
+            request.getRequestDispatcher("ListarAdmins.jsp").forward(request, response);
         }
     }
 }
