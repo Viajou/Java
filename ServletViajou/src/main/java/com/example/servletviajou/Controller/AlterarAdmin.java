@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.sql.ResultSet;
 
 @WebServlet(name = "alterarAdmin", value = "/alterarAdmin-servlet")
 public class AlterarAdmin extends HttpServlet {
@@ -20,20 +21,22 @@ public class AlterarAdmin extends HttpServlet {
             String nome = req.getParameter("nome");
             String email = req.getParameter("email");
             String senhaAtual = req.getParameter("senhaAtual");
-            String senhaNova = req.getParameter("senhaNova");
-
+            String novaSenha = req.getParameter("novaSenha");
+            String url = req.getParameter("url");
             // Instanciando o DAO para alterar os dados
             AdminDAO adminDAO = new AdminDAO();
 
-            String senhaCerta = String.valueOf(adminDAO.buscar(email));
-            if (senhaAtual.equals(senhaCerta)){
+            ResultSet busca = adminDAO.buscar(id);
+//            String senhaCerta = busca.getString("senha");
+//            if (senhaAtual.equals(senhaCerta)){
                 adminDAO.alterarNome(id, nome);
-                adminDAO.alterarSenha(id, senhaNova);
+                adminDAO.alterarSenha(id, novaSenha);
                 adminDAO.alterarEmail(id, email);
+                adminDAO.alterarUrlImagem(id, url);
                 req.setAttribute("mensagem","Admin alterado com sucesso");
-            }else {
-                req.setAttribute("mensagem", "senha atual incorreta");
-            }
+//            }else {
+//                req.setAttribute("mensagem", "senha atual incorreta");
+//            }
         }catch (Exception e){
             req.setAttribute("mensagem", "Erro ao alterar admin: " + e.getMessage());
 
