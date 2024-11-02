@@ -20,7 +20,6 @@ public class InserirAdmin extends HttpServlet {
         response.setContentType("text/html");
 
         // Obtendo os dados da URL (Query String)
-        int id = Integer.parseInt(request.getParameter("id"));
         String nome = request.getParameter("nome");
         String email = request.getParameter("email");
         String senha = request.getParameter("senha");
@@ -35,11 +34,7 @@ public class InserirAdmin extends HttpServlet {
 
         try {
             // Verificando se o email já está cadastrado
-            ResultSet rs = adminDAO.buscar(id);
-            if (rs.next()) {
-                // Se já existe um admin com o mesmo email
-                request.setAttribute("retorno", "existente");
-            } else {
+
                 // Inserindo o novo admin
                 int resultado = adminDAO.inserirAdmin(novoAdmin);
                 if (resultado == 1) {
@@ -47,8 +42,8 @@ public class InserirAdmin extends HttpServlet {
                 } else {
                     request.setAttribute("retorno", "erro");
                 }
-            }
-        } catch (SQLException e) {
+
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
