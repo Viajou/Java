@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -16,30 +17,25 @@ import java.sql.SQLException;
 public class InserirAdmin extends HttpServlet {
 
     @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
 
         // Obtendo os dados da URL (Query String)
-        int id = Integer.parseInt(request.getParameter("id"));
         String nome = request.getParameter("nome");
         String email = request.getParameter("email");
         String senha = request.getParameter("senha");
-        String urlImagem = request.getParameter("urlImagem");
+        String urlImagem = request.getParameter("url");
 
 
         // Criando o objeto Atracao
         AdminDAO adminDAO = new AdminDAO();
 
         //Criando objeto de excursao
-        Admin novoAdmin = new Admin(nome,email,senha,urlImagem,null);
+        Admin novoAdmin = new Admin(nome,email,senha,urlImagem);
 
         try {
             // Verificando se o email já está cadastrado
-            ResultSet rs = adminDAO.buscar(id);
-            if (rs.next()) {
-                // Se já existe um admin com o mesmo email
-                request.setAttribute("retorno", "existente");
-            } else {
+
                 // Inserindo o novo admin
                 int resultado = adminDAO.inserirAdmin(novoAdmin);
                 if (resultado == 1) {
@@ -47,12 +43,12 @@ public class InserirAdmin extends HttpServlet {
                 } else {
                     request.setAttribute("retorno", "erro");
                 }
-            }
-        } catch (SQLException e) {
+
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
         // Redirecionando para uma página de confirmação ou erro
-        request.getRequestDispatcher("/resultado-admin.jsp").forward(request, response);
+        request.getRequestDispatcher("/ListarAdmins.jsp").forward(request, response);
     }
 }

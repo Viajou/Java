@@ -64,10 +64,10 @@ public class AlterarPlano extends HttpServlet {
             } else if (retorno==-1) {
                 request.setAttribute("erro", "Erro ao alterar o preço");
             }
-            request.getRequestDispatcher("/WEB-INF/jsp/plano.jsp").forward(request, response);
         }
         catch (Exception e) {
             request.setAttribute("mensagem", "Erro ao alterar o plano: " + e.getMessage());
         }
+        request.getRequestDispatcher("/WEB-INF/jsp/plano.jsp").forward(request, response);
     }
 }

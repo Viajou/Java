@@ -40,7 +40,7 @@ public class BuscarTourVirtual extends HttpServlet {
             ResultSet rsSemId = tourVirtualDAO.buscar();
 
             if(rsSemId.next()) {
-                request.setAttribute("mensagem", tourVirtualDAO.buscar(id));
+                request.setAttribute("mensagem", tourVirtualDAO.buscar());
                 request.getRequestDispatcher("tourVirtualDetalhes.jsp").forward(request, response);
             } else{
                 request.setAttribute("erro", "Tour virtual não encontrado!");

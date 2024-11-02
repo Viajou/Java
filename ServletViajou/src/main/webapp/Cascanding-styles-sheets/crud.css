@@ -1,0 +1,223 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: Levenim;
+    src: url(../Fonte/levenim-mt-2.ttf);
+}
+
+@font-face {
+    font-family: LevenimBold;
+    src: url(../Fonte/levenim-mt-bold.ttf);
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #412267;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    z-index: 1000;
+}
+
+aside {
+    width: 200px;
+    color: #fff;
+    padding-top: 60px; /* Compensa o header fixo */
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    background-color: #8E70D6;
+    font-family: LevenimBold;
+}
+
+#Viajou-logo {
+    max-width: 100px;
+}
+
+aside nav ul {
+    list-style: none;
+    margin: 130px 0 0 0;
+}
+
+aside nav ul li {
+    margin: 10px 0;
+}
+
+aside nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: 0.5s;
+    display: flex;
+    align-items: center;
+}
+
+aside nav ul li a:hover {
+    background-color: #a583f4;
+    transition: 0.5s;
+}
+
+main {
+    margin-left: 200px; /* Largura da sidebar */
+    padding: 80px 20px 20px 20px; /* Compensa o header fixo */
+    flex: 1;
+}
+
+.table-section table {
+    width: 100%;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    overflow: hidden; /* Para aplicar o arredondamento nas bordas */
+    border-collapse: collapse;
+}
+
+.table-section th,
+.table-section td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-section th {
+    background-color: #412267; /* Cor do cabeçalho */
+    color: #8E70D6; /* Cor cinza para os nomes das colunas */
+    font-family: LevenimBold;
+}
+
+.table-section img {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+td {
+    font-family: Levenim;
+}
+
+.img {
+    width: 35px;
+    height: 35px;
+    margin: 0 0 0 12px;
+}
+
+h1 {
+    font-family: LevenimBold;
+    margin-top: 100px;
+    margin-bottom: 20px;
+}
+
+#opcoes > img {
+    width: 20px;
+}
+
+.button-group {
+    display: flex;
+    margin-bottom: 20px; /* Espaço abaixo do grupo de botões */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    align-items: center;
+    height: 10vh;
+}
+
+.inserir{
+    background-color: #805CD8;
+    color: white;
+    border: none;
+    padding: 0.6rem;
+    border-radius: 5px;
+    width: 9vw;
+    font-family: LevenimBold;
+    font-size: 1rem;
+    margin: 0 0 0 14px;
+    cursor: pointer;
+}
+
+.all{
+    background-color: #6445a8;
+    color: white;
+    border: none;
+    padding: 0.6rem;
+    border-radius: 5px;
+    width: 3vw;
+    font-family: LevenimBold;
+    font-size: 1rem;
+    margin: 0 14px 0 8px;
+    cursor: pointer;
+}
+
+.search-form{
+    margin-left: auto;
+
+}
+
+.search-form>input{
+    padding: 0.6rem;
+    border-radius: 5px;
+    width: 15vw;
+    font-family: Levenim;
+    border: 1px solid #d3d3d3;
+    font-size: 1rem;
+}
+
+.search-form>input:focus{
+   outline: none;
+    border: 2px solid #ad94ef;
+}
+
+
+.search-form>button{
+    background-color: #805CD8;
+    color: white;
+    border: none;
+    padding: 0.6rem;
+    border-radius: 5px;
+    width: 8vw;
+    font-family: LevenimBold;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.deletar, .alterar{
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.deletar>img, .alterar>img{
+    width: 27px;
+}
+
+a{
+    text-decoration: none;
+}
+
+.admin-image{
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+
+}
+
+.admin-name{
+    font-family: LevenimBold;
+    margin: 0 0 0 10px;
+}
+
+.usuario{
+    display: flex;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: 20px;
+    align-items: center;
+}
+

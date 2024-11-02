@@ -8,9 +8,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
-@WebServlet(name = "helloServlet", value = "/hello-servlet")
+@WebServlet(name = "buscarPlano", value = "/buscarPlano-servlet")
 public class BuscarPlano extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
