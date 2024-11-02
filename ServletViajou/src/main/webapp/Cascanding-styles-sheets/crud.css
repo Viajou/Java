@@ -201,4 +201,23 @@ a{
     text-decoration: none;
 }
 
+.admin-image{
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+
+}
+
+.admin-name{
+    font-family: LevenimBold;
+    margin: 0 0 0 10px;
+}
+
+.usuario{
+    display: flex;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: 20px;
+    align-items: center;
+}
 
