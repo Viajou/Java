@@ -42,7 +42,7 @@ public class Login extends HttpServlet {
                 request.getSession().setAttribute("nomeAdmin", nomeAdmin);
                 request.getSession().setAttribute("urlImagem", urlImagem);
                 // Redireciona para a página inicial caso o login seja bem-sucedido
-                request.getRequestDispatcher("ListarAdmins.jsp").forward(request, response);
+                request.getRequestDispatcher("listar_admin.jsp").forward(request, response);
             } else {
                 // Define a mensagem de erro e redireciona para a página de login
                 request.setAttribute("errorMessage", "Senha incorreta ou email não encontrado.");

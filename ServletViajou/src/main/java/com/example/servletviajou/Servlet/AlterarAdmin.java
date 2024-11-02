@@ -1,7 +1,6 @@
-package com.example.servletviajou.Controller;
+package com.example.servletviajou.Servlet;
 
 import com.example.servletviajou.DAO.AdminDAO;
-import com.example.servletviajou.DAO.AtracaoDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -10,7 +9,6 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 @WebServlet(name = "alterarAdmin", value = "/alterarAdmin-servlet")
 public class AlterarAdmin extends HttpServlet {
@@ -44,6 +42,6 @@ public class AlterarAdmin extends HttpServlet {
 
         }
 
-        request.getRequestDispatcher("ListarAdmins.jsp").forward(request, response);
+        request.getRequestDispatcher("listar_admin.jsp").forward(request, response);
     }
 }

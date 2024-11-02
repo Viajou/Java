@@ -1,4 +1,4 @@
-package com.example.servletviajou.Controller;
+package com.example.servletviajou.Servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

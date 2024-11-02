@@ -26,11 +26,11 @@ public class BuscarAdminPorIdServlet extends HttpServlet {
             }
 
             // Redireciona para a página de listagem
-            request.getRequestDispatcher("ListarAdmins.jsp").forward(request, response);
+            request.getRequestDispatcher("listar_admin.jsp").forward(request, response);
         } catch (NumberFormatException e) {
             // Trata o caso onde o ID não é um número válido
             request.setAttribute("errorMessage", "Por favor, insira um ID válido.");
-            request.getRequestDispatcher("ListarAdmins.jsp").forward(request, response);
+            request.getRequestDispatcher("listar_admin.jsp").forward(request, response);
         }
     }
 }

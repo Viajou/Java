@@ -25,7 +25,7 @@ public class DeletarAdminServlet extends HttpServlet {
 
         try {
             adminDAO.deletarAdmin(id); // Método deletar implementado no DAO para remover o admin
-            request.getRequestDispatcher("/ListarAdmins.jsp").forward(request, response);
+            request.getRequestDispatcher("/listar_admin.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Erro ao deletar administrador.");

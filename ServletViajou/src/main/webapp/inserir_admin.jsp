@@ -35,7 +35,7 @@
             <input type="submit" value="Inserir usuario" >
         </form>
         <br><br>
-        <a href="ListarAdmins.jsp">
+        <a href="listar_admin.jsp">
             <button>Voltar</button>
         </a>
     </main>

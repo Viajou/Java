@@ -1,20 +1,19 @@
-package com.example.servletviajou.Controller;
+package com.example.servletviajou.Servlet;
 
-import com.example.servletviajou.DAO.ExcursaoDAO;
-import com.example.servletviajou.Model.Excursao;
+import com.example.servletviajou.DAO.AtracaoDAO;
+import com.example.servletviajou.Model.Atracao;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
-@WebServlet(name = "InserirExcursao", value = "/InserirExcursao-servlet")
-    public class InserirExcursao extends HttpServlet {
+@WebServlet(name = "InserirAtracao", value = "/InserirAtracao-servlet")
+    public class InserirAtracao extends HttpServlet {
     private String message;
 
     public void init() {
@@ -24,30 +23,25 @@ import java.sql.SQLException;
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
 
-        ExcursaoDAO excursaoDAO = new ExcursaoDAO();
-
         // Obtendo os dados do formulário
-        String novoNomeEmpresa = request.getParameter("nomeEmpresa");
-        int novaCapacidade = Integer.parseInt(request.getParameter("capacidade"));
-        String novaDuracao = request.getParameter("duracao");
-        String novoSite = request.getParameter("site");
-        double novoPrecoTotal = Double.parseDouble(request.getParameter("precoTotal"));
-        Date novaDataInicio = Date.valueOf(request.getParameter("dataInicio"));
-        Date novaDataTermino = Date.valueOf(request.getParameter("dataTermino"));
+        String novaDescricao = request.getParameter("descricao");
+        String novoNome = request.getParameter("nome");
+        String novoEndereco = request.getParameter("endereco");
+        boolean novaAcessibilidade = Boolean.parseBoolean(request.getParameter("acessibilidade"));
         String novaCategoria = request.getParameter("categoria");
-        int novoIdAtracao = Integer.parseInt(request.getParameter("idAtracao"));
 
 
-        // Inserindo a excursão no banco de dados
+        // Criando o objeto Atracao
+        AtracaoDAO atracaoDAO = new AtracaoDAO();
 
         //Criando objeto de excursao
-        Excursao novaExcursao = new Excursao(novoNomeEmpresa, novaCapacidade, novaDuracao, novoSite, novoPrecoTotal, novaDataInicio, novaDataTermino, novaCategoria, novoIdAtracao);
+        Atracao novaAtracao = new Atracao(novaDescricao, novoNome, novoEndereco, novaAcessibilidade, novaCategoria);
 
         // Redirecionando para a página de confirmação
         try {
-            ResultSet rs = excursaoDAO.buscar(novoIdAtracao);
+            ResultSet rs = atracaoDAO.buscar();
             if (!rs.next()) {
-                int num = excursaoDAO.inserirExcursao(novaExcursao);
+                int num = atracaoDAO.inserirAtracao(novaAtracao);
                 if (num == 1) {
                     request.setAttribute("retorno", "certo");
                 } else if (num == 0) {
