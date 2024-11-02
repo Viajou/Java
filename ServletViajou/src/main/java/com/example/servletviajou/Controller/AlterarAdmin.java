@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 @WebServlet(name = "alterarAdmin", value = "/alterarAdmin-servlet")
 public class AlterarAdmin extends HttpServlet {
@@ -27,16 +28,17 @@ public class AlterarAdmin extends HttpServlet {
             AdminDAO adminDAO = new AdminDAO();
 
             ResultSet busca = adminDAO.buscar(id);
-//            String senhaCerta = busca.getString("senha");
-//            if (senhaAtual.equals(senhaCerta)){
+            String senhaCerta = String.valueOf(busca.getString("senha"));
+
+            if (senhaAtual.equals(senhaCerta)){
                 adminDAO.alterarNome(id, nome);
                 adminDAO.alterarSenha(id, novaSenha);
                 adminDAO.alterarEmail(id, email);
                 adminDAO.alterarUrlImagem(id, url);
                 req.setAttribute("mensagem","Admin alterado com sucesso");
-//            }else {
-//                req.setAttribute("mensagem", "senha atual incorreta");
-//            }
+            }else {
+                req.setAttribute("mensagem", "senha atual incorreta");
+            }
         }catch (Exception e){
             req.setAttribute("mensagem", "Erro ao alterar admin: " + e.getMessage());
 

@@ -17,23 +17,21 @@ import java.sql.SQLException;
 public class InserirAdmin extends HttpServlet {
 
     @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
 
         // Obtendo os dados da URL (Query String)
         String nome = request.getParameter("nome");
         String email = request.getParameter("email");
         String senha = request.getParameter("senha");
-        String urlImagem = request.getParameter("urlImagem");
-        Date dataCriacao = Date.valueOf(request.getParameter("dataCriacao"));
-        Date dataAtualizacao = Date.valueOf(request.getParameter("dataAtualizacao"));
+        String urlImagem = request.getParameter("url");
 
 
         // Criando o objeto Atracao
         AdminDAO adminDAO = new AdminDAO();
 
         //Criando objeto de excursao
-        Admin novoAdmin = new Admin(nome,email,senha,urlImagem,dataCriacao,dataAtualizacao);
+        Admin novoAdmin = new Admin(nome,email,senha,urlImagem);
 
         try {
             // Verificando se o email já está cadastrado

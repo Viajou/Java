@@ -19,7 +19,7 @@
     </header>
     <main>
         <h1>Inserindo Admin</h1>
-        <form action="inserirAdmin-servlet" method="get">
+        <form action="inserirAdmin-servlet" method="post">
             <label for="nome">Nome do admin:</label>
             <input type="text" name="nome" id="nome" placeholder="Ex: Joao">
             <br><br>
