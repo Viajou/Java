@@ -24,7 +24,7 @@
         <ul>
             <li><a href="ListarAdmins.jsp"><img src="images/icone-user-crud.svg" alt="">Admin</a></li>
             <li><a href="#"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
-            <li><a href="#"><img src="images/icone-panos-crud.svg" alt="">Planos</a></li>
+            <li><a href="ListarPlano.jsp"><img src="images/icone-panos-crud.svg" alt="">Planos</a></li>
             <li><a href="#"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
             <li><a href="#"><img src="images/icone-eventos-crud.svg" alt="">Atração</a></li>
             <li><a href="#"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
@@ -36,7 +36,7 @@
 
     <div class="button-group">
 
-        <a href="InserirAdmin.jsp">
+        <a href="InserirPlano.jsp">
             <button class="inserir">Adicionar</button>
         </a>
 
@@ -83,16 +83,19 @@
             <tr>
                 <td><%= planoId %></td>
                 <td><%= busca.getString("nome") %></td>
-                <td><%= busca.getString("email") %></td>
+                <td><%= busca.getString("descricao") %></td>
+                <td><%= busca.getBoolean("livre_propaganda") %></td>
+                <td><%= busca.getDouble("preco") %></td>
+                <td><%= busca.getString("duracao") %></td>
                 <td><%= busca.getString("data_criacao") %></td>
                 <td><%= busca.getString("data_atualizacao") %></td>
                 <td>
-                    <a href="AlterarAdmin.jsp?id=<%= planoId %>">
-                        <button class="alterar">
-                            <img src="images/lapis.svg" alt=""></img>
-                        </button>
-                    </a>
-                    <a href="DeletarAdminServlet?id=<%= planoId %>" onclick="return confirm('Tem certeza que deseja deletar este admin?')">
+<%--                    <a href="AlterarAdmin.jsp?id=<%= planoId %>">--%>
+<%--                        <button class="alterar">--%>
+<%--                            <img src="images/lapis.svg" alt=""></img>--%>
+<%--                        </button>--%>
+<%--                    </a>--%>
+                    <a href="DeletarPlano.jsp?id=<%= planoId %>" onclick="return confirm('Tem certeza que deseja deletar este admin?')">
                         <button class="deletar">
                             <img src="images/lixeira.svg" alt=""></img>
                         </button>
