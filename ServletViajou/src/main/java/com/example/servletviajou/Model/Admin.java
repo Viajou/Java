@@ -15,7 +15,7 @@ public class Admin {
 // Métodos Construtores
 
     // Construtor com todos os atributos da classe, exceto o ID por ser serial
-    public Admin(String nome, String email, String senha, String urlImagem) {
+    public Admin(String nome, String email, String senha, String urlImagem, Date dataCriacao, Date dataAtualizacao) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;

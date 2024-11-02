@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="imagex/svg" href="images/icone-viajou.svg">
-    <title>Crud</title>
+    <title>Listar Admins</title>
     <link rel="stylesheet" href="Cascanding-styles-sheets/crud.css">
 </head>
 <body>
@@ -31,6 +31,13 @@
 </aside>
 <main>
     <h1>Membros</h1>
+    <a href="DeletarAdmin.jsp">
+        <button>Deletar</button>
+    </a>
+    <a href="BuscarAdminPorId.jsp">
+        <button>Buscar</button>
+    </a>
+
     <section class="table-section">
         <table>
             <thead>
@@ -39,7 +46,8 @@
                 <th>ID</th>
                 <th>Nome</th>
                 <th>Email</th>
-                <th>Opções</th>
+                <th>Data criação</th>
+                <th>Data Atualização</th>
             </tr>
             </thead>
             <tbody>
@@ -48,13 +56,15 @@
                 ResultSet busca = adminDAO.buscar();
 
                 try {
-                    while ((busca.next())) {
+                    while (busca.next()) {
             %>
             <tr>
-                <td><img class="img" src="<%= busca.getString("url_imagem")%>" alt="Foto de Perfil"></td>
+                <td><img class="img" src="<%= busca.getString("url_imagem") %>" alt="Foto de Perfil"></td>
                 <td><%= busca.getInt("id") %></td>
                 <td><%= busca.getString("nome") %></td>
                 <td><%= busca.getString("email") %></td>
+                <td><%= busca.getString("data_criacao") %></td>
+                <td><%= busca.getString("data_atualizacao") %></td>
             </tr>
             <%
                     }
@@ -68,3 +78,4 @@
 </main>
 </body>
 </html>
+

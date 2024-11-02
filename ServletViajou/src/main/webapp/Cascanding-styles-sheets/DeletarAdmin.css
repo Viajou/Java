@@ -1,0 +1,75 @@
+
+/* Centralizar todo o conteúdo no centro exato da página */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Ocupa a altura total da janela */
+    padding: 20px;
+    text-align: center;
+    margin: 0;
+}
+
+/* Título principal */
+main h1 {
+    color: #4a4a8f;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Estilo para o formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 350px;
+    width: 100%;
+}
+
+form label {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #333;
+    font-family: Levenim;
+}
+
+form input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+form button[type="submit"] {
+    background-color: #d9534f;
+    color: #fff;
+    font-size: 1rem;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+    background-color: #c9302c;
+}
+
+/* Layout responsivo */
+@media (max-width: 500px) {
+    form {
+        padding: 20px;
+    }
+
+    form label, form input[type="text"], form button[type="submit"] {
+        font-size: 0.9rem;
+    }
+}
