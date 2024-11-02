@@ -1,43 +1,34 @@
 package com.example.servletviajou;
 
 import com.example.servletviajou.DAO.AdminDAO;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 import java.io.IOException;
 import java.sql.ResultSet;
 
-@WebServlet(name = "BuscarAdminPorIdServlet", value = "/BuscarAdminPorIdServlet")
+@WebServlet("/BuscarAdminPorIdServlet")
 public class BuscarAdminPorIdServlet extends HttpServlet {
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String idStr = request.getParameter("id");
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String search = request.getParameter("search");
         AdminDAO adminDAO = new AdminDAO();
-        ResultSet busca = null;
+        ResultSet busca;
 
         try {
-            int id = Integer.parseInt(idStr);
-            busca = adminDAO.buscar(id); // Método buscarPorId implementado no DAO
-
-            // Adiciona os resultados à requisição para que o JSP possa acessar
-            request.setAttribute("resultadoBusca", busca);
-            request.setAttribute("id", idStr);
-            request.getRequestDispatcher("BuscarAdminPorId.jsp").forward(request, response); // Redireciona para o JSP
-        } catch (NumberFormatException e) {
-            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "ID inválido.");
+            if (search != null && !search.isEmpty()) {
+                int adminId = Integer.parseInt(search);
+                busca = adminDAO.buscar(adminId);
+            } else {
+                busca = adminDAO.buscar();
+            }
+            request.setAttribute("resultados", busca);
+            request.getRequestDispatcher("ListarAdmins.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Erro ao buscar administrador.");
-        } finally {
-            if (busca != null) {
-                try {
-                    busca.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
+            response.sendRedirect("ListarAdmins.jsp?erro=Erro na busca");
         }
     }
 }

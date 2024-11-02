@@ -12,6 +12,7 @@
     <link rel="shortcut icon" type="imagex/svg" href="images/icone-viajou.svg">
     <title>Listar Admins</title>
     <link rel="stylesheet" href="Cascanding-styles-sheets/crud.css">
+    <link rel="stylesheet" href="Cascanding-styles-sheets/botoes.css"></link>
 </head>
 <body>
 <header>
@@ -20,7 +21,7 @@
 <aside>
     <nav>
         <ul>
-            <li><a href="#"><img src="images/icone-user-crud.svg" alt="">Admin</a></li>
+            <li><a href="ListarAdmins.jsp"><img src="images/icone-user-crud.svg" alt="">Admin</a></li>
             <li><a href="#"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
             <li><a href="#"><img src="images/icone-panos-crud.svg" alt="">Planos</a></li>
             <li><a href="#"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
@@ -30,15 +31,26 @@
     </nav>
 </aside>
 <main>
-    <h1>Membros</h1>
-    <a href="BuscarAdminPorId.jsp">
-        <button>Buscar</button>
-    </a>
-    <a href="InserirAdmin.jsp">
-        <button>
-            Inserir Admin
-        </button>
-    </a>
+    <h1>Administradores</h1>
+
+    <div class="button-group">
+
+        <a href="InserirAdmin.jsp">
+            <button class="inserir">Adicionar</button>
+        </a>
+
+        <form action="BuscarAdminPorIdServlet" method="get" class="search-form">
+            <input type="text" name="search" placeholder="Buscar admin..." required>
+            <button type="submit">Buscar</button>
+        </form>
+        <a href="ListarAdmins.jsp"> <!-- Substitua "ListarAdmins.jsp" pela URL da sua página de listagem -->
+            <button class="all">All</button>
+        </a>
+
+
+    </div>
+
+
 
     <section class="table-section">
         <table>
@@ -48,18 +60,20 @@
                 <th>ID</th>
                 <th>Nome</th>
                 <th>Email</th>
-                <th>Data criação</th>
-                <th>Data Atualização</th>
+                <th>Criação</th>
+                <th>Atualização</th>
                 <th>Opções</th>
             </tr>
             </thead>
-
-
             <tbody>
             <%
-                AdminDAO adminDAO = new AdminDAO();
-                ResultSet busca = adminDAO.buscar();
-
+                ResultSet busca = (ResultSet) request.getAttribute("resultados");
+                if (busca == null) {
+                    AdminDAO adminDAO = new AdminDAO();
+                    busca = adminDAO.buscar();
+                }
+            %>
+            <%
                 try {
                     while (busca.next()) {
                         int adminId = busca.getInt("id");
@@ -73,17 +87,21 @@
                 <td><%= busca.getString("data_atualizacao") %></td>
                 <td>
                     <a href="AlterarAdmin.jsp?id=<%= adminId %>">
-                        <button>Alterar</button>
+                        <button class="alterar">
+                            <img src="images/lapis.svg" alt=""></img>
+                        </button>
                     </a>
                     <a href="DeletarAdminServlet?id=<%= adminId %>" onclick="return confirm('Tem certeza que deseja deletar este admin?')">
-                        <button>Deletar</button>
+                        <button class="deletar">
+                            <img src="images/lixeira.svg" alt=""></img>
+                        </button>
                     </a>
                 </td>
             </tr>
             <%
                     }
                 } catch (SQLException sqle) {
-                    sqle.getMessage();
+                    sqle.printStackTrace();
                 }
             %>
             </tbody>
@@ -92,5 +110,3 @@
 </main>
 </body>
 </html>
-
-
