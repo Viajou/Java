@@ -11,8 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/svg+xml" href="images/icone-viajou.svg">
     <title>Listar Admins</title>
-    <link rel="stylesheet" href="Cascanding-styles-sheets/crud.css">
-    <link rel="stylesheet" href="Cascanding-styles-sheets/botoes.css">
+    <link rel="stylesheet" href="CSS/crud.css">
+    <link rel="stylesheet" href="CSS/botoes.css">
 </head>
 <body>
 <header>

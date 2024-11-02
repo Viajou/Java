@@ -2,10 +2,9 @@
 <html>
   <head>
     <title>Formulário de Login</title>
-    <link rel="stylesheet" href="Cascanding-styles-sheets/style.css">
+    <link rel="stylesheet" href="CSS/style.css">
   </head>
   <body>
-  +
   <div id="fundo">
       <div id="ImagemLogin">
         <img src="<%= request.getContextPath() %>/images/ImagemLogin.svg" alt="">
