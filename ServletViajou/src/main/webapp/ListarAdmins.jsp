@@ -31,11 +31,13 @@
 </aside>
 <main>
     <h1>Membros</h1>
-    <a href="DeletarAdmin.jsp">
-        <button>Deletar</button>
-    </a>
     <a href="BuscarAdminPorId.jsp">
         <button>Buscar</button>
+    </a>
+    <a href="InserirAdmin.jsp">
+        <button>
+            Inserir Admin
+        </button>
     </a>
 
     <section class="table-section">
@@ -48,19 +50,11 @@
                 <th>Email</th>
                 <th>Data criação</th>
                 <th>Data Atualização</th>
+                <th>Opções</th>
             </tr>
             </thead>
 
-            <a href=InserirAdmin.jsp>
-                <button>
-                    Inserir Admin
-                </button>
-            </a>
-            <a href="AlterarAdmin.jsp">
-                <button>
-                    Alterar admin
-                </button>
-            </a>
+
             <tbody>
             <%
                 AdminDAO adminDAO = new AdminDAO();
@@ -68,14 +62,23 @@
 
                 try {
                     while (busca.next()) {
+                        int adminId = busca.getInt("id");
             %>
             <tr>
                 <td><img class="img" src="<%= busca.getString("url_imagem") %>" alt="Foto de Perfil"></td>
-                <td><%= busca.getInt("id") %></td>
+                <td><%= adminId %></td>
                 <td><%= busca.getString("nome") %></td>
                 <td><%= busca.getString("email") %></td>
                 <td><%= busca.getString("data_criacao") %></td>
                 <td><%= busca.getString("data_atualizacao") %></td>
+                <td>
+                    <a href="AlterarAdmin.jsp?id=<%= adminId %>">
+                        <button>Alterar</button>
+                    </a>
+                    <a href="DeletarAdminServlet?id=<%= adminId %>" onclick="return confirm('Tem certeza que deseja deletar este admin?')">
+                        <button>Deletar</button>
+                    </a>
+                </td>
             </tr>
             <%
                     }
@@ -89,4 +92,5 @@
 </main>
 </body>
 </html>
+
 
