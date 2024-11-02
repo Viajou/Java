@@ -17,7 +17,7 @@ import java.sql.SQLException;
 public class InserirAdmin extends HttpServlet {
 
     @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
 
         // Obtendo os dados da URL (Query String)
