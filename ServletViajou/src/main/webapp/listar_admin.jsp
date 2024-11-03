@@ -50,6 +50,9 @@
         <a href="inserir_admin.jsp">
             <button class="inserir">Adicionar</button>
         </a>
+        <a href="alterar_admin.jsp">
+            <button class="alterar">Alterar</button>
+        </a>
 
         <form action="BuscarAdminPorIdServlet" method="get" class="search-form">
             <input type="text" name="search" placeholder="Buscar admin..." required>
@@ -99,11 +102,6 @@
                 <td><%= busca.getString("data_criacao") %></td>
                 <td><%= busca.getString("data_atualizacao") %></td>
                 <td>
-                    <a href="alterar_admin.jsp?id=<%= adminId %>">
-                        <button class="alterar">
-                            <img src="images/lapis.svg" alt="">
-                        </button>
-                    </a>
                     <a href="DeletarAdminServlet?id=<%= adminId %>" onclick="return confirm('Tem certeza que deseja deletar este admin?')">
                         <button class="deletar">
                             <img src="images/lixeira.svg" alt="">

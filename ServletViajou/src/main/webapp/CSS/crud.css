@@ -48,9 +48,7 @@ aside nav ul {
     margin: 130px 0 0 0;
 }
 
-aside nav ul li {
-    margin: 10px 0;
-}
+
 
 aside nav ul li a {
     color: #fff;
@@ -59,6 +57,7 @@ aside nav ul li a {
     transition: 0.5s;
     display: flex;
     align-items: center;
+    height: 55px;
 }
 
 aside nav ul li a:hover {
@@ -188,14 +187,27 @@ h1 {
     cursor: pointer;
 }
 
-.deletar, .alterar{
+.alterar{
+    background-color: #6EC9BF;
+    color: white;
+    border: none;
+    padding: 0.6rem;
+    border-radius: 5px;
+    width: 7vw;
+    font-family: LevenimBold;
+    font-size: 1rem;
+    margin: 0 0 0 14px;
+    cursor: pointer;
+}
+
+.deletar{
     background: none;
     border: none;
     cursor: pointer;
     padding: 0;
 }
 
-.deletar>img, .alterar>img{
+.deletar>img{
     width: 27px;
 }
 
@@ -223,3 +235,7 @@ a{
     align-items: center;
 }
 
+a>img{
+    width: 25px;
+    margin-right: 8px;
+}

@@ -12,7 +12,7 @@ import java.io.IOException;
 public class DeletarAdmin extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html");
         // Obtendo os dados da URL (Query String)
