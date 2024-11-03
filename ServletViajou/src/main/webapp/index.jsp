@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Formulário de Login</title>
+    <title>Formulario de Login</title>
     <link rel="stylesheet" href="CSS/style.css">
   </head>
   <body>
