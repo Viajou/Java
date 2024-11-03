@@ -31,7 +31,7 @@ public class BuscarEvento extends HttpServlet {
 
             if (rsComid.next()){
                 req.setAttribute("mensagem", rsComid);
-                req.getRequestDispatcher("BuscarEventos.jsp").forward(req, resp);
+                req.getRequestDispatcher("/eventos.jsp").forward(req, resp);
             }
             else {
                 req.setAttribute("erro", "Evento não encontrado");
@@ -44,7 +44,7 @@ public class BuscarEvento extends HttpServlet {
 
             if (rsSemid.next()){
                 req.setAttribute("mensagem", rsComid);
-                req.getRequestDispatcher("BuscarEventos.jsp").forward(req, resp);
+                req.getRequestDispatcher("/eventos.jsp").forward(req, resp);
             }
             else {
                 req.setAttribute("erro", "Evento não encontrado");
