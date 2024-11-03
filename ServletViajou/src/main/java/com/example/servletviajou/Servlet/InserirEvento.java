@@ -25,18 +25,18 @@ public class InserirEvento extends HttpServlet {
             EventosDAO eventosDAO = new EventosDAO();
 
             int id = Integer.parseInt(getInitParameter("id"));
-            String faixaEtaria = req.getParameter("faixaEtaria");
+            String faixaEtaria = req.getParameter("faixa-etaria");
             String categoria = req.getParameter("categoria");
             String descricao = req.getParameter("descricao");
             int capacidade = Integer.parseInt("capacidade");
             Time horario = Time.valueOf(req.getParameter("horario"));
-            Date data_inicio = Date.valueOf(req.getParameter("data_inicio"));
-            Date data_termino = Date.valueOf(req.getParameter("data_termino"));
-            double preco_pessoa = Double.parseDouble(req.getParameter("preco_pessoa"));
-            int id_atracao = Integer.parseInt(req.getParameter("id_atracao"));
-            int id_tourVirtual = Integer.parseInt(req.getParameter("id_tourVitual"));
-            Date data_criacao = Date.valueOf(req.getParameter("data_criacao"));
-            Date data_atualizacao = Date.valueOf(req.getParameter("data_atualizacao"));
+            Date data_inicio = Date.valueOf(req.getParameter("data-inicio"));
+            Date data_termino = Date.valueOf(req.getParameter("data-termino"));
+            double preco_pessoa = Double.parseDouble(req.getParameter("preco-pessoa"));
+            int id_atracao = Integer.parseInt(req.getParameter("id-atracao"));
+            int id_tourVirtual = Integer.parseInt(req.getParameter("id-tour"));
+            Date data_criacao = Date.valueOf(req.getParameter("data-criacao"));
+            Date data_atualizacao = Date.valueOf(req.getParameter("data-atualizacao"));
 
             Eventos eventos = new Eventos(id, capacidade, categoria, data_inicio, data_termino, descricao,
                     faixaEtaria, horario, id_atracao, id_tourVirtual, preco_pessoa, data_criacao);
