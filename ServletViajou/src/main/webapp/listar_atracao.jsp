@@ -19,7 +19,6 @@
     <link rel="shortcut icon" type="imagex/svg" href="images/icone-viajou.svg">
     <title>Listar atracao</title>
     <link rel="stylesheet" href="CSS/crud.css">
-    <link rel="stylesheet" href="CSS/botoes.css"></link>
 </head>
 <body>
 <header>

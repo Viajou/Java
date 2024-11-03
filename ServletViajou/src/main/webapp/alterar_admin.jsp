@@ -1,12 +1,9 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: heloisamachado-ieg
-  Date: 01/11/2024
-  Time: 22:23
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="com.example.servletviajou.DAO.AdminDAO" %>
+<%@ page import="com.example.servletviajou.Model.Admin" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -30,9 +27,6 @@
     <br><br>
     <label for="url">Foto do admin:</label>
     <input type="text" name="url" id="url" placeholder="Ex: https://imagem-usuario">
-    <br><br>
-    <label for="senhaAtual">Senha Atual do admin:</label>
-    <input type="text" name="senhaAtual" id="senhaAtual" placeholder="Ex: 12345">
     <br><br>
     <label for="novaSenha">Nova senha do admin:</label>
     <input type="text" name="novaSenha" id="novaSenha" placeholder="Ex: 12345">
