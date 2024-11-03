@@ -20,27 +20,25 @@ import java.sql.SQLException;
         message = "Hello World!";
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
 
         // Obtendo os dados do formulário
-        String novaDescricao = request.getParameter("descricao");
-        String novoNome = request.getParameter("nome");
-        String novoEndereco = request.getParameter("endereco");
-        boolean novaAcessibilidade = Boolean.parseBoolean(request.getParameter("acessibilidade"));
-        String novaCategoria = request.getParameter("categoria");
+        String Descricao = request.getParameter("descricao");
+        String Nome = request.getParameter("nome");
+        String Endereco = request.getParameter("endereco");
+        boolean Acessibilidade = Boolean.parseBoolean(request.getParameter("acessibilidade"));
+        String Categoria = request.getParameter("categoria");
 
 
         // Criando o objeto Atracao
         AtracaoDAO atracaoDAO = new AtracaoDAO();
 
         //Criando objeto de excursao
-        Atracao novaAtracao = new Atracao(novaDescricao, novoNome, novoEndereco, novaAcessibilidade, novaCategoria);
+        Atracao novaAtracao = new Atracao(Descricao, Nome, Endereco, Acessibilidade, Categoria);
 
         // Redirecionando para a página de confirmação
         try {
-            ResultSet rs = atracaoDAO.buscar();
-            if (!rs.next()) {
                 int num = atracaoDAO.inserirAtracao(novaAtracao);
                 if (num == 1) {
                     request.setAttribute("retorno", "certo");
@@ -49,11 +47,11 @@ import java.sql.SQLException;
                 } else {
                     request.setAttribute("retorno", "erro");
                 }
-            } else {
-                request.setAttribute("retorno", "existente");  // Categoria já existe
-            }
-        } catch (SQLException e) {
+
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
+        request.getRequestDispatcher("/listar_atracao.jsp").forward(request, response);
+
     }
 }

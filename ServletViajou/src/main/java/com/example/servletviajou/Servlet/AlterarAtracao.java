@@ -10,7 +10,7 @@ import java.io.IOException;
 
 @WebServlet(name = "AlterarAtracao", value = "/AlterarAtracao-servlet")
     public class AlterarAtracao extends HttpServlet {
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         try {
 
