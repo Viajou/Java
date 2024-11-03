@@ -15,35 +15,40 @@ import java.sql.SQLException;
 @WebServlet(name = "alterarAdmin", value = "/alterarAdmin-servlet")
 public class AlterarAdmin extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             // Obtendo os dados do formulário
-            int id = Integer.parseInt(req.getParameter("id"));
-            String nome = req.getParameter("nome");
-            String email = req.getParameter("email");
-            String senhaAtual = req.getParameter("senhaAtual");
-            String novaSenha = req.getParameter("novaSenha");
-            String url = req.getParameter("url");
+            int id = Integer.parseInt(request.getParameter("id"));
+            String nome = request.getParameter("nome");
+            String email = request.getParameter("email");
+            String novaSenha = request.getParameter("novaSenha");
+            String url = request.getParameter("url");
             // Instanciando o DAO para alterar os dados
             AdminDAO adminDAO = new AdminDAO();
 
-            ResultSet busca = adminDAO.buscar(id);
-            String senhaCerta = busca.getString("senha");
 
-            if (senhaAtual.equals(senhaCerta)){
+
+            // Verifica cada campo antes de atualizar
+            if (nome != null && !nome.isEmpty()) {
                 adminDAO.alterarNome(id, nome);
-                adminDAO.alterarSenha(id, novaSenha);
-                adminDAO.alterarEmail(id, email);
-                adminDAO.alterarUrlImagem(id, url);
-                req.setAttribute("mensagem","Admin alterado com sucesso");
-            }else {
-                req.setAttribute("mensagem", "senha atual incorreta");
             }
+            if (email != null && !email.isEmpty()) {
+                adminDAO.alterarEmail(id, email);
+            }
+            if (url != null && !url.isEmpty()) {
+                adminDAO.alterarUrlImagem(id, url);
+            }
+            if (novaSenha != null && !novaSenha.isEmpty()) {
+                adminDAO.alterarSenha(id, novaSenha);
+            }
+
+
+
         }catch (Exception e){
-            req.setAttribute("mensagem", "Erro ao alterar admin: " + e.getMessage());
+            request.setAttribute("mensagem", "Erro ao alterar admin: " + e.getMessage());
 
         }
 
-        req.getRequestDispatcher("ListarAdmins.jsp").forward(req, resp);
+        request.getRequestDispatcher("ListarAdmins.jsp").forward(request, response);
     }
 }
