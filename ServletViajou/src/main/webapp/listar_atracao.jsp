@@ -35,6 +35,8 @@
             <li><a href="#"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
             <li><a href="listar_atracao.jsp"><img src="images/icone-eventos-crud.svg" alt="">Atração</a></li>
             <li><a href="#"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
+            <li><a href="https://area-restrita-dev.onrender.com/index.html">Área Restrita</a></li>
+
         </ul>
     </nav>
 </aside>
@@ -72,15 +74,6 @@
                 <th>Criação</th>
                 <th>Atualização</th>
                 <th>Opções</th>
-<%--                private int id;--%>
-<%--                private String descricao;--%>
-<%--                private String nome;--%>
-<%--                private String endereco;--%>
-<%--                private boolean acessibilidade;--%>
-<%--                private String categoria;--%>
-<%--                private Date dataCriacao;--%>
-<%--                private Date dataAtualizacao;--%>
-
             </tr>
             </thead>
             <tbody>

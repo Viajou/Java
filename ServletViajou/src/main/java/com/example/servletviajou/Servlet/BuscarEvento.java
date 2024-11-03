@@ -1,63 +1,45 @@
-//
-//package com.example.servletviajou.Controller;
-//
-//import com.example.servletviajou.DAO.EventosDAO;
-//import jakarta.servlet.ServletException;
-//import jakarta.servlet.annotation.WebServlet;
-//import jakarta.servlet.http.HttpServlet;
-//import jakarta.servlet.http.HttpServletRequest;
-//import jakarta.servlet.http.HttpServletResponse;
-//
-//import java.io.IOException;
-//import java.sql.ResultSet;
-//import java.sql.SQLException;
-//
-//@WebServlet(name = "BuscarEvento", value = "BuscarEvento-servlet")
-//public class BuscarEvento extends HttpServlet {
-//    @Override
-//    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//
-//        try {
-//            // obtendo dados do formulário
-//            int id = Integer.parseInt(request.getParameter("id"));
-//
-//            //instanciando a classe DAO de eventos
-//            EventosDAO eventosDAO = new EventosDAO();
-//
-//            //buscar com id
-//            eventosDAO.buscar(id);
-//
-//            //verificação de retorno
-//            ResultSet rsComid = eventosDAO.buscar(id);
-//
-//            if (rsComid.next()){
-//                request.setAttribute("mensagem", eventosDAO.buscar(id));
-//                request.getRequestDispatcher("BuscarEventos.jsp").forward(request, response);
-//            }
-//            else {
-//                request.setAttribute("erro", "Evento não encontrado");
-//                request.getRequestDispatcher("erro.jsp").forward(request, response);
-//            }
-//
-//            //buscar sem id
-//
-//            ResultSet rsSemid = eventosDAO.buscar();
-//
-//            if (rsSemid.next()){
-//                request.setAttribute("mensagem", eventosDAO.buscar());
-//                request.getRequestDispatcher("BuscarEventos.jsp").forward(request, response);
-//            }
-//            else {
-//                request.setAttribute("erro", "Evento não encontrado");
-//                request.getRequestDispatcher("erro.jsp").forward(request, response);
-//            }
-//
-//        } catch (NumberFormatException nfe){
-//            request.setAttribute("Erro", "ID inválido!");
-//            request.getRequestDispatcher("erro.jsp").forward(request, response);
-//        } catch (SQLException sqle){
-//            request.setAttribute("erro", "Erro de SQLexception" + sqle.getMessage());
-//            request.getRequestDispatcher("erro.jsp").forward(request, response);
-//        }
-//    }
-//}
+package com.example.servletviajou.Servlet;
+
+import com.example.servletviajou.DAO.EventosDAO;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+@WebServlet(name = "BuscarEvento", value = "/BuscarEvento-servlet")
+public class BuscarEvento extends HttpServlet {
+
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String search = request.getParameter("search");
+        EventosDAO eventosDAO = new EventosDAO();
+
+        int eventoId = Integer.parseInt(search);
+        ResultSet busca = eventosDAO.buscar(eventoId);
+
+        try {
+            // Verifica se o ResultSet está vazio
+            if (busca.next()) { // Se não há resultados
+                ResultSet certo = eventosDAO.buscar(eventoId);
+                request.setAttribute("resultados", certo);
+                // Redireciona para a página de listagem
+                request.getRequestDispatcher("listar_eventos.jsp").forward(request, response);
+            } else {
+                request.setAttribute("naoEncontrado", "Admin não encontrado...");
+                request.getRequestDispatcher("listar_eventos.jsp").forward(request, response);
+            }
+
+
+        } catch (NumberFormatException nfe) {
+            // Trata o caso onde o ID não é um número válido
+            request.setAttribute("errorMessage", "Por favor, insira um ID válido.");
+            request.getRequestDispatcher("listar_eventos.jsp").forward(request, response);
+        }catch (SQLException sqle) {
+            request.setAttribute("errorMessage", sqle.getMessage());
+        }
+    }
+}

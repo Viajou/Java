@@ -3,7 +3,7 @@ package com.example.servletviajou.Model;
 import java.util.Date;
 
 public class Atracao {
-    // Declatrando os atributos
+    // Declarando os atributos
     private int id;
     private String descricao;
     private String nome;
@@ -12,8 +12,6 @@ public class Atracao {
     private String categoria;
     private Date dataCriacao;
     private Date dataAtualizacao;
-
-// Métodos Construtores
 
     // Construtor com todos os atributos da classe, exceto o ID por ser serial
     public Atracao(String descricao, String nome, String endereco, boolean acessibilidade, String categoria) {
