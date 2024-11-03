@@ -60,11 +60,12 @@ public class PlanoDAO  {
         conexao.conectar();
         try {
             Connection conn = conexao.getConn();
-            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO plano(descricao, livre_propaganda, nome, preco) VALUES (?,?,?,?)");
-            pstmt.setString(1, plano.getDescricao());
-            pstmt.setBoolean(2, plano.isLivrePropaganda());
-            pstmt.setString(3, plano.getNome());
-            pstmt.setDouble(4, plano.getPreco());
+            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO plano(nome, descricao, livre_propaganda, preco, duracao) VALUES (?, ?, ?, CAST(? AS money), ?)");
+            pstmt.setString(1, plano.getNome());
+            pstmt.setString(2, plano.getDescricao());
+            pstmt.setBoolean(3, plano.getLivrePropaganda());;
+            pstmt.setString(4, plano.getPreco());
+            pstmt.setString(5, plano.getDuracao());
             pstmt.execute();
             return 1;
         } catch (SQLException sqle){
@@ -186,6 +187,36 @@ public class PlanoDAO  {
         }
     }
 
+    public int alterarDuracao(int id, String duracao){
+        // Instanciando os objetos
+        Conexao conexao = new Conexao();
+
+        // Conectando com o BD
+        conexao.conectar();
+        try{
+            // Verificando se o plano existe
+            ResultSet busca = buscar(id);
+
+            // Verificando se a busca teve resultados
+            if (busca.next()) {
+                Connection conn = conexao.getConn();
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE plano SET duracao = ? WHERE id = ?");
+                pstmt.setString(1, duracao);
+                pstmt.setInt(2, id);
+                pstmt.execute();
+                return 1;
+            }
+            // Caso não existam planos com o id do parâmetro, o retorno é 0
+            return 0;
+        } catch (SQLException sqle){
+            return -1;
+        } finally {
+            // Desconectando do BD ao final do try
+            conexao.desconectar();
+        }
+    }
+
+
 
     public int deletarPlano(int id) {
         // Instanciando os objetos
@@ -215,3 +246,6 @@ public class PlanoDAO  {
         }
     }
 }
+
+
+

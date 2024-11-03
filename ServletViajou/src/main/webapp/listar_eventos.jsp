@@ -1,5 +1,6 @@
 <%@ page import="java.sql.ResultSet" %>
-<%@ page import="com.example.servletviajou.DAO.EventosDAO" %><%--
+<%@ page import="com.example.servletviajou.DAO.EventosDAO" %>
+<%@ page import="java.sql.SQLException" %><%--
   Created by IntelliJ IDEA.
   User: biancaclarindo-ieg
   Date: 03/11/2024
@@ -36,9 +37,9 @@
     <nav>
         <ul>
             <li><a href="listar_admin.jsp"><img src="images/icone-user-crud.svg" alt="">Admin</a></li>
-            <li><a href="#"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
+            <li><a href="listar_eventos.jsp"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
             <li><a href="listar_plano.jsp"><img src="images/icone-panos-crud.svg" alt="">Planos</a></li>
-            <li><a href="listar_eventos.jsp"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
+            <li><a href="#"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
             <li><a href="listar_atracao.jsp"><img src="images/icone-eventos-crud.svg" alt="">Atração</a></li>
             <li><a href="#"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
             <li><a href="https://area-restrita-dev.onrender.com/index.html">Área Restrita</a></li>
@@ -50,11 +51,15 @@
     <h1>Eventos</h1>
 
     <div class="button-group">
-        <a href="#">
+        <a href="${pageContext.request.contextPath}/InserirEvento-servlets">
             <button class="inserir">Adicionar</button>
         </a>
 
-        <form action="" method="get" class="search-form">
+        <a href="AterarEventos-servlet">
+            <button class="alterar">Alterar</button>
+        </a>
+
+        <form action="${pageContext.request.contextPath}/BuscarEvento-servlet" method="get" class="search-form">
             <input type="text" name="search" placeholder="Buscar evento...">
             <button type="submit">Buscar</button>
         </form>
@@ -74,8 +79,10 @@
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
+                <th>Descrição</th>
                 <th>Categoria</th>
-                <th>Local</th>
+                <th>Capacidade</th>
+                <th>Preço</th>
                 <th>Inicio</th>
                 <th>Fim</th>
                 <th>Faixa etária</th>
@@ -98,12 +105,39 @@
 
             <tr>
                 <td><%= eventosId %></td>
-                <td><%= %></td>
+                <td><%= busca.getString("nome") %></td>
+                <td><%=busca.getString("descricao")%></td>
+                <td><%=busca.getString("categoria")%></td>
+                <td><%=busca.getInt("capacidade")%></td>
+                <td><%=busca.getDouble("preco")%></td>
+                <td><%=busca.getDate("data_inicio")%></td>
+                <td><%=busca.getDate("data_final")%></td>
+                <td><%=busca.getInt("faixa_etaria")%></td>
+                <td>
+                    <a href="/DeletarEevntos-servelet="<%= eventosId%> onclick="return confirm('Tem certeza que deseja deletar este evento?')"
+                       <button class="deletar">
+                           <img src="images/lixeira.svg">
+                       </button>
+                </td>
             </tr>
+            <%
+                } // fim do while
+                } catch (SQLException sqle){
+                    sqle.printStackTrace();
+                } //fim do try
+            %>
             </tbody>
         </table>
     </section>
-</main>
+    <%
+        // fim do if
+        } else {
+    %>
+    <p class="naoEncontrado"<%= request.getAttribute("naoEncontrado")%>></p>
+    <%
+        } //fim do else
+    %>
 
+</main>
 </body>
 </html>

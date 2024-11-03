@@ -19,7 +19,7 @@ public class AlterarAdmin extends HttpServlet {
             String nome = request.getParameter("nome");
             String email = request.getParameter("email");
             String novaSenha = request.getParameter("novaSenha");
-            String url = request.getParameter("url");
+            String url = request.getParameter("url_imagem");
             // Instanciando o DAO para alterar os dados
             AdminDAO adminDAO = new AdminDAO();
 

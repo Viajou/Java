@@ -8,45 +8,36 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 @WebServlet(name = "buscarPlano", value = "/buscarPlano-servlet")
 public class BuscarPlano extends HttpServlet {
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        response.setContentType("text/html");
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String search = request.getParameter("search");
+        PlanoDAO planoDAO = new PlanoDAO();
 
-        try{
-            //obtendo dados do formulário
-            int id = Integer.parseInt(request.getParameter("id"));
-            //instanciando um objeto a classe PlanoDAO
-            PlanoDAO planoDAO = new PlanoDAO();
-            //chamando métodos para buscar com id
-            ResultSet comID = planoDAO.buscar(id);
-            if(comID.next()){
-                request.setAttribute("plano", planoDAO.buscar(id));
-                request.getRequestDispatcher("/WEB-INF/views/planoDetalhes.jsp").forward(request, response);
+        int planoId = Integer.parseInt(search);
+        ResultSet busca = planoDAO.buscar(planoId);
+
+        try {
+            // Verifica se o ResultSet está vazio
+            if (busca.next()) { // Se não há resultados
+                ResultSet certo = planoDAO.buscar(planoId);
+                request.setAttribute("resultados", certo);
+                // Redireciona para a página de listagem
+                request.getRequestDispatcher("listar_plano.jsp").forward(request, response);
+            } else {
+                request.setAttribute("naoEncontrado", "Plano não encontrado...");
+                request.getRequestDispatcher("listar_plano.jsp").forward(request, response);
             }
-            else{
-                request.setAttribute("erro", "Plano não encontrado!");
-                request.getRequestDispatcher("erro.jsp").forward(request, response);
-            }
-            //chamando métodos para chamar sem id
-            ResultSet semID = planoDAO.buscar();
-            if(semID.next()){
-                request.setAttribute("plano", planoDAO.buscar(id));
-                request.getRequestDispatcher("/WEB-INF/views/planoDetalhes.jsp").forward(request, response);
-            }
-            else{
-                request.setAttribute("erro", "Plano não encontrado!");
-                request.getRequestDispatcher("erro.jsp").forward(request, response);
-            }
-        }
-        catch (NumberFormatException e) {
-            request.setAttribute("erro", "ID inválido!");
-            request.getRequestDispatcher("/WEB-INF/views/erro.jsp").forward(request, response);
-        }
-        catch (Exception e) {
-            request.setAttribute("erro", "Erro ao buscar o plano.");
-            request.getRequestDispatcher("/WEB-INF/views/erro.jsp").forward(request, response);
+
+
+        } catch (NumberFormatException nfe) {
+            // Trata o caso onde o ID não é um número válido
+            request.setAttribute("errorMessage", "Por favor, insira um ID válido.");
+            request.getRequestDispatcher("listar_plano.jsp").forward(request, response);
+        }catch (SQLException sqle) {
+            request.setAttribute("errorMessage", sqle.getMessage());
         }
     }
 }

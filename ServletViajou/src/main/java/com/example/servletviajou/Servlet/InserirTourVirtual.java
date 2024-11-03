@@ -43,7 +43,6 @@ public class InserirTourVirtual extends HttpServlet {
                 if(num == 0){
                     request.setAttribute("erro", "notFound");
                 }
-<<<<<<< HEAD:ServletViajou/src/main/java/com/example/servletviajou/Controller/InserirTourVirtual.java
 
                 else if (num == -1) {
                     request.setAttribute("erro", "erro");
@@ -53,15 +52,10 @@ public class InserirTourVirtual extends HttpServlet {
                     request.setAttribute("ero", "erro");
                 }
 
-                else{
-                    request.setAttribute("erro", "erro");
-=======
                 else if (num == -1) {
                     request.setAttribute("erro", "erro");
                 }else{
                     request.setAttribute("erro", "erro");
-
->>>>>>> 83f4c903992a26ba564b9e8e99d51c067a8ab59b:ServletViajou/src/main/java/com/example/servletviajou/Servlet/InserirTourVirtual.java
                 }
                 request.setAttribute("erro", "existente");  // esse tour virtual já existe
             }

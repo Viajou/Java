@@ -25,8 +25,8 @@
     <label for="email">Email do admin:</label>
     <input type="text" name="email" id="email" placeholder="Ex: usuari@gmail.com">
     <br><br>
-    <label for="url">Foto do admin:</label>
-    <input type="text" name="url" id="url" placeholder="Ex: https://imagem-usuario">
+    <label for="url_imagem">Foto do admin:</label>
+    <input type="text" name="url_imagem" id="url_imagem" placeholder="Ex: https://imagem-usuario">
     <br><br>
     <label for="novaSenha">Nova senha do admin:</label>
     <input type="text" name="novaSenha" id="novaSenha" placeholder="Ex: 12345">

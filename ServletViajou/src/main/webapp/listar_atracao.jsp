@@ -33,6 +33,8 @@
             <li><a href="#"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
             <li><a href="listar_atracao.jsp"><img src="images/icone-eventos-crud.svg" alt="">Atração</a></li>
             <li><a href="#"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
+            <li><a href="https://area-restrita-dev.onrender.com/index.html">Área Restrita</a></li>
+
         </ul>
     </nav>
 </aside>
@@ -70,8 +72,7 @@
                 <th>Categoria</th>
                 <th>Criacao</th>
                 <th>Atualização</th>
-
-
+                <th>Opções</th>
             </tr>
             </thead>
             <tbody>
@@ -98,11 +99,11 @@
                 <td><%= busca.getString("data_atualizacao") %></td>
 
                 <td>
-                                        <a href="alterar_atracao.jsp?id=<%= planoId %>">
-                                            <button class="alterar">
-                                                <img src="images/lapis.svg" alt=""></img>
-                                            </button>
-                                        </a>
+                    <a href="alterar_atracao.jsp?id=<%= planoId %>">
+                        <button class="alterar">
+                            <img src="images/lapis.svg" alt=""></img>
+                        </button>
+                    </a>
                     <a href="deletar_plano.jsp?id=<%= planoId %>" onclick="return confirm('Tem certeza que deseja deletar este admin?')">
                         <button class="deletar">
                             <img src="images/lixeira.svg" alt=""></img>
