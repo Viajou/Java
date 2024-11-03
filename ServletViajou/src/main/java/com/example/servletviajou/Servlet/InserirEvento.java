@@ -14,7 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
 
-@WebServlet(name = "InserirEvento", value = "/InserirEvento-servlets")
+@WebServlet(name = "InserirEvento", value = "/InserirEvento-servlet")
 public class InserirEvento extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
