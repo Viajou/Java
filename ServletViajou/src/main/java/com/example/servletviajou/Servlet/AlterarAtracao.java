@@ -10,7 +10,7 @@ import java.io.IOException;
 
 @WebServlet(name = "AlterarAtracao", value = "/AlterarAtracao-servlet")
     public class AlterarAtracao extends HttpServlet {
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         try {
 
@@ -34,6 +34,6 @@ import java.io.IOException;
         } catch (Exception e) {
             request.setAttribute("mensagem", "Erro ao alterar a excursão: " + e.getMessage());
         }
-        request.getRequestDispatcher("/WEB-INF/jsp/excursao.jsp").forward(request, response);
+        request.getRequestDispatcher("listar_atracao.jsp").forward(request, response);
     }
 }
