@@ -1,4 +1,5 @@
 package com.example.servletviajou.Servlet;
+//package com.example.servletviajou.Controller;
 
 import com.example.servletviajou.DAO.EventosDAO;
 import jakarta.servlet.ServletException;
@@ -11,10 +12,11 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
 @WebServlet(name = "BuscarEvento", value = "/BuscarEvento-servlet")
 public class BuscarEvento extends HttpServlet {
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String search = request.getParameter("search");
         EventosDAO eventosDAO = new EventosDAO();
 
@@ -43,3 +45,4 @@ public class BuscarEvento extends HttpServlet {
         }
     }
 }
+
