@@ -35,14 +35,13 @@ label {
     transition: border-color 0.3s ease;
 }
 
-.entrada:focus {
+.entrada{
     outline: none;
     border-color: #8b5cf6; /* Cor roxa ao focar */
 }
 
 
-input[type="submit"],
-button {
+input[type="submit"], button {
     background-color: #412267; /* Cor roxa escura */
     color: #ffffff;
     border: none;
