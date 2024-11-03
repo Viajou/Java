@@ -34,6 +34,6 @@ import java.io.IOException;
         } catch (Exception e) {
             request.setAttribute("mensagem", "Erro ao alterar a excursão: " + e.getMessage());
         }
-        request.getRequestDispatcher("/WEB-INF/jsp/excursao.jsp").forward(request, response);
+        request.getRequestDispatcher("listar_atracao.jsp").forward(request, response);
     }
 }
