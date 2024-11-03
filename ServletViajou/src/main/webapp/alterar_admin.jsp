@@ -9,7 +9,7 @@
 
 </head>
 <body>
-<h1>Aterar admin</h1>
+<h1>Alterar admin</h1>
 <br><br>
 <form action="alterarAdmin-servlet" method="post">
     <label for="Id"> Id do admin</label>
