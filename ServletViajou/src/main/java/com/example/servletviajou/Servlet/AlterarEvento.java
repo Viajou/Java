@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.sql.Date;
 import java.sql.Time;
 
-@WebServlet(name = "AlterarEventos", value = "/AlterarEventos-servlet")
+@WebServlet(name = "AlterarEventos", value = "AlterarEventos-servlet")
 public class AlterarEvento extends HelloServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

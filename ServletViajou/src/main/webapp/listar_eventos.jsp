@@ -45,11 +45,11 @@
     <h1>Eventos</h1>
 
     <div class="button-group">
-        <a href="${pageContext.request.contextPath}/InserirEvento-servlets">
+        <a href="InserirEvento-servlet">
             <button class="inserir">Adicionar</button>
         </a>
 
-        <a href="AterarEventos-servlet">
+        <a href="AlterarEventos-servlet">
             <button class="alterar">Alterar</button>
         </a>
 
@@ -85,7 +85,7 @@
 
             <tbody>
             <%
-                ResultSet busca = (ResultSet) request.getAttribute("resultado");
+                ResultSet busca = (ResultSet) request.getAttribute("resultados");
                 if (busca == null){
                     EventosDAO eventosDAO = new EventosDAO();
                     busca = eventosDAO.buscar();
@@ -99,16 +99,16 @@
 
             <tr>
                 <td><%= eventosId %></td>
-                <td><%= busca.getString("nome") %></td>
+                <td><%=busca.getString("nome")%></td>
                 <td><%=busca.getString("descricao")%></td>
                 <td><%=busca.getString("categoria")%></td>
                 <td><%=busca.getInt("capacidade")%></td>
                 <td><%=busca.getDouble("preco_pessoa")%></td>
                 <td><%=busca.getDate("data_inicio")%></td>
-                <td><%=busca.getDate("data_final")%></td>
+                <td><%=busca.getDate("data_termino")%></td>
                 <td><%=busca.getInt("faixa_etaria")%></td>
                 <td>
-                    <a href="/DeletarEevntos-servelet="<%= eventosId%> onclick="return confirm('Tem certeza que deseja deletar este evento?')"
+                    <a href="DeletarEevntos-servelet"<%= eventosId%> onclick="return confirm('Tem certeza que deseja deletar este evento?')"
                        <button class="deletar">
                            <img src="images/lixeira.svg">
                        </button>
