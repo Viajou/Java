@@ -11,12 +11,6 @@ import java.io.PrintWriter;
 
 @WebServlet(name = "DeletarAdminServlet", value = "/DeletarAdminServlet")
 public class DeletarAdminServlet extends HttpServlet {
-    private String message;
-
-    public void init() {
-        message = "Hello World!";
-    }
-
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
 
@@ -32,6 +26,4 @@ public class DeletarAdminServlet extends HttpServlet {
         }
     }
 
-    public void destroy() {
-    }
 }

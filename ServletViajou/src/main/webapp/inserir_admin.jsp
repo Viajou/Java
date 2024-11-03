@@ -17,7 +17,7 @@
             <input type="text" name="nome" id="nome" placeholder="Ex: Joao">
             <br><br>
             <label for="email">Email do admin:</label>
-            <input type="text" name="email" id="email" placeholder="Ex: usuario@gmail.com">
+            <input type="text" name="email" id="email" placeholder="Ex: usuari@gmail.com">
             <br><br>
             <label for="senha">Senha do admin:</label>
             <input type="text" name="senha" id="senha" placeholder="Ex: 12345">

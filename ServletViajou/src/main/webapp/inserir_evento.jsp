@@ -16,7 +16,7 @@
         <input type="text" name="descricao" id="descricao" placeholder="Ex: Evento de música ao vivo">
         <br>
         <label for="capacidade">Capacidade: </label>
-        
+
     </form>
 </body>
 </html>
