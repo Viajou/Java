@@ -1,9 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.SQLException" %>
-<%@ page import="com.example.servletviajou.DAO.AdminDAO" %>
-<%@ page import="com.example.servletviajou.DAO.PlanoDAO" %>
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page import="com.example.servletviajou.DAO.AtracaoDAO" %>
 <%@ page pageEncoding="UTF-8" %>
 
 <!DOCTYPE html>
@@ -36,15 +34,15 @@
 
     <div class="button-group">
 
-        <a href="inserir_plano.jsp">
+        <a href="inserir_atracao.jsp">
             <button class="inserir">Adicionar</button>
         </a>
 
-        <form action=buscarPlano-servlet method="get" class="search-form">
-            <input type="text" name="search" placeholder="Buscar admin..." required>
+        <form action=BuscarAtracao-servelt method="get" class="search-form">
+            <input type="text" name="search" placeholder="Buscar atracao..." required>
             <button type="submit">Buscar</button>
         </form>
-        <a href="listar_admin.jsp"> <!-- Substitua "listar_admin.jsp" pela URL da sua página de listagem -->
+        <a href="listar_atracao.jsp"> <!-- Substitua "listar_admin.jsp" pela URL da sua página de listagem -->
             <button class="all">All</button>
         </a>
 
@@ -60,19 +58,12 @@
                 <th>ID</th>
                 <th>Nome</th>
                 <th>Descricao</th>
-                <th>Livre propagarnda</th>
-                <th>Preço</th>
-                <th>Criação</th>
+                <th>Endereco</th>
+                <th>acessibilidade</th>
+                <th>Categoria</th>
+                <th>Criacao</th>
                 <th>Atualização</th>
-                <th>Opções</th>
-<%--                private int id;--%>
-<%--                private String descricao;--%>
-<%--                private String nome;--%>
-<%--                private String endereco;--%>
-<%--                private boolean acessibilidade;--%>
-<%--                private String categoria;--%>
-<%--                private Date dataCriacao;--%>
-<%--                private Date dataAtualizacao;--%>
+
 
             </tr>
             </thead>
@@ -80,8 +71,8 @@
             <%
                 ResultSet busca = (ResultSet) request.getAttribute("resultados");
                 if (busca == null) {
-                    PlanoDAO planoDAO = new PlanoDAO();
-                    busca = planoDAO.buscar();
+                    AtracaoDAO atracaoDAO = new AtracaoDAO();
+                    busca = atracaoDAO.buscar();
                 }
             %>
             <%
@@ -93,17 +84,18 @@
                 <td><%= planoId %></td>
                 <td><%= busca.getString("nome") %></td>
                 <td><%= busca.getString("descricao") %></td>
-                <td><%= busca.getBoolean("livre_propaganda") %></td>
-                <td><%= busca.getDouble("preco") %></td>
-                <td><%= busca.getString("duracao") %></td>
+                <td><%= busca.getString("endereco") %></td>
+                <td><%= busca.getBoolean("acessibilidade") %></td>
+                <td><%= busca.getString("categoria") %></td>
                 <td><%= busca.getString("data_criacao") %></td>
                 <td><%= busca.getString("data_atualizacao") %></td>
+
                 <td>
-                    <%--                    <a href="alterar_admin.jsp?id=<%= planoId %>">--%>
-                    <%--                        <button class="alterar">--%>
-                    <%--                            <img src="images/lapis.svg" alt=""></img>--%>
-                    <%--                        </button>--%>
-                    <%--                    </a>--%>
+                                        <a href="alterar_atracao.jsp?id=<%= planoId %>">
+                                            <button class="alterar">
+                                                <img src="images/lapis.svg" alt=""></img>
+                                            </button>
+                                        </a>
                     <a href="deletar_plano.jsp?id=<%= planoId %>" onclick="return confirm('Tem certeza que deseja deletar este admin?')">
                         <button class="deletar">
                             <img src="images/lixeira.svg" alt=""></img>
