@@ -19,7 +19,7 @@
 </head>
 <body>
 <header>
-    <img src="images/Viajou logo peuqena.svg" alt="Viajou logo" id="Viajou-logo">
+    <img src="images/Viajou logo pequena.svg" alt="Viajou logo" id="Viajou-logo">
     <%
         //traz o nome a imagem armazenados na sessão
         HttpSession sessao = request.getSession();
@@ -109,7 +109,7 @@
                 <td><%=busca.getString("descricao")%></td>
                 <td><%=busca.getString("categoria")%></td>
                 <td><%=busca.getInt("capacidade")%></td>
-                <td><%=busca.getDouble("preco")%></td>
+                <td><%=busca.getDouble("preco_pessoa")%></td>
                 <td><%=busca.getDate("data_inicio")%></td>
                 <td><%=busca.getDate("data_final")%></td>
                 <td><%=busca.getInt("faixa_etaria")%></td>
