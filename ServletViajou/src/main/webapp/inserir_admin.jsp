@@ -1,18 +1,11 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: heloisamachado-ieg
-  Date: 01/11/2024
-  Time: 21:45
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Cascanding-styles-sheets/InserirAdmin.css"></link>
-    <link rel="stylesheet" href="Cascanding-styles-sheets/crud.css"></link>
+    <link rel="stylesheet" href="CSS/InserirAdmin.css">
+    <link rel="stylesheet" href="CSS/crud.css">
     <title>Crud</title>
 </head>
 <body>
@@ -34,9 +27,9 @@
 <aside>
     <nav>
         <ul>
-            <li><a href="ListarAdmins.jsp"><img src="images/icone-user-crud.svg" alt="">Admin</a></li>
+            <li><a href="listar_admin.jsp"><img src="images/icone-user-crud.svg" alt="">Admin</a></li>
             <li><a href="#"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
-            <li><a href="ListarPlano.jsp"><img src="images/icone-panos-crud.svg" alt="">Planos</a></li>
+            <li><a href="listar_plano.jsp"><img src="images/icone-panos-crud.svg" alt="">Planos</a></li>
             <li><a href="#"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
             <li><a href="#"><img src="images/icone-eventos-crud.svg" alt="">Atração</a></li>
             <li><a href="#"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
@@ -63,13 +56,10 @@
 
             <input type="submit" value="Adicionar">
         </form>
-<<<<<<< HEAD:ServletViajou/src/main/webapp/InserirAdmin.jsp
-=======
         <br><br>
         <a href="listar_admin.jsp">
             <button>Voltar</button>
         </a>
->>>>>>> fb94d84f2288922892d865431038773eede776fe:ServletViajou/src/main/webapp/inserir_admin.jsp
     </main>
 </body>
 </html>

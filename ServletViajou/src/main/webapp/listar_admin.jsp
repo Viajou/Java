@@ -11,12 +11,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/svg+xml" href="images/icone-viajou.svg">
     <title>Listar Admins</title>
-<<<<<<< HEAD:ServletViajou/src/main/webapp/ListarAdmins.jsp
-    <link rel="stylesheet" href="Cascanding-styles-sheets/encontrado.css">
-    <link rel="stylesheet" href="Cascanding-styles-sheets/crud.css">
-=======
     <link rel="stylesheet" href="CSS/crud.css">
->>>>>>> fb94d84f2288922892d865431038773eede776fe:ServletViajou/src/main/webapp/listar_admin.jsp
+    <link rel="stylesheet" href="CSS/encontrado.css">
+
 </head>
 <body>
 <header>

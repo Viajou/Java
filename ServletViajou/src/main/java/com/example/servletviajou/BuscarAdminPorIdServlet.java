@@ -27,29 +27,19 @@ public class BuscarAdminPorIdServlet extends HttpServlet {
                 ResultSet certo = adminDAO.buscar(adminId);
                 request.setAttribute("resultados", certo);
                 // Redireciona para a página de listagem
-                request.getRequestDispatcher("ListarAdmins.jsp").forward(request, response);
+                request.getRequestDispatcher("listar_admin.jsp").forward(request, response);
             } else {
                 request.setAttribute("naoEncontrado", "Admin não encontrado...");
-                request.getRequestDispatcher("ListarAdmins.jsp").forward(request, response);
+                request.getRequestDispatcher("listar_admin.jsp").forward(request, response);
             }
 
-<<<<<<< HEAD
 
-
-        } catch (NumberFormatException e) {
-            // Trata o caso onde o ID não é um número válido
-            request.setAttribute("errorMessage", "Por favor, insira um ID válido.");
-            request.getRequestDispatcher("ListarAdmins.jsp").forward(request, response);
-        }catch (SQLException e) {
-            e.printStackTrace();
-=======
-            // Redireciona para a página de listagem
-            request.getRequestDispatcher("listar_admin.jsp").forward(request, response);
-        } catch (NumberFormatException e) {
+        } catch (NumberFormatException nfe) {
             // Trata o caso onde o ID não é um número válido
             request.setAttribute("errorMessage", "Por favor, insira um ID válido.");
             request.getRequestDispatcher("listar_admin.jsp").forward(request, response);
->>>>>>> fb94d84f2288922892d865431038773eede776fe
+        }catch (SQLException sqle) {
+            request.setAttribute("errorMessage", sqle.getMessage());
         }
     }
 }
