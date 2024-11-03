@@ -20,7 +20,7 @@ public class AdminDAO {
         conexao.conectar();
         try {
             Connection conn = conexao.getConn();
-            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM admin");
+            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM admin order by id");
             rset = pstmt.executeQuery();
             return rset;
         } catch (SQLException sqle) {
@@ -64,7 +64,7 @@ public class AdminDAO {
         conexao.conectar();
         try {
             Connection conn = conexao.getConn();
-            PreparedStatement pstmt = conn.prepareStatement("SELECT senha FROM admin WHERE email = ? ");
+            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM admin WHERE email = ? ");
             pstmt.setString(1,email);
             rset = pstmt.executeQuery();
             return rset;

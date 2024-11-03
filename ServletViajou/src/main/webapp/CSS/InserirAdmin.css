@@ -1,0 +1,91 @@
+/* Estilização geral do formulário */
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: auto;
+    font-family: Arial, sans-serif;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+h1{
+    text-align: center;
+}
+
+label {
+    color: #8b5cf6;
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 2px solid #d1d5db;
+    border-radius: 10px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: #4b5563; /* Cor do texto do input */
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #8b5cf6; /* Cor roxa ao focar */
+}
+
+input[type="submit"],
+button {
+    background-color: #412267; /* Cor roxa escura */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover,
+button:hover {
+    background-color: #8E70D6; /* Cor roxa mais clara ao passar o mouse */
+}
+
+/* Estilização para os botões "Fechar" e "Próximo" */
+button.fechar {
+    background-color: #412267; /* Roxo mais escuro para o botão "Fechar" */
+}
+
+button.proximo {
+    background-color: #8E70D6; /* Roxo para o botão "Próximo" */
+}
+
+button.fechar:hover {
+    background-color: #8E70D6;
+}
+
+button.proximo:hover {
+    background-color: #8E70D6;
+}
+
+/* Ajustes para centralizar os botões */
+form a,
+input[type="submit"] {
+    background-color: #805CD8;
+    color: white;
+    border: none;
+    padding: 0.6rem;
+    border-radius: 5px;
+    width: 10vw;
+    font-family: LevenimBold;
+    font-size: 1rem;
+    margin: 0 auto;
+    cursor: pointer;
+}

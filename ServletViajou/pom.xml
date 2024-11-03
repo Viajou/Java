@@ -31,18 +31,34 @@
       <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
+
       <dependency>
           <groupId>io.github.cdimascio</groupId>
           <artifactId>dotenv-java</artifactId>
           <version>2.2.0</version>
 
+<<<<<<< HEAD
       </dependency>
       <dependency>
           <groupId>org.mindrot</groupId>
           <artifactId>jbcrypt</artifactId>
           <version>0.4</version>
 
+=======
+>>>>>>> 83f4c903992a26ba564b9e8e99d51c067a8ab59b
       </dependency>
+
+  <dependency>
+      <groupId>io.github.cdimascio</groupId>
+      <artifactId>dotenv-java</artifactId>
+      <version>2.2.0</version>
+  </dependency>
+  <dependency>
+      <groupId>org.mindrot</groupId>
+      <artifactId>jbcrypt</artifactId>
+      <version>0.4</version>
+
+  </dependency>
     <dependency>
       <groupId>org.mindrot</groupId>
       <artifactId>jbcrypt</artifactId>
@@ -69,10 +85,11 @@
 
     <build>
     <plugins>
-<plugin>
+    <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
         <version>3.4.0</version>
-      </plugin>    </plugins>
+    </plugin>
+    </plugins>
   </build>
 </project>
