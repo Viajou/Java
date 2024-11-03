@@ -105,7 +105,8 @@
                     <a href="DeletarAdminServlet?id=<%= adminId %>" onclick="return confirm('Tem certeza que deseja deletar este admin?')">
                         <button class="deletar">
                             <img src="images/lixeira.svg" alt="">
-                        </butt
+                        </button>
+                    </a>
                 </td>
             </tr>
             <%
