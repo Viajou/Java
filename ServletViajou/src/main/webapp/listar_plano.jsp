@@ -12,8 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="imagex/svg" href="images/icone-viajou.svg">
     <title>Listar Admins</title>
-    <link rel="stylesheet" href="Cascanding-styles-sheets/crud.css">
-    <link rel="stylesheet" href="Cascanding-styles-sheets/botoes.css"></link>
+    <link rel="stylesheet" href="CSS/crud.css">
 </head>
 <body>
 <header>
@@ -22,9 +21,9 @@
 <aside>
     <nav>
         <ul>
-            <li><a href="ListarAdmins.jsp"><img src="images/icone-user-crud.svg" alt="">Admin</a></li>
+            <li><a href="listar_admin.jsp"><img src="images/icone-user-crud.svg" alt="">Admin</a></li>
             <li><a href="#"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
-            <li><a href="#"><img src="images/icone-panos-crud.svg" alt="">Planos</a></li>
+            <li><a href="listar_plano.jsp"><img src="images/icone-panos-crud.svg" alt="">Planos</a></li>
             <li><a href="#"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
             <li><a href="#"><img src="images/icone-eventos-crud.svg" alt="">Atração</a></li>
             <li><a href="#"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
@@ -36,7 +35,7 @@
 
     <div class="button-group">
 
-        <a href="InserirAdmin.jsp">
+        <a href="inserir_plano.jsp">
             <button class="inserir">Adicionar</button>
         </a>
 
@@ -44,7 +43,7 @@
             <input type="text" name="search" placeholder="Buscar admin..." required>
             <button type="submit">Buscar</button>
         </form>
-        <a href="ListarAdmins.jsp"> <!-- Substitua "ListarAdmins.jsp" pela URL da sua página de listagem -->
+        <a href="listar_admin.jsp"> <!-- Substitua "listar_admin.jsp" pela URL da sua página de listagem -->
             <button class="all">All</button>
         </a>
 
@@ -83,16 +82,19 @@
             <tr>
                 <td><%= planoId %></td>
                 <td><%= busca.getString("nome") %></td>
-                <td><%= busca.getString("email") %></td>
+                <td><%= busca.getString("descricao") %></td>
+                <td><%= busca.getBoolean("livre_propaganda") %></td>
+                <td><%= busca.getDouble("preco") %></td>
+                <td><%= busca.getString("duracao") %></td>
                 <td><%= busca.getString("data_criacao") %></td>
                 <td><%= busca.getString("data_atualizacao") %></td>
                 <td>
-                    <a href="AlterarAdmin.jsp?id=<%= planoId %>">
-                        <button class="alterar">
-                            <img src="images/lapis.svg" alt=""></img>
-                        </button>
-                    </a>
-                    <a href="DeletarAdminServlet?id=<%= planoId %>" onclick="return confirm('Tem certeza que deseja deletar este admin?')">
+<%--                    <a href="alterar_admin.jsp?id=<%= planoId %>">--%>
+<%--                        <button class="alterar">--%>
+<%--                            <img src="images/lapis.svg" alt=""></img>--%>
+<%--                        </button>--%>
+<%--                    </a>--%>
+                    <a href="deletar_plano.jsp?id=<%= planoId %>" onclick="return confirm('Tem certeza que deseja deletar este admin?')">
                         <button class="deletar">
                             <img src="images/lixeira.svg" alt=""></img>
                         </button>

@@ -1,4 +1,4 @@
-package com.example.servletviajou.Controller;
+package com.example.servletviajou.Servlet;
 
 import com.example.servletviajou.DAO.EventosDAO;
 import jakarta.servlet.ServletException;
@@ -8,8 +8,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 @WebServlet(name = "DeletarEventos", value = "/DeletarEevntos-servelet")
 public class DeletarEvento extends HttpServlet {

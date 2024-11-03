@@ -11,8 +11,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/svg+xml" href="images/icone-viajou.svg">
     <title>Listar Admins</title>
+<<<<<<< HEAD:ServletViajou/src/main/webapp/ListarAdmins.jsp
     <link rel="stylesheet" href="Cascanding-styles-sheets/encontrado.css">
     <link rel="stylesheet" href="Cascanding-styles-sheets/crud.css">
+=======
+    <link rel="stylesheet" href="CSS/crud.css">
+>>>>>>> fb94d84f2288922892d865431038773eede776fe:ServletViajou/src/main/webapp/listar_admin.jsp
 </head>
 <body>
 <header>
@@ -32,9 +36,9 @@
 <aside>
     <nav>
         <ul>
-            <li><a href="ListarAdmins.jsp"><img src="images/icone-user-crud.svg" alt="">Admin</a></li>
+            <li><a href="listar_admin.jsp"><img src="images/icone-user-crud.svg" alt="">Admin</a></li>
             <li><a href="#"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
-            <li><a href="ListarPlano.jsp"><img src="images/icone-panos-crud.svg" alt="">Planos</a></li>
+            <li><a href="listar_plano.jsp"><img src="images/icone-panos-crud.svg" alt="">Planos</a></li>
             <li><a href="#"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
             <li><a href="#"><img src="images/icone-eventos-crud.svg" alt="">Atração</a></li>
             <li><a href="#"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
@@ -46,7 +50,7 @@
     <h1>Administradores</h1>
 
     <div class="button-group">
-        <a href="InserirAdmin.jsp">
+        <a href="inserir_admin.jsp">
             <button class="inserir">Adicionar</button>
         </a>
 
@@ -54,7 +58,7 @@
             <input type="text" name="search" placeholder="Buscar admin..." required>
             <button type="submit">Buscar</button>
         </form>
-        <a href="ListarAdmins.jsp">
+        <a href="listar_admin.jsp">
             <button class="all">All</button>
         </a>
     </div>
@@ -98,7 +102,7 @@
                 <td><%= busca.getString("data_criacao") %></td>
                 <td><%= busca.getString("data_atualizacao") %></td>
                 <td>
-                    <a href="AlterarAdmin.jsp?id=<%= adminId %>">
+                    <a href="alterar_admin.jsp?id=<%= adminId %>">
                         <button class="alterar">
                             <img src="images/lapis.svg" alt="">
                         </button>

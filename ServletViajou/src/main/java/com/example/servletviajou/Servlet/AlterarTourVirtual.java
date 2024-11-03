@@ -1,4 +1,4 @@
-package com.example.servletviajou.Controller;
+package com.example.servletviajou.Servlet;
 
 
 import com.example.servletviajou.DAO.TourVirtualDAO;

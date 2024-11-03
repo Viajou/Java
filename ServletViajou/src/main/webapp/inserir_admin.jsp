@@ -63,6 +63,13 @@
 
             <input type="submit" value="Adicionar">
         </form>
+<<<<<<< HEAD:ServletViajou/src/main/webapp/InserirAdmin.jsp
+=======
+        <br><br>
+        <a href="listar_admin.jsp">
+            <button>Voltar</button>
+        </a>
+>>>>>>> fb94d84f2288922892d865431038773eede776fe:ServletViajou/src/main/webapp/inserir_admin.jsp
     </main>
 </body>
 </html>

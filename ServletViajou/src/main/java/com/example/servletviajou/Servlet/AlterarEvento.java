@@ -1,4 +1,4 @@
-package com.example.servletviajou.Controller;
+package com.example.servletviajou.Servlet;
 
 import com.example.servletviajou.DAO.EventosDAO;
 import com.example.servletviajou.HelloServlet;
@@ -9,7 +9,6 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.sql.Date;
-import java.sql.SQLException;
 import java.sql.Time;
 
 @WebServlet(name = "AlterarEventos", value = "/AterarEventos-servlet")

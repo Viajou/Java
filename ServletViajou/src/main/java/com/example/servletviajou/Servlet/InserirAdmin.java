@@ -1,4 +1,4 @@
-package com.example.servletviajou.Controller;
+package com.example.servletviajou.Servlet;
 
 import com.example.servletviajou.DAO.AdminDAO;
 import com.example.servletviajou.Model.Admin;
@@ -9,9 +9,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.sql.Date;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 @WebServlet(name = "inserirAdminServlet", value = "/inserirAdmin-servlet")
 public class InserirAdmin extends HttpServlet {
@@ -49,6 +46,6 @@ public class InserirAdmin extends HttpServlet {
         }
 
         // Redirecionando para uma página de confirmação ou erro
-        request.getRequestDispatcher("/ListarAdmins.jsp").forward(request, response);
+        request.getRequestDispatcher("/listar_admin.jsp").forward(request, response);
     }
 }
