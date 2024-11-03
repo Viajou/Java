@@ -1,12 +1,6 @@
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="com.example.servletviajou.DAO.EventosDAO" %>
-<%@ page import="java.sql.SQLException" %><%--
-  Created by IntelliJ IDEA.
-  User: biancaclarindo-ieg
-  Date: 03/11/2024
-  Time: 12:50
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.sql.SQLException" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -59,7 +53,7 @@
             <button class="alterar">Alterar</button>
         </a>
 
-        <form action="${pageContext.request.contextPath}/BuscarEvento-servlet" method="get" class="search-form">
+        <form action="BuscarEvento-servlet" method="get" class="search-form">
             <input type="text" name="search" placeholder="Buscar evento...">
             <button type="submit">Buscar</button>
         </form>

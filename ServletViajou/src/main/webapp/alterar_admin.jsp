@@ -13,7 +13,7 @@
 
 </head>
 <body>
-<h1>Aterar admin</h1>
+<h1>Alterar admin</h1>
 <br><br>
 <form action="alterarAdmin-servlet" method="post">
     <label for="Id"> Id do admin</label>
@@ -25,8 +25,8 @@
     <label for="email">Email do admin:</label>
     <input type="text" name="email" id="email" placeholder="Ex: usuari@gmail.com">
     <br><br>
-    <label for="url_imagem">Foto do admin:</label>
-    <input type="text" name="url_imagem" id="url_imagem" placeholder="Ex: https://imagem-usuario">
+    <label for="url">Foto do admin:</label>
+    <input type="text" name="url" id="url" placeholder="Ex: https://imagem-usuario">
     <br><br>
     <label for="novaSenha">Nova senha do admin:</label>
     <input type="text" name="novaSenha" id="novaSenha" placeholder="Ex: 12345">

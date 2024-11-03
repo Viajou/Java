@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/crud.css">
+    <link rel="stylesheet" href="CSS/InserirAdmin.css">
     <title>Crud</title>
 </head>
 <body>
@@ -43,29 +45,27 @@
     <form action="InserirPlano-servlet" method="get">
         <div class="form-container">
             <label for="nome">Nome do plano: </label>
-            <input type="text" name="nome" id="nome" placeholder="Ex: Systeam+">
-            <br><br>
+            <input class="entrada" type="text" name="nome" id="nome" placeholder="Ex: Systeam+" required>
+
 
             <label for="descricao">Descrição do plano: </label>
-            <input type="text" name="descricao" id="descricao" placeholder="Ex: Plano anual">
-            <br><br>
+            <input class="entrada" type="text" name="descricao" id="descricao" placeholder="Ex: Plano anual" required>
 
-            <label> Livre de propaganda? </label><br>
+
+            <label> Livre de propaganda? </label>
             <label>
-                <input type="radio" name="livre_propaganda" value="true"> Sim
-            </label><br>
+                <input class="entrada" type="radio" name="livre_propaganda" value="true" required> Sim
+            </label>
             <label>
-                <input type="radio" name="livre_propaganda" value="false"> Não
-            </label><br>
-            <br>
+                <input class="entrada" type="radio" name="livre_propaganda" value="false" required> Não
+            </label>
 
             <label for="preco">Preço do plano: </label>
-            <input type="text" name="preco" id="preco" placeholder="Ex: 53,89">
-            <br><br>
+            <input class="entrada" type="text" name="preco" id="preco" pattern="^\d+(\.\d{1,2})?$" placeholder="Exemplo: 12.56" title="Digite um número com até duas casas decimais, utilizando '.' como separador" required>
 
             <label for="duracao">Duração do plano: </label>
-            <input type="text" name="duracao" id="duracao" placeholder="Ex: 6 meses">
-            <br><br>
+            <input class="entrada" type="text" name="duracao" id="duracao" placeholder="Ex: 6 meses" required>
+
         </div>
         <input type="submit" value="Inserir plano">
     </form>

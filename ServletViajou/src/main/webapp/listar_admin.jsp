@@ -34,7 +34,7 @@
     <nav>
         <ul>
             <li><a href="listar_admin.jsp"><img src="images/icone-user-crud.svg" alt="">Admin</a></li>
-            <li><a href="#"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
+            <li><a href="listar_eventos.jsp"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
             <li><a href="listar_plano.jsp"><img src="images/icone-panos-crud.svg" alt="">Planos</a></li>
             <li><a href="#"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
             <li><a href="listar_atracao.jsp"><img src="images/icone-eventos-crud.svg" alt="">Atração</a></li>
@@ -105,8 +105,7 @@
                     <a href="DeletarAdminServlet?id=<%= adminId %>" onclick="return confirm('Tem certeza que deseja deletar este admin?')">
                         <button class="deletar">
                             <img src="images/lixeira.svg" alt="">
-                        </button>
-                    </a>
+                        </butt
                 </td>
             </tr>
             <%
