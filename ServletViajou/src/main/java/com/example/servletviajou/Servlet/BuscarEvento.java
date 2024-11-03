@@ -16,7 +16,7 @@ import java.sql.SQLException;
 @WebServlet(name = "BuscarEvento", value = "/BuscarEvento-servlet")
 public class BuscarEvento extends HttpServlet {
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String search = request.getParameter("search");
         EventosDAO eventosDAO = new EventosDAO();
 
@@ -31,7 +31,7 @@ public class BuscarEvento extends HttpServlet {
                 // Redireciona para a página de listagem
                 request.getRequestDispatcher("listar_eventos.jsp").forward(request, response);
             } else {
-                request.setAttribute("naoEncontrado", "Admin não encontrado...");
+                request.setAttribute("naoEncontrado", "Evento não encontrado...");
                 request.getRequestDispatcher("listar_eventos.jsp").forward(request, response);
             }
 
