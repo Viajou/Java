@@ -32,10 +32,7 @@ import java.util.InputMismatchException;
             }catch (InputMismatchException ime){
                 response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Erro ao deletar administrador.");
             }
-
-
-            // Atualizando o nome da empresa no banco de dados
-
+            request.getRequestDispatcher("/listar_atracao.jsp").forward(request, response);
 
     }
 }
