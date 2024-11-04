@@ -22,17 +22,6 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-@WebServlet(name = "buscarAtracao", value = "/buscarAtracao-servlet")
-public class BuscarAtracao extends HttpServlet {
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String search = request.getParameter("search");
-        AtracaoDAO atracaoDAO = new AtracaoDAO();
-
-        int atracaoId = Integer.parseInt(search);
-        ResultSet busca = atracaoDAO.buscar(atracaoId);
-=======
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 @WebServlet(name = "BuscarAtracao" , value = "/BuscarAtracao-servelt")
 public class BuscarAtracao extends HttpServlet {
@@ -43,12 +32,10 @@ public class BuscarAtracao extends HttpServlet {
         int adminId;
         adminId = Integer.parseInt(search);
         ResultSet busca = atracaoDAO.buscar(adminId);
->>>>>>> a8df654a7766af2c0a55e9e63311d269c4765cf7
 
         try {
             // Verifica se o ResultSet está vazio
             if (busca.next()) { // Se não há resultados
-<<<<<<< HEAD
                 ResultSet certo = atracaoDAO.buscar(atracaoId);
                 request.setAttribute("resultados", certo);
                 // Redireciona para a página de listagem
