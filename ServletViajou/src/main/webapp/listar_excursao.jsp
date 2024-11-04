@@ -1,13 +1,21 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: biancaclarindo-ieg
+  Date: 03/11/2024
+  Time: 18:46
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="com.example.servletviajou.DAO.EventosDAO" %>
 <%@ page import="java.sql.SQLException" %>
+<%@ page import="com.example.servletviajou.DAO.ExcursaoDAO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/svg+xml" href="images/icone-viajou.svg">
-    <title>Listar Eventos</title>
+    <title>Listar Excursões</title>
     <link rel="stylesheet" href="CSS/crud.css">
     <link rel="stylesheet" href="CSS/encontrado.css">
 </head>
@@ -33,7 +41,7 @@
             <li><a href="listar_admin.jsp"><img src="images/icone-user-crud.svg" alt="">Admin</a></li>
             <li><a href="listar_eventos.jsp"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
             <li><a href="listar_plano.jsp"><img src="images/icone-panos-crud.svg" alt="">Planos</a></li>
-            <li><a href="#"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
+            <li><a href="listar_excursao.jsp"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
             <li><a href="listar_atracao.jsp"><img src="images/icone-eventos-crud.svg" alt="">Atração</a></li>
             <li><a href="#"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
             <li><a href="https://area-restrita-dev.onrender.com/index.html">Área Restrita</a></li>
@@ -42,22 +50,22 @@
 </aside>
 
 <main>
-    <h1>Eventos</h1>
+    <h1>Excursão</h1>
 
     <div class="button-group">
-        <a href="InserirEvento-servlet">
+        <a href="InserirExcursao-servlet">
             <button class="inserir">Adicionar</button>
         </a>
 
-        <a href="AlterarEventos-servlet">
+        <a href="AlterarExcursao-servlet">
             <button class="alterar">Alterar</button>
         </a>
 
-        <form action="BuscarEvento-servlet" method="get" class="search-form">
-            <input type="text" name="search" placeholder="Buscar evento...">
+        <form action="BuscarExcursao-servlet" method="get" class="search-form">
+            <input type="text" name="search" placeholder="Buscar excursão...">
             <button type="submit">Buscar</button>
         </form>
-        <a href="listar_eventos.jsp">
+        <a href="listar_excursao.jsp">
             <button class="all">ALL</button>
         </a>
     </div>
@@ -73,13 +81,14 @@
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
-                <th>Descrição</th>
-                <th>Categoria</th>
+                <th>Nome da empresa</th>
+                <th>Site da empresa</th>
                 <th>Capacidade</th>
+                <th>Duração</th>
                 <th>Preço</th>
-                <th>Inicio</th>
-                <th>Fim</th>
-                <th>Faixa etária</th>
+                <th>Data de Inicio</th>
+                <th>Data de término</th>
+                <th>Data de atualização</th>
             </tr>
             </thead>
 
@@ -87,35 +96,36 @@
             <%
                 ResultSet busca = (ResultSet) request.getAttribute("resultados");
                 if (busca == null){
-                    EventosDAO eventosDAO = new EventosDAO();
-                    busca = eventosDAO.buscar();
+                    ExcursaoDAO excursaoDAO = new ExcursaoDAO();
+                    busca = excursaoDAO.buscar();
                 }
             %>
             <%
                 try {
                     while (busca.next()){
-                        int eventosId = busca.getInt("id");
+                        int excursaoId = busca.getInt("id");
             %>
 
             <tr>
-                <td><%= eventosId %></td>
+                <td><%= excursaoId %></td>
                 <td><%=busca.getString("nome")%></td>
-                <td><%=busca.getString("descricao")%></td>
-                <td><%=busca.getString("categoria")%></td>
+                <td><%=busca.getString("nome_empresa")%></td>
+                <td><%=busca.getString("site")%></td>
                 <td><%=busca.getInt("capacidade")%></td>
-                <td><%=busca.getDouble("preco_pessoa")%></td>
+                <td><%=busca.getDouble("duracao")%></td>
+                <td><%=busca.getDouble("preco_total")%></td>
                 <td><%=busca.getDate("data_inicio")%></td>
                 <td><%=busca.getDate("data_termino")%></td>
-                <td><%=busca.getString("faixa_etaria")%></td>
+                <td><%=busca.getInt("data_atualizacao")%></td>
                 <td>
-                    <a href="DeletarEevntos-servelet?="<%=eventosId%> onclick="return confirm('Tem certeza que deseja deletar este evento?')"
-                       <button class="deletar">
-                           <img src="images/lixeira.svg">
-                       </button>
+                    <a href="DeletarEevntos-servelet"<%= excursaoId%> onclick="return confirm('Tem certeza que deseja deletar este evento?')"
+                    <button class="deletar">
+                        <img src="images/lixeira.svg">
+                    </button>
                 </td>
             </tr>
             <%
-                } // fim do while
+                    } // fim do while
                 } catch (SQLException sqle){
                     sqle.printStackTrace();
                 } //fim do try
@@ -125,7 +135,7 @@
     </section>
     <%
         // fim do if
-        } else {
+    } else {
     %>
     <p class="naoEncontrado"<%= request.getAttribute("naoEncontrado")%>></p>
     <%
@@ -135,3 +145,4 @@
 </main>
 </body>
 </html>
+

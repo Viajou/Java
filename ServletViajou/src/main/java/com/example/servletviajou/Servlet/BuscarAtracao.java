@@ -30,7 +30,7 @@ public class BuscarAtracao extends HttpServlet {
             atracaoDAO.buscar(id);
 
             if (atracaoDAO.buscar(id) != null) {
-                request.setAttribute("excursao", atracaoDAO.buscar(id));
+                request.setAttribute("resultados", atracaoDAO.buscar(id));
                 request.getRequestDispatcher("/WEB-INF/views/excursaoDetalhes.jsp").forward(request, response);
             } else {
                 request.setAttribute("erro", "Excursão não encontrada!");
