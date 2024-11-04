@@ -20,7 +20,7 @@ public class EventosDAO {
         conexao.conectar();
         try {
             Connection conn = conexao.getConn();
-            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM eventos");
+            PreparedStatement pstmt = conn.prepareStatement("SELECT atracao.nome, * FROM eventos JOIN atracao ON atracao.id = eventos.id_atracao");
             rset = pstmt.executeQuery();
             return rset;
         } catch (SQLException sqle){

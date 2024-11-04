@@ -41,6 +41,7 @@
     </nav>
 </aside>
 <body>
+<<<<<<< HEAD
 
 <h1>Alterar Administrador</h1>
 
@@ -97,6 +98,26 @@
         <button>
             <a href="listar_admin.jsp">Voltar</a>
         </button>
+=======
+<h1>Alterar admin</h1>
+<br><br>
+<form action="alterarAdmin-servlet" method="post">
+    <label for="Id"> Id do admin</label>
+    <input type="number" name="id" id="id" placeholder="Ex: 0">
+    <br><br>
+    <label for="nome">Nome do admin:</label>
+    <input type="text" name="nome" id="nome" placeholder="Ex: Joao">
+    <br><br>
+    <label for="email">Email do admin:</label>
+    <input type="text" name="email" id="email" placeholder="Ex: usuari@gmail.com">
+    <br><br>
+    <label for="url">Foto do admin:</label>
+    <input type="text" name="url" id="url" placeholder="Ex: https://imagem-usuario">
+    <br><br>
+    <label for="novaSenha">Nova senha do admin:</label>
+    <input type="text" name="novaSenha" id="novaSenha" placeholder="Ex: 12345">
+    <br><br>
+>>>>>>> cdd5f226924560d4964415679b5e50f79a4c3a88
 
 
     </div>

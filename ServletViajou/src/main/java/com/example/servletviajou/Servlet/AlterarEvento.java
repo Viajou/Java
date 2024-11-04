@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.sql.Date;
 import java.sql.Time;
 
-@WebServlet(name = "AlterarEventos", value = "/AterarEventos-servlet")
+@WebServlet(name = "AlterarEventos", value = "/AlterarEventos-servlet")
 public class AlterarEvento extends HelloServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -24,9 +24,9 @@ public class AlterarEvento extends HelloServlet {
         String categoria = req.getParameter("categoria");
         int capacidade = Integer.parseInt(req.getParameter("capacidade"));
         Time horario = Time.valueOf(req.getParameter("horario"));
-        Date data_inicio = Date.valueOf(req.getParameter("data_inicio"));
-        Date data_termino = Date.valueOf(req.getParameter("data_termino"));
-        double preco_pessoa = Double.parseDouble(req.getParameter("preco_pessoa"));
+        Date dataInicio = Date.valueOf(req.getParameter("data-inicio"));
+        Date dataTermino = Date.valueOf(req.getParameter("data-termino"));
+        double precoPessoa = Double.parseDouble(req.getParameter("preco-pessoa"));
 
         //instanciando a classe EventosDAO
         EventosDAO eventosDAO = new EventosDAO();
@@ -113,7 +113,7 @@ public class AlterarEvento extends HelloServlet {
 
             //alterando data de início
 
-            int numDtInicio = eventosDAO.alterarDataInicio(id, data_inicio);
+            int numDtInicio = eventosDAO.alterarDataInicio(id, dataInicio);
 
             if (numDtInicio ==1){
                 req.setAttribute("mensagem", "A categoria foi alterada com sucesso!");
@@ -128,7 +128,7 @@ public class AlterarEvento extends HelloServlet {
 
             //alterando a data de término
 
-            int numDtTermino = eventosDAO.alterarDataTermino(id, data_termino);
+            int numDtTermino = eventosDAO.alterarDataTermino(id, dataTermino);
 
             if (numDtTermino ==1){
                 req.setAttribute("mensagem", "A categoria foi alterada com sucesso!");
@@ -142,7 +142,7 @@ public class AlterarEvento extends HelloServlet {
 
             //alterando o preço por pessoa
 
-            int numPreco = eventosDAO.alterarPrecoPessoa(id, preco_pessoa);
+            int numPreco = eventosDAO.alterarPrecoPessoa(id, precoPessoa);
 
             if (numCat ==1){
                 req.setAttribute("mensagem", "A categoria foi alterada com sucesso!");
