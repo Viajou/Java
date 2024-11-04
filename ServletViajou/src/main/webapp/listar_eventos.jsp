@@ -13,7 +13,9 @@
 </head>
 <body>
 <header>
+
     <img src="images/Viajou logo pequena.svg" alt="Viajou logo" id="Viajou-logo">
+
     <%
         //traz o nome a imagem armazenados na sessão
         HttpSession sessao = request.getSession();
@@ -57,10 +59,12 @@
             <input type="text" name="search" placeholder="Buscar evento...">
             <button type="submit">Buscar</button>
         </form>
+
         <a href="listar_eventos.jsp">
             <button class="all">ALL</button>
         </a>
     </div>
+
 
     <%
         //verifica se naoEncontrado não é nulo
@@ -108,10 +112,12 @@
                 <td><%=busca.getDate("data_termino")%></td>
                 <td><%=busca.getString("faixa_etaria")%></td>
                 <td>
+
                     <a href="DeletarEevntos-servelet?="<%=eventosId%> onclick="return confirm('Tem certeza que deseja deletar este evento?')"
                        <button class="deletar">
                            <img src="images/lixeira.svg">
                        </button>
+
                 </td>
             </tr>
             <%

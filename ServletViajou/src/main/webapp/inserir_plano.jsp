@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/crud.css">
-    <link rel="stylesheet" href="CSS/InserirAdmin.css">
+    <link rel="stylesheet" href="CSS/Inserir.css">
     <title>Crud</title>
 </head>
 <body>

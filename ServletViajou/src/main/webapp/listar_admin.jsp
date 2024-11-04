@@ -50,9 +50,6 @@
         <a href="inserir_admin.jsp">
             <button class="inserir">Adicionar</button>
         </a>
-        <a href="alterar_admin.jsp">
-            <button class="alterar">Alterar</button>
-        </a>
 
         <form action="BuscarAdminPorIdServlet" method="get" class="search-form">
             <input type="text" name="search" placeholder="Buscar admin..." required>
@@ -92,17 +89,22 @@
             <%
                 try {
                     while (busca.next()) {
-                        int adminId = busca.getInt("id");
+
             %>
             <tr>
                 <td><img class="img" src="<%= busca.getString("url_imagem") %>" alt="Foto de Perfil"></td>
-                <td><%= adminId %></td>
+                <td><%= busca.getInt("id") %></td>
                 <td><%= busca.getString("nome") %></td>
                 <td><%= busca.getString("email") %></td>
                 <td><%= busca.getString("data_criacao") %></td>
                 <td><%= busca.getString("data_atualizacao") %></td>
                 <td>
-                    <a href="DeletarAdminServlet?id=<%= adminId %>" onclick="return confirm('Tem certeza que deseja deletar este admin?')">
+                    <a href="alterar_admin.jsp?id=<%= busca.getInt("id") %>&url_imagem=<%= busca.getString("url_imagem") %>&nome=<%= busca.getString("nome") %>&email=<%= busca.getString("email") %>&senha=<%= busca.getString("senha") %>">
+                        <button class="deletar">
+                            <img src="images/lapis.svg" alt="">
+                        </button>
+                    </a>
+                    <a href="DeletarAdminServlet?id=<%= busca.getInt("id") %>" onclick="return confirm('Tem certeza que deseja deletar este admin?')">
                         <button class="deletar">
                             <img src="images/lixeira.svg" alt="">
                         </button>
