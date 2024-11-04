@@ -13,11 +13,9 @@
 </head>
 <body>
 <header>
-<<<<<<< HEAD
-    <img src="images/Viajou%20logo%20pequena.svg" alt="Viajou logo" id="Viajou-logo">
-=======
+
     <img src="images/Viajou logo pequena.svg" alt="Viajou logo" id="Viajou-logo">
->>>>>>> cdd5f226924560d4964415679b5e50f79a4c3a88
+
     <%
         //traz o nome a imagem armazenados na sessão
         HttpSession sessao = request.getSession();
@@ -49,11 +47,7 @@
     <h1>Eventos</h1>
 
     <div class="button-group">
-<<<<<<< HEAD
-        <a href="InserirEvento-servlets">
-=======
         <a href="InserirEvento-servlet">
->>>>>>> cdd5f226924560d4964415679b5e50f79a4c3a88
             <button class="inserir">Adicionar</button>
         </a>
 
@@ -65,10 +59,12 @@
             <input type="text" name="search" placeholder="Buscar evento...">
             <button type="submit">Buscar</button>
         </form>
+
         <a href="listar_eventos.jsp">
             <button class="all">ALL</button>
         </a>
     </div>
+
 
     <%
         //verifica se naoEncontrado não é nulo
@@ -116,17 +112,12 @@
                 <td><%=busca.getDate("data_termino")%></td>
                 <td><%=busca.getString("faixa_etaria")%></td>
                 <td>
-<<<<<<< HEAD
-<%--                    <a href="DeletarEevntos-servelet="<%= eventosId%> onclick="return confirm('Tem certeza que deseja deletar este evento?')"--%>
-<%--                       <button class="deletar">--%>
-<%--                           <img src="images/lixeira.svg">--%>
-<%--                       </button>--%>
-=======
+
                     <a href="DeletarEevntos-servelet?="<%=eventosId%> onclick="return confirm('Tem certeza que deseja deletar este evento?')"
                        <button class="deletar">
                            <img src="images/lixeira.svg">
                        </button>
->>>>>>> cdd5f226924560d4964415679b5e50f79a4c3a88
+
                 </td>
             </tr>
             <%
