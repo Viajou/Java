@@ -223,7 +223,7 @@ public class AdminDAO {
                 Connection conn = conexao.getConn();
                 // Obtendo a data atual
                 Date dataAtual = Date.valueOf(LocalDate.now());
-                PreparedStatement pstmt = conn.prepareStatement("UPDATE admin SET url_imagem =  ?,,data_atualizacao = ? WHERE id = ? ");
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE admin SET url_imagem =  ?,data_atualizacao = ? WHERE id = ? ");
                 pstmt.setString(1, urlImagem);
                 pstmt.setDate(2, dataAtual);
                 pstmt.setInt(3, id);

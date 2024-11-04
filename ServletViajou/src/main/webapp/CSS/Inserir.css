@@ -25,7 +25,7 @@ label {
     font-weight: bold;
 }
 
-input[type="text"] {
+.entrada {
     padding: 10px;
     border: 2px solid #d1d5db;
     border-radius: 10px;
@@ -35,13 +35,13 @@ input[type="text"] {
     transition: border-color 0.3s ease;
 }
 
-input[type="text"]:focus {
+.entrada{
     outline: none;
     border-color: #8b5cf6; /* Cor roxa ao focar */
 }
 
-input[type="submit"],
-button {
+
+input[type="submit"], button {
     background-color: #412267; /* Cor roxa escura */
     color: #ffffff;
     border: none;

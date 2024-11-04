@@ -17,7 +17,7 @@ public class ExcursaoDAO {
         conexao.conectar();
         try{
             Connection conn = conexao.getConn();
-            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM excursao");
+            PreparedStatement pstmt = conn.prepareStatement("SELECT atracao.nome, * FROM excursao JOIN atracao ON atracao.id = excursao.id_atracao");
             rset = pstmt.executeQuery();
             return rset;
 

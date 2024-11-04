@@ -1,5 +1,6 @@
 package com.example.servletviajou.Servlet;
 
+import com.example.servletviajou.DAO.AdminDAO;
 import com.example.servletviajou.DAO.PlanoDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -10,26 +11,19 @@ import java.io.IOException;
 
 @WebServlet(name = "DeletarPlano", value = "/DeletarPlano-servlet")
 public class DeletarPlano extends HttpServlet {
-
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
 
+        int id = Integer.parseInt(request.getParameter("id"));
         PlanoDAO planoDAO = new PlanoDAO();
 
-        int id = Integer.parseInt(request.getParameter("id"));
-
-        int resultado = planoDAO.deletarPlano(id);
-        if (resultado == 1) {
-            request.getSession().setAttribute("mensagem", "Plano deletado com sucesso!");
-            response.sendRedirect("paginaSucesso.jsp");
-        }
-        else if(resultado == 0){
-            request.getSession().setAttribute("erro", "Erro! Não foi possível deletar esse plano");
-            response.sendRedirect("paginaErro.jsp");
-        }
-        else if(resultado == -1){
-            request.getSession().setAttribute("erro","Erro! Não foi possível deletar esse plano");
-            request.getRequestDispatcher("erro.jsp").forward(request, response);
+        try {
+            planoDAO.deletarPlano(id); // Método deletar implementado no DAO para remover o admin
+            request.getRequestDispatcher("/listar_plano.jsp").forward(request, response);
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Erro ao deletar administrador.");
         }
     }
+
 }

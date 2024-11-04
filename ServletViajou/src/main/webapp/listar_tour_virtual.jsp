@@ -1,6 +1,7 @@
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.SQLException" %>
-<%@ page import="com.example.servletviajou.DAO.AdminDAO" %>
+<%@ page import="com.example.servletviajou.DAO.PlanoDAO" %>
+<%@ page import="com.example.servletviajou.DAO.TourVirtualDAO" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page pageEncoding="UTF-8" %>
 
@@ -9,11 +10,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/svg+xml" href="images/icone-viajou.svg">
-    <title>Listar Admins</title>
+    <link rel="shortcut icon" type="imagex/svg" href="images/icone-viajou.svg">
+    <title>Listar Tour Virtual</title>
     <link rel="stylesheet" href="CSS/crud.css">
     <link rel="stylesheet" href="CSS/encontrado.css">
-
 </head>
 <body>
 <header>
@@ -34,7 +34,7 @@
     <nav>
         <ul>
             <li><a href="listar_admin.jsp"><img src="images/icone-user-crud.svg" alt="">Admin</a></li>
-            <li><a href="listar_eventos.jsp"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
+            <li><a href="#"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
             <li><a href="listar_plano.jsp"><img src="images/icone-panos-crud.svg" alt="">Planos</a></li>
             <li><a href="#"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
             <li><a href="listar_atracao.jsp"><img src="images/icone-eventos-crud.svg" alt="">Atração</a></li>
@@ -44,21 +44,23 @@
     </nav>
 </aside>
 <main>
-    <h1>Administradores</h1>
+    <h1>Tours Virtuais</h1>
 
     <div class="button-group">
-        <a href="inserir_admin.jsp">
+
+        <a href="inserir_tour_virtual.jsp">
             <button class="inserir">Adicionar</button>
         </a>
 
-        <form action="BuscarAdminPorIdServlet" method="get" class="search-form">
-            <input type="text" name="search" placeholder="Buscar admin..." required>
+        <form action=BuscarTourVirtual-servlet method="get" class="search-form">
+            <input type="text" name="search" placeholder="Buscar tour..." required>
             <button type="submit">Buscar</button>
         </form>
-        <a href="listar_admin.jsp">
+        <a href="listar_tour_virtual.jsp"> <!-- Substitua "listar_admin.jsp" pela URL da sua página de listagem -->
             <button class="all">All</button>
         </a>
     </div>
+
 
     <%
         // Verifica se naoEncontrado não é nulo
@@ -69,10 +71,12 @@
         <table>
             <thead>
             <tr>
-                <th>Imagem</th>
                 <th>ID</th>
-                <th>Nome</th>
-                <th>Email</th>
+                <th>Descricao</th>
+                <th>URL do vídeo</th>
+                <th>Média classificações</th>
+                <th>Qtd classificações</th>
+                <th>Preco</th>
                 <th>Criação</th>
                 <th>Atualização</th>
                 <th>Opções</th>
@@ -82,31 +86,28 @@
             <%
                 ResultSet busca = (ResultSet) request.getAttribute("resultados");
                 if (busca == null) {
-                    AdminDAO adminDAO = new AdminDAO();
-                    busca = adminDAO.buscar();
+                    TourVirtualDAO tourDAO = new TourVirtualDAO();
+                    busca = tourDAO.buscar();
                 }
             %>
             <%
                 try {
                     while (busca.next()) {
-
+                        int tourId = busca.getInt("id");
             %>
             <tr>
-                <td><img class="img" src="<%= busca.getString("url_imagem") %>" alt="Foto de Perfil"></td>
-                <td><%= busca.getInt("id") %></td>
-                <td><%= busca.getString("nome") %></td>
-                <td><%= busca.getString("email") %></td>
+                <td><%= tourId %></td>
+                <td><%= busca.getString("descricao") %></td>
+                <td><%= busca.getString("video") %></td>
+                <td><%= busca.getBoolean("media_classificacao") %></td>
+                <td><%= busca.getString("qtd_classificacao") %></td>
+                <td><%= busca.getString("pr") %></td>
                 <td><%= busca.getString("data_criacao") %></td>
                 <td><%= busca.getString("data_atualizacao") %></td>
                 <td>
-                    <a href="alterar_admin.jsp?id=<%= busca.getInt("id") %>&url_imagem=<%= busca.getString("url_imagem") %>&nome=<%= busca.getString("nome") %>&email=<%= busca.getString("email") %>&senha=<%= busca.getString("senha") %>">
+                    <a href="DeletarTourVirtual-servlet?id=<%= tourId %>" onclick="return confirm('Tem certeza que deseja deletar este admin?')">
                         <button class="deletar">
-                            <img src="images/lapis.svg" alt="">
-                        </button>
-                    </a>
-                    <a href="DeletarAdminServlet?id=<%= busca.getInt("id") %>" onclick="return confirm('Tem certeza que deseja deletar este admin?')">
-                        <button class="deletar">
-                            <img src="images/lixeira.svg" alt="">
+                            <img src="images/lixeira.svg" alt=""></img>
                         </button>
                     </a>
                 </td>
@@ -121,13 +122,12 @@
         </table>
     </section>
     <%
-        } else {
+    } else {
     %>
     <p class="naoEncontrado"><%= request.getAttribute("naoEncontrado")%></p>
     <%
         }
     %>
-
 </main>
 </body>
 </html>

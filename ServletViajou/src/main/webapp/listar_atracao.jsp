@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: heloisamachado-ieg
-  Date: 02/11/2024
-  Time: 20:38
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.SQLException" %>
@@ -28,11 +21,13 @@
     <nav>
         <ul>
             <li><a href="listar_admin.jsp"><img src="images/icone-user-crud.svg" alt="">Admin</a></li>
-            <li><a href="#"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
+            <li><a href="listar_eventos.jsp"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
             <li><a href="listar_plano.jsp"><img src="images/icone-panos-crud.svg" alt="">Planos</a></li>
             <li><a href="#"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
             <li><a href="listar_atracao.jsp"><img src="images/icone-eventos-crud.svg" alt="">Atração</a></li>
             <li><a href="#"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
+            <li><a href="https://area-restrita-dev.onrender.com/index.html">Área Restrita</a></li>
+
         </ul>
     </nav>
 </aside>
@@ -71,7 +66,6 @@
                 <th>Criacao</th>
                 <th>Atualização</th>
                 <th>Opções</th>
-
             </tr>
             </thead>
             <tbody>
@@ -103,7 +97,8 @@
                             <img src="images/lapis.svg" alt=""></img>
                         </button>
                     </a>
-                    <a href="DeletarAtracao-servlet?id=<%= planoId %>" onclick="return confirm('Tem certeza que deseja deletar esta atrção?')">
+
+                    <a href="deletar_plano.jsp?id=<%= planoId %>" onclick="return confirm('Tem certeza que deseja deletar este admin?')">
                         <button class="deletar">
                             <img src="images/lixeira.svg" alt=""></img>
                         </button>
