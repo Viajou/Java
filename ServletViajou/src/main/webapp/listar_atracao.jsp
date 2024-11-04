@@ -92,14 +92,14 @@
                 <td><%= busca.getString("data_atualizacao") %></td>
 
                 <td>
-                    <a href="alterar_atracao.jsp?id=<%= atracaoId %>">
-                        <button class="alterar">
-                            <img src="images/lapis.svg" alt=""></img>
+                    <a href="alterar_atracao.jsp?id=<%= busca.getInt("id") %>&nome=<%= busca.getString("nome") %>&descricao=<%= busca.getString("descricao") %>&endereco=<%= busca.getString("endereco") %>&acessibilidade=<%= busca.getBoolean("acessibilidade") %>&categoria=<%= busca.getString("categoria") %>">
+                        <button class="deletar">
+                            <img src="images/lapis.svg" alt="">
                         </button>
                     </a>
-                    <a href="deletar_plano.jsp?id=<%= atracaoId %>" onclick="return confirm('Tem certeza que deseja deletar este admin?')">
+                    <a href="DeletarAtracao-servlet?id=<%= atracaoId %>" onclick="return confirm('Tem certeza que deseja deletar esta atração?')">
                         <button class="deletar">
-                            <img src="images/lixeira.svg" alt=""></img>
+                            <img src="images/lixeira.svg" alt="">
                         </button>
                     </a>
                 </td>

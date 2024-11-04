@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name = "DeletarEventos", value = "/DeletarEevntos-servelet")
+@WebServlet(name = "DeletarEventos", value = "/DeletarEventos-servelet")
 public class DeletarEvento extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

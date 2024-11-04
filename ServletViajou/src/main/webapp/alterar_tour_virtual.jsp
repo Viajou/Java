@@ -1,14 +1,14 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@ page import="java.sql.*" %>
-<%@ page import="com.example.servletviajou.DAO.EventosDAO" %>
+<%@ page import="com.example.servletviajou.DAO.TourVirtualDAO" %>
 <%@ page pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alterar Evento</title>
-    <link rel="stylesheet" href="CSS/alterar2.css">
+    <title>Alterar Tour Virtual</title>
+    <link rel="stylesheet" href="CSS/Alterar.css">
     <link rel="stylesheet" href="CSS/crud.css">
     <link rel="stylesheet" href="CSS/encontrado.css">
 </head>
@@ -42,7 +42,7 @@
 </aside>
 <body>
 
-<h1>Alterar Evento</h1>
+<h1>Alterar Tour Virtual</h1>
 
 <div class="formulario">
     <form class="alteracao">
@@ -69,7 +69,7 @@
         </div>
     </form>
 
-    <form method="post" action="/AlterarEventos-servlet?id=<%= request.getParameter("id") %>">
+    <form method="post" action="/AlterarTourVirtual-servlet?id=<%= request.getParameter("id") %>">
         <h2>Novo</h2>
         <div class="campo">
             <label for="novoNome">Novo nome:</label>
@@ -100,3 +100,4 @@
 </div>
 </body>
 </html>
+
