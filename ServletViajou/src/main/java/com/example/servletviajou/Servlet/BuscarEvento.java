@@ -1,7 +1,5 @@
 package com.example.servletviajou.Servlet;
-//package com.example.servletviajou.Controller;
-
-import com.example.servletviajou.DAO.EventosDAO;
+import com.example.servletviajou.DAO.*;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -9,13 +7,20 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import org.w3c.dom.events.Event;
+
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
-@WebServlet(name = "BuscarEvento", value = "/BuscarEvento-servlet")
+@WebServlet(name = "buscarEvento", value = "/BuscarEvento-servlet")
 public class BuscarEvento extends HttpServlet {
-
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String search = request.getParameter("search");
         EventosDAO eventosDAO = new EventosDAO();
@@ -35,14 +40,12 @@ public class BuscarEvento extends HttpServlet {
                 request.getRequestDispatcher("listar_eventos.jsp").forward(request, response);
             }
 
-
         } catch (NumberFormatException nfe) {
             // Trata o caso onde o ID não é um número válido
             request.setAttribute("errorMessage", "Por favor, insira um ID válido.");
             request.getRequestDispatcher("listar_eventos.jsp").forward(request, response);
-        }catch (SQLException sqle) {
-            request.setAttribute("errorMessage", sqle.getMessage());
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
         }
     }
 }
-

@@ -13,19 +13,17 @@
 </head>
 <body>
 <header>
-
-    <img src="images/Viajou logo pequena.svg" alt="Viajou logo" id="Viajou-logo">
-
+    <img src="images/Viajou logo pequena.svg" alt="Viajou Logo" id="Viajou-logo">
     <%
-        //traz o nome a imagem armazenados na sessão
+        // Recupera a URL da imagem e nome do admin armazenados na sessão
         HttpSession sessao = request.getSession();
-        String imagem = (String) sessao.getAttribute("url_imagem");
-        String nomeAdmin = (String) sessao.getAttribute("nome_admin");
+        String urlImagem = (String) sessao.getAttribute("urlImagem");
+        String nomeAdmin = (String) sessao.getAttribute("nomeAdmin");
     %>
 
     <div class="usuario">
-        <img src="<%=imagem%>" alt="Imagem do admin" class="admin-image">
-        <h3 class="admin-name"><%=nomeAdmin%></h3>
+        <img src="<%= urlImagem %>" alt="Imagem do Admin" class="admin-image">
+        <h3 class="admin-name"><%= nomeAdmin %></h3>
     </div>
 </header>
 
@@ -51,10 +49,6 @@
             <button class="inserir">Adicionar</button>
         </a>
 
-        <a href="AlterarEventos-servlet">
-            <button class="alterar">Alterar</button>
-        </a>
-
         <form action="BuscarEvento-servlet" method="get" class="search-form">
             <input type="text" name="search" placeholder="Buscar evento...">
             <button type="submit">Buscar</button>
@@ -65,9 +59,7 @@
         </a>
     </div>
 
-
     <%
-        //verifica se naoEncontrado não é nulo
         String naoEncontrado = (String) request.getAttribute("naoEncontrado");
         if (naoEncontrado == null) {
     %>
@@ -81,9 +73,10 @@
                 <th>Categoria</th>
                 <th>Capacidade</th>
                 <th>Preço</th>
-                <th>Inicio</th>
+                <th>Início</th>
                 <th>Fim</th>
                 <th>Faixa etária</th>
+                <th>Opções</th>
             </tr>
             </thead>
 
@@ -98,46 +91,47 @@
             <%
                 try {
                     while (busca.next()){
-                        int eventosId = busca.getInt("id");
             %>
 
             <tr>
-                <td><%= eventosId %></td>
-                <td><%=busca.getString("nome")%></td>
-                <td><%=busca.getString("descricao")%></td>
-                <td><%=busca.getString("categoria")%></td>
-                <td><%=busca.getInt("capacidade")%></td>
-                <td><%=busca.getDouble("preco_pessoa")%></td>
-                <td><%=busca.getDate("data_inicio")%></td>
-                <td><%=busca.getDate("data_termino")%></td>
-                <td><%=busca.getString("faixa_etaria")%></td>
+                <td><%= busca.getInt("id") %></td>
+                <td><%= busca.getString("nome") %></td>
+                <td><%= busca.getString("descricao") %></td>
+                <td><%= busca.getString("categoria") %></td>
+                <td><%= busca.getInt("capacidade") %></td>
+                <td><%= busca.getDouble("preco_pessoa") %></td>
+                <td><%= busca.getDate("data_inicio") %></td>
+                <td><%= busca.getDate("data_termino") %></td>
+                <td><%= busca.getString("faixa_etaria") %></td>
                 <td>
-
-                    <a href="DeletarEevntos-servelet?="<%=eventosId%> onclick="return confirm('Tem certeza que deseja deletar este evento?')"
-                       <button class="deletar">
-                           <img src="images/lixeira.svg">
-                       </button>
-
+                    <a href="AlterarEventos-servlet">
+                        <button class="deletar">
+                            <img src="images/lapis.svg" alt="alterar">
+                        </button>
+                    </a>
+                    <a href="DeletarEventos-servlet?id=<%= busca.getInt("id") %>" onclick="return confirm('Tem certeza que deseja deletar este evento?')">
+                        <button class="deletar">
+                            <img src="images/lixeira.svg" alt="Deletar">
+                        </button>
+                    </a>
                 </td>
             </tr>
             <%
-                } // fim do while
-                } catch (SQLException sqle){
+                    }
+                } catch (SQLException sqle) {
                     sqle.printStackTrace();
-                } //fim do try
+                }
             %>
             </tbody>
         </table>
     </section>
     <%
-        // fim do if
-        } else {
+    } else {
     %>
-    <p class="naoEncontrado"<%= request.getAttribute("naoEncontrado")%>></p>
+    <p class="naoEncontrado"><%= naoEncontrado %></p>
     <%
-        } //fim do else
+        }
     %>
-
 </main>
 </body>
 </html>
