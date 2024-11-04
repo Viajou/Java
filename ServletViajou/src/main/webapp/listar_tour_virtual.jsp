@@ -1,7 +1,8 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.SQLException" %>
+<%@ page import="com.example.servletviajou.DAO.PlanoDAO" %>
 <%@ page import="com.example.servletviajou.DAO.TourVirtualDAO" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page pageEncoding="UTF-8" %>
 
 <!DOCTYPE html>
@@ -10,24 +11,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="imagex/svg" href="images/icone-viajou.svg">
-    <title>Listar atracao</title>
+    <title>Listar Tour Virtual</title>
     <link rel="stylesheet" href="CSS/crud.css">
+    <link rel="stylesheet" href="CSS/encontrado.css">
 </head>
 <body>
 <header>
     <img src="images/Viajou logo pequena.svg" alt="Viajou Logo" id="Viajou-logo">
+    <%
+        // Recupera a URL da imagem e nome do admin armazenados na sessão
+        HttpSession sessao = request.getSession();
+        String urlImagem = (String) sessao.getAttribute("urlImagem");
+        String nomeAdmin = (String) sessao.getAttribute("nomeAdmin");
+    %>
+
+    <div class="usuario">
+        <img src="<%= urlImagem %>" alt="Imagem do Admin" class="admin-image">
+        <h3 class="admin-name"><%= nomeAdmin %></h3>
+    </div>
 </header>
 <aside>
     <nav>
         <ul>
             <li><a href="listar_admin.jsp"><img src="images/icone-user-crud.svg" alt="">Admin</a></li>
-            <li><a href="listar_eventos.jsp"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
+            <li><a href="#"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
             <li><a href="listar_plano.jsp"><img src="images/icone-panos-crud.svg" alt="">Planos</a></li>
-            <li><a href="listar_excursao"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
+            <li><a href="#"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
             <li><a href="listar_atracao.jsp"><img src="images/icone-eventos-crud.svg" alt="">Atração</a></li>
             <li><a href="#"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
             <li><a href="https://area-restrita-dev.onrender.com/index.html">Área Restrita</a></li>
-
         </ul>
     </nav>
 </aside>
@@ -44,26 +56,28 @@
             <input type="text" name="search" placeholder="Buscar tour..." required>
             <button type="submit">Buscar</button>
         </form>
-        <a href="listar_atracao.jsp"> <!-- Substitua "listar_admin.jsp" pela URL da sua página de listagem -->
+        <a href="listar_tour_virtual.jsp"> <!-- Substitua "listar_admin.jsp" pela URL da sua página de listagem -->
             <button class="all">All</button>
         </a>
-
-
     </div>
 
 
-
+    <%
+        // Verifica se naoEncontrado não é nulo
+        String naoEncontrado = (String) request.getAttribute("naoEncontrado");
+        if (naoEncontrado == null) {
+    %>
     <section class="table-section">
         <table>
             <thead>
             <tr>
                 <th>ID</th>
-                <th>Nome</th>
                 <th>Descricao</th>
-                <th>Endereco</th>
-                <th>acessibilidade</th>
-                <th>Categoria</th>
-                <th>Criacao</th>
+                <th>URL do vídeo</th>
+                <th>Média classificações</th>
+                <th>Qtd classificações</th>
+                <th>Preco</th>
+                <th>Criação</th>
                 <th>Atualização</th>
                 <th>Opções</th>
             </tr>
@@ -72,8 +86,8 @@
             <%
                 ResultSet busca = (ResultSet) request.getAttribute("resultados");
                 if (busca == null) {
-                    TourVirtualDAO tourVirtualDAO = new TourVirtualDAO();
-                    busca = tourVirtualDAO.buscar();
+                    TourVirtualDAO tourDAO = new TourVirtualDAO();
+                    busca = tourDAO.buscar();
                 }
             %>
             <%
@@ -83,23 +97,17 @@
             %>
             <tr>
                 <td><%= tourId %></td>
-                <td><%= busca.getString("nome") %></td>
                 <td><%= busca.getString("descricao") %></td>
-                <td><%= busca.getString("endereco") %></td>
-                <td><%= busca.getBoolean("acessibilidade") %></td>
-                <td><%= busca.getString("categoria") %></td>
+                <td><%= busca.getString("video") %></td>
+                <td><%= busca.getBoolean("media_classificacao") %></td>
+                <td><%= busca.getString("qtd_classificacao") %></td>
+                <td><%= busca.getString("pr") %></td>
                 <td><%= busca.getString("data_criacao") %></td>
                 <td><%= busca.getString("data_atualizacao") %></td>
-
                 <td>
-                    <a href="alterar_tour_virtual.jsp?id=<%= planoId %>">
-                        <button class="alterar">
-                            <img src="images/lapis.svg" alt=""></img>
-                        </button>
-                    </a>
-                    <a href="DeletarTourVirtual-servlet?id=<%=  %>" onclick="return confirm('Tem certeza que deseja deletar este admin?')">
+                    <a href="DeletarTourVirtual-servlet?id=<%= tourId %>" onclick="return confirm('Tem certeza que deseja deletar este admin?')">
                         <button class="deletar">
-                            <img src="images/lixeira.svg" alt="">
+                            <img src="images/lixeira.svg" alt=""></img>
                         </button>
                     </a>
                 </td>
@@ -113,8 +121,13 @@
             </tbody>
         </table>
     </section>
+    <%
+    } else {
+    %>
+    <p class="naoEncontrado"><%= request.getAttribute("naoEncontrado")%></p>
+    <%
+        }
+    %>
 </main>
 </body>
 </html>
-
-
