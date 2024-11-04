@@ -112,11 +112,11 @@
                 <td><%=busca.getString("nome_empresa")%></td>
                 <td><%=busca.getString("site")%></td>
                 <td><%=busca.getInt("capacidade")%></td>
-                <td><%=busca.getDouble("duracao")%></td>
+                <td><%=busca.getString("duracao")%></td>
                 <td><%=busca.getDouble("preco_total")%></td>
                 <td><%=busca.getDate("data_inicio")%></td>
                 <td><%=busca.getDate("data_termino")%></td>
-                <td><%=busca.getInt("data_atualizacao")%></td>
+                <td><%=busca.getDate("data_atualizacao")%></td>
                 <td>
                     <a href="DeletarEevntos-servelet"<%= excursaoId%> onclick="return confirm('Tem certeza que deseja deletar este evento?')"
                     <button class="deletar">
