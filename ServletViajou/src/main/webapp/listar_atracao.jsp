@@ -70,7 +70,7 @@
                 <th>Categoria</th>
                 <th>Criacao</th>
                 <th>Atualização</th>
-
+                <th>Opções</th>
 
             </tr>
             </thead>
@@ -98,12 +98,12 @@
                 <td><%= busca.getString("data_atualizacao") %></td>
 
                 <td>
-                                        <a href="alterar_atracao.jsp?id=<%= planoId %>">
-                                            <button class="alterar">
-                                                <img src="images/lapis.svg" alt=""></img>
-                                            </button>
-                                        </a>
-                    <a href="deletar_plano.jsp?id=<%= planoId %>" onclick="return confirm('Tem certeza que deseja deletar este admin?')">
+                    <a href="alterar_atracao.jsp?id=<%= planoId %>">
+                        <button class="alterar">
+                            <img src="images/lapis.svg" alt=""></img>
+                        </button>
+                    </a>
+                    <a href="DeletarAtracao-servlet?id=<%= planoId %>" onclick="return confirm('Tem certeza que deseja deletar esta atrção?')">
                         <button class="deletar">
                             <img src="images/lixeira.svg" alt=""></img>
                         </button>
