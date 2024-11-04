@@ -31,7 +31,7 @@ public class BuscarEvento extends HttpServlet {
                 // Redireciona para a página de listagem
                 request.getRequestDispatcher("listar_eventos.jsp").forward(request, response);
             } else {
-                request.setAttribute("naoEncontrado", "Admin não encontrado...");
+                request.setAttribute("naoEncontrado", "Evento não encontrado...");
                 request.getRequestDispatcher("listar_eventos.jsp").forward(request, response);
             }
 

@@ -30,20 +30,20 @@ public class InserirEvento extends HttpServlet {
             String descricao = req.getParameter("descricao");
             int capacidade = Integer.parseInt("capacidade");
             Time horario = Time.valueOf(req.getParameter("horario"));
-            Date data_inicio = Date.valueOf(req.getParameter("data-inicio"));
-            Date data_termino = Date.valueOf(req.getParameter("data-termino"));
-            double preco_pessoa = Double.parseDouble(req.getParameter("preco-pessoa"));
+            Date dataInicio = Date.valueOf(req.getParameter("data-inicio"));
+            Date dataTermino = Date.valueOf(req.getParameter("data-termino"));
+            double precoPessoa = Double.parseDouble(req.getParameter("preco-pessoa"));
             int id_atracao = Integer.parseInt(req.getParameter("id-atracao"));
             int id_tourVirtual = Integer.parseInt(req.getParameter("id-tour"));
             Date data_criacao = Date.valueOf(req.getParameter("data-criacao"));
             Date data_atualizacao = Date.valueOf(req.getParameter("data-atualizacao"));
 
-            Eventos eventos = new Eventos(id, capacidade, categoria, data_inicio, data_termino, descricao,
-                    faixaEtaria, horario, id_atracao, id_tourVirtual, preco_pessoa, data_criacao);
+            Eventos eventos = new Eventos(id, capacidade, categoria, dataInicio, dataTermino, descricao,
+                    faixaEtaria, horario, id_atracao, id_tourVirtual, precoPessoa, data_criacao);
 
-            ResultSet rsBuscar = eventosDAO.buscar(id_atracao);
+            ResultSet busca = eventosDAO.buscar(id_atracao);
 
-            if (!rsBuscar.next()){
+            if (busca.next()){
                 int inserirEvento = eventosDAO.inserirEvento(eventos);
                 if (inserirEvento == 1){
                     req.setAttribute("mensagem", "Evento inserido com sucesso!");

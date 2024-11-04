@@ -11,7 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inserir atraçaõ</title>
+    <title>Inserir atração</title>
 </head>
 <body>
 <h1>Inserir atração</h1>

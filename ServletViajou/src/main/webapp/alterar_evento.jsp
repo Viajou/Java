@@ -11,7 +11,7 @@
 </header>
 <body>
 <h1>Alterar um Evento</h1>
-<form action="AlterarEvento-servlet" method="post">
+<form action="/AlterarEventos-servlet" method="post">
     <label for="faixa-etaria">Nova faixa Etária do evento:</label>
     <input type="text" name="faixa-etaria" id="faixa-etaria" placeholder="Ex: +16">
     <br>
@@ -36,12 +36,12 @@
     <label for="id-tour">Novo ID do tour virtual:</label>
     <input type="text" name="id-tour" id="id-tour" placeholder="Ex: 76">
     <br>
-    <label for="id-atracao">ID da atração:</label>
+    <label for="id-atracao">Novo ID da atração:</label>
     <input type="text" name="id-atracao" id="id-atracao" placeholder="Ex: 76">
     <br>
     <input type="submit" value="Alterar evento">
     <br>
-    <a href="listar_evento.jsp">
+    <a href="listar_eventos.jsp">
         <button>Voltar</button>
     </a>
 </form>
