@@ -1,6 +1,5 @@
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.SQLException" %>
-<%@ page import="com.example.servletviajou.DAO.PlanoDAO" %>
 <%@ page import="com.example.servletviajou.DAO.TourVirtualDAO" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page pageEncoding="UTF-8" %>
@@ -99,11 +98,11 @@
                 <td><%= tourId %></td>
                 <td><%= busca.getString("descricao") %></td>
                 <td><%= busca.getString("video") %></td>
-                <td><%= busca.getBoolean("media_classificacao") %></td>
-                <td><%= busca.getString("qtd_classificacao") %></td>
-                <td><%= busca.getString("pr") %></td>
-                <td><%= busca.getString("data_criacao") %></td>
-                <td><%= busca.getString("data_atualizacao") %></td>
+                <td><%= busca.getDouble("media_classificacao") %></td>
+                <td><%= busca.getInt("qtd_classificacao") %></td>
+                <td><%= busca.getString("preco") %></td>
+                <td><%= busca.getDate("data_criacao") %></td>
+                <td><%= busca.getDate("data_atualizacao") %></td>
                 <td>
                     <a href="DeletarTourVirtual-servlet?id=<%= tourId %>" onclick="return confirm('Tem certeza que deseja deletar este admin?')">
                         <button class="deletar">
