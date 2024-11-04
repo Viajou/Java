@@ -20,7 +20,7 @@ public class EventosDAO {
         conexao.conectar();
         try {
             Connection conn = conexao.getConn();
-            PreparedStatement pstmt = conn.prepareStatement("SELECT atracao.nome, * FROM eventos JOIN atracao ON atracao.id = eventos.id_atracao");
+            PreparedStatement pstmt = conn.prepareStatement("SELECT eventos.id,atracao.nome,eventos.descricao,atracao.categoria,eventos.capacidade,eventos.preco_pessoa,eventos.data_inicio,eventos.data_termino,eventos.faixa_etaria FROM eventos JOIN atracao ON atracao.id = eventos.id_atracao");
             rset = pstmt.executeQuery();
             return rset;
         } catch (SQLException sqle){
@@ -41,8 +41,8 @@ public class EventosDAO {
         conexao.conectar();
         try {
             Connection conn = conexao.getConn();
-            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM eventos WHERE id = ? ");
-            pstmt.setInt(1,id);
+            PreparedStatement pstmt = conn.prepareStatement("SELECT eventos.id,atracao.nome,eventos.descricao,atracao.categoria,eventos.capacidade,eventos.preco_pessoa,eventos.data_inicio,eventos.data_termino,eventos.faixa_etaria FROM eventos JOIN atracao ON atracao.id = eventos.id_atracao WHERE eventos.id = ?");
+            pstmt.setInt(1, id);
             rset = pstmt.executeQuery();
             return rset;
         } catch (SQLException sqle){

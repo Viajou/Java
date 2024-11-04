@@ -9,15 +9,15 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name = "DeletarEventos", value = "/DeletarEevntos-servelet")
+@WebServlet(name = "DeletarEventos", value = "/DeletarEventos-servelet")
 public class DeletarEvento extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try {
             // obtendo valores do formulário
 
-            int id = Integer.parseInt(req.getParameter("id"));
+            int id = Integer.parseInt(request.getParameter("id"));
 
             //instanciando classe DAO
 
@@ -28,20 +28,20 @@ public class DeletarEvento extends HttpServlet {
             int DelComid = eventosDAO.deletarEvento(id);
 
             if (DelComid == 1){
-                req.getSession().setAttribute("mensagem", "Evento excluido com sucesso");
-                resp.sendRedirect("deletarEvento.jsp");
+                request.getSession().setAttribute("mensagem", "Evento excluido com sucesso");
+                response.sendRedirect("deletarEvento.jsp");
             }
             else if (DelComid == 0) {
-                req.getSession().setAttribute("mensagem", "Evento não encontrado");
-                resp.sendRedirect("erro.jsp");
+                request.getSession().setAttribute("mensagem", "Evento não encontrado");
+                response.sendRedirect("erro.jsp");
             }
             else {
-                req.getSession().setAttribute("mensagem", "Erro de SQL");
-                resp.sendRedirect("erro.jsp");
+                request.getSession().setAttribute("mensagem", "Erro de SQL");
+                response.sendRedirect("erro.jsp");
             }
         } catch (NumberFormatException nfe){
-            req.setAttribute("Erro", "ID inválido!");
-            req.getRequestDispatcher("erro.jsp").forward(req, resp);
+            request.setAttribute("Erro", "ID inválido!");
+            request.getRequestDispatcher("erro.jsp").forward(request, response);
         }
     }
 }
