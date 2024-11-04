@@ -187,19 +187,6 @@ h1 {
     cursor: pointer;
 }
 
-.alterar{
-    background-color: #6EC9BF;
-    color: white;
-    border: none;
-    padding: 0.6rem;
-    border-radius: 5px;
-    width: 7vw;
-    font-family: LevenimBold;
-    font-size: 1rem;
-    margin: 0 0 0 14px;
-    cursor: pointer;
-}
-
 .deletar{
     background: none;
     border: none;
@@ -207,7 +194,7 @@ h1 {
     padding: 0;
 }
 
-.deletar>img{
+.deletar>img {
     width: 27px;
 }
 

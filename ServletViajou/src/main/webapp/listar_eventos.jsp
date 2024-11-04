@@ -19,7 +19,7 @@
 </head>
 <body>
 <header>
-    <img src="images/Viajou logo peuqena.svg" alt="Viajou logo" id="Viajou-logo">
+    <img src="images/Viajou%20logo%20pequena.svg" alt="Viajou logo" id="Viajou-logo">
     <%
         //traz o nome a imagem armazenados na sessão
         HttpSession sessao = request.getSession();
@@ -51,7 +51,7 @@
     <h1>Eventos</h1>
 
     <div class="button-group">
-        <a href="${pageContext.request.contextPath}/InserirEvento-servlets">
+        <a href="InserirEvento-servlets">
             <button class="inserir">Adicionar</button>
         </a>
 
@@ -59,7 +59,7 @@
             <button class="alterar">Alterar</button>
         </a>
 
-        <form action="${pageContext.request.contextPath}/BuscarEvento-servlet" method="get" class="search-form">
+        <form action="BuscarEvento-servlet" method="get" class="search-form">
             <input type="text" name="search" placeholder="Buscar evento...">
             <button type="submit">Buscar</button>
         </form>
@@ -109,15 +109,15 @@
                 <td><%=busca.getString("descricao")%></td>
                 <td><%=busca.getString("categoria")%></td>
                 <td><%=busca.getInt("capacidade")%></td>
-                <td><%=busca.getDouble("preco")%></td>
+                <td><%=busca.getDouble("preco_pessoa")%></td>
                 <td><%=busca.getDate("data_inicio")%></td>
                 <td><%=busca.getDate("data_final")%></td>
                 <td><%=busca.getInt("faixa_etaria")%></td>
                 <td>
-                    <a href="/DeletarEevntos-servelet="<%= eventosId%> onclick="return confirm('Tem certeza que deseja deletar este evento?')"
-                       <button class="deletar">
-                           <img src="images/lixeira.svg">
-                       </button>
+<%--                    <a href="DeletarEevntos-servelet="<%= eventosId%> onclick="return confirm('Tem certeza que deseja deletar este evento?')"--%>
+<%--                       <button class="deletar">--%>
+<%--                           <img src="images/lixeira.svg">--%>
+<%--                       </button>--%>
                 </td>
             </tr>
             <%
