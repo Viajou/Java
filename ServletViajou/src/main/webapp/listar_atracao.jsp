@@ -40,7 +40,7 @@
             <button class="inserir">Adicionar</button>
         </a>
 
-        <form action=BuscarAtracao-servelt method="get" class="search-form">
+        <form action="buscarAtracao-servlet" method="get" class="search-form">
             <input type="text" name="search" placeholder="Buscar atracao..." required>
             <button type="submit">Buscar</button>
         </form>
@@ -79,10 +79,10 @@
             <%
                 try {
                     while (busca.next()) {
-                        int planoId = busca.getInt("id");
+                        int atracaoId = busca.getInt("id");
             %>
             <tr>
-                <td><%= planoId %></td>
+                <td><%= atracaoId %></td>
                 <td><%= busca.getString("nome") %></td>
                 <td><%= busca.getString("descricao") %></td>
                 <td><%= busca.getString("endereco") %></td>
@@ -92,12 +92,12 @@
                 <td><%= busca.getString("data_atualizacao") %></td>
 
                 <td>
-                    <a href="alterar_atracao.jsp?id=<%= planoId %>">
+                    <a href="alterar_atracao.jsp?id=<%= atracaoId %>">
                         <button class="alterar">
                             <img src="images/lapis.svg" alt=""></img>
                         </button>
                     </a>
-                    <a href="deletar_plano.jsp?id=<%= planoId %>" onclick="return confirm('Tem certeza que deseja deletar este admin?')">
+                    <a href="deletar_plano.jsp?id=<%= atracaoId %>" onclick="return confirm('Tem certeza que deseja deletar este admin?')">
                         <button class="deletar">
                             <img src="images/lixeira.svg" alt=""></img>
                         </button>
