@@ -1,18 +1,14 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: heloisamachado-ieg
-  Date: 02/11/2024
-  Time: 22:23
-  To change this template use File | Settings | File Templates.
---%>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="com.example.servletviajou.DAO.AdminDAO" %>
+<%@ page pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alterar Administrador</title>
+    <title>Alterar Atração</title>
     <link rel="stylesheet" href="CSS/Alterar.css">
     <link rel="stylesheet" href="CSS/crud.css">
     <link rel="stylesheet" href="CSS/encontrado.css">
@@ -48,31 +44,78 @@
     </nav>
 </aside>
 
-    <h1>Alterar atração</h1>
-    <form action="AlterarAtracao-servlet" method="post">
+<h1>Alterar atração</h1>
 
-        <label for="nome">Nome da atração: </label>
-        <input type="text" name="nome" id="nome" placeholder="Ex:Catavento">
+    <div class="fundo">
+        <div class="formulario">
+            <form action="AlterarAtracao-servlet" method="post">
 
-        <br><br>
+                <h2>Atual</h2>
 
-        <label for="descricao">Descrição da atração: </label>
-        <input type="text" name="descricao" id="descricao" placeholder="Ex:Museu">
+                <label for="nome">Nome da atração: </label>
+                <input type="text" name="nome" id="nome" placeholder="Ex:Catavento">
 
-        <br><br>
+                <br><br>
 
-        <label for="endereco">Endereço da atração: </label>
-        <input type="text" name="endereco" id="endereco" placeholder="Ex: Av.Getulio vagas">
+                <label for="descricao">Descrição da atração: </label>
+                <input type="text" name="descricao" id="descricao" placeholder="Ex:Museu">
 
-        <br><br>
+                <br><br>
 
-        <label for="acessibilidade">Acessibilidade da atração: </label>
-        <input type="text" name="acessibilidade" id="acessibilidade" placeholder="Ex: true/false">
+                <label for="endereco">Endereço da atração: </label>
+                <input type="text" name="endereco" id="endereco" placeholder="Ex: Av.Getulio vagas">
 
-        <br><br>
+                <br><br>
 
-        <label for="categoria">Categoria da atração: </label>
-        <input type="text" name="categoria" id="categoria" placeholder="Ex: Exposições">
-    </form>
+                <label for="acessibilidade">Acessibilidade da atração: </label>
+                <input type="text" name="acessibilidade" id="acessibilidade" placeholder="Ex: true/false">
+
+                <br><br>
+
+                <label for="categoria">Categoria da atração: </label>
+                <input type="text" name="categoria" id="categoria" placeholder="Ex: Exposições">
+            </form>
+
+
+            <form action="AlterarAtracao-servlet" method="post">
+
+                <h2>Novo</h2>
+
+                <label for="novo_nome">Novo nome da atração: </label>
+                <input type="text" name="nome" id="novo_nome" placeholder="Ex:Catavento">
+
+                <br><br>
+
+                <label for="nova_descricao">Nova descrição da atração: </label>
+                <input type="text" name="descricao" id="Nova_descricao" placeholder="Ex:Museu">
+
+                <br><br>
+
+                <label for="novo_endereco">Novo endereço da atração: </label>
+                <input type="text" name="endereco" id="novo_endereco" placeholder="Ex: Av.Getulio vagas">
+
+                <br><br>
+
+                <label for="nova_acessibilidade">Nova acessibilidade da atração: </label>
+                <input type="text" name="acessibilidade" id="nova_acessibilidade" placeholder="Ex: true/false">
+
+                <br><br>
+
+                <label for="nova_categoria">Nova categoria da atração: </label>
+                <input type="text" name="categoria" id="nova_categoria" placeholder="Ex: Exposições">
+            </form>
+
+
+       </div>
+
+            <div class="botoes">
+                <button>
+                    <a href="listar_atracao.jsp">Voltar</a>
+                </button>
+                <input type="submit" value="Alterar">
+            </div>
+  </div>
 </body>
 </html>
+
+

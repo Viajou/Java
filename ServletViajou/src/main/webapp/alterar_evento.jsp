@@ -1,11 +1,19 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="com.example.servletviajou.DAO.EventosDAO" %>
+<%@ page pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>Alterar Administrador</title>
     <link rel="stylesheet" href="CSS/Alterar.css">
+=======
+    <title>Alterar Evento</title>
+    <link rel="stylesheet" href="CSS/alterar2.css">
+>>>>>>> 48118c973ad692637f1c18ed6a84641014822066
     <link rel="stylesheet" href="CSS/crud.css">
     <link rel="stylesheet" href="CSS/encontrado.css">
 </head>
@@ -24,7 +32,21 @@
         <h3 class="admin-name"><%= nomeAdmin %></h3>
     </div>
 </header>
+<aside>
+    <nav>
+        <ul>
+            <li><a href="listar_admin.jsp"><img src="images/icone-user-crud.svg" alt="">Admin</a></li>
+            <li><a href="listar_eventos.jsp"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
+            <li><a href="listar_plano.jsp"><img src="images/icone-panos-crud.svg" alt="">Planos</a></li>
+            <li><a href="listar_excursao.jsp"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
+            <li><a href="listar_atracao.jsp"><img src="images/icone-eventos-crud.svg" alt="">Atração</a></li>
+            <li><a href="listar_tour_virtual.jsp"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
+            <li><a href="https://area-restrita-dev.onrender.com/index.html">Área Restrita</a></li>
+        </ul>
+    </nav>
+</aside>
 <body>
+
 <aside>
     <nav>
         <ul>

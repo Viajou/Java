@@ -41,9 +41,9 @@
             <li><a href="listar_admin.jsp"><img src="images/icone-user-crud.svg" alt="">Admin</a></li>
             <li><a href="listar_eventos.jsp"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
             <li><a href="listar_plano.jsp"><img src="images/icone-panos-crud.svg" alt="">Planos</a></li>
-            <li><a href="listar_excursao.jsp"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
+            <li><a href="#"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
             <li><a href="listar_atracao.jsp"><img src="images/icone-eventos-crud.svg" alt="">Atração</a></li>
-            <li><a href="#"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
+            <li><a href="listar_tour_virtual.jsp"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
             <li><a href="https://area-restrita-dev.onrender.com/index.html">Área Restrita</a></li>
         </ul>
     </nav>
@@ -55,10 +55,6 @@
     <div class="button-group">
         <a href="InserirExcursao-servlet">
             <button class="inserir">Adicionar</button>
-        </a>
-
-        <a href="AlterarExcursao-servlet">
-            <button class="alterar">Alterar</button>
         </a>
 
         <form action="BuscarExcursao-servlet" method="get" class="search-form">
@@ -89,6 +85,7 @@
                 <th>Data de Inicio</th>
                 <th>Data de término</th>
                 <th>Data de atualização</th>
+                <th>Opções</th>
             </tr>
             </thead>
 
@@ -118,10 +115,16 @@
                 <td><%=busca.getDate("data_termino")%></td>
                 <td><%=busca.getDate("data_atualizacao")%></td>
                 <td>
-                    <a href="DeletarEevntos-servelet"<%= excursaoId%> onclick="return confirm('Tem certeza que deseja deletar este evento?')"
-                    <button class="deletar">
-                        <img src="images/lixeira.svg">
-                    </button>
+                    <a href="alterar_excursao.jsp?id=<%=busca.getInt("id")%>nome=<%=busca.getString("nome")%>nome_empresa=<%=busca.getString("nome_empresa")%>site=<%=busca.getString("site")%>capacidade=<%=busca.getInt("capacidade")%>duracao=<%=busca.getString("duracao")%>preco=<%=busca.getDouble("preco_total")%>data_inicio=<%=busca.getDate("data_inicio")%>data_termino=<%=busca.getDate("data_termino")%>data_atualizacao=<%=busca.getDate("data_atualizacao")%>">
+                        <button class="deletar">
+                            <img src="images/lapis.svg">
+                        </button>
+                    </a>
+                    <a href="DeletarExcursao-servlet?="<%= excursaoId%> onclick="return confirm('Tem certeza que deseja deletar este evento?')">
+                        <button class="deletar">
+                            <img src="images/lixeira.svg">
+                        </button>
+                    </a>
                 </td>
             </tr>
             <%

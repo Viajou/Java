@@ -1,10 +1,3 @@
-.fundo {
-    display: flex; /* Corrigido para centralizar o conteúdo */
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
 form {
     background-color: #ffffff;
     padding: 20px;
@@ -37,7 +30,7 @@ label {
     color: #8b5cf6;
     font-size: 14px;
     margin-bottom: 5px;
-    font-family: LevenimBold, sans-serif;
+    font-family: LevenimBold;
 }
 
 .entrada {
@@ -56,48 +49,34 @@ label {
     border-color: #8b5cf6;
 }
 
-input[type="text"]{
-    border: solid 2px gray;
-    border-radius: 5px;
-    padding: 10px;
+input[type="submit"],
+button {
+    background-color: #412267;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s ease;
 }
 
-input[type="submit"],
-button{
+input[type="submit"]:hover,
+button:hover {
+    background-color: #8E70D6;
+}
+
+form a,
+input[type="submit"] {
     background-color: #805CD8;
     color: white;
     border: none;
     padding: 0.6rem;
     border-radius: 5px;
     width: 10vw;
-    font-family: LevenimBold, sans-serif;
+    font-family: Arial, sans-serif;
     font-size: 1rem;
     margin: 0 auto;
     cursor: pointer;
 }
-
-button,
-a{
-    font-family: LevenimBold, serif;
-    font-size: 1rem;
-    color: white;
-}
-
-input[type="submit"]:hover,
-button:hover{
-    background-color: #8E70D6;
-}
-
-input[type="submit"]:active,
-button:active{
-    color: rgb(218, 155, 255);
-}
-
-
-.botoes {
-    display: flex;
-    justify-content: center;
-    gap: 30px; /* Espaçamento entre os botões */
-    margin-top: 20px;
-}
-

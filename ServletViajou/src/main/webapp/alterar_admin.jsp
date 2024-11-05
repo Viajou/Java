@@ -65,6 +65,12 @@
                     <label for="novaSenha">Senha atual:</label>
                     <input class="entrada" type="text" id="senhaAtual" name="senhaAtual" disabled value=" <%= request.getParameter("senha")%>" >
                 </div>
+
+                <div class="botoes">
+                    <button>
+                        <a href="listar_admin.jsp">Voltar</a>
+                    </button>
+                </div>
             </form>
 
             <form method="post" action="alterarAdmin-servlet?id=<%= request.getParameter("id") %>">
@@ -85,14 +91,11 @@
                     <label for="novaSenha">Nova senha:</label>
                     <input class="entrada" type="text" id="novaSenha" name="novaSenha" placeholder="Nova senha">
                 </div>
-            </form>
-       </div>
 
-       <div class="botoes">
-           <button>
-               <a href="listar_admin.jsp">Voltar</a>
-           </button>
-           <input type="submit" value="Alterar">
+                <div class="botoes">
+                    <input type="submit" value="Alterar">
+                </div>
+            </form>
        </div>
 
    </div>

@@ -9,14 +9,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
-import com.example.servletviajou.DAO.PlanoDAO;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 @WebServlet(name = "buscarAtracao", value = "/buscarAtracao-servlet")
@@ -35,7 +27,7 @@ public class BuscarAtracao extends HttpServlet {
                 // Redireciona para a página de listagem
                 request.getRequestDispatcher("listar_atracao.jsp").forward(request, response);
             } else {
-                request.setAttribute("naoEncontrado", "Plano não atracao...");
+                request.setAttribute("naoEncontrado", "Atração não encontrada...");
                 request.getRequestDispatcher("listar_atracao.jsp").forward(request, response);
             }
 
