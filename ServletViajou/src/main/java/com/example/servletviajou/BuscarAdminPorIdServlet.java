@@ -37,7 +37,7 @@ public class BuscarAdminPorIdServlet extends HttpServlet {
         } catch (NumberFormatException nfe) {
             // Trata o caso onde o ID não é um número válido
             request.setAttribute("errorMessage", "Por favor, insira um ID válido.");
-            request.getRequestDispatcher("listar_admin.jsp").forward(request, response);
+            request.getRequestDispatcher("error.jsp").forward(request, response);
         }catch (SQLException sqle) {
             request.setAttribute("errorMessage", sqle.getMessage());
         }

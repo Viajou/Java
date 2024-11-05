@@ -44,95 +44,76 @@
 </aside>
 <body>
 
-<h1>Alterar um Evento</h1>
+<<<<<<< HEAD
+<div class="formulario">
+    <form class="alteracao">
+        <h2>Atual</h2>
+        <div class="campo">
+            <label for="idAtual">Id atual:</label>
+            <input class="entrada" type="number" id="idAtual" name="idAtual" disabled value="<%= request.getParameter("id") %>">
+        </div>
+        <div class="campo">
+            <label for="idAtracaoAtual">Id atração atual:</label>
+            <input class="entrada" type="text" id="idAtracaoAtual" name="idAtracaoAtual" disabled value="<%= request.getParameter("id_atracao") %> " >
+        </div>
+        <div class="campo">
+            <label for="nomeAtual">Nome atual:</label>
+            <input class="entrada" type="text" id="nomeAtual" name="nomeAtual" disabled value="<%= request.getParameter("nome") %> " >
+        </div>
+        <div class="campo">
+            <label for="descricaoAtual">Descrição atual:</label>
+            <input class="entrada" type="text" id="descricaoAtual" name="descricaoAtual" disabled value="<%= request.getParameter("descricao")%>">
+        </div>
+        <div class="campo">
+            <label for="preco_pessoaAtual">Preço por pessoa atual:</label>
+            <input class="entrada" type="text" id="preco_pessoaAtual" name="preco_pessoaAtual" disabled value="<%= request.getParameter("capacidade")%>">
+        </div>
+        <div class="campo">
+            <label for="data_inicioAtual">Data de inicio atual:</label>
+            <input class="entrada" type="text" id="data_inicioAtual" name="data_inicioAtual" disabled value="<%= request.getParameter("data_inicio")%>">
+        </div>
+        <div class="campo">
+            <label for="data_terminoAtual">Data de Termino atual:</label>
+            <input class="entrada" type="text" id="data_terminoAtual" name="data_terminoAtual" disabled value="<%= request.getParameter("data_termino")%>">
+        </div>
+        <div class="campo">
+            <label for="faixa_etariaAtual">Faixa etaria atual:</label>
+            <input class="entrada" type="text" id="faixa_etariaAtual" name="faixa_etariaAtual" disabled value=" <%= request.getParameter("senha")%>" >
+        </div>
+    </form>
 
-<div class="fundo">
-    <div class="formulario">
-
-        <form class="alteracao">
-
-            <label for="faixaetaria">Faixa Etária do evento:</label>
-            <input type="text" name="faixa-etaria" id="faixaetaria" placeholder="Ex: +16">
-
-            <br>
-
-            <label for="descricao2">Descrição do evento:</label>
-            <input type="text" name="descricao" id="descricao2" placeholder="Ex: Evento de música ao vivo">
-
-            <br>
-
-            <label for="capacidade2">Capacidade do evento:</label>
-            <input type="text" name="capacidade" id="capacidade2" placeholder="Ex: 1500">
-
-            <br>
-
-            <label for="horario2">Horário do evento:</label>
-            <input type="text" name="horario" id="horario2" placeholder="Ex: 15:30">
-
-            <br>
-
-            <label for="datainicio">Data de início do evento:</label>
-            <input type="text" name="data-inicio" id="datainicio" placeholder="Formato: aaaa-mm-dd">
-
-            <br>
-
-            <label for="datatermino">Data de término do evento:</label>
-            <input type="text" name="data-termino" id="datatermino" placeholder="Formato: aaaa-mm-dd">
-
-            <br>
-
-            <label for="precopessoa">Preço por pessoa:</label>
-            <input type="text" name="preco-pessoa" id="precopessoa" placeholder="Ex: 34.50">
-
-            <div class="botoes">
-                <button>
-                    <a href="listar_admin.jsp">Voltar</a>
-                </button>
-            </div>
-
+    <form method="post" action="/AlterarEventos-servlet?id=<%= request.getParameter("id") %>">
+        <h2>Novo</h2>
+        <div class="campo">
+            <label for="novoNome">Novo nome:</label>
+            <input class="entrada" type="text" id="novoNome" name="novoNome" placeholder="Novo nome">
+        </div>
+        <div class="campo">
+            <label for="novaDescricao">Nova descrição:</label>
+            <input class="entrada" type="text" id="novaDescricao" name="novaDescricao" placeholder="Novo descrição">
+        </div>
+        <div class="campo">
+            <label for="novaCapacidade">Nova capacidade:</label>
+            <input class="entrada" type="text" id="novaCapacidade" name="novaCapacidade" placeholder="Nova capacidade" >
+        </div>
+        <div class="campo">
+            <label for="novoPreco_Pessoa">Novo preço por pessoa:</label>
+            <input class="entrada" type="text" id="novoPreco_Pessoa" name="novoPreco_Pessoa" placeholder="novo preco por pessoa">
+        </div>
+        <div class="campo">
+            <label for="novaData_inicial">Nova data de inicio:</label>
+            <input class="entrada" type="text" id="novaData_inicial" name="novaData_inicial" placeholder="Ex: (aaaa-mm-dd)">
+        </div>
+        <div class="campo">
+            <label for="novaData_Termino">Data de Termino atual:</label>
+            <input class="entrada" type="text" id="novaData_Termino" name="novaData_Termino" placeholder="Ex: (aaaa-mm-dd)" >
+        </div>
+        <div class="campo">
+            <label for="novaFaixa_Etaria">Nova faixa etaria:</label>
+            <input class="entrada" type="text" id="novaFaixa_Etaria" name="novaFaixa_Etaria" placeholder="opções: livre, 12+,14+, 16+, 18+">
+        </div>
+        <input type="submit" value="Alterar">
         </form>
-
-        <form action="AlterarEventos-servlet" method="post">
-
-            <label for="faixa-etaria">Nova faixa Etária do evento:</label>
-            <input type="text" name="faixa-etaria" id="faixa-etaria" placeholder="Ex: +16">
-
-            <br>
-
-            <label for="descricao">Nova descrição do evento:</label>
-            <input type="text" name="descricao" id="descricao" placeholder="Ex: Evento de música ao vivo">
-
-            <br>
-
-            <label for="capacidade">Nova capacidade do evento:</label>
-            <input type="text" name="capacidade" id="capacidade" placeholder="Ex: 1500">
-
-            <br>
-
-            <label for="horario">Novo horário do evento:</label>
-            <input type="text" name="horario" id="horario" placeholder="Ex: 15:30">
-
-            <br>
-
-            <label for="data-inicio">Nova data de início do evento:</label>
-            <input type="text" name="data-inicio" id="data-inicio" placeholder="Formato: aaaa-mm-dd">
-
-            <br>
-
-            <label for="data-termino">Nova data de término do evento:</label>
-            <input type="text" name="data-termino" id="data-termino" placeholder="Formato: aaaa-mm-dd">
-
-            <br>
-
-            <label for="preco-pessoa">Novo preço por pessoa:</label>
-            <input type="text" name="preco-pessoa" id="preco-pessoa" placeholder="Ex: 34.50">
-
-            <div class="botoes">
-               <input type="submit" value="Alterar">
-            </div>
-
-       </form>
     </div>
-</div>
 </body>
 </html>

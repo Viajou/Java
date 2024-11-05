@@ -34,7 +34,7 @@ public class BuscarAtracao extends HttpServlet {
         } catch (NumberFormatException nfe) {
             // Trata o caso onde o ID não é um número válido
             request.setAttribute("errorMessage", "Por favor, insira um ID válido.");
-            request.getRequestDispatcher("listar_plano.jsp").forward(request, response);
+            request.getRequestDispatcher("listar_atracao.jsp").forward(request, response);
         } catch (SQLException sqle) {
             sqle.printStackTrace();
         }
