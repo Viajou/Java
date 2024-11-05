@@ -16,18 +16,17 @@
 </head>
 <body>
 <header>
-    <img src="images/Viajou logo pequena.svg" alt="Viajou logo" id="Viajou-logo">
+    <img src="images/Viajou logo pequena.svg" alt="Viajou Logo" id="Viajou-logo">
     <%
-        // Recupera a URL da imagem e o nome do admin armazenados na sessão
+        // Recupera a URL da imagem e nome do admin armazenados na sessão
         HttpSession sessao = request.getSession();
-        String imagem = (String) sessao.getAttribute("url_imagem");
-        String nomeAdmin = (String) sessao.getAttribute("nome_admin");
+        String urlImagem = (String) sessao.getAttribute("urlImagem");
+        String nomeAdmin = (String) sessao.getAttribute("nomeAdmin");
     %>
 
-    <!-- Exibe a imagem e o nome do admin no cabeçalho -->
     <div class="usuario">
-        <img src="<%=imagem%>" alt="Imagem do admin" class="admin-image">
-        <h3 class="admin-name"><%=nomeAdmin%></h3>
+        <img src="<%= urlImagem %>" alt="Imagem do Admin" class="admin-image">
+        <h3 class="admin-name"><%= nomeAdmin %></h3>
     </div>
 </header>
 
