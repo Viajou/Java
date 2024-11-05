@@ -13,7 +13,6 @@
     <title>Listar Admins</title>
     <link rel="stylesheet" href="CSS/crud.css">
     <link rel="stylesheet" href="CSS/encontrado.css">
-
 </head>
 <body>
 <header>
@@ -33,13 +32,14 @@
 <aside>
     <nav>
         <ul>
+            <!-- Links de navegação para várias páginas de CRUD -->
             <li><a href="listar_admin.jsp"><img src="images/icone-user-crud.svg" alt="">Admin</a></li>
             <li><a href="listar_eventos.jsp"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
             <li><a href="listar_plano.jsp"><img src="images/icone-panos-crud.svg" alt="">Planos</a></li>
-            <li><a href="#"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
+            <li><a href="listar_excursao.jsp"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
             <li><a href="listar_atracao.jsp"><img src="images/icone-eventos-crud.svg" alt="">Atração</a></li>
-            <li><a href="#"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
-            <li><a href="https://area-restrita-dev.onrender.com/index.html">Área Restrita</a></li>
+            <li><a href="listar_tour_virtual.jsp"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
+            <li><a href="https://area-restrita-main.onrender.com">Área Restrita</a></li>
         </ul>
     </nav>
 </aside>
@@ -47,25 +47,30 @@
     <h1>Administradores</h1>
 
     <div class="button-group">
+        <!-- Link para a página de inserção de novo admin -->
         <a href="inserir_admin.jsp">
             <button class="inserir">Adicionar</button>
         </a>
 
+        <!-- Formulário de busca por ID de administrador -->
         <form action="BuscarAdminPorIdServlet" method="get" class="search-form">
-            <input type="text" name="search" placeholder="Buscar admin..." required>
+            <input type="text" name="search" placeholder="Buscar admin..." pattern="[0-9]+" title="Somente números são permitidos(id)" required>
             <button type="submit">Buscar</button>
         </form>
+
+        <!-- Link para exibir todos os admins -->
         <a href="listar_admin.jsp">
             <button class="all">All</button>
         </a>
     </div>
 
     <%
-        // Verifica se naoEncontrado não é nulo
+        // Verifica se a mensagem de "não encontrado" foi definida
         String naoEncontrado = (String) request.getAttribute("naoEncontrado");
         if (naoEncontrado == null) {
     %>
     <section class="table-section">
+        <!-- Tabela para listar informações dos administradores -->
         <table>
             <thead>
             <tr>
@@ -80,6 +85,7 @@
             </thead>
             <tbody>
             <%
+                // Recupera o conjunto de resultados da busca se ele já estiver na requisição; caso contrário, consulta o banco
                 ResultSet busca = (ResultSet) request.getAttribute("resultados");
                 if (busca == null) {
                     AdminDAO adminDAO = new AdminDAO();
@@ -88,8 +94,8 @@
             %>
             <%
                 try {
+                    // Itera sobre o conjunto de resultados para exibir cada admin encontrado
                     while (busca.next()) {
-
             %>
             <tr>
                 <td><img class="img" src="<%= busca.getString("url_imagem") %>" alt="Foto de Perfil"></td>
@@ -99,11 +105,13 @@
                 <td><%= busca.getString("data_criacao") %></td>
                 <td><%= busca.getString("data_atualizacao") %></td>
                 <td>
+                    <!-- Link para alterar as informações do admin -->
                     <a href="alterar_admin.jsp?id=<%= busca.getInt("id") %>&url_imagem=<%= busca.getString("url_imagem") %>&nome=<%= busca.getString("nome") %>&email=<%= busca.getString("email") %>&senha=<%= busca.getString("senha") %>">
                         <button class="deletar">
                             <img src="images/lapis.svg" alt="">
                         </button>
                     </a>
+                    <!-- Link para deletar o admin, com confirmação -->
                     <a href="DeletarAdminServlet?id=<%= busca.getInt("id") %>" onclick="return confirm('Tem certeza que deseja deletar este admin?')">
                         <button class="deletar">
                             <img src="images/lixeira.svg" alt="">
@@ -114,6 +122,7 @@
             <%
                     }
                 } catch (SQLException sqle) {
+                    // Exibe o stack trace no caso de erro de SQL
                     sqle.printStackTrace();
                 }
             %>
@@ -121,13 +130,13 @@
         </table>
     </section>
     <%
-        } else {
+    } else {
     %>
+    <!-- Exibe uma mensagem caso o admin não tenha sido encontrado -->
     <p class="naoEncontrado"><%= request.getAttribute("naoEncontrado")%></p>
     <%
         }
     %>
-
 </main>
 </body>
 </html>

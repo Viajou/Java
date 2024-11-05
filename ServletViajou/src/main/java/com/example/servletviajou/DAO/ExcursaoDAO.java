@@ -39,7 +39,7 @@ public class ExcursaoDAO {
         conexao.conectar();
         try{
             Connection conn = conexao.getConn();
-            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM excursao WHERE id = ?");
+            PreparedStatement pstmt = conn.prepareStatement("SELECT atracao.nome,* FROM excursao join atracao on excursao.id_atracao = atracao.id WHERE excursao.id = ?");
             conexao.conectar();
             pstmt.setInt(1, id);
             rset = pstmt.executeQuery();
