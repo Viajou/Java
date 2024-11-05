@@ -44,7 +44,6 @@
 </aside>
 <body>
 
-<<<<<<< HEAD
 <div class="formulario">
     <form class="alteracao">
         <h2>Atual</h2>
@@ -85,10 +84,6 @@
     <form method="post" action="/AlterarEventos-servlet?id=<%= request.getParameter("id") %>">
         <h2>Novo</h2>
         <div class="campo">
-            <label for="novoNome">Novo nome:</label>
-            <input class="entrada" type="text" id="novoNome" name="novoNome" placeholder="Novo nome">
-        </div>
-        <div class="campo">
             <label for="novaDescricao">Nova descrição:</label>
             <input class="entrada" type="text" id="novaDescricao" name="novaDescricao" placeholder="Novo descrição">
         </div>
@@ -97,8 +92,13 @@
             <input class="entrada" type="text" id="novaCapacidade" name="novaCapacidade" placeholder="Nova capacidade" >
         </div>
         <div class="campo">
-            <label for="novoPreco_Pessoa">Novo preço por pessoa:</label>
-            <input class="entrada" type="text" id="novoPreco_Pessoa" name="novoPreco_Pessoa" placeholder="novo preco por pessoa">
+            <label for="novo-preco-pessoa">Novo preço por pessoa:</label>
+            <input class="entrada" type="text" id="novoPreco_Pessoa" name="novoPreco_Pessoa" placeholder="Ex: 15.90">
+        </div>
+
+        <div class="campo">
+            <label for="novoHorario">Novo preço por pessoa:</label>
+            <input class="entrada" type="text" id="novoHorario" name="novoHorario" placeholder="Ex: hh:mm:ss ou hh:mm">
         </div>
         <div class="campo">
             <label for="novaData_inicial">Nova data de inicio:</label>

@@ -20,7 +20,7 @@ import java.util.InputMismatchException;
             String nome = request.getParameter("novoNome");
             String descricao = request.getParameter("novaDescricao");
             String endereco = request.getParameter("novoEndereco");
-            String acessibilidade = request.getParameter("novaAcessibilidade");
+            String Stringacessibilidade = request.getParameter("novaAcessibilidade");
             String categoria = request.getParameter("novaCategoria");
             // Instanciando o DAO para alterar os dados
             AtracaoDAO atracaoDAO = new AtracaoDAO();
@@ -34,10 +34,10 @@ import java.util.InputMismatchException;
             if (endereco != null && !endereco.isEmpty()) {
                 atracaoDAO.alterarEndereco(id, endereco);
             }
-            if (acessibilidade != null && !acessibilidade.isEmpty()) {
+            if (Stringacessibilidade != null && !Stringacessibilidade.isEmpty()) {
                 try {
-                    boolean boleanAcessibilidade = Boolean.parseBoolean(request.getParameter("novaAcessibilidade"));
-                    atracaoDAO.alterarAcessibilidade(id, boleanAcessibilidade);
+                    boolean acessibilidade = Boolean.parseBoolean(request.getParameter("novaAcessibilidade"));
+                    atracaoDAO.alterarAcessibilidade(id, acessibilidade);
                 }catch (InputMismatchException e){
                     request.setAttribute("mensagem", "Erro ao alterar admin: " + e.getMessage());
 

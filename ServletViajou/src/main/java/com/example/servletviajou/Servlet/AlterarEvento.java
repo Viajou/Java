@@ -1,5 +1,6 @@
 package com.example.servletviajou.Servlet;
 
+import com.example.servletviajou.DAO.AtracaoDAO;
 import com.example.servletviajou.DAO.EventosDAO;
 import com.example.servletviajou.HelloServlet;
 import jakarta.servlet.ServletException;
@@ -14,167 +15,61 @@ import java.sql.Time;
 @WebServlet(name = "AlterarEventos", value = "/AlterarEventos-servlet")
 public class AlterarEvento extends HelloServlet {
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         // ontendo valores do formulário
 
-        int id = Integer.parseInt(req.getParameter("id"));
-        String idAtrcao = req.getParameter("idAtracao");
-        String faixaEtaria = req.getParameter("faixaEtaria");
-        String descricao = req.getParameter("descricao");
-        String categoria = req.getParameter("categoria");
-        int capacidade = Integer.parseInt(req.getParameter("capacidade"));
-        Time horario = Time.valueOf(req.getParameter("horario"));
-        Date dataInicio = Date.valueOf(req.getParameter("data-inicio"));
-        Date dataTermino = Date.valueOf(req.getParameter("data-termino"));
-        double precoPessoa = Double.parseDouble(req.getParameter("preco-pessoa"));
+        int id = Integer.parseInt(request.getParameter("id"));
+        int idAtracao = Integer.parseInt(request.getParameter("idAtracao"));
+        String faixaEtaria = request.getParameter("novaFaixa_Etaria");
+        String descricao = request.getParameter("novaDescricao");
+        String Stringcapacidade = request.getParameter("novaCapacidade");
+        String Stringhorario = request.getParameter("novoHorario");
+        String StringdataInicio = request.getParameter("novaData_inicial");
+        String StringdataTermino = request.getParameter("novaData_Termino");
+        String StringprecoPessoa = request.getParameter("novoPreco_Pessoa");
 
         //instanciando a classe EventosDAO
         EventosDAO eventosDAO = new EventosDAO();
 
+
         // Verifica cada campo antes de atualizar
+
         if ( faixaEtaria!= null && !faixaEtaria.isEmpty()) {
             eventosDAO.alterarFaixaEtaria(id,faixaEtaria);
         }
         if (descricao != null && !descricao.isEmpty()) {
             eventosDAO.alterarDescricao(id,descricao);
         }
-        if (categoria != null && !categoria.isEmpty()) {
-            eventosDAO.alterarCategoria(id,categoria);
+        if (Stringcapacidade != null && !Stringcapacidade.isEmpty()) {
+            try {
+                int capacidade = Integer.parseInt(Stringcapacidade);
+                eventosDAO.alterarCapacidade(id,capacidade);
+            }catch (NumberFormatException e) {
+                request.setAttribute("mensagem", "Erro ao alterar admin: " + e.getMessage());
+            }
+        }
+        if (Stringhorario != null && !Stringhorario.isEmpty()) {
+            if (Stringhorario.length() == 5){
+                Stringhorario += "00";
+            }
+            Time horario = Time.valueOf(Stringhorario);
+            eventosDAO.alterarHorario(id,horario);
+        }
+        if (StringdataInicio != null && !StringdataInicio.isEmpty()) {
+            Date dataInicio = Date.valueOf(StringdataInicio);
+            eventosDAO.alterarDataInicio(id,dataInicio);
+        }
+        if (StringdataTermino != null && !StringdataTermino.isEmpty()) {
+            Date dataTermino = Date.valueOf(StringdataTermino);
+            eventosDAO.alterarDataTermino(id,dataTermino);
+        }
+        if (StringprecoPessoa != null && !StringprecoPessoa.isEmpty()) {
+            double precoPessoa = Double.parseDouble(StringprecoPessoa);
+            eventosDAO.alterarPrecoPessoa(id,precoPessoa);
         }
 
-//        if (novaSenha != null && !novaSenha.isEmpty()) {
-//            adminDAO.alterarSenha(id, novaSenha);
-//        }
-//        if (nome != null && !nome.isEmpty()) {
-//            adminDAO.alterarNome(id, nome);
-//        }
-        //Alterando a faixa etária
-        try {
 
-            int numFaixa = eventosDAO.alterarFaixaEtaria(id, faixaEtaria);
-
-            if (numFaixa == 1){
-                req.setAttribute("mensagem", "Faixa etária alterada com sucesso!");
-            }
-            else if (numFaixa == 0) {
-                req.setAttribute("mensagem", "O evento não foi encontrado");
-            }
-            else {
-                req.setAttribute("mensagem", "Erro!Não foi possível alterar o banco de dados");
-            }
-
-
-
-           //alterando descrição
-
-
-
-            int numdesc = eventosDAO.alterarDescricao(id, descricao);
-
-            if (numdesc == 1){
-                req.setAttribute("mensagem", "Descrição alterada com sucesso!");
-            }
-            else if (numdesc == 0){
-                req.setAttribute("mensagem", "O evento não foi encontrado.");
-            }
-            else {
-                req.setAttribute("mensagem", "Erro! Não foi possível alterar o banco de dados");
-            }
-
-
-
-            //alterando a categoria
-
-
-            int numCat = eventosDAO.alterarCategoria(id, categoria);
-
-            if (numCat ==1){
-                req.setAttribute("mensagem", "A categoria foi alterada com sucesso!");
-            }
-            else if (numCat == 0) {
-                req.setAttribute("mensagem", "O evento não foi encontrado");
-            }
-            else {
-                req.setAttribute("mensagem", "Erro! Não foi possível alterar o banco de dados ");
-            }
-
-            //alterando capacidade
-
-            int numCap = eventosDAO.alterarCapacidade(id, capacidade);
-
-            if (numCap ==1){
-                req.setAttribute("mensagem", "A capacidade foi alterada com sucesso!");
-            }
-            else if (numCap == 0) {
-                req.setAttribute("mensagem", "O evento não foi encontrado");
-            }
-            else {
-                req.setAttribute("mensagem", "Erro! Não foi possível alterar o banco de dados ");
-            }
-
-
-            //alterando horário
-
-            int numhr = eventosDAO.alterarHorario(id, horario);
-
-            if (numhr ==1){
-                req.setAttribute("mensagem", "A categoria foi alterada com sucesso!");
-            }
-            else if (numhr == 0) {
-                req.setAttribute("mensagem", "O evento não foi encontrado");
-            }
-            else {
-                req.setAttribute("mensagem", "Erro! Não foi possível alterar o banco de dados ");
-            }
-
-
-            //alterando data de início
-
-            int numDtInicio = eventosDAO.alterarDataInicio(id, dataInicio);
-
-            if (numDtInicio ==1){
-                req.setAttribute("mensagem", "A categoria foi alterada com sucesso!");
-            }
-            else if (numDtInicio == 0) {
-                req.setAttribute("mensagem", "O evento não foi encontrado");
-            }
-            else {
-                req.setAttribute("mensagem", "Erro! Não foi possível alterar o banco de dados ");
-            }
-
-
-            //alterando a data de término
-
-            int numDtTermino = eventosDAO.alterarDataTermino(id, dataTermino);
-
-            if (numDtTermino ==1){
-                req.setAttribute("mensagem", "A categoria foi alterada com sucesso!");
-            }
-            else if (numDtTermino == 0) {
-                req.setAttribute("mensagem", "O evento não foi encontrado");
-            }
-            else {
-                req.setAttribute("mensagem", "Erro! Não foi possível alterar o banco de dados ");
-            }
-
-            //alterando o preço por pessoa
-
-            int numPreco = eventosDAO.alterarPrecoPessoa(id, precoPessoa);
-
-            if (numCat ==1){
-                req.setAttribute("mensagem", "A categoria foi alterada com sucesso!");
-            }
-            else if (numCat == 0) {
-                req.setAttribute("mensagem", "O evento não foi encontrado");
-            }
-            else {
-                req.setAttribute("mensagem", "Erro! Não foi possível alterar o banco de dados ");
-            }
-
-        } catch (NumberFormatException nfe){
-            req.setAttribute("Erro", "ID inválido!");
-            req.getRequestDispatcher("erro.jsp").forward(req, resp);
-        }
     }
+    
 }
