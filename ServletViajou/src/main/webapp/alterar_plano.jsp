@@ -58,11 +58,52 @@
                 <input class="entrada" type="text" id="descricaoAtual" name="descricaoAtual" disabled value="<%=request.getParameter("descricao")%>">
             </div>
             <div class="campo">
-                <label for="novoLivrePropaganda">Livre Propaganda</label>
-                <input class="entrada" type="text" id="novoLivrePropaganda" name="novoLivrePropaganda" disabled value="<%=request.getParameter("livrePropaganda")%>">
+                <label for="LivrePropagandaAtual">Livre Propaganda</label>
+                <input class="entrada" type="text" id="LivrePropagandaAtual" name="livrePropagandaAtual" disabled value="<%=request.getParameter("livrePropaganda")%>">
             </div>
-            <div class="campo"></div>
-            <div class="campo"></div>
+            <div class="campo">
+                <label for="nomeAtual">Nome atual</label>
+                <input class="entrada" type="text" id="nomeAtual" name="nomeAtual" disabled value="<%request.getParameter("nome");%>">
+            </div>
+            <div class="campo">
+                <label for="precoAtual">Preço atual</label>
+                <input class="entrada" type="text" id="precoAtual" name="precoAtual" disabled value="<%request.getParameter("preco");%>">
+            </div>
+
+            <div class="botoes">
+                <button>
+                    <a href="listar_plano.jsp">Voltar</a>
+                </button>
+            </div>
+        </form>
+
+        <form method="post" action="/AlterarPlano-servlet?id=<%=request.getParameter("id")%>">
+            <h2>Novo</h2>
+            <div class="campo">
+                <label for="novaDescricao">Nova descrição</label>
+                <input class="entrada" type="text" id="novaDescricao" name="novaDescricao" placeholder="Nova descrição">
+            </div>
+            <div class="campo">
+                <label>Livre Propaganda</label>
+                <label>
+                    <input class="entrada" type="radio" name="novoLivrePropaganda" value="true">Sim
+                </label>
+                <label>
+                    <input class="entrada" type="radio" name="novoLivrePropaganda" value="true">Não
+                </label>
+            </div>
+            <div class="campo">
+                <label for="novoNome">Novo nome</label>
+                <input class="entrada" type="text" id="novoNome" name="novoNome" placeholder="Novo nome">
+            </div>
+            <div class="campo">
+                <label for="novoPreco">Novo Preço</label>
+                <input class="entrada" type="text" id="novoPreco" name="novoPreco" placeholder="Novo preço">
+            </div>
+
+            <div class="botoes">
+                <input type="submit" value="Alterar">
+            </div>
         </form>
     </div>
 </div>>
