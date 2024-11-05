@@ -67,6 +67,7 @@
             <thead>
             <tr>
                 <th>ID</th>
+                <th>ID atração</th>
                 <th>Nome</th>
                 <th>Descrição</th>
                 <th>Categoria</th>
@@ -94,6 +95,7 @@
 
             <tr>
                 <td><%= busca.getInt("id") %></td>
+                <td><%= busca.getInt("id_atracao") %></td>
                 <td><%= busca.getString("nome") %></td>
                 <td><%= busca.getString("descricao") %></td>
                 <td><%= busca.getString("categoria") %></td>
@@ -103,7 +105,7 @@
                 <td><%= busca.getDate("data_termino") %></td>
                 <td><%= busca.getString("faixa_etaria") %></td>
                 <td>
-                    <a href="alterar_evento.jsp?id=<%= busca.getInt("id") %>&nome=<%= busca.getString("nome") %>&descricao=<%= busca.getString("descricao") %>&capacidade=<%= busca.getInt("capacidade")%>&data_inicio=<%= busca.getDate("data_inicio")%>&data_termino=<%= busca.getDate("data_termino")%>&preco_pessoa=<%= busca.getDouble("preco_pessoa") %>&faixa_etaria=<%= busca.getString("faixa_etaria") %>">
+                    <a href="alterar_evento.jsp?id=<%= busca.getInt("id") %>&idAtracao=<%= busca.getString("id_atracao") %>&nome=<%= busca.getString("nome") %>&descricao=<%= busca.getString("descricao") %>&capacidade=<%= busca.getInt("capacidade")%>&data_inicio=<%= busca.getDate("data_inicio")%>&data_termino=<%= busca.getDate("data_termino")%>&preco_pessoa=<%= busca.getDouble("preco_pessoa") %>&faixa_etaria=<%= busca.getString("faixa_etaria") %>">
                         <button class="deletar">
                             <img src="images/lapis.svg" alt="">
                         </button>
