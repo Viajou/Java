@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="CSS/crud.css">
-  <link rel="stylesheet" href="CSS/InserirAdmin.css">
+  <link rel="stylesheet" href="CSS/Inserir.css">
   <title>Crud</title>
 </head>
 <body>
@@ -29,11 +29,11 @@
   <nav>
     <ul>
       <li><a href="listar_admin.jsp"><img src="images/icone-user-crud.svg" alt="">Admin</a></li>
-      <li><a href="#"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
+      <li><a href="listar_eventos.jsp"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
       <li><a href="listar_plano.jsp"><img src="images/icone-panos-crud.svg" alt="">Planos</a></li>
-      <li><a href="#"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
-      <li><a href="#"><img src="images/icone-eventos-crud.svg" alt="">Atração</a></li>
-      <li><a href="#"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
+      <li><a href="listar_excursao.jsp"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
+      <li><a href="listar_atracao.jsp"><img src="images/icone-eventos-crud.svg" alt="">Atração</a></li>
+      <li><a href="listar_tour_virtual.jsp"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
       <li><a href="https://area-restrita-dev.onrender.com/index.html">Área Restrita</a></li>
     </ul>
   </nav>
@@ -42,22 +42,35 @@
 <main>
   <h1>Inserir Tour Virtual</h1>
 
-  <form action="InserirTourVirtual-servlet" method="get">
+  <form action="InserirTourVirtual-servlet" method="post">
     <div class="form-container">
       <label for="descricao">Descrição do tour: </label>
-      <input class="entrada" type="text" name="descricao" id="descricao" placeholder="Ex: Praça com exposição de artes" required>
-
+      <input class="entrada" type="text" name="descricao" id="descricao" placeholder="Exemplo: Praça com exposição de artes" required>
 
       <label for="video">URL do video: </label>
-      <input class="entrada" type="text" name="descricao" id="video" required>
+      <input class="entrada" type="text" name="video" id="video" required>
 
+      <label for="mediaClassificacao">Média Classificação:</label>
+      <input class="entrada" type="text" name="mediaClassificacao" id="mediaClassificacao" pattern="^\d+(\.\d{1,2})?$" placeholder="Exemplo: 4.52" title="Digite um número com até duas casas decimais, utilizando '.' como separador" required>
+
+      <label for="qntClassificacao">Quantidade de Classificações:</label>
+      <input class="entrada" type="text" name="qntClassificacao" id="qntClassificacao" placeholder="Exemplo: 150" required>
 
       <label for="preco">Preço do tour: </label>
       <input class="entrada" type="text" name="preco" id="preco" pattern="^\d+(\.\d{1,2})?$" placeholder="Exemplo: 12.56" title="Digite um número com até duas casas decimais, utilizando '.' como separador" required>
 
+      <label for="idAtracao">ID da atração: </label>
+      <input class="entrada" type="text" name="idAtracao" id="idAtracao" placeholder="Exemplo: 3" required>
+
+      <label for="idFigurinhas">ID da figurinha:</label>
+      <input class="entrada" type="text" name="idFigurinhas" id="idFigurinhas" placeholder="Exemplo: 20" required>
     </div>
     <input type="submit" value="Inserir tour">
   </form>
+  <br><br>
+  <a href="listar_tour_virtual.jsp">
+    <button>Voltar</button>
+  </a>
 </main>
 </body>
 </html>

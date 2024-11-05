@@ -24,7 +24,7 @@ public class InserirAdmin extends HttpServlet {
         String urlImagem = request.getParameter("url");
 
 
-        // Criando o objeto Atracao
+        // Criando o objeto Admin
         AdminDAO adminDAO = new AdminDAO();
 
         //Criando objeto de excursao

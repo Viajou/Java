@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alterar Tour Virtual</title>
-    <link rel="stylesheet" href="CSS/Alterar.css">
+    <link rel="stylesheet" href="CSS/alterar2.css">
     <link rel="stylesheet" href="CSS/crud.css">
     <link rel="stylesheet" href="CSS/encontrado.css">
 </head>
