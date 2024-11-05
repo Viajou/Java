@@ -1,5 +1,6 @@
 package com.example.servletviajou.Servlet;
 
+import com.example.servletviajou.DAO.EventosDAO;
 import com.example.servletviajou.DAO.ExcursaoDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -8,43 +9,37 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 
-@WebServlet(name = "BuscarExcursao", value = "/BuscarExcursao-servlet")
-    public class BuscarExcursao extends HttpServlet {
-    private String message;
-
-    public void init() {
-        message = "Hello World!";
-    }
-
-
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        response.setContentType("text/html");
-
-
+@WebServlet(name = "buscarExcursao", value = "/BuscarExcursao-servlet")
+public class BuscarExcursao extends HttpServlet {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String search = request.getParameter("search");
         ExcursaoDAO excursaoDAO = new ExcursaoDAO();
 
+        int excursaoId = Integer.parseInt(search);
+        ResultSet busca = excursaoDAO.buscar(excursaoId);
 
         try {
-            int id = Integer.parseInt(request.getParameter("id"));
-            excursaoDAO.buscar(id);
-
-            if (excursaoDAO.buscar(id) != null) {
-                request.setAttribute("excursao", excursaoDAO.buscar(id));
-                request.getRequestDispatcher("/WEB-INF/views/excursaoDetalhes.jsp").forward(request, response);
+            // Verifica se o ResultSet está vazio
+            if (busca.next()) { // Se não há resultados
+                ResultSet certo = excursaoDAO.buscar(excursaoId);
+                request.setAttribute("resultados", certo);
+                // Redireciona para a página de listagem
+                request.getRequestDispatcher("listar_excursao.jsp").forward(request, response);
             } else {
-                request.setAttribute("erro", "Excursão não encontrada!");
-                request.getRequestDispatcher("/WEB-INF/views/erro.jsp").forward(request, response);
+                request.setAttribute("naoEncontrado", "Excursão não encontrada...");
+                request.getRequestDispatcher("listar_excursao.jsp").forward(request, response);
             }
-        } catch (NumberFormatException e) {
-            request.setAttribute("erro", "ID inválido!");
-            request.getRequestDispatcher("/WEB-INF/views/erro.jsp").forward(request, response);
-        } catch (Exception e) {
-            request.setAttribute("erro", "Erro ao buscar a excursão.");
-            request.getRequestDispatcher("/WEB-INF/views/erro.jsp").forward(request, response);
+
+        } catch (NumberFormatException nfe) {
+            // Trata o caso onde o ID não é um número válido
+            request.setAttribute("errorMessage", "Por favor, insira um ID válido.");
+            request.getRequestDispatcher("listar_excursao.jsp").forward(request, response);
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
         }
-
-
     }
 }
