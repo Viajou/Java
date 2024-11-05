@@ -19,6 +19,7 @@ public class AlterarEvento extends HelloServlet {
         // ontendo valores do formulário
 
         int id = Integer.parseInt(req.getParameter("id"));
+        String idAtrcao = req.getParameter("idAtracao");
         String faixaEtaria = req.getParameter("faixaEtaria");
         String descricao = req.getParameter("descricao");
         String categoria = req.getParameter("categoria");
@@ -31,6 +32,23 @@ public class AlterarEvento extends HelloServlet {
         //instanciando a classe EventosDAO
         EventosDAO eventosDAO = new EventosDAO();
 
+        // Verifica cada campo antes de atualizar
+        if ( faixaEtaria!= null && !faixaEtaria.isEmpty()) {
+            eventosDAO.alterarFaixaEtaria(id,faixaEtaria);
+        }
+        if (descricao != null && !descricao.isEmpty()) {
+            eventosDAO.alterarDescricao(id,descricao);
+        }
+        if (categoria != null && !categoria.isEmpty()) {
+            eventosDAO.alterarCategoria(id,categoria);
+        }
+
+//        if (novaSenha != null && !novaSenha.isEmpty()) {
+//            adminDAO.alterarSenha(id, novaSenha);
+//        }
+//        if (nome != null && !nome.isEmpty()) {
+//            adminDAO.alterarNome(id, nome);
+//        }
         //Alterando a faixa etária
         try {
 
