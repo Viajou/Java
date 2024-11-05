@@ -56,16 +56,24 @@
             <input class="entrada" type="text" id="nomeAtual" name="nomeAtual" disabled value="<%= request.getParameter("nome") %> " >
         </div>
         <div class="campo">
-            <label for="emailAtual">Email atual:</label>
-            <input class="entrada" type="text" id="emailAtual" name="emailAtual" disabled value="<%= request.getParameter("email")%>">
+            <label for="descricaoAtual">Descrição atual:</label>
+            <input class="entrada" type="text" id="descricaoAtual" name="descricaoAtual" disabled value="<%= request.getParameter("descricao")%>">
         </div>
         <div class="campo">
-            <label for="fotoAtual">Foto atual:</label>
-            <input class="entrada" type="text" id="fotoAtual" name="fotoAtual" disabled value="<%= request.getParameter("url_imagem")%>">
+            <label for="preco_pessoaAtual">Preço por pessoa atual:</label>
+            <input class="entrada" type="text" id="preco_pessoaAtual" name="preco_pessoaAtual" disabled value="<%= request.getParameter("capacidade")%>">
         </div>
         <div class="campo">
-            <label for="novaSenha">Senha atual:</label>
-            <input class="entrada" type="text" id="senhaAtual" name="senhaAtual" disabled value=" <%= request.getParameter("senha")%>" >
+            <label for="data_inicioAtual">Data de inicio atual:</label>
+            <input class="entrada" type="text" id="data_inicioAtual" name="data_inicioAtual" disabled value="<%= request.getParameter("data_inicio")%>">
+        </div>
+        <div class="campo">
+            <label for="data_terminoAtual">Data de Termino atual:</label>
+            <input class="entrada" type="text" id="data_terminoAtual" name="data_terminoAtual" disabled value="<%= request.getParameter("data_termino")%>">
+        </div>
+        <div class="campo">
+            <label for="faixa_etariaAtual">Faixa etaria atual:</label>
+            <input class="entrada" type="text" id="faixa_etariaAtual" name="faixa_etariaAtual" disabled value=" <%= request.getParameter("senha")%>" >
         </div>
     </form>
 
@@ -76,18 +84,29 @@
             <input class="entrada" type="text" id="novoNome" name="novoNome" placeholder="Novo nome">
         </div>
         <div class="campo">
-            <label for="novoEmail">Novo email:</label>
-            <input class="entrada" type="text" id="novoEmail" name="novoEmail" placeholder="Novo email">
+            <label for="novaDescricao">Nova descrição:</label>
+            <input class="entrada" type="text" id="novaDescricao" name="novaDescricao" placeholder="Novo descrição">
         </div>
         <div class="campo">
-            <label for="novaFoto">Nova foto:</label>
-            <input class="entrada" type="text" id="novaFoto" name="novaFoto" placeholder="URL da nova foto" maxlength="1000">
+            <label for="novaCapacidade">Nova capacidade:</label>
+            <input class="entrada" type="text" id="novaCapacidade" name="novaCapacidade" placeholder="Nova capacidade" >
         </div>
         <div class="campo">
-            <label for="novaSenha">Nova senha:</label>
-            <input class="entrada" type="text" id="novaSenha" name="novaSenha" placeholder="Nova senha">
+            <label for="novoPreco_Pessoa">Novo preço por pessoa:</label>
+            <input class="entrada" type="text" id="novoPreco_Pessoa" name="novoPreco_Pessoa" placeholder="novo preco por pessoa">
         </div>
-
+        <div class="campo">
+            <label for="novaData_inicial">Nova data de inicio:</label>
+            <input class="entrada" type="text" id="novaData_inicial" name="novaData_inicial" placeholder="Ex: (aaaa-mm-dd)">
+        </div>
+        <div class="campo">
+            <label for="novaData_Termino">Data de Termino atual:</label>
+            <input class="entrada" type="text" id="novaData_Termino" name="novaData_Termino" placeholder="Ex: (aaaa-mm-dd)" >
+        </div>
+        <div class="campo">
+            <label for="novaFaixa_Etaria">Nova faixa etaria:</label>
+            <input class="entrada" type="text" id="novaFaixa_Etaria" name="novaFaixa_Etaria" placeholder="opções: livre, 12+,14+, 16+, 18+">
+        </div>
         <input type="submit" value="Alterar">
 
     </form>

@@ -103,9 +103,9 @@
                 <td><%= busca.getDate("data_termino") %></td>
                 <td><%= busca.getString("faixa_etaria") %></td>
                 <td>
-                    <a href="alterar_evento.jsp">
+                    <a href="alterar_evento.jsp?id=<%= busca.getInt("id") %>&nome=<%= busca.getString("nome") %>&descricao=<%= busca.getString("descricao") %>&capacidade=<%= busca.getInt("capacidade")%>&data_inicio=<%= busca.getDate("data_inicio")%>&data_termino=<%= busca.getDate("data_termino")%>&preco_pessoa=<%= busca.getDouble("preco_pessoa") %>&faixa_etaria=<%= busca.getString("faixa_etaria") %>">
                         <button class="deletar">
-                            <img src="images/lapis.svg" alt="alterar">
+                            <img src="images/lapis.svg" alt="">
                         </button>
                     </a>
                     <a href="DeletarEventos-servlet?id=<%= busca.getInt("id") %>" onclick="return confirm('Tem certeza que deseja deletar este evento?')">
