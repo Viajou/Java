@@ -44,6 +44,7 @@
 </aside>
 <body>
 
+<<<<<<< HEAD
 <div class="formulario">
     <form class="alteracao">
         <h2>Atual</h2>
