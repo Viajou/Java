@@ -14,12 +14,12 @@ import java.sql.SQLException;
 @WebServlet(name = "buscarAtracao", value = "/buscarAtracao-servlet")
 public class BuscarAtracao extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String search = request.getParameter("search");
-        AtracaoDAO atracaoDAO = new AtracaoDAO();
-
-        int atracaoId = Integer.parseInt(search);
-        ResultSet busca = atracaoDAO.buscar(atracaoId);
         try {
+            String search = request.getParameter("search");
+            AtracaoDAO atracaoDAO = new AtracaoDAO();
+
+            int atracaoId = Integer.parseInt(search);
+            ResultSet busca = atracaoDAO.buscar(atracaoId);
             // Verifica se o ResultSet está vazio
             if (busca.next()) { // Se não há resultados
                 ResultSet certo = atracaoDAO.buscar(atracaoId);
@@ -28,13 +28,14 @@ public class BuscarAtracao extends HttpServlet {
                 request.getRequestDispatcher("listar_atracao.jsp").forward(request, response);
             } else {
                 request.setAttribute("naoEncontrado", "Atração não encontrada...");
-                request.getRequestDispatcher("listar_atracao.jsp").forward(request, response);
+                request.getRequestDispatcher("error.jsp").forward(request, response);
             }
 
         } catch (NumberFormatException nfe) {
             // Trata o caso onde o ID não é um número válido
-            request.setAttribute("errorMessage", "Por favor, insira um ID válido.");
-            request.getRequestDispatcher("listar_atracao.jsp").forward(request, response);
+            String erro = nfe.getMessage();
+            request.setAttribute("errorMessage", erro);
+            request.getRequestDispatcher("error.jsp").forward(request, response);
         } catch (SQLException sqle) {
             sqle.printStackTrace();
         }
