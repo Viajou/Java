@@ -9,7 +9,6 @@
     <link rel="shortcut icon" type="image/svg+xml" href="images/icone-viajou.svg">
     <title>Listar Eventos</title>
     <link rel="stylesheet" href="CSS/crud.css">
-    <link rel="stylesheet" href="CSS/encontrado.css">
 </head>
 <body>
 <header>
@@ -45,7 +44,7 @@
     <h1>Eventos</h1>
 
     <div class="button-group">
-        <a href="InserirEvento-servlet">
+        <a href="inserir_evento.jsp">
             <button class="inserir">Adicionar</button>
         </a>
 
@@ -104,7 +103,7 @@
                 <td><%= busca.getDate("data_termino") %></td>
                 <td><%= busca.getString("faixa_etaria") %></td>
                 <td>
-                    <a href="AlterarEventos-servlet">
+                    <a href="alterar_evento.jsp">
                         <button class="deletar">
                             <img src="images/lapis.svg" alt="alterar">
                         </button>
