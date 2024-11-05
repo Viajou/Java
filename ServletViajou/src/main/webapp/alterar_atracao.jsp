@@ -34,11 +34,11 @@
     <nav>
         <ul>
             <li><a href="listar_admin.jsp"><img src="images/icone-user-crud.svg" alt="">Admin</a></li>
-            <li><a href="#"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
+            <li><a href="listar_eventos.jsp"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
             <li><a href="listar_plano.jsp"><img src="images/icone-panos-crud.svg" alt="">Planos</a></li>
-            <li><a href="#"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
-            <li><a href="#"><img src="images/icone-eventos-crud.svg" alt="">Atração</a></li>
-            <li><a href="#"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
+            <li><a href="listar_atracao.jsp"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
+            <li><a href="listar_atracao.jsp"><img src="images/icone-eventos-crud.svg" alt="">Atração</a></li>
+            <li><a href="listar_tour_virtual.jsp"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
             <li><a href="https://area-restrita-dev.onrender.com/index.html">Área Restrita</a></li>
         </ul>
     </nav>
