@@ -84,8 +84,13 @@
                 <input class="entrada" type="text" id="novaDescricao" name="novaDescricao" placeholder="Nova descrição">
             </div>
             <div class="campo">
-                <label for="novoLivrePropaganda">Livre Propaganda</label>
-                <input class="entrada" type="text" id="novoLivrePropaganda" name="novoLivrePropaganda" placeholder="Novo Livre Propaganda">
+                <label>Livre Propaganda</label>
+                <label>
+                    <input class="entrada" type="radio" name="novoLivrePropaganda" value="true">Sim
+                </label>
+                <label>
+                    <input class="entrada" type="radio" name="novoLivrePropaganda" value="true">Não
+                </label>
             </div>
             <div class="campo">
                 <label for="novoNome">Novo nome</label>
