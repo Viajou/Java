@@ -28,83 +28,93 @@
         <h3 class="admin-name"><%= nomeAdmin %></h3>
     </div>
 </header>
+
+<body>
 <aside>
     <nav>
         <ul>
             <li><a href="listar_admin.jsp"><img src="images/icone-user-crud.svg" alt="">Admin</a></li>
-            <li><a href="#"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
+            <li><a href="listar_eventos.jsp"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
             <li><a href="listar_plano.jsp"><img src="images/icone-panos-crud.svg" alt="">Planos</a></li>
-            <li><a href="#"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
-            <li><a href="#"><img src="images/icone-eventos-crud.svg" alt="">Atração</a></li>
-            <li><a href="#"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
+            <li><a href="listar_atracao.jsp"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
+            <li><a href="listar_atracao.jsp"><img src="images/icone-eventos-crud.svg" alt="">Atração</a></li>
+            <li><a href="listar_tour_virtual.jsp"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
             <li><a href="https://area-restrita-dev.onrender.com/index.html">Área Restrita</a></li>
         </ul>
     </nav>
 </aside>
-<body>
-    <h1>Alterar Atração</h1>
 
-    <div class="formulario">
-        <form class="alteracao">
-            <h2>Atual</h2>
-            <div class="campo">
-                <label for="nomeAtual">Id atual:</label>
-                <input class="entrada" type="number" id="idAtual" name="idAtual" disabled value="<%= request.getParameter("id") %>">
-            </div>
-            <div class="campo">
-                <label for="nomeAtual">Nome atual:</label>
-                <input class="entrada" type="text" id="nomeAtual" name="nomeAtual" disabled value="<%= request.getParameter("nome") %> " >
-            </div>
-            <div class="campo">
-                <label for="descricao">Descrição atual:</label>
-                <input class="entrada" type="text" id="descricao" name="emailAtual" disabled value="<%= request.getParameter("descricao")%>">
-            </div>
-            <div class="campo">
-                <label for="endereco">Endereco atual:</label>
-                <input class="entrada" type="text" id="endereco" name="endereco" disabled value="<%= request.getParameter("endereco")%>">
-            </div>
-            <div class="campo">
-                <label for="acessibilidade">Acessibilidade atual:</label>
-                <input class="entrada" type="text" id="acessibilidade" name="acessibilidade" disabled value=" <%=request.getParameter("acessibilidade")%>" >
-            </div>
-            <div class="campo">
-                <label for="categoria">Categoria atual:</label>
-                <input class="entrada" type="text" id="categoria" name="categoria" disabled value=" <%= request.getParameter("categoria")%>" >
-            </div>
-        </form>
+<h1>Alterar atração</h1>
 
-        <form method="post" action="AlterarAtracao-servlet?id=<%= request.getParameter("id") %>">
-            <h2>Novo</h2>
-            <div class="campo">
-                <label for="novoNome">Novo nome:</label>
-                <input class="entrada" type="text" id="novoNome" name="novoNome" placeholder="Novo nome">
-            </div>
-            <div class="campo">
-                <label for="novaDescricao">Nova descrição:</label>
-                <input class="entrada" type="text" id="novaDescricao" name="novaDescricao" placeholder="novaDescricao">
-            </div>
-            <div class="campo">
-                <label for="novoEndereco">Novo Endereco:</label>
-                <input class="entrada" type="text" id="novoEndereco" name="novoEndereco" placeholder="novoEndereco" maxlength="1000">
-            </div>
-            <div class="campo">
-                <label for="novaAcessibilidade">Nova acessibilidade:</label>
-                <input class="entrada" type="text" id="novaAcessibilidade" name="novaAcessibilidade" placeholder="Ex:true/false">
-            </div>
-            <div class="campo">
-                <label for="novaCategoria">Nova senha:</label>
-                <input class="entrada" type="text" id="novaCategoria" name="novaCategoria" placeholder="Ex: Exposição">
-            </div>
-            <input type="submit" value="Alterar">
+    <div class="fundo">
+        <div class="formulario">
+            <form action="AlterarAtracao-servlet" method="post">
 
-        </form>
-    </div>
+                <h2>Atual</h2>
 
-    <div class="botoes">
-        <button>
-            <a href="listar_admin.jsp">Voltar</a>
-        </button>
-    </div>
+                <label for="nome">Nome da atração: </label>
+                <input type="text" name="nome" id="nome" placeholder="Ex:Catavento">
+
+                <br><br>
+
+                <label for="descricao">Descrição da atração: </label>
+                <input type="text" name="descricao" id="descricao" placeholder="Ex:Museu">
+
+                <br><br>
+
+                <label for="endereco">Endereço da atração: </label>
+                <input type="text" name="endereco" id="endereco" placeholder="Ex: Av.Getulio vagas">
+
+                <br><br>
+
+                <label for="acessibilidade">Acessibilidade da atração: </label>
+                <input type="text" name="acessibilidade" id="acessibilidade" placeholder="Ex: true/false">
+
+                <br><br>
+
+                <label for="categoria">Categoria da atração: </label>
+                <input type="text" name="categoria" id="categoria" placeholder="Ex: Exposições">
+            </form>
+
+
+            <form action="AlterarAtracao-servlet" method="post">
+
+                <h2>Novo</h2>
+
+                <label for="novo_nome">Novo nome da atração: </label>
+                <input type="text" name="nome" id="novo_nome" placeholder="Ex:Catavento">
+
+                <br><br>
+
+                <label for="nova_descricao">Nova descrição da atração: </label>
+                <input type="text" name="descricao" id="Nova_descricao" placeholder="Ex:Museu">
+
+                <br><br>
+
+                <label for="novo_endereco">Novo endereço da atração: </label>
+                <input type="text" name="endereco" id="novo_endereco" placeholder="Ex: Av.Getulio vagas">
+
+                <br><br>
+
+                <label for="nova_acessibilidade">Nova acessibilidade da atração: </label>
+                <input type="text" name="acessibilidade" id="nova_acessibilidade" placeholder="Ex: true/false">
+
+                <br><br>
+
+                <label for="nova_categoria">Nova categoria da atração: </label>
+                <input type="text" name="categoria" id="nova_categoria" placeholder="Ex: Exposições">
+            </form>
+
+
+       </div>
+
+            <div class="botoes">
+                <button>
+                    <a href="listar_atracao.jsp">Voltar</a>
+                </button>
+                <input type="submit" value="Alterar">
+            </div>
+  </div>
 </body>
 </html>
 

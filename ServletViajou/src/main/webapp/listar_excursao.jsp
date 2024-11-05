@@ -54,7 +54,6 @@
         <a href="InserirExcursao-servlet">
             <button class="inserir">Adicionar</button>
         </a>
-
         <!-- Formulário de busca de excursões -->
         <form action="BuscarExcursao-servlet" method="get" class="search-form">
             <input type="text" name="search" placeholder="Buscar excursão...">
@@ -119,15 +118,15 @@
                 <td><%=busca.getDate("data_atualizacao")%></td>
                 <td>
                     <!-- Link para alterar excursão -->
-                    <a href="AlterarExcursao-servlet">
+                    <a href="alterar_excursao.jsp?id=<%=busca.getInt("id")%>nome=<%=busca.getString("nome")%>nome_empresa=<%=busca.getString("nome_empresa")%>site=<%=busca.getString("site")%>capacidade=<%=busca.getInt("capacidade")%>duracao=<%=busca.getString("duracao")%>preco=<%=busca.getDouble("preco_total")%>data_inicio=<%=busca.getDate("data_inicio")%>data_termino=<%=busca.getDate("data_termino")%>data_atualizacao=<%=busca.getDate("data_atualizacao")%>">
                         <button class="deletar">
-                            <img src="images/lapis.svg" alt="Alterar">
+                            <img src="images/lapis.svg">
                         </button>
                     </a>
                     <!-- Link para deletar excursão, com confirmação -->
-                    <a href="DeletarExcursao-servlet?id=<%= excursaoId %>" onclick="return confirm('Tem certeza que deseja deletar este evento?')">
+                    <a href="DeletarExcursao-servlet?="<%= excursaoId%> onclick="return confirm('Tem certeza que deseja deletar este evento?')">
                         <button class="deletar">
-                            <img src="images/lixeira.svg" alt="Deletar">
+                            <img src="images/lixeira.svg">
                         </button>
                     </a>
                 </td>

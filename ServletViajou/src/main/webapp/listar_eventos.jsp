@@ -11,7 +11,6 @@
     <link rel="shortcut icon" type="image/svg+xml" href="images/icone-viajou.svg">
     <title>Listar Eventos</title>
     <link rel="stylesheet" href="CSS/crud.css">
-    <link rel="stylesheet" href="CSS/encontrado.css">
 </head>
 <body>
 <header>
@@ -49,8 +48,7 @@
     <h1>Eventos</h1>
 
     <div class="button-group">
-        <!-- Link para adicionar um novo evento -->
-        <a href="InserirEvento-servlet">
+        <a href="inserir_evento.jsp">
             <button class="inserir">Adicionar</button>
         </a>
 
@@ -77,6 +75,7 @@
             <thead>
             <tr>
                 <th>ID</th>
+                <th>ID atração</th>
                 <th>Nome</th>
                 <th>Descrição</th>
                 <th>Categoria</th>
@@ -106,6 +105,7 @@
 
             <tr>
                 <td><%= busca.getInt("id") %></td>
+                <td><%= busca.getInt("id_atracao") %></td>
                 <td><%= busca.getString("nome") %></td>
                 <td><%= busca.getString("descricao") %></td>
                 <td><%= busca.getString("categoria") %></td>
@@ -116,13 +116,13 @@
                 <td><%= busca.getString("faixa_etaria") %></td>
                 <td>
                     <!-- Link para alterar o evento -->
-                    <a href="AlterarEventos-servlet">
+                    <a href="alterar_evento.jsp?id=<%= busca.getInt("id") %>&idAtracao=<%= busca.getString("id_atracao") %>&nome=<%= busca.getString("nome") %>&descricao=<%= busca.getString("descricao") %>&capacidade=<%= busca.getInt("capacidade")%>&data_inicio=<%= busca.getDate("data_inicio")%>&data_termino=<%= busca.getDate("data_termino")%>&preco_pessoa=<%= busca.getDouble("preco_pessoa") %>&faixa_etaria=<%= busca.getString("faixa_etaria") %>">
                         <button class="deletar">
-                            <img src="images/lapis.svg" alt="alterar">
+                            <img src="images/lapis.svg" alt="">
                         </button>
                     </a>
                     <!-- Link para deletar o evento, com confirmação -->
-                    <a href="DeletarEventos-servlet?id=<%= busca.getInt("id") %>" onclick="return confirm('Tem certeza que deseja deletar este evento?')">
+                    <a href="DeletarEventos-servelet?id=<%= busca.getInt("id") %>" onclick="return confirm('Tem certeza que deseja deletar este evento?')">
                         <button class="deletar">
                             <img src="images/lixeira.svg" alt="Deletar">
                         </button>

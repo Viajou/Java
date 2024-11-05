@@ -11,7 +11,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 @WebServlet(name = "buscarAtracao", value = "/buscarAtracao-servlet")
 public class BuscarAtracao extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -20,7 +19,6 @@ public class BuscarAtracao extends HttpServlet {
 
         int atracaoId = Integer.parseInt(search);
         ResultSet busca = atracaoDAO.buscar(atracaoId);
-
         try {
             // Verifica se o ResultSet está vazio
             if (busca.next()) { // Se não há resultados
