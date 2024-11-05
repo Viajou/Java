@@ -7,6 +7,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterar Administrador</title>
+    <link rel="stylesheet" href="CSS/Alterar.css">
     <title>Alterar Evento</title>
     <link rel="stylesheet" href="CSS/alterar2.css">
     <link rel="stylesheet" href="CSS/crud.css">
@@ -42,61 +44,95 @@
 </aside>
 <body>
 
-<h1>Alterar Evento</h1>
+<h1>Alterar um Evento</h1>
 
-<div class="formulario">
-    <form class="alteracao">
-        <h2>Atual</h2>
-        <div class="campo">
-            <label for="nomeAtual">Id atual:</label>
-            <input class="entrada" type="number" id="idAtual" name="idAtual" disabled value="<%= request.getParameter("id") %>">
-        </div>
-        <div class="campo">
-            <label for="nomeAtual">Nome atual:</label>
-            <input class="entrada" type="text" id="nomeAtual" name="nomeAtual" disabled value="<%= request.getParameter("nome") %> " >
-        </div>
-        <div class="campo">
-            <label for="emailAtual">Email atual:</label>
-            <input class="entrada" type="text" id="emailAtual" name="emailAtual" disabled value="<%= request.getParameter("email")%>">
-        </div>
-        <div class="campo">
-            <label for="fotoAtual">Foto atual:</label>
-            <input class="entrada" type="text" id="fotoAtual" name="fotoAtual" disabled value="<%= request.getParameter("url_imagem")%>">
-        </div>
-        <div class="campo">
-            <label for="novaSenha">Senha atual:</label>
-            <input class="entrada" type="text" id="senhaAtual" name="senhaAtual" disabled value=" <%= request.getParameter("senha")%>" >
-        </div>
-    </form>
+<div class="fundo">
+    <div class="formulario">
 
-    <form method="post" action="/AlterarEventos-servlet?id=<%= request.getParameter("id") %>">
-        <h2>Novo</h2>
-        <div class="campo">
-            <label for="novoNome">Novo nome:</label>
-            <input class="entrada" type="text" id="novoNome" name="novoNome" placeholder="Novo nome">
-        </div>
-        <div class="campo">
-            <label for="novoEmail">Novo email:</label>
-            <input class="entrada" type="text" id="novoEmail" name="novoEmail" placeholder="Novo email">
-        </div>
-        <div class="campo">
-            <label for="novaFoto">Nova foto:</label>
-            <input class="entrada" type="text" id="novaFoto" name="novaFoto" placeholder="URL da nova foto" maxlength="1000">
-        </div>
-        <div class="campo">
-            <label for="novaSenha">Nova senha:</label>
-            <input class="entrada" type="text" id="novaSenha" name="novaSenha" placeholder="Nova senha">
-        </div>
+        <form class="alteracao">
 
-        <input type="submit" value="Alterar">
+            <label for="faixaetaria">Faixa Etária do evento:</label>
+            <input type="text" name="faixa-etaria" id="faixaetaria" placeholder="Ex: +16">
 
-    </form>
-</div>
+            <br>
 
-<div class="botoes">
-    <button>
-        <a href="listar_tour_virtual.jsp">Voltar</a>
-    </button>
+            <label for="descricao2">Descrição do evento:</label>
+            <input type="text" name="descricao" id="descricao2" placeholder="Ex: Evento de música ao vivo">
+
+            <br>
+
+            <label for="capacidade2">Capacidade do evento:</label>
+            <input type="text" name="capacidade" id="capacidade2" placeholder="Ex: 1500">
+
+            <br>
+
+            <label for="horario2">Horário do evento:</label>
+            <input type="text" name="horario" id="horario2" placeholder="Ex: 15:30">
+
+            <br>
+
+            <label for="datainicio">Data de início do evento:</label>
+            <input type="text" name="data-inicio" id="datainicio" placeholder="Formato: aaaa-mm-dd">
+
+            <br>
+
+            <label for="datatermino">Data de término do evento:</label>
+            <input type="text" name="data-termino" id="datatermino" placeholder="Formato: aaaa-mm-dd">
+
+            <br>
+
+            <label for="precopessoa">Preço por pessoa:</label>
+            <input type="text" name="preco-pessoa" id="precopessoa" placeholder="Ex: 34.50">
+
+            <div class="botoes">
+                <button>
+                    <a href="listar_admin.jsp">Voltar</a>
+                </button>
+            </div>
+
+        </form>
+
+        <form action="AlterarEventos-servlet" method="post">
+
+            <label for="faixa-etaria">Nova faixa Etária do evento:</label>
+            <input type="text" name="faixa-etaria" id="faixa-etaria" placeholder="Ex: +16">
+
+            <br>
+
+            <label for="descricao">Nova descrição do evento:</label>
+            <input type="text" name="descricao" id="descricao" placeholder="Ex: Evento de música ao vivo">
+
+            <br>
+
+            <label for="capacidade">Nova capacidade do evento:</label>
+            <input type="text" name="capacidade" id="capacidade" placeholder="Ex: 1500">
+
+            <br>
+
+            <label for="horario">Novo horário do evento:</label>
+            <input type="text" name="horario" id="horario" placeholder="Ex: 15:30">
+
+            <br>
+
+            <label for="data-inicio">Nova data de início do evento:</label>
+            <input type="text" name="data-inicio" id="data-inicio" placeholder="Formato: aaaa-mm-dd">
+
+            <br>
+
+            <label for="data-termino">Nova data de término do evento:</label>
+            <input type="text" name="data-termino" id="data-termino" placeholder="Formato: aaaa-mm-dd">
+
+            <br>
+
+            <label for="preco-pessoa">Novo preço por pessoa:</label>
+            <input type="text" name="preco-pessoa" id="preco-pessoa" placeholder="Ex: 34.50">
+
+            <div class="botoes">
+               <input type="submit" value="Alterar">
+            </div>
+
+       </form>
+    </div>
 </div>
 </body>
 </html>

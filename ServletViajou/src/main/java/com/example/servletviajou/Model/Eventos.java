@@ -8,7 +8,6 @@ public class Eventos {
     private int id;
     private String faixaEtaria;
     private String descricao;
-    private String categoria;
     private int capacidade;
     private Time horario;
     private Date dataInicio;
@@ -22,10 +21,9 @@ public class Eventos {
 //  Métodos Construtores
 
     // Construtor com todos os atributos da classe, exceto o ID por ser serial
-    public Eventos(int id, int capacidade, String categoria, Date dataInicio, Date dataTermino, String descricao, String faixaEtaria, Time horario, int idAtracao, int idTourVirtual, double precoPessoa, Date dataCriacao) {
+    public Eventos( int capacidade,  Date dataInicio, Date dataTermino, String descricao, String faixaEtaria, Time horario, int idAtracao, int idTourVirtual, double precoPessoa) {
         this.id = id;
         this.capacidade = capacidade;
-        this.categoria = categoria;
         this.dataInicio = dataInicio;
         this.dataTermino = dataTermino;
         this.descricao = descricao;
@@ -34,7 +32,7 @@ public class Eventos {
         this.idAtracao = idAtracao;
         this.idTourVirtual = idTourVirtual;
         this.precoPessoa = precoPessoa;
-        this.dataCriacao = dataCriacao;
+
     }
 
     // Construtor Vazio
@@ -52,15 +50,6 @@ public class Eventos {
 
     public void setCapacidade(int capacidade) {
         this.capacidade = capacidade;
-    }
-
-    // Categoria
-    public String getCategoria() {
-        return this.categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
     }
 
     // DataInicio
@@ -137,7 +126,6 @@ public class Eventos {
         return "Capacidade: " + this.capacidade +
                 "\nFaixa etária: " + this.faixaEtaria +
                 "\nDescrição: " + this.descricao +
-                "\nCategoria: " + this.categoria +
                 "\nHorário: " + this.horario +
                 "\nData de início do evento: " + this.dataInicio +
                 "\nData de término do evento: " + this.dataTermino +
