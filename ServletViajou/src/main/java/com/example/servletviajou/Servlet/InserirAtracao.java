@@ -24,18 +24,18 @@ import java.sql.SQLException;
         response.setContentType("text/html");
 
         // Obtendo os dados do formulário
-        String Descricao = request.getParameter("descricao");
-        String Nome = request.getParameter("nome");
-        String Endereco = request.getParameter("endereco");
-        boolean Acessibilidade = Boolean.parseBoolean(request.getParameter("acessibilidade"));
-        String Categoria = request.getParameter("categoria");
+        String descricao = request.getParameter("descricao");
+        String nome = request.getParameter("nome");
+        String endereco = request.getParameter("endereco");
+        boolean acessibilidade = Boolean.parseBoolean(request.getParameter("acessibilidade"));
+        String categoria = request.getParameter("categoria");
 
 
         // Criando o objeto Atracao
         AtracaoDAO atracaoDAO = new AtracaoDAO();
 
-        //Criando objeto de excursao
-        Atracao novaAtracao = new Atracao(Descricao, Nome, Endereco, Acessibilidade, Categoria);
+        //Criando objeto atracao
+        Atracao novaAtracao = new Atracao(descricao, nome, endereco, acessibilidade, categoria);
 
         // Redirecionando para a página de confirmação
         try {

@@ -57,60 +57,60 @@
 <div class="fundo">
     <div class="formulario">
 
-        <form class="alteracao">
+        <form action="listar_atracao.jsp" method="post">
 
             <h2>Atual</h2>
 
             <div class="campo">
                 <label for="nome">Nome: </label>
-                <input type="text" name="nome" id="nome" disabled value="<%= request.getParameter("nome")%>">
+                <input type="text" id="nome" name="nome" disabled value="<%= request.getParameter("nome")%>">
             </div>
 
             <div class="campo">
                 <label for="site">Site: </label>
-                <input type="text" name="site" id="site" disabled value="<%= request.getParameter("site")%>">
+                <input type="text" id="site" name="site"  disabled value="<%= request.getParameter("site")%>">
             </div>
 
             <br>
 
             <div class="campo">
                 <label for="capacidade">Capacidade da excursão:</label>
-                <input type="text" name="capacidade" id="capacidade" disabled value="<%= request.getParameter("capacidade")%>">
+                <input type="text" id="capacidade" name="capacidade" disabled value="<%= request.getParameter("capacidade")%>">
             </div>
 
             <br>
 
             <div class="campo">
                 <label for="duracao">Duração:</label>
-                <input type="text" name="duracao" id="duracao" disabled value="<%= request.getParameter("duracao")%>">
+                <input type="text" id="duracao" name="duracao"  disabled value="<%= request.getParameter("duracao")%>">
             </div>
 
             <br>
 
             <div class="campo">
                 <label for="inicio">Data de início do evento:</label>
-                <input type="text" name="inicio" id="inicio" disabled value="<%= request.getParameter("data_inicio")%>" >
+                <input type="text" id="inicio" name="inicio"  disabled value="<%= request.getParameter("data_inicio")%>" >
             </div>
 
             <br>
 
             <div class="campo">
                 <label for="termino">Data de término da excursão:</label>
-                <input type="text" name="termino" id="termino" disabled value="<%= request.getParameter("data_termino")%>">
+                <input type="text" id="termino" name="termino" disabled value="<%= request.getParameter("data_termino")%>">
             </div>
 
             <br>
 
             <div class="campo">
                 <label for="preco">Preço total:</label>
-                <input type="text" name="preco" id="preco" disabled value="<%= request.getParameter("preco_total")%>">
+                <input type="text" id="preco" name="preco"  disabled value="<%= request.getParameter("preco_total")%>">
             </div>
 
             <br>
 
             <div class="campo">
                 <label for="atualizacao">Data de atualização:</label>
-                <input type="text" name="tualizacao" id="atualizacao" disabled value="<%= request.getParameter("data_atualizacao")%>">
+                <input type="text" id="atualizacao" name="tualizacao" disabled value="<%= request.getParameter("data_atualizacao")%>">
             </div>
 
             <div class="botoes">
@@ -175,8 +175,6 @@
                 <label for="data-atualizacao">Data de atualização:</label>
                 <input type="text" name="data-atualizacao" id="data-atualizacao" placeholder="Ex: 76">
             </div>
-
-            <br>
 
             <div class="botoes">
                 <input type="submit" value="Alterar">

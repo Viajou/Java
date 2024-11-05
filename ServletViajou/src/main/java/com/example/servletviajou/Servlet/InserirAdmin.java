@@ -25,7 +25,7 @@ public class InserirAdmin extends HttpServlet {
         String urlImagem = request.getParameter("url");
 
 
-        // Criando o objeto Atracao
+        // Criando o objeto Admin
         AdminDAO adminDAO = new AdminDAO();
 
         String hashedPassword = BCrypt.hashpw(senha, BCrypt.gensalt());

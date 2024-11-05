@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alterar Tour Virtual</title>
-    <link rel="stylesheet" href="CSS/Alterar.css">
+    <link rel="stylesheet" href="CSS/alterar2.css">
     <link rel="stylesheet" href="CSS/crud.css">
     <link rel="stylesheet" href="CSS/encontrado.css">
 </head>
@@ -47,24 +47,38 @@
     <form class="alteracao">
         <h2>Atual</h2>
         <div class="campo">
-            <label for="nomeAtual">Id atual:</label>
-            <input class="entrada" type="number" id="idAtual" name="idAtual" disabled value="<%= request.getParameter("id") %>">
+            <label for="id">Id:</label>
+            <input class="entrada" type="number" id="id" name="id" disabled value="<%= request.getParameter("id") %>">
         </div>
         <div class="campo">
-            <label for="nomeAtual">Nome atual:</label>
-            <input class="entrada" type="text" id="nomeAtual" name="nomeAtual" disabled value="<%= request.getParameter("nome") %> " >
+            <label for="descricao-atual">Descrição atual:</label>
+            <input class="entrada" type="text" id="descricao-atual" name="descricao-atual" disabled value="<%= request.getParameter("descricao") %> " >
         </div>
         <div class="campo">
-            <label for="emailAtual">Email atual:</label>
-            <input class="entrada" type="text" id="emailAtual" name="emailAtual" disabled value="<%= request.getParameter("email")%>">
+            <label for="video-atual">Vídeo atual:</label>
+            <input class="entrada" type="text" id="video-atual" name="video-atual" disabled value="<%= request.getParameter("video")%>">
         </div>
         <div class="campo">
-            <label for="fotoAtual">Foto atual:</label>
-            <input class="entrada" type="text" id="fotoAtual" name="fotoAtual" disabled value="<%= request.getParameter("url_imagem")%>">
+            <label for="media-classificacao-atual">Média das avaliações atual:</label>
+            <input class="entrada" type="text" id="media-classificacao-atual" name="media-classificacao-atual" disabled value="<%= request.getParameter("media_classificacao")%>">
         </div>
         <div class="campo">
-            <label for="novaSenha">Senha atual:</label>
-            <input class="entrada" type="text" id="senhaAtual" name="senhaAtual" disabled value=" <%= request.getParameter("senha")%>" >
+            <label for="qnt-classificacao-atual">Quantidade de avaliações atual:</label>
+            <input class="entrada" type="text" id="qnt-classificacao-atual" name="qnt-classtual" disabled value=" <%= request.getParameter("qnt_classificacao")%>" >
+        </div>
+        <div class="campo">
+            <label for="preco-atual">Preço atual:</label>
+            <input class="entrada" type="text" name="preco-atual" id="preco-atual" disabled value="<%= request.getParameter("preco")%>">
+        </div>
+        <div class="campo">
+            <label for="id-atracao-atual">ID da atração:</label>
+            <input class="entrada" type="text" name="id-atracao-atual" id="id-atracao-atual" disabled value="<%= request.getParameter("id_atracao")%>">
+
+        </div>
+        <div class="campo">
+            <label for="id-atracao-atual">ID da figurinhas:</label>
+            <input class="entrada" type="text" name="id-atracao-atual" id="id-figurinhas-atual" disabled value="<%= request.getParameter("id_figurinha")%>">
+
         </div>
     </form>
 

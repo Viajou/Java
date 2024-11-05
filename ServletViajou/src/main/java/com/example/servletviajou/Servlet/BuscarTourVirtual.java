@@ -33,7 +33,7 @@ public class BuscarTourVirtual extends HttpServlet {
                 request.getRequestDispatcher("tourVirtualDetalhes.jsp").forward(request, response);
             } else{
                request.setAttribute("erro", "Tour virtual não encontrado!");
-               request.getRequestDispatcher("erro.jsp").forward(request, response);
+               request.getRequestDispatcher("error.jsp").forward(request, response);
             }
 
             // buscar sem id
@@ -44,7 +44,7 @@ public class BuscarTourVirtual extends HttpServlet {
                 request.getRequestDispatcher("tourVirtualDetalhes.jsp").forward(request, response);
             } else{
                 request.setAttribute("erro", "Tour virtual não encontrado!");
-                request.getRequestDispatcher("erro.jsp").forward(request, response);
+                request.getRequestDispatcher("error.jsp").forward(request, response);
             }
 
         } catch (NumberFormatException nfe){
