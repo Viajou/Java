@@ -38,47 +38,51 @@
             <li><a href="listar_excursao.jsp"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
             <li><a href="listar_atracao.jsp"><img src="images/icone-eventos-crud.svg" alt="">Atração</a></li>
             <li><a href="listar_tour_virtual.jsp"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
-            <li><a href="https://area-restrita-main.onrender.com"><img src="images/cadeado.svg" alt="">Área Restrita</a></li>        </ul>
+            <li><a href="https://area-restrita-main.onrender.com"><img src="images/cadeado.svg" alt="">Área Restrita</a></li>
+        </ul>
     </nav>
 </aside>
 <body>
 
-<div class="formulario">
-    <form class="alteracao">
-        <h2>Atual</h2>
-        <div class="campo">
-            <label for="idAtual">Id atual:</label>
-            <input class="entrada" type="number" id="idAtual" name="idAtual" disabled value="<%= request.getParameter("id") %>">
-        </div>
-        <div class="campo">
-            <label for="nomeAtual">Nome atual:</label>
-            <input class="entrada" type="text" id="nomeAtual" name="nomeAtual" disabled value="<%= request.getParameter("nome") %> " >
-        </div>
-        <div class="campo">
-            <label for="descricaoAtual">Descrição atual:</label>
-            <input class="entrada" type="text" id="descricaoAtual" name="descricaoAtual" disabled value="<%= request.getParameter("descricao")%>">
-        </div>
-        <div class="campo">
-            <label for="preco_pessoaAtual">Preço por pessoa atual:</label>
-            <input class="entrada" type="text" id="preco_pessoaAtual" name="preco_pessoaAtual" disabled value="<%= request.getParameter("capacidade")%>">
-        </div>
-        <div class="campo">
-            <label for="data_inicioAtual">Data de inicio atual:</label>
-            <input class="entrada" type="text" id="data_inicioAtual" name="data_inicioAtual" disabled value="<%= request.getParameter("data_inicio")%>">
-        </div>
-        <div class="campo">
-            <label for="data_terminoAtual">Data de Termino atual:</label>
-            <input class="entrada" type="text" id="data_terminoAtual" name="data_terminoAtual" disabled value="<%= request.getParameter("data_termino")%>">
-        </div>
-        <div class="campo">
-            <label for="faixa_etariaAtual">Faixa etaria atual:</label>
-            <input class="entrada" type="text" id="faixa_etariaAtual" name="faixa_etariaAtual" disabled value=" <%= request.getParameter("faixa_etaria")%>" >
-        </div>
-        <div class="campo">
-            <p>Para altetrar nome e categoria se dirija ate atrações</p>
-        </div>
-    </form>
+<h1>Alterar eventos</h1>
 
+<<<<<<< HEAD
+<div class="fundo">
+    <div class="formulario">
+        <form class="alteracao">
+            <h2>Atual</h2>
+            <div class="campo">
+                <label for="idAtual">Id atual:</label>
+                <input class="entrada" type="number" id="idAtual" name="idAtual" disabled value="<%= request.getParameter("id") %>">
+            </div>
+            <div class="campo">
+                <label for="nomeAtual">Nome atual:</label>
+                <input class="entrada" type="text" id="nomeAtual" name="nomeAtual" disabled value="<%= request.getParameter("nome") %> " >
+            </div>
+            <div class="campo">
+                <label for="descricaoAtual">Descrição atual:</label>
+                <input class="entrada" type="text" id="descricaoAtual" name="descricaoAtual" disabled value="<%= request.getParameter("descricao")%>">
+            </div>
+            <div class="campo">
+                <label for="preco_pessoaAtual">Preço por pessoa atual:</label>
+                <input class="entrada" type="text" id="preco_pessoaAtual" name="preco_pessoaAtual" disabled value="<%= request.getParameter("capacidade")%>">
+            </div>
+            <div class="campo">
+                <label for="data_inicioAtual">Data de inicio atual:</label>
+                <input class="entrada" type="text" id="data_inicioAtual" name="data_inicioAtual" disabled value="<%= request.getParameter("data_inicio")%>">
+            </div>
+            <div class="campo">
+                <label for="data_terminoAtual">Data de Termino atual:</label>
+                <input class="entrada" type="text" id="data_terminoAtual" name="data_terminoAtual" disabled value="<%= request.getParameter("data_termino")%>">
+            </div>
+            <div class="campo">
+                <label for="faixa_etariaAtual">Faixa etaria atual:</label>
+                <input class="entrada" type="text" id="faixa_etariaAtual" name="faixa_etariaAtual" disabled value=" <%= request.getParameter("faixa_etaria")%>" >
+            </div>
+            <div class="campo">
+                <p>Para altetrar nome e categoria se dirija ate atrações</p>
+            </div>
+=======
     <form method="post" action="AlterarEventos-servlet?id=<%= request.getParameter("id") %>">
         <h2>Novo</h2>
         <div class="campo">
@@ -119,7 +123,43 @@
         </div>
 
         <input type="submit" value="Alterar">
+>>>>>>> ba95ab7b2f130e8c2d2784db0d27dbf158623a35
         </form>
+
+        <form method="post" action="AlterarEventos-servlet?id=<%= request.getParameter("id") %>">
+            <h2>Novo</h2>
+            <div class="campo">
+                <label for="nova-descricao">Nova descrição:</label>
+                <input class="entrada" type="text" id="nova-descricao" name="nova-descricao" placeholder="Novo descrição">
+            </div>
+            <div class="campo">
+                <label for="nova-capacidade">Nova capacidade:</label>
+                <input class="entrada" type="text" id="nova-capacidade" name="nova-capacidade" placeholder="Nova capacidade" >
+            </div>
+            <div class="campo">
+                <label for="novo-preco-pessoa">Novo preço por pessoa:</label>
+                <input class="entrada" type="text" id="novo-preco-pessoa" name="novo-preco-pessoa" placeholder="Ex: 15.90">
+            </div>
+
+            <div class="campo">
+                <label for="novo-horario">Novo horario:</label>
+                <input class="entrada" type="text" id="novo-horario" name="novo-horario" placeholder="Ex: hh:mm:ss ou hh:mm">
+            </div>
+            <div class="campo">
+                <label for="nova-data-inicial">Nova data de inicio:</label>
+                <input class="entrada" type="text" id="nova-data-inicial" name="nova-data-inicial" placeholder="Ex: (aaaa-mm-dd)">
+            </div>
+            <div class="campo">
+                <label for="nova-data-termino">Data de Termino atual:</label>
+                <input class="entrada" type="text" id="nova-data-termino" name="nova-data-termino" placeholder="Ex: (aaaa-mm-dd)" >
+            </div>
+            <div class="campo">
+                <label for="nova-faixa-etaria">Nova faixa etaria:</label>
+                <input class="entrada" type="text" id="nova-faixa-etaria" name="nova-faixa-etaria" placeholder="opções: livre, 12+,14+, 16+, 18+">
+            </div>
+            <input type="submit" value="Alterar">
+            </form>
+        </div>
     </div>
 </body>
 </html>

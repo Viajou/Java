@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inserir Evento</title>
     <link rel="stylesheet" href="CSS/crud.css">
+    <link rel="stylesheet" href="CSS/Inserir.css">
 </head>
 <body>
     <header>
@@ -48,7 +49,6 @@
                         <option value="18+">18+</option>
                     </select>
                 </div>
-
                 <label for="descricao">Descrição do evento:</label>
                 <input type="text" name="descricao" id="descricao" placeholder="Ex: Evento de música ao vivo" required>
                 <br>

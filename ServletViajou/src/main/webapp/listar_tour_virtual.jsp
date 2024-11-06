@@ -38,7 +38,9 @@
             <li><a href="listar_excursao.jsp"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
             <li><a href="listar_atracao.jsp"><img src="images/icone-eventos-crud.svg" alt="">Atração</a></li>
             <li><a href="listar_tour_virtual.jsp"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
-            <li><a href="https://area-restrita-main.onrender.com"><img src="images/cadeado.svg" alt="">Área Restrita</a></li>            </ul>
+            <li><a href="https://area-restrita-dev.onrender.com/index.html">Área Restrita</a></li>
+            <li><a href="#"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
+            <li><a href="https://area-restrita-main.onrender.com"><img src="images/cadeado.svg" alt="">Área Restrita</a></li>
         </ul>
     </nav>
 </aside>
@@ -51,7 +53,7 @@
             <button class="inserir">Adicionar</button>
         </a>
 
-        <form action=BuscarTourVirtual-servlet method="get" class="search-form">
+        <form action="BuscarTourVirtual-servlet" method="get" class="search-form">
             <input type="text" name="search" placeholder="Buscar tour..." required>
             <button type="submit">Buscar</button>
         </form>

@@ -52,7 +52,6 @@
 </aside>
 
 <h1>Alterar excursão</h1>
-<br><br>
 
 <div class="fundo">
     <div class="formulario">
