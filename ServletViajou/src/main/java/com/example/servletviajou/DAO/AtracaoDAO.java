@@ -20,7 +20,7 @@ public class AtracaoDAO {
         conexao.conectar();
         try {
             Connection conn = conexao.getConn();
-            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM atracao");
+            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM atracao order by id");
             rset = pstmt.executeQuery();
             return rset;
 

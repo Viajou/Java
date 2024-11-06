@@ -20,7 +20,7 @@ public class EventosDAO {
         conexao.conectar();
         try {
             Connection conn = conexao.getConn();
-            PreparedStatement pstmt = conn.prepareStatement("SELECT eventos.id, eventos.id_atracao,atracao.nome,eventos.descricao,atracao.categoria,eventos.capacidade,eventos.preco_pessoa,eventos.data_inicio,eventos.data_termino,eventos.faixa_etaria FROM eventos JOIN atracao ON atracao.id = eventos.id_atracao");
+            PreparedStatement pstmt = conn.prepareStatement("SELECT eventos.id, eventos.id_atracao,atracao.nome,eventos.descricao,atracao.categoria,eventos.capacidade,eventos.preco_pessoa,eventos.data_inicio,eventos.data_termino,eventos.faixa_etaria FROM eventos JOIN atracao ON atracao.id = eventos.id_atracao order by eventos.id");
             rset = pstmt.executeQuery();
             return rset;
         } catch (SQLException sqle){
