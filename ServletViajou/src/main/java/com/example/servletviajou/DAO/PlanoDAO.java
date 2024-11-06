@@ -1,6 +1,7 @@
 package com.example.servletviajou.DAO;
 
 import java.sql.*;
+import java.time.LocalDate;
 
 import com.example.servletviajou.Conexao;
 import com.example.servletviajou.Model.Plano;
@@ -90,9 +91,12 @@ public class PlanoDAO  {
             // Verificando se a busca teve resultados
             if(busca.next()) {
                 Connection conn = conexao.getConn();
-                PreparedStatement pstmt = conn.prepareStatement("UPDATE plano SET descricao = ? WHERE id = ?");
+                // Obtendo a data atual
+                Date dataAtual = Date.valueOf(LocalDate.now());
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE plano SET descricao = ?,data_atualizacao = ? WHERE id = ?");
                 pstmt.setString(1, descricao);
-                pstmt.setInt(2, id);
+                pstmt.setDate(2, dataAtual);
+                pstmt.setInt(3, id);
                 pstmt.execute();
                 return 1;
             }
@@ -115,9 +119,12 @@ public class PlanoDAO  {
             ResultSet busca = buscar(id);
             if (busca.next()) {
                 Connection conn = conexao.getConn();
-                PreparedStatement pstmt = conn.prepareStatement("UPDATE plano SET livre_propaganda = ? WHERE id = ?");
+                // Obtendo a data atual
+                Date dataAtual = Date.valueOf(LocalDate.now());
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE plano SET livre_propaganda = ?,data_atualizacao = ? WHERE id = ?");
                 pstmt.setBoolean(1, livrePropaganda);
-                pstmt.setInt(2, id);
+                pstmt.setDate(2, dataAtual);
+                pstmt.setInt(3, id);
                 pstmt.execute();
                 return 1;
             }
@@ -143,9 +150,12 @@ public class PlanoDAO  {
             // Verificando se a busca teve resultados
             if (busca.next()) {
                 Connection conn = conexao.getConn();
-                PreparedStatement pstmt = conn.prepareStatement("UPDATE plano SET nome = ? WHERE id = ?");
+                // Obtendo a data atual
+                Date dataAtual = Date.valueOf(LocalDate.now());
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE plano SET nome = ?,data_atualizacao = ? WHERE id = ?");
                 pstmt.setString(1, nome);
-                pstmt.setInt(2, id);
+                pstmt.setDate(2, dataAtual);
+                pstmt.setInt(3, id);
                 pstmt.execute();
                 return 1;
             }
@@ -158,7 +168,7 @@ public class PlanoDAO  {
             conexao.desconectar();
         }
     }
-    public int alterarPreco(int id, double preco){
+    public int alterarPreco(int id, String preco){
         // Instanciando os objetos
         Conexao conexao = new Conexao();
 
@@ -171,9 +181,12 @@ public class PlanoDAO  {
             // Verificando se a busca teve resultados
             if (busca.next()) {
                 Connection conn = conexao.getConn();
-                PreparedStatement pstmt = conn.prepareStatement("UPDATE plano SET preco = ? WHERE id = ?");
-                pstmt.setDouble(1, preco);
-                pstmt.setInt(2, id);
+                // Obtendo a data atual
+                Date dataAtual = Date.valueOf(LocalDate.now());
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE plano SET preco = CAST(? AS MONEY), data_atualizacao = ? WHERE id = ?");
+                pstmt.setString(1, preco);
+                pstmt.setDate(2, dataAtual);
+                pstmt.setInt(3, id);
                 pstmt.execute();
                 return 1;
             }
@@ -200,9 +213,12 @@ public class PlanoDAO  {
             // Verificando se a busca teve resultados
             if (busca.next()) {
                 Connection conn = conexao.getConn();
-                PreparedStatement pstmt = conn.prepareStatement("UPDATE plano SET duracao = ? WHERE id = ?");
+                // Obtendo a data atual
+                Date dataAtual = Date.valueOf(LocalDate.now());
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE plano SET duracao = ?, data_atualizacao = ? WHERE id = ?");
                 pstmt.setString(1, duracao);
-                pstmt.setInt(2, id);
+                pstmt.setDate(2, dataAtual);
+                pstmt.setInt(3, id);
                 pstmt.execute();
                 return 1;
             }

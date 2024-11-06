@@ -40,8 +40,8 @@ public class BuscarTourVirtual extends HttpServlet {
                 request.getRequestDispatcher("listar_tour_virtual.jsp").forward(request, response);
             }
 
+        // tratamento de exceções
         } catch (NumberFormatException nfe) {
-            // Captura exceções quando o ID inserido pelo usuário não é um número válido
             String erro = nfe.getMessage();
             request.setAttribute("errorMessage", erro);
             request.setAttribute("caminho", "listar_atracao.jsp");

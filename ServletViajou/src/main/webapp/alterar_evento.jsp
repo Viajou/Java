@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="com.example.servletviajou.DAO.EventosDAO" %>
+<%@ page import="com.example.servletviajou.Servlet.ValidarData" %>
 <%@ page pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -108,6 +109,21 @@
         <div class="campo">
             <label for="nova-data-termino">Data de Termino atual:</label>
             <input class="entrada" type="text" id="nova-data-termino" name="nova-data-termino" placeholder="Ex: (aaaa-mm-dd)" >
+            <input type="hidden" id="url" value="alterar_evento.jsp">
+            <% try {
+                ValidarData validarData = new ValidarData();
+                request.getParameter("data_inicio");
+                request.getParameter("data_termino");
+
+                String invalido = (String) request.getAttribute("invalido");
+
+                if (invalido != null){
+            %>
+            <p class="erro">Inválido! <%=invalido%></p>
+            <% } // fim do if
+                String valido = (String) request.getAttribute("valido");
+            if (valido != null){
+            %>
         </div>
         <div class="campo">
             <label for="nova-faixa-etaria">Nova faixa etária:</label>
@@ -120,11 +136,21 @@
                 <option value="18+">18+</option>
             </select>
         </div>
-
-        <input type="submit" value="Alterar">
+            <input type="submit" value="Alterar">
+        <div class="botoes">
+            <button>
+                <a href="listar_admin.jsp">Voltar</a>
+            </button>
+        </div>
         </form>
     </div>
 </div>
+
+<% } // fim do segundo if
+} catch (NullPointerException npe){
+    request.setAttribute("erro", "Valores nulos!");
+    request.getRequestDispatcher("error.jsp").forward(request, response);
+}%>
 
 </body>
 </html>

@@ -1,3 +1,4 @@
+<%@ page import="com.example.servletviajou.Servlet.ValidarData" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -6,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inserir Evento</title>
     <link rel="stylesheet" href="CSS/crud.css">
-    <link rel="stylesheet" href="CSS/Inserir.css">
+    <link rel="stylesheet" href="CSS/inserir2.css">
 </head>
 <body>
     <header>
@@ -18,6 +19,7 @@
             String nomeAdmin = (String) sessao.getAttribute("nomeAdmin");
         %>
         <div class="usuario">
+            <!-- Adiciona a imagem do admin logado, se existir -->
             <img src="<%= urlImagem %>" alt="Imagem do Admin" class="admin-image">
             <h3 class="admin-name"><%= nomeAdmin %></h3>
         </div>
@@ -50,13 +52,13 @@
                     </select>
                 </div>
                 <label for="descricao">Descrição do evento:</label>
-                <input type="text" name="descricao" id="descricao" placeholder="Ex: Evento de música ao vivo" required>
+                <input class="entrada" type="text" name="descricao" id="descricao" placeholder="Ex: Evento de música ao vivo" required>
                 <br>
                 <label for="capacidade">Capacidade do evento:</label>
-                <input type="text" name="capacidade" id="capacidade" placeholder="Ex: 1500" required>
+                <input class="entrada" type="text" name="capacidade" id="capacidade" placeholder="Ex: 1500" required>
                 <br>
                 <label for="horario">Horário do evento:</label>
-                <input type="text" name="horario" id="horario" placeholder="Ex: 15:30" required>
+                <input class="entrada" type="text" name="horario" id="horario" placeholder="Ex: 15:30" required>
                 <br>
                 <label for="data-inicio">Data de início do evento:</label>
                 <input type="text" name="data-inicio" id="data-inicio" placeholder="Formato: aaaa-mm-dd" pattern="\d{4}-\d{2}-\d{2}" required>
@@ -64,22 +66,44 @@
                 <label for="data-termino">Data de término do evento:</label>
                 <input type="text" name="data-termino" id="data-termino" placeholder="Formato: aaaa-mm-dd" pattern="\d{4}-\d{2}-\d{2}" required>
                 <br>
+                <input type="hidden" id="url" value="inserir_evento.jsp">
+                <%
+                    try {
+                        ValidarData validarData = new ValidarData();
+                        request.getParameter("data_inicio");
+                        request.getParameter("data_termino");
+
+                        String invalido = (String) request.getAttribute("invalido");
+
+                        if (invalido != null){
+                %>
+                <p class="erro">A data inserida está errada! A data de término não pode ser maior que a de início</p>
+                <% } // fim do if
+                    String valido = (String) request.getAttribute("valido");
+                    if (valido != null){
+                %>
+                <br>
                 <label for="preco-pessoa">Preço por pessoa:</label>
-                <input type="text" name="preco-pessoa" id="preco-pessoa" placeholder="Ex: 34.50" required>
+                <input class="entrada" type="text" name="preco-pessoa" id="preco-pessoa" placeholder="Ex: 34.50" required>
                 <br>
                 <label for="id-tour">ID do tour virtual:</label>
-                <input type="text" name="id-tour" id="id-tour" placeholder="Ex: 76" required>
+                <input class="entrada" type="text" name="id-tour" id="id-tour" placeholder="Ex: 76" required>
                 <br>
                 <label for="id-atracao">ID da atração:</label>
-                <input type="text" name="id-atracao" id="id-atracao" placeholder="Ex: 76" required>
+                <input class="entrada" type="text" name="id-atracao" id="id-atracao" placeholder="Ex: 76" required>
             </div>
 
-            <input type="submit" value="Inserir novo evento">
+            <div class="botoes2">
+                <a  class="voltar" href="listar_eventos.jsp">Voltar</a>
+                <input type="submit" value="Inserir tour">
+            </div>
         </form>
-        <br>
-        <a href="listar_eventos.jsp">
-            <button>Voltar</button>
-        </a>
     </main>
+    <% } // fim do if
+    } catch (NullPointerException npe){
+        request.setAttribute("erro", "Valores nulos!");
+        request.getRequestDispatcher("error.jsp").forward(request, response);
+    }
+    %>
 </body>
 </html>

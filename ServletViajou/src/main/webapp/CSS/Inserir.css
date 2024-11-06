@@ -7,11 +7,13 @@ form {
     max-width: 400px;
     margin: auto;
     font-family: Arial, sans-serif;
+    justify-content: center;
 }
 
 .form-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 h1{
@@ -41,8 +43,8 @@ label {
 }
 
 
-input[type="submit"], button {
-    background-color: #412267; /* Cor roxa escura */
+input[type="submit"], .voltar {
+    background-color: #805CD8;
     color: #ffffff;
     border: none;
     padding: 10px 20px;
@@ -54,18 +56,11 @@ input[type="submit"], button {
 }
 
 input[type="submit"]:hover,
-button:hover {
+.voltar:hover {
     background-color: #8E70D6; /* Cor roxa mais clara ao passar o mouse */
 }
 
-/* Estilização para os botões "Fechar" e "Próximo" */
-button.fechar {
-    background-color: #412267; /* Roxo mais escuro para o botão "Fechar" */
-}
 
-button.proximo {
-    background-color: #8E70D6; /* Roxo para o botão "Próximo" */
-}
 
 button.fechar:hover {
     background-color: #8E70D6;
@@ -88,4 +83,8 @@ input[type="submit"] {
     font-size: 1rem;
     margin: 0 auto;
     cursor: pointer;
+}
+
+.botoes2{
+    display: flex;
 }

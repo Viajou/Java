@@ -35,8 +35,11 @@
             <li><a href="listar_plano.jsp"><img src="images/icone-panos-crud.svg" alt="">Planos</a></li>
             <li><a href="listar_excursao.jsp"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
             <li><a href="listar_atracao.jsp"><img src="images/icone-eventos-crud.svg" alt="">Atração</a></li>
-            <li><a href="listar_tour_virtual.jsp"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
-            <li><a href="https://area-restrita-main.onrender.com"><img src="images/cadeado.svg" alt="">Área Restrita</a></li>        </ul>
+            <li><a href="listar_tour_virtual.jsp"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a>
+            </li>
+            <li><a href="https://area-restrita-main.onrender.com"><img src="images/cadeado.svg" alt="">Área Restrita</a>
+            </li>
+        </ul>
     </nav>
 </aside>
 <body>
@@ -52,41 +55,49 @@
         </div>
         <div class="campo">
             <label for="descricao-atual">Descrição atual:</label>
-            <input class="entrada" type="text" id="descricao-atual" name="descricao-atual" disabled value="<%= request.getParameter("descricao")%> " >
+            <input class="entrada" type="text" id="descricao-atual" name="descricao-atual" disabled
+                   value="<%= request.getParameter("descricao")%> ">
         </div>
         <div class="campo">
             <label for="video-atual">Vídeo atual:</label>
-            <input class="entrada" type="text" id="video-atual" name="video-atual" disabled value="<%= request.getParameter("video")%>">
+            <input class="entrada" type="text" id="video-atual" name="video-atual" disabled
+                   value="<%= request.getParameter("video")%>">
         </div>
         <div class="campo">
             <label for="media-classificacao-atual">Média das avaliações atual:</label>
-            <input class="entrada" type="text" id="media-classificacao-atual" name="media-classificacao-atual" disabled value="<%= request.getParameter("media_classificacao")%>">
+            <input class="entrada" type="text" id="media-classificacao-atual" name="media-classificacao-atual" disabled
+                   value="<%= request.getParameter("media_classificacao")%>">
         </div>
         <div class="campo">
             <label for="qnt-classificacao-atual">Quantidade de avaliações atual:</label>
-            <input class="entrada" type="text" id="qnt-classificacao-atual" name="qnt-classtual" disabled value=" <%= request.getParameter("qnt_classificacao")%>" >
+            <input class="entrada" type="text" id="qnt-classificacao-atual" name="qnt-classtual" disabled
+                   value=" <%= request.getParameter("qnt_classificacao")%>">
         </div>
         <div class="campo">
             <label for="preco-atual">Preço atual:</label>
-            <input class="entrada" type="text" name="preco-atual" id="preco-atual" disabled value="<%= request.getParameter("preco")%>">
+            <input class="entrada" type="text" name="preco-atual" id="preco-atual" disabled
+                   value="<%= request.getParameter("preco")%>">
         </div>
         <div class="campo">
             <label for="id-atracao-atual">ID da atração:</label>
-            <input class="entrada" type="text" name="id-atracao-atual" id="id-atracao-atual" disabled value="<%= request.getParameter("id_atracao")%>">
+            <input class="entrada" type="text" name="id-atracao-atual" id="id-atracao-atual" disabled
+                   value="<%= request.getParameter("id_atracao")%>">
 
         </div>
         <div class="campo">
             <label for="id-atracao-atual">ID da figurinha: </label>
-            <input class="entrada" type="text" name="id-atracao-atual" id="id-figurinhas-atual" disabled value="<%= request.getParameter("id_figurinhas")%>">
+            <input class="entrada" type="text" name="id-atracao-atual" id="id-figurinhas-atual" disabled
+                   value="<%= request.getParameter("id_figurinhas")%>">
 
         </div>
     </form>
 
-    <form method="post" action="AlterarTourVirtual-servlet?id=<%= request.getParameter("id") %>">
+    <form method="post" action="AlterarTourVirtual-servlet?id=<%=request.getParameter("id")%>">
         <h2>Novo</h2>
         <div class="campo">
             <label for="nova-descricao">Nova descrição</label>
-            <input class="entrada" type="text" id="nova-descricao" name="descricao-atual" placeholder="Exemplo: Praça com exposição de artes">
+            <input class="entrada" type="text" id="nova-descricao" name="nova-descricao"
+                   placeholder="Exemplo: Praça com exposição de artes">
         </div>
         <div class="campo">
             <label for="video-atual">Novo vídeo:</label>
@@ -94,16 +105,21 @@
         </div>
         <div class="campo">
             <label for="nova-media-classificacao">Nova média das avaliações:</label>
-            <input class="entrada" type="text" id="nova-media-classificacao" name="nova-media-classificacao" pattern="^\d+(\.\d{1,2})?$" placeholder="Exemplo: 4.52" title="Digite um número com até duas casas decimais, utilizando '.' como separador" >
+            <input class="entrada" type="text" id="nova-media-classificacao" name="nova-media-classificacao"
+                   pattern="^\d+(\.\d{1,2})?$" placeholder="Exemplo: 4.52"
+                   title="Digite um número com até duas casas decimais, utilizando '.' como separador">
         </div>
 
         <div class="campo">
             <label for="nova-qnt-classificacao">Nova quantidade de avaliações:</label>
-            <input class="entrada" type="text" id="nova-qnt-classificacao" name="nova-qnt-classificacao" placeholder="Exemplo: 150">
+            <input class="entrada" type="text" id="nova-qnt-classificacao" name="nova-qnt-classificacao"
+                   placeholder="Exemplo: 150">
         </div>
         <div class="campo">
             <label for="novo-preco">Novo preço:</label>
-            <input class="entrada" type="text" name="preco-atual" id="novo-preco" pattern="^\d+(\.\d{1,2})?$" placeholder="Exemplo: 12.56" title="Digite um número com até duas casas decimais, utilizando '.' como separador">
+            <input class="entrada" type="text" name="preco-atual" id="novo-preco" pattern="^\d+(\.\d{1,2})?$"
+                   placeholder="Exemplo: 12.56"
+                   title="Digite um número com até duas casas decimais, utilizando '.' como separador">
         </div>
         <div class="campo">
             <label for="novo-id-atracao">Novo ID da atração:</label>

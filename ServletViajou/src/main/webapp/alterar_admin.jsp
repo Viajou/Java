@@ -65,7 +65,9 @@
 
                 <div class="campo">
                     <label for="novaSenha">Senha atual:</label>
-                    <input class="entrada" type="text" id="senhaAtual" name="senhaAtual" disabled value=" <%= request.getParameter("senha")%>" >
+                    <input class="entrada" type="text" id="senhaAtual" name="senhaAtual"
+                           pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$_#&])[A-Za-z\d@$#&_]{8,20}$"
+                           disabled value=" <%= request.getParameter("senha")%>" >
                 </div>
 
                 <div class="botoes">

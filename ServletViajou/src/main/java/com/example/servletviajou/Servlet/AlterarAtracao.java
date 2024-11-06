@@ -28,30 +28,40 @@ import java.util.InputMismatchException;
 
 
             // Verifica cada campo antes de atualizar
-            if (descricao != null && !descricao.isEmpty()) {
+            //verifica e altera a descricao
+            if (descricao != null && !descricao.isEmpty()) { // se não for vazio
                 atracaoDAO.alterarDescricao(id, descricao);
             }
-            if (endereco != null && !endereco.isEmpty()) {
+
+            // verifica e altera o endereço
+            if (endereco != null && !endereco.isEmpty()) { // se não for vazia
                 atracaoDAO.alterarEndereco(id, endereco);
             }
+
+            //verifica e altera a acessibilidade
             if (Stringacessibilidade != null && !Stringacessibilidade.isEmpty()) {
+
+                // tratamento de exceção devido a mudança de tipo da variável
                 try {
                     boolean acessibilidade = Boolean.parseBoolean(request.getParameter("novaAcessibilidade"));
                     atracaoDAO.alterarAcessibilidade(id, acessibilidade);
                 }catch (InputMismatchException e){
+                    //mensagem de erro
                     request.setAttribute("mensagem", "Erro ao alterar admin: " + e.getMessage());
-
                 }
 
+            // verifica e altera nome
             }
             if (nome != null && !nome.isEmpty()) {
                 atracaoDAO.alterarNome(id, nome);
             }
+
+            // verifica e aletra nome
             if (categoria != null && !categoria.isEmpty()) {
                 atracaoDAO.alterarCategoria(id, categoria);
             }
 
-
+        // tratamento de exceção
         }catch (Exception e){
             request.setAttribute("mensagem", "Erro ao alterar admin: " + e.getMessage());
 

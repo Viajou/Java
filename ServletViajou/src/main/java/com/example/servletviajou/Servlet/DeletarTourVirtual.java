@@ -25,17 +25,18 @@ public class DeletarTourVirtual extends HttpServlet {
         // chamando o método deletar
         int resultado = tourVirtualDAO.deletarTourVirtual(id, tourVirtual);
 
+        // verifica os retornos do método
         if(resultado == 1){
             request.setAttribute("mensagem", "Tour virtual excluído com sucesso!");
-            response.sendRedirect("paginaSucesso.jsp");
+            response.sendRedirect("paginaSucesso.jsp"); // retorna a mensagem de sucess
         }
         else if(resultado == 0){
             request.setAttribute("erro", "Erro! Não foi possível excluir este tour virtual!");
-            response.sendRedirect("paginaErro.jsp");
+            response.sendRedirect("error.jsp"); // quando der erro, redireciona para a página jsp de erros
         }
         else if(resultado == -1){
             request.setAttribute("erro", "Erro! Não foi possível excluir este tour virtual!");
-            request.getRequestDispatcher("erro.jsp").forward(request, response);
+            request.getRequestDispatcher("erro.jsp").forward(request, response); // retorna o erro para a página de erro
         }
 
 

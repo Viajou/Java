@@ -7,11 +7,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- Configuração do charset, propriedades de visualização para dispositivos móveis e ícone do site -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="imagex/svg" href="images/icone-viajou.svg">
     <title>Listar atracao</title>
     <link rel="stylesheet" href="CSS/crud.css">
+    <link rel="stylesheet" href="CSS/encontrado.css">
 </head>
 <body>
 <header>
@@ -28,6 +30,7 @@
         <img src="<%= urlImagem %>" alt="" class="admin-image">
         <h3 class="admin-name"><%= nomeAdmin %></h3>
     </div>
+
 </header>
 <aside>
     <nav>
@@ -46,25 +49,29 @@
     <h1>Atrações</h1>
 
     <div class="button-group">
-
+        <!-- Botão para adicionar uma nova atração -->
         <a href="inserir_atracao.jsp">
             <button class="inserir">Adicionar</button>
         </a>
-
+        <!-- Formulário de busca de atrações -->
         <form action="buscarAtracao-servlet" method="get" class="search-form">
             <input type="text" name="search" placeholder="Buscar atracao..." required>
             <button type="submit">Buscar</button>
         </form>
+        <!-- Botão para listar todas as atrações -->
         <a href="listar_atracao.jsp"> <!-- Substitua "listar_admin.jsp" pela URL da sua página de listagem -->
             <button class="all">All</button>
         </a>
 
 
     </div>
-
-
-
+    <%
+        // Verifica se há uma mensagem de "não encontrado"
+        String naoEncontrado = (String) request.getAttribute("naoEncontrado");
+        if (naoEncontrado == null) {
+    %>
     <section class="table-section">
+        <!-- Tabela para listar as excursões -->
         <table>
             <thead>
             <tr>
@@ -81,6 +88,7 @@
             </thead>
             <tbody>
             <%
+                // Recupera o ResultSet de atrações ou consulta o banco de dados se não houver resultados na requisição
                 ResultSet busca = (ResultSet) request.getAttribute("resultados");
                 if (busca == null) {
                     AtracaoDAO atracaoDAO = new AtracaoDAO();
@@ -89,6 +97,7 @@
             %>
             <%
                 try {
+                    // Itera sobre os resultados para exibir as atrações
                     while (busca.next()) {
 
             %>
@@ -103,12 +112,14 @@
                 <td><%= busca.getString("data_atualizacao") %></td>
 
                 <td>
+                    <!-- Link para alterar atração -->
                     <a href="alterar_atracao.jsp?id=<%= busca.getInt("id") %>&nome=<%= busca.getString("nome") %>&descricao=<%= busca.getString("descricao") %>&endereco=<%= busca.getString("endereco") %>&acessibilidade=<%= busca.getBoolean("acessibilidade") %>&categoria=<%= busca.getString("categoria") %>">
                         <button class="deletar">
                             <img src="images/lapis.svg" alt="">
                         </button>
                     </a>
                     <a href="DeletarAtracao-servlet?id=<%= busca.getInt("id") %>" onclick="return confirm('Tem certeza que deseja deletar esta atração?')">
+
                         <button class="deletar">
                             <img src="images/lixeira.svg" alt="">
                         </button>
@@ -116,9 +127,11 @@
                 </td>
             </tr>
             <%
-                    }
+                    }//fim do while
                 } catch (SQLException sqle) {
-                    sqle.printStackTrace();
+                        // Exibe o erro em caso de exceção SQL
+                        sqle.printStackTrace();
+                }//fim do try
                 }
             %>
             </tbody>

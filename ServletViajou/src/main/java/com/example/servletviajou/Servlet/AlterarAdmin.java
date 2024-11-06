@@ -22,27 +22,36 @@ public class AlterarAdmin extends HttpServlet {
             String email = request.getParameter("novoEmail");
             String novaSenha = request.getParameter("novaSenha");
             String url = request.getParameter("novaFoto");
+
             // Instanciando o DAO para alterar os dados
             AdminDAO adminDAO = new AdminDAO();
 
+            // criptografa a senha
             String hashedPassword = BCrypt.hashpw(novaSenha, BCrypt.gensalt());
 
 
             // Verifica cada campo antes de atualizar
-            if (email != null && !email.isEmpty()) {
+            //verifica e altera o email
+            if (email != null && !email.isEmpty()) { // se não for vazio
                 adminDAO.alterarEmail(id, email);
             }
-            if (url != null && !url.isEmpty()) {
+
+            //verifica e altera a url
+            if (url != null && !url.isEmpty()) {// se não for vazio
                 adminDAO.alterarUrlImagem(id, url);
             }
-            if (novaSenha != null && !novaSenha.isEmpty()) {
-                adminDAO.alterarSenha(id, hashedPassword);
+
+            //verifica e altera a senha
+            if (novaSenha != null && !novaSenha.isEmpty()) { // se não for vazio
+                adminDAO.alterarSenha(id, hashedPassword); // id e senha criptografada
             }
-            if (nome != null && !nome.isEmpty()) {
+
+            // verifica e altera o nome
+            if (nome != null && !nome.isEmpty()) {// se não for vazio
                 adminDAO.alterarNome(id, nome);
             }
 
-
+        // tratamento de exceção
         }catch (Exception e){
             request.setAttribute("mensagem", "Erro ao alterar admin: " + e.getMessage());
 
@@ -51,5 +60,6 @@ public class AlterarAdmin extends HttpServlet {
         request.setAttribute("caminho", "listar_admin.jsp");
         request.setAttribute("sucessMessage", "sucesso");
         request.getRequestDispatcher("sucesso.jsp").forward(request, response);
+
     }
 }

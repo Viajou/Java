@@ -47,78 +47,92 @@
 
     <div class="fundo">
         <div class="formulario">
-            <form action="AlterarAtracao-servlet" method="post">
+            <form >
 
                 <h2>Atual</h2>
+                <div class="campo">
+                    <label for="id">Acessibilidade da atração: </label>
+                    <input class="entrada" type="text" name="id" id="id" value="<%= request.getParameter("id")%>" disabled>
+                </div>
 
-                <label for="nome">Nome da atração: </label>
-                <input class="entrada" type="text" name="nome" id="nome" value="<%= request.getParameter("nome")%>" disabled>
+                <div class="campo">
+                    <label for="nome">Nome da atração: </label>
+                    <input class="entrada" type="text" name="nome" id="nome" value="<%= request.getParameter("nome")%>" disabled>
+                </div>
 
-                <br><br>
+                <div class="campo">
+                    <label for="descricao">Descrição da atração: </label>
+                    <input class="entrada" type="text" name="descricao" id="descricao" value="<%= request.getParameter("descricao")%>" disabled>
+                </div>
 
-                <label for="descricao">Descrição da atração: </label>
-                <input class="entrada" type="text" name="descricao" id="descricao" value="<%= request.getParameter("descricao")%>" disabled>
-
-                <br><br>
-
-                <label for="endereco">Endereço da atração: </label>
-                <input class="entrada" type="text" name="endereco" id="endereco" value="<%= request.getParameter("endereco")%>" disabled>
-
-                <br><br>
-
-                <label for="acessibilidade">Acessibilidade da atração: </label>
-                <input class="entrada" type="text" name="acessibilidade" id="acessibilidade" value="<%= request.getParameter("acessibilidade")%>" disabled>
-
-                <br><br>
-
-                <label for="categoria">Categoria da atração: </label>
-                <input class="entrada" type="text" name="categoria" id="categoria" value="<%= request.getParameter("categoria")%>" disabled>
-            </form>
+                <div class="campo">
+                    <label for="endereco">Endereço da atração: </label>
+                    <input class="entrada" type="text" name="endereco" id="endereco" value="<%= request.getParameter("endereco")%>" disabled>
+                </div>
 
 
-            <form action="AlterarAtracao-servlet" method="post">
+                <div class="campo">
+                    <label for="acessibilidade">Acessibilidade da atração: </label>
+                    <input class="entrada" type="text" name="acessibilidade" id="acessibilidade" value="<%= request.getParameter("acessibilidade")%>" disabled>
+                </div>
+
+
+                <div class="campo">
+                    <label for="categoria">Categoria da atração: </label>
+                    <input class="entrada" type="text" name="categoria" id="categoria" value="<%= request.getParameter("categoria")%>" disabled>
+                </div>
+
+
+                <div class="botoes">
+                    <button>
+                        <a href="listar_atracao.jsp">Voltar</a>
+                    </button>
+                </div>
+            </form><!-- Fechamento do primeiro form -->
+
+
+            <form action="AlterarAtracao-servlet?id=<%= request.getParameter("id")%>" method="post">
 
                 <h2>Novo</h2>
 
-                <label for="novo_nome">Novo nome da atração: </label>
-                <input class="entrada" type="text" name="novoNome" id="novo_nome" placeholder="Ex:Catavento">
+                <div class="campo">
+                    <label for="novo_nome">Novo nome da atração: </label>
+                    <input class="entrada" type="text" name="novoNome" id="novo_nome" placeholder="Ex:Catavento">
+                </div>
 
-                <br><br>
+                <div class="campo">
+                    <label for="nova_descricao">Nova descrição da atração: </label>
+                    <input class="entrada" type="text" name="novaDescricao" id="nova_descricao" placeholder="Ex:Museu">
+                </div>
 
-                <label for="nova_descricao">Nova descrição da atração: </label>
-                <input class="entrada" type="text" name="novaDescricao" id="nova_descricao" placeholder="Ex:Museu">
+                <div class="campo">
+                    <label for="novo_endereco">Novo endereço da atração: </label>
+                    <input class="entrada" type="text" name="novoEndereco" id="novo_endereco" placeholder="Ex: Av.Getulio vagas">
+                </div>
 
-                <br><br>
+                <div class="campo">
+                    <label>Acessibilidade</label>
+                    <label>
+                        <input class="entrada" type="radio" name="novaAcessibilidade" value="true">Sim
+                    </label>
+                    <label>
+                        <input class="entrada" type="radio" name="novaAcessibilidade" value="true">Não
+                    </label>
+                </div>
 
-                <label for="novo_endereco">Novo endereço da atração: </label>
-                <input class="entrada" type="text" name="novoEndereco" id="novo_endereco" placeholder="Ex: Av.Getulio vagas">
+                <div class="campo">
+                    <label for="nova_categoria">Nova categoria da atração: </label>
+                    <input class="entrada" type="text" name="novaCategoria" id="nova_categoria" placeholder="Ex: Exposições">
+                </div>
 
-                <br><br>
+                <div class="botoes">
+                    <input type="submit" value="Alterar">
+                </div>
 
-
-                <label>Acessibilidade</label>
-                <label>
-                    <input class="entrada" type="radio" name="novaAcessibilidade" value="true">Sim
-                </label>
-                <label>
-                    <input class="entrada" type="radio" name="novaAcessibilidade" value="true">Não
-                </label>
-
-                <br><br>
-
-                <label for="nova_categoria">Nova categoria da atração: </label>
-                <input class="entrada" type="text" name="novaCategoria" id="nova_categoria" placeholder="Ex: Exposições">
-                <input type="submit" value="Alterar">
             </form>
-
-
        </div>
 
-            <div class="botoes">
-                <button>
-                    <a href="listar_atracao.jsp">Voltar</a>
-                </button>
-            </div>
+
   </div>
 </body>
 </html>

@@ -28,6 +28,7 @@ public class InserirAdmin extends HttpServlet {
         // Criando o objeto Admin
         AdminDAO adminDAO = new AdminDAO();
 
+        // criptografia da senha
         String hashedPassword = BCrypt.hashpw(senha, BCrypt.gensalt());
 
         //Criando objeto de admin
@@ -38,12 +39,15 @@ public class InserirAdmin extends HttpServlet {
 
                 // Inserindo o novo admin
                 int resultado = adminDAO.inserirAdmin(novoAdmin);
+
+                //verifica retorno do método DAO
                 if (resultado == 1) {
                     request.setAttribute("retorno", "certo");
                 } else {
                     request.setAttribute("retorno", "erro");
                 }
 
+        // tratamento de exceção
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

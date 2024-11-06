@@ -1,74 +1,77 @@
+/* Estilização geral do formulário */
 form {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: auto;
     font-family: Arial, sans-serif;
-    margin: 0 2vw;
-    width: 20vw;
-}
-
-.formulario {
-    display: flex; /* Alinha os formulários lado a lado */
     justify-content: center;
-    align-items: center;
-    width: 100%;
 }
 
-h1 {
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1{
     text-align: center;
-    font-family: LevenimBold;
-}
-
-.campo {
-    display: flex; /* Alinha label e input em linha */
-    flex-direction: column; /* Coloca o label acima do input */
-    margin-bottom: 15px; /* Espaçamento entre os campos */
 }
 
 label {
     color: #8b5cf6;
     font-size: 14px;
     margin-bottom: 5px;
-    font-family: LevenimBold;
+    font-weight: bold;
 }
-p{
-    color: #8b5cf6;
-}
+
 .entrada {
     padding: 10px;
     border: 2px solid #d1d5db;
     border-radius: 10px;
     font-size: 14px;
-    color: #4b5563;
+    margin-bottom: 15px;
+    color: #4b5563; /* Cor do texto do input */
     transition: border-color 0.3s ease;
-    width: 90%; /* Faz o input ocupar toda a largura disponível */
-
 }
 
-.entrada:focus {
+.entrada{
     outline: none;
-    border-color: #8b5cf6;
+    border-color: #8b5cf6; /* Cor roxa ao focar */
 }
 
-input[type="submit"],
-button {
-    background-color: #412267;
+
+input[type="submit"], .voltar {
+    background-color: #805CD8;
     color: #ffffff;
     border: none;
-    padding: 10px 20px;
-    font-size: 14px;
-    border-radius: 15px;
+    font-size: 1rem;
     cursor: pointer;
-    margin: 5px;
+    padding: 0.6rem;
+    border-radius: 5px;
+    width: 10vw;
+    text-align: center;
     transition: background-color 0.3s ease;
 }
 
 input[type="submit"]:hover,
-button:hover {
+.voltar:hover {
+    background-color: #8E70D6; /* Cor roxa mais clara ao passar o mouse */
+}
+
+
+
+button.fechar:hover {
     background-color: #8E70D6;
 }
 
+button.proximo:hover {
+    background-color: #8E70D6;
+}
+
+/* Ajustes para centralizar os botões */
 form a,
 input[type="submit"] {
     background-color: #805CD8;
@@ -77,8 +80,17 @@ input[type="submit"] {
     padding: 0.6rem;
     border-radius: 5px;
     width: 10vw;
-    font-family: Arial, sans-serif;
+    font-family: LevenimBold;
     font-size: 1rem;
     margin: 0 auto;
     cursor: pointer;
+}
+
+.botoes2{
+    display: flex;
+}
+
+.erro{
+    font-family: Levenim, sans-serif;
+    color: red;
 }
