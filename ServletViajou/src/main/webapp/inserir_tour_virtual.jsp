@@ -9,7 +9,7 @@
   <title>Crud</title>
 </head>
 <body>
-<hader>
+<header>
   <img src="images/Viajou logo pequena.svg" alt="Viajou Logo" id="Viajou-logo">
   <%
     // Recupera a URL da imagem e nome do admin armazenados na sessão
@@ -23,7 +23,7 @@
     <img src="<%= urlImagem %>" alt="Imagem do Admin" class="admin-image">
     <h3 class="admin-name"><%= nomeAdmin %></h3>
   </div>
-</hader>
+</header>
 
 <aside>
   <nav>
@@ -40,6 +40,7 @@
 </aside>
 
 <main>
+
   <h1>Inserir Tour Virtual</h1>
 
   <form action="InserirTourVirtual-servlet" method="post">

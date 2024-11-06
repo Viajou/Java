@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inserir Evento</title>
     <link rel="stylesheet" href="CSS/crud.css">
+    <link rel="stylesheet" href="CSS/Inserir.css">
 </head>
 <body>
     <header>
@@ -37,29 +38,28 @@
         <h1>Inserir um novo evento</h1>
         <form action="InserirEvento-servlet" method="post">
             <div class="form-container">
-                <label for="faixa-etaria">Faixa Etária do evento:</label>
-                <input type="text" name="faixa-etaria" id="faixa-etaria" placeholder="Ex: +16">
+
                 <br>
                 <fieldset>
                     <legend >Faixa etaria</legend>
                     <br>
                     <label for="nova-faixa-etaria">livre</label>
-                    <input type="radio" name="nova-faixa-etaria" id="nova-faixa-etaria" value="livre">
+                    <input type="radio" name="nova-faixa-etaria" id="faixa-etaria" value="livre">
                     <br>
                     <label for="nova-faixa-etaria">+10</label>
                     <input type="radio" name="nova-faixa-etaria" id="nova-faixa-etaria" value="10+">
                     <br>
-                    <label for="nova-faixa-etaria">+12</label>
-                    <input type="radio" name="nova-faixa-etaria" id="nova-faixa-etaria" value="12+">
+                    <label for="nova-faixa-etaria2">+12</label>
+                    <input type="radio" name="nova-faixa-etaria2" id="nova-faixa-etaria2" value="12+">
                     <br>
-                    <label for="nova-faixa-etaria">+14</label>
-                    <input type="radio" name="nova-faixa-etaria" id="nova-faixa-etaria" value="14+">
+                    <label for="nova-faixa-etaria3">+14</label>
+                    <input type="radio" name="nova-faixa-etaria3" id="nova-faixa-etaria3" value="14+">
                     <br>
-                    <label for="nova-faixa-etaria">+16</label>
-                    <input type="radio" name="nova-faixa-etaria" id="nova-faixa-etaria" value="16+">
+                    <label for="nova-faixa-etaria4">+16</label>
+                    <input type="radio" name="nova-faixa-etaria4" id="nova-faixa-etaria4" value="16+">
                     <br>
-                    <label for="nova-faixa-etaria">+18</label>
-                    <input type="radio" name="nova-faixa-etaria" id="nova-faixa-etaria" value="18+">
+                    <label for="nova-faixa-etaria5">+18</label>
+                    <input type="radio" name="nova-faixa-etaria5" id="nova-faixa-etaria5" value="18+">
                     <br>
                 </fieldset>
                 <label for="descricao">Descrição do evento:</label>
