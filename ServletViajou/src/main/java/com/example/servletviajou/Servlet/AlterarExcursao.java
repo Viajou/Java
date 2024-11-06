@@ -35,11 +35,13 @@ import java.util.Date;
             excursaoDAO.alterarDataInicio(id, (java.sql.Date) novaDataInicio);
             excursaoDAO.alterarDataTermino(id, (java.sql.Date) novaDataTermino);
 
+            //dando o caminho de resposta para o servlet
             request.setAttribute("mensagem", "Excursão alterada com sucesso!");
 
+        // tratamento de exceção
         } catch (Exception e) {
             request.setAttribute("mensagem", "Erro ao alterar a excursão: " + e.getMessage());
         }
-        request.getRequestDispatcher("/WEB-INF/jsp/excursao.jsp").forward(request, response);
+        request.getRequestDispatcher("alterar_excursao.jsp").forward(request, response);
     }
 }
