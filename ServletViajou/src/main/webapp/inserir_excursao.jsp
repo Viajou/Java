@@ -64,7 +64,7 @@
 
         <label for="capacidade">Capacidade: </label>
         <input class="entrada" type="text" name="acessibilidade" id="capacidade" placeholder="Ex: true/false" required>
-        <input hidden="hidden" value="/inserir_excursao">
+
         <label for="duracao">duração:</label>
         <input class="entrada" type="text" name="categoria" id="duracao" placeholder="Ex: Exposições">
 
