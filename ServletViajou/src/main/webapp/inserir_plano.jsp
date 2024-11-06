@@ -54,10 +54,10 @@
 
             <label> Livre de propaganda? </label>
             <label>
-                <input class="entrada" type="radio" name="livre_propaganda" value="true" required> Sim
+                <input class="entrada" type="radio" name="livrePropaganda" value="true" required> Sim
             </label>
             <label>
-                <input class="entrada" type="radio" name="livre_propaganda" value="false" required> Não
+                <input class="entrada" type="radio" name="livrePropaganda" value="false" required> Não
             </label>
 
             <label for="preco">Preço do plano: </label>
