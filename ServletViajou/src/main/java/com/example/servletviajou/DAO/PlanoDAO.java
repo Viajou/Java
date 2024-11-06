@@ -20,7 +20,7 @@ public class PlanoDAO  {
         conexao.conectar();
         try {
             Connection conn = conexao.getConn();
-            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM plano");
+            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM plano order by id");
             rset = pstmt.executeQuery();
             return rset;
         } catch (SQLException e){

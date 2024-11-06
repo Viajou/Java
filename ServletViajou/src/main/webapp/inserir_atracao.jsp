@@ -25,8 +25,13 @@
         <label for="endereco">Endereço da atração: </label>
         <input type="text" name="endereco" id="endereco" placeholder="Ex: Av.Getulio vagas">
         <br><br>
-        <label for="acessibilidade">Acessibilidade da atração: </label>
-        <input type="text" name="acessibilidade" id="acessibilidade" placeholder="Ex: true/false">
+        <label>Acessibilidade da atração: </label>
+        <label>
+            <input type="radio" name="acessibilidade" value="true" required> Sim
+        </label>
+        <label>
+            <input type="radio" name="acessibilidade" value="false" required> Não
+        </label>
         <br><br>
         <label for="categoria">Categoria da atração: </label>
         <input type="text" name="categoria" id="categoria" placeholder="Ex: Exposições">

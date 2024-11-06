@@ -82,7 +82,7 @@
         </div>
     </form>
 
-    <form method="post" action="/AlterarTourVirtual-servlet?id=<%= request.getParameter("id") %>">
+    <form method="post" action="AlterarTourVirtual-servlet?id=<%= request.getParameter("id") %>">
         <h2>Novo</h2>
         <div class="campo">
             <label for="novoNome">Novo nome:</label>

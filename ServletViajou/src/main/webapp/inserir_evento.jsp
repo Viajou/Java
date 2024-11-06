@@ -40,28 +40,18 @@
                 <label for="faixa-etaria">Faixa Etária do evento:</label>
                 <input type="text" name="faixa-etaria" id="faixa-etaria" placeholder="Ex: +16">
                 <br>
-                <fieldset>
-                    <legend >Faixa etaria</legend>
-                    <br>
-                    <label for="nova-faixa-etaria">livre</label>
-                    <input type="radio" name="nova-faixa-etaria" id="nova-faixa-etaria" value="livre">
-                    <br>
-                    <label for="nova-faixa-etaria">+10</label>
-                    <input type="radio" name="nova-faixa-etaria" id="nova-faixa-etaria" value="10+">
-                    <br>
-                    <label for="nova-faixa-etaria">+12</label>
-                    <input type="radio" name="nova-faixa-etaria" id="nova-faixa-etaria" value="12+">
-                    <br>
-                    <label for="nova-faixa-etaria">+14</label>
-                    <input type="radio" name="nova-faixa-etaria" id="nova-faixa-etaria" value="14+">
-                    <br>
-                    <label for="nova-faixa-etaria">+16</label>
-                    <input type="radio" name="nova-faixa-etaria" id="nova-faixa-etaria" value="16+">
-                    <br>
-                    <label for="nova-faixa-etaria">+18</label>
-                    <input type="radio" name="nova-faixa-etaria" id="nova-faixa-etaria" value="18+">
-                    <br>
-                </fieldset>
+                <div class="campo">
+                    <label for="nova-faixa-etaria">Faixa etária:</label>
+                    <select class="entrada" id="nova-faixa-etaria" name="nova-faixa-etaria" required>
+                        <option value="" disabled selected>Escolha uma opção</option>
+                        <option value="livre">Livre</option>
+                        <option value="12+">12+</option>
+                        <option value="14+">14+</option>
+                        <option value="16+">16+</option>
+                        <option value="18+">18+</option>
+                    </select>
+                </div>
+
                 <label for="descricao">Descrição do evento:</label>
                 <input type="text" name="descricao" id="descricao" placeholder="Ex: Evento de música ao vivo">
                 <br>

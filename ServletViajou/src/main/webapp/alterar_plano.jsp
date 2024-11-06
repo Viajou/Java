@@ -76,7 +76,7 @@
             </div>
         </form>
 
-        <form method="post" action="/AlterarPlano-servlet?id=<%=request.getParameter("id")%>">
+        <form method="post" action="AlterarPlano-servlet?id=<%=request.getParameter("id")%>">
             <h2>Novo</h2>
             <div class="campo">
                 <label for="novaDescricao">Nova descrição</label>
