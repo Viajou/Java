@@ -49,12 +49,8 @@
     <h1>Excursão</h1>
 
     <div class="button-group">
-<<<<<<< HEAD
-        <a href="inserir_excursao.jsp">
-=======
         <!-- Botão para adicionar uma nova excursão -->
         <a href="InserirExcursao-servlet">
->>>>>>> 3cd3279e2dee16e870fbb2aaf9c7d7dbfc543262
             <button class="inserir">Adicionar</button>
         </a>
         <!-- Formulário de busca de excursões -->
