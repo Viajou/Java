@@ -8,7 +8,7 @@ public class TourVirtual {
     private String video;
     private double mediaClassificacao;
     private int qntClassificacao;
-    private double preco;
+    private String preco;
     private int idAtracao;
     private int idFigurinhas;
     private Date dataCriacao;
@@ -16,7 +16,7 @@ public class TourVirtual {
 
 //  Métodos construtores
     // Construtor com todos os atributos da classe, exceto o ID por ser serial
-    public TourVirtual(String descricao, String video, int qntClassificacao, double mediaClassificacao, double preco, int idAtracao, int idFigurinhas) {
+    public TourVirtual(String descricao, String video, int qntClassificacao, double mediaClassificacao, String preco, int idAtracao, int idFigurinhas) {
         this.descricao = descricao;
         this.video = video;
         this.qntClassificacao = qntClassificacao;
@@ -32,7 +32,7 @@ public class TourVirtual {
 //  Métodos Getters e Setters
     // Descricao
     public String getDescricao() {
-        return descricao;
+        return this.descricao;
     }
 
     public void setDescricao(String descricao) {
@@ -41,7 +41,7 @@ public class TourVirtual {
 
     // Video
     public String getVideo() {
-        return video;
+        return this.video;
     }
 
     public void setVideo(String video) {
@@ -50,7 +50,7 @@ public class TourVirtual {
 
     // MediaClassificacao
     public double getMediaClassificacao() {
-        return mediaClassificacao;
+        return this.mediaClassificacao;
     }
 
     public void setMediaClassificacao(double mediaClassificacao) {
@@ -59,7 +59,7 @@ public class TourVirtual {
 
     // QntClassificacao
     public int getQntClassificacao() {
-        return qntClassificacao;
+        return this.qntClassificacao;
     }
 
     public void setQntClassificacao(int qntClassificacao) {
@@ -67,17 +67,17 @@ public class TourVirtual {
     }
 
     // Preco
-    public double getPreco() {
-        return preco;
+    public String getPreco() {
+        return this.preco;
     }
 
-    public void setPreco(double preco) {
+    public void setPreco(String preco) {
         this.preco = preco;
     }
 
     // IdAtracao
     public int getIdAtracao() {
-        return idAtracao;
+        return this.idAtracao;
     }
 
     public void setIdAtracao(int idAtracao) {
@@ -86,7 +86,7 @@ public class TourVirtual {
 
     // IdFigurinhas
     public int getIdFigurinhas() {
-        return idFigurinhas;
+        return this.idFigurinhas;
     }
 
     public void setIdFigurinhas(int idFigurinhas) {
@@ -97,7 +97,7 @@ public class TourVirtual {
     public Date getDataCriacao() { return this.dataCriacao; }
 
     // DataAtualizacao
-    public Date getDataAtualizacao() { return dataAtualizacao; }
+    public Date getDataAtualizacao() { return this.dataAtualizacao; }
 
     public void setDataAtualizacao(Date dataAtualizacao) { this.dataAtualizacao = dataAtualizacao; }
 

@@ -33,12 +33,12 @@
     <nav>
         <ul>
             <li><a href="listar_admin.jsp"><img src="images/icone-user-crud.svg" alt="">Admin</a></li>
-            <li><a href="#"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
+            <li><a href="listar_eventos.jsp"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
             <li><a href="listar_plano.jsp"><img src="images/icone-panos-crud.svg" alt="">Planos</a></li>
-            <li><a href="#"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
+            <li><a href="listar_excursao.jsp"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
             <li><a href="listar_atracao.jsp"><img src="images/icone-eventos-crud.svg" alt="">Atração</a></li>
-            <li><a href="#"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
-            <li><a href="https://area-restrita-main.onrender.com">Área Restrita</a></li>
+            <li><a href="listar_tour_virtual.jsp"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
+            <li><a href="https://area-restrita-main.onrender.com"><img src="images/cadeado.svg" alt="">Área Restrita</a></li>            </ul>
         </ul>
     </nav>
 </aside>
@@ -74,8 +74,10 @@
                 <th>Descricao</th>
                 <th>URL do vídeo</th>
                 <th>Média classificações</th>
-                <th>Qtd classificações</th>
+                <th>Qnt classificações</th>
                 <th>Preco</th>
+                <th>ID atração</th>
+                <th>ID figurinha</th>
                 <th>Criação</th>
                 <th>Atualização</th>
                 <th>Opções</th>
@@ -99,14 +101,21 @@
                 <td><%= busca.getString("descricao") %></td>
                 <td><%= busca.getString("video") %></td>
                 <td><%= busca.getDouble("media_classificacao") %></td>
-                <td><%= busca.getInt("qtd_classificacao") %></td>
+                <td><%= busca.getInt("qnt_classificacao") %></td>
                 <td><%= busca.getString("preco") %></td>
+                <td><%= busca.getInt("id_atracao") %></td>
+                <td><%= busca.getInt("id_figurinhas") %></td>
                 <td><%= busca.getDate("data_criacao") %></td>
                 <td><%= busca.getDate("data_atualizacao") %></td>
                 <td>
-                    <a href="DeletarTourVirtual-servlet?id=<%= tourId %>" onclick="return confirm('Tem certeza que deseja deletar este admin?')">
+                    <a href="alterar_tour_virtual.jsp?id=<%= busca.getInt("id") %>&descricao=<%=busca.getString("descricao")%>&video=<%=busca.getString("video")%>&media_classificacao=<%= busca.getDouble("media_classificacao")%>&qnt_classificacao=<%= busca.getInt("qnt_classificacao") %>&preco=<%= busca.getString("preco") %>&id_atracao=<%= busca.getInt("id_atracao")%>&id_figurinhas=<%=busca.getInt("id_figurinhas")%>">
                         <button class="deletar">
-                            <img src="images/lixeira.svg" alt=""></img>
+                            <img src="images/lapis.svg" alt="">
+                        </button>
+                    </a>
+                    <a href="DeletarTourVirtual-servlet?id=<%= tourId %>" onclick="return confirm('Tem certeza que deseja deletar este tour virtual?')">
+                        <button class="deletar">
+                            <img src="images/lixeira.svg" alt="">
                         </button>
                     </a>
                 </td>

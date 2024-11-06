@@ -7,6 +7,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.IOException;
 
@@ -24,11 +25,13 @@ public class InserirAdmin extends HttpServlet {
         String urlImagem = request.getParameter("url");
 
 
-        // Criando o objeto Atracao
+        // Criando o objeto Admin
         AdminDAO adminDAO = new AdminDAO();
 
-        //Criando objeto de excursao
-        Admin novoAdmin = new Admin(nome,email,senha,urlImagem);
+        String hashedPassword = BCrypt.hashpw(senha, BCrypt.gensalt());
+
+        //Criando objeto de admin
+        Admin novoAdmin = new Admin(nome,email,hashedPassword,urlImagem);
 
         try {
             // Verificando se o email já está cadastrado

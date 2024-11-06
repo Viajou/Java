@@ -59,7 +59,7 @@ label {
 input[type="text"]{
     border: solid 2px gray;
     border-radius: 5px;
-    padding: 10px;
+    padding: 0.6rem;
 }
 
 input[type="submit"],
@@ -98,6 +98,6 @@ button:active{
     display: flex;
     justify-content: center;
     gap: 30px; /* Espaçamento entre os botões */
-    margin-top: 20px;
+
 }
 

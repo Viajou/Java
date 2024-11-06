@@ -1,7 +1,5 @@
 //package org.viajou.crudviajou;
 package com.example.servletviajou;
-
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -17,7 +15,7 @@ import org.mindrot.jbcrypt.BCrypt;
 @WebServlet(name = "LoginServlet", value = "/LoginServlet")
 public class Login extends HttpServlet {
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         AdminDAO adminDAO = new AdminDAO();
 
         String emailInserido = request.getParameter("email");
@@ -25,16 +23,16 @@ public class Login extends HttpServlet {
         String senhaCerta = null; // Inicializa a variável
 
         // Busca o resultado do admin pelo email
-        ResultSet resultados = adminDAO.buscar(emailInserido); // Altere para buscar o ResultSet
+        ResultSet resultados = adminDAO.buscar(emailInserido);
 
         try {
             if (resultados.next()) { // Verifica se há resultados
                 // Extrai a senha do ResultSet
-                senhaCerta = resultados.getString("senha"); // Altere "senha" para o nome da coluna que armazena a senha
+                senhaCerta = resultados.getString("senha");
             }
 
             // Verifica se a senha inserida corresponde à senha armazenada
-            if (senhaInserida.equals(senhaCerta)) {
+            if (BCrypt.checkpw(senhaInserida, senhaCerta)) {
                 // Após validar o login
                 String urlImagem = resultados.getString("url_imagem");
                 String nomeAdmin = resultados.getString("nome");
@@ -46,7 +44,7 @@ public class Login extends HttpServlet {
             } else {
                 // Define a mensagem de erro e redireciona para a página de login
                 request.setAttribute("errorMessage", "Senha incorreta ou email não encontrado.");
-                request.getRequestDispatcher("index.jsp").forward(request, response);
+                request.getRequestDispatcher("listar_admin.jsp").forward(request, response);
             }
         } catch (SQLException e) {
             e.printStackTrace(); // Trate exceções adequadamente

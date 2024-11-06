@@ -8,6 +8,11 @@
     src: url("../Fonte/levenim-mt-2.ttf");
 }
 
+*{
+    padding: 0;
+    margin: 0;
+}
+
 div{
     display: flex;
     flex-direction: column;
@@ -33,6 +38,3 @@ img{
     min-width: 200px;
 }
 
-.atualizar{
-
-}
