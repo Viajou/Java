@@ -88,7 +88,7 @@
                         <a href="listar_atracao.jsp">Voltar</a>
                     </button>
                 </div>
-            </form>
+            </form><!-- Fechamento do primeiro form -->
 
 
             <form action="AlterarAtracao-servlet?id=<%= request.getParameter("id")%>" method="post">
