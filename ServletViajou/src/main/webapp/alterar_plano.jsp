@@ -75,7 +75,7 @@
                     <a href="listar_plano.jsp">Voltar</a>
                 </button>
             </div>
-        </form>
+        </form><!-- Fechamento do primeiro form -->
 
         <form method="post" action="AlterarPlano-servlet?id=<%=request.getParameter("id")%>">
             <h2>Novo</h2>

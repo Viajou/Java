@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.sql.Date;
 import java.sql.Time;
 
+
 @WebServlet(name = "AlterarEventos", value = "/AlterarEventos-servlet")
 public class AlterarEvento extends HttpServlet {
     @Override
@@ -32,10 +33,11 @@ public class AlterarEvento extends HttpServlet {
             EventosDAO eventosDAO = new EventosDAO();
 
 
-            // Verifica cada campo antes de atualizar
-
-            if (faixaEtaria != null && !faixaEtaria.isEmpty()) {
+            //verificando e alterando faixa etária
+            if (faixaEtaria != null && !faixaEtaria.isEmpty()) { // se não for vazio
                 int situacao = eventosDAO.alterarFaixaEtaria(id, faixaEtaria);
+
+                //veriifca o retorno dos métodos das classes DAO
                 if (situacao == 1) {
                     request.setAttribute("mensagem", "Alterado com sucesso!");
                 }else if (situacao == 0) {
@@ -44,8 +46,12 @@ public class AlterarEvento extends HttpServlet {
                     request.setAttribute("mensagem", "Erro no alterar faixa étaria, verique sefoi colocado no formato correto.");
                 }
             }
-            if (descricao != null && !descricao.isEmpty()) {
+
+            // verificando e alterando descricao
+            if (descricao != null && !descricao.isEmpty()) { // se não for vazio
                 int situacao = eventosDAO.alterarDescricao(id, descricao);
+
+                //veriifca o retorno dos métodos das classes DAO
                 if (situacao == 1) {
                     request.setAttribute("mensagem", "Alterado com sucesso!");
                 }else if (situacao == 0) {
@@ -54,10 +60,14 @@ public class AlterarEvento extends HttpServlet {
                     request.setAttribute("mensagem", "Erro no alterar alterar descricao, verique sefoi colocado no formato correto.");
                 }
             }
-            if (Stringcapacidade != null && !Stringcapacidade.isEmpty()) {
+
+            //verificando e alterando a capacidade
+            if (Stringcapacidade != null && !Stringcapacidade.isEmpty()) { // se não for vazio
                 try {
                     int capacidade = Integer.parseInt(Stringcapacidade);
                     int situacao = eventosDAO.alterarCapacidade(id, capacidade);
+
+                    //veriifca o retorno dos métodos das classes DAO
                     if (situacao == 1) {
                         request.setAttribute("mensagem", "Alterado com sucesso!");
                     }else if (situacao == 0) {
@@ -69,12 +79,16 @@ public class AlterarEvento extends HttpServlet {
                     request.setAttribute("mensagem", "Erro ao alterar admin: " + e.getMessage());
                 }
             }
-            if (Stringhorario != null && !Stringhorario.isEmpty()) {
+
+            // verificando e alterando o horiário
+            if (Stringhorario != null && !Stringhorario.isEmpty()) { // se não for vazio
                 if (Stringhorario.length() == 5) {
                     Stringhorario += ":00";
                 }
                 Time horario = Time.valueOf(Stringhorario);
                 int situacao = eventosDAO.alterarHorario(id, horario);
+
+                //veriifca o retorno dos métodos das classes DAO
                 if (situacao == 1) {
                     request.setAttribute("mensagem", "Alterado com sucesso!");
                 }else if (situacao == 0) {
@@ -83,9 +97,13 @@ public class AlterarEvento extends HttpServlet {
                     request.setAttribute("mensagem", "Erro no alterar horário, verique se foi colocado no formato correto.");
                 }
             }
-            if (StringdataInicio != null && !StringdataInicio.isEmpty()) {
+
+            //verificando e alterando a data de início
+            if (StringdataInicio != null && !StringdataInicio.isEmpty()) { // se não for vazio
                 Date dataInicio = Date.valueOf(StringdataInicio);
                 int situacao = eventosDAO.alterarDataInicio(id, dataInicio);
+
+                //veriifca o retorno dos métodos das classes DAO
                 if (situacao == 1) {
                     request.setAttribute("mensagem", "Alterado com sucesso!");
                 }else if (situacao == 0) {
@@ -94,9 +112,13 @@ public class AlterarEvento extends HttpServlet {
                     request.setAttribute("mensagem", "Erro no alterar data de inicio, verique se foi colocado no formato correto.");
                 }
             }
-            if (StringdataTermino != null && !StringdataTermino.isEmpty()) {
+
+            //verificando e alterando a data de término
+            if (StringdataTermino != null && !StringdataTermino.isEmpty()) { // se não for vazio
                 Date dataTermino = Date.valueOf(StringdataTermino);
                 int situacao = eventosDAO.alterarDataTermino(id, dataTermino);
+
+                //veriifca o retorno dos métodos das classes DAO
                 if (situacao == 1) {
                     request.setAttribute("mensagem", "Alterado com sucesso!");
                 }else if (situacao == 0) {
@@ -105,9 +127,13 @@ public class AlterarEvento extends HttpServlet {
                     request.setAttribute("mensagem", "Erro no alterar data de termino, verique se foi colocado no formato correto.");
                 }
             }
-            if (StringprecoPessoa != null && !StringprecoPessoa.isEmpty()) {
+
+            //verificando e alterando o preco por pessoa
+            if (StringprecoPessoa != null && !StringprecoPessoa.isEmpty()) { // se não for vazio
                 double precoPessoa = Double.parseDouble(StringprecoPessoa);
                 int situacao = eventosDAO.alterarPrecoPessoa(id, precoPessoa);
+
+                //veriifca o retorno dos métodos das classes DAO
                 if (situacao == 1) {
                     request.setAttribute("mensagem", "Alterado com sucesso!");
                 }else if (situacao == 0) {
@@ -116,12 +142,15 @@ public class AlterarEvento extends HttpServlet {
                     request.setAttribute("mensagem", "Erro no alterar preço por pessoa, verique se foi colocado no formato correto.");
                 }
             }
+
+        //tratamento de ecxeção
         }catch (Exception e){
             request.setAttribute("mensagem", "Erro ao alterar eventos: " + e.getMessage());
 
         }
 
-        request.getRequestDispatcher("listar_eventos.jsp").forward(request, response);
+        // dando o caminho de resposta do servlet
+        request.getRequestDispatcher("alterar_eventos.jsp").forward(request, response);
     }
 
 

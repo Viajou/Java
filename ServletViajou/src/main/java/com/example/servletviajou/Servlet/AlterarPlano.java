@@ -16,16 +16,23 @@ public class AlterarPlano extends HttpServlet {
 
         try{
             //Obtendo os dados do formulario
+
             int id = Integer.parseInt(request.getParameter("id"));
             String descricao  = request.getParameter("novaDescricao");
             boolean livrePropaganda = Boolean.parseBoolean(request.getParameter("novoLivrePropaganda"));
             String nome = request.getParameter("novoNome");
-            String preco = request.getParameter("novoPreco");
+            double preco = Double.parseDouble(request.getParameter("novoPreco"));
+            String precoString = request.getParameter("novoPreco");
 
             //Instanciando o DAO para alterar os dados
+
             PlanoDAO planoDAO = new PlanoDAO();
 
+            //verificando cada campo antes de atualizar
+
             int retorno;
+
+            //verificando e alterando descricao
             if(descricao!=null && !descricao.isEmpty()){
                 retorno=planoDAO.alterarDescricao(id, descricao);
                 if (retorno == 1) {
@@ -36,6 +43,8 @@ public class AlterarPlano extends HttpServlet {
                     request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração");
                 }
             }
+
+            //verificando e alterando o campo de propaganda
             retorno = planoDAO.alterarLivrePropaganda(id, livrePropaganda);
             if (retorno == 1) {
                 request.setAttribute("mensagem", "Alteração realizada com sucesso!");
@@ -44,6 +53,8 @@ public class AlterarPlano extends HttpServlet {
             } else if (retorno == -1) {
                 request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração");
             }
+
+            //verificando e alterando o nome
             if(nome!=null && !nome.isEmpty()){
                 retorno=planoDAO.alterarNome(id,nome);
                 if (retorno == 1) {
@@ -54,7 +65,9 @@ public class AlterarPlano extends HttpServlet {
                     request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração");
                 }
             }
-            retorno=planoDAO.alterarPreco(id,preco);
+
+            // verificando e alterando o preço
+            retorno=planoDAO.alterarPreco(id,precoString);
             if (retorno == 1) {
                 request.setAttribute("mensagem", "Alteração realizada com sucesso!");
             } else if (retorno == 0) {
@@ -63,9 +76,13 @@ public class AlterarPlano extends HttpServlet {
                 request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração");
             }
         }
+
+        // tratamento de esceção
         catch (Exception e) {
             request.setAttribute("mensagem", "Erro ao alterar o plano: " + e.getMessage());
         }
+
+        // dando o caminho de retorno do servlet
         request.getRequestDispatcher("listar_plano.jsp").forward(request, response);
     }
 }

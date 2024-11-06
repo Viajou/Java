@@ -31,12 +31,11 @@ public class AlterarTourVirtual extends HttpServlet {
             // instanciando um objeto da classe tourVirtualDAO
             TourVirtualDAO tourVirtualDAO = new TourVirtualDAO();
 
-            //chamando os métodos de alterar
 
             // Verifiica cada campo antes de atualizar
 
-            // alterarDescricao
-            if (descricao != null && !descricao.isEmpty()) {
+            // verifica e altera a descricao
+            if (descricao != null && !descricao.isEmpty()) { // se não for vazio
                 retorno = tourVirtualDAO.alterarDescricao(id, descricao);
                 if (retorno == 1) {
                     request.setAttribute("mensagem", "Alteração realizada com sucesso!");
@@ -47,8 +46,8 @@ public class AlterarTourVirtual extends HttpServlet {
                 }
             }
 
-            // alterarVideo
-            if (video != null && !video.isEmpty()) {
+            // verifica e altera o video
+            if (video != null && !video.isEmpty()) { // se não for vazio
                 retorno = tourVirtualDAO.alterarVideo(id, video);
                 if (retorno == 1) {
                     request.setAttribute("mensagem", "Alteração realizada com sucesso!");
@@ -60,10 +59,11 @@ public class AlterarTourVirtual extends HttpServlet {
             }
 
 
-            // alterarMediaClassificacao
-            if (strMediaClassificacao != null && !strMediaClassificacao.isEmpty()) {
+            // verifica e altera a classificação
+            if (strMediaClassificacao != null && !strMediaClassificacao.isEmpty()) { // se não for vazio
                 double mediaClassificacao = Double.parseDouble(strMediaClassificacao);
                 retorno = tourVirtualDAO.alterarMediaClassificacao(id, mediaClassificacao);
+
                 if (retorno == 1) {
                     request.setAttribute("mensagem", "Alteração realizada com sucesso!");
                 } else if (retorno == 0) {
@@ -73,10 +73,11 @@ public class AlterarTourVirtual extends HttpServlet {
                 }
             }
 
-            // alterarQntClassificacao
-            if (strQntClassificacao != null && !strQntClassificacao.isEmpty()) {
+            // verifica e altera a quantidade de classificação
+            if (strQntClassificacao != null && !strQntClassificacao.isEmpty()) { // se não for vazio
                 int qntClassificacao = Integer.parseInt(strQntClassificacao);
                 retorno = tourVirtualDAO.alterarQntClassificacao(id, qntClassificacao);
+
                 if (retorno == 1) {
                     request.setAttribute("mensagem", "Alteração realizada com sucesso!");
                 } else if (retorno == 0) {
@@ -86,9 +87,10 @@ public class AlterarTourVirtual extends HttpServlet {
                 }
             }
 
-            // alterarPreco
-            if (preco != null && !preco.isEmpty()) {
+            // verifica e altera o preço
+            if (preco != null && !preco.isEmpty()) { // se não for vazio
                 retorno = tourVirtualDAO.alterarPreco(id, preco);
+
                 if (retorno == 1) {
                     request.setAttribute("mensagem", "Alteração realizada com sucesso!");
                 } else if (retorno == 0) {
@@ -98,10 +100,11 @@ public class AlterarTourVirtual extends HttpServlet {
                 }
             }
 
-            // alterarIdAtracao
-            if (strIdAtracao != null && !strIdAtracao.isEmpty()) {
+            // verifica e altera o id da atração
+            if (strIdAtracao != null && !strIdAtracao.isEmpty()) {// se não for vazio
                 int idAtracao = Integer.parseInt(strIdAtracao);
                 retorno = tourVirtualDAO.alterarIdAtracao(id, idAtracao);
+
                 if (retorno == 1) {
                     request.setAttribute("mensagem", "Alteração realizada com sucesso!");
                 } else if (retorno == 0) {
@@ -111,10 +114,11 @@ public class AlterarTourVirtual extends HttpServlet {
                 }
             }
 
-            // alterarIdFigurinhas
-            if (strIdFigurinhas != null && !strIdFigurinhas.isEmpty()) {
+            // verifica e altera o id das figurinhas
+            if (strIdFigurinhas != null && !strIdFigurinhas.isEmpty()) { // se não for vazio
                 int idFigurinhas = Integer.parseInt(strIdFigurinhas);
                 retorno = tourVirtualDAO.alterarIdFigurinhas(id, idFigurinhas);
+
                 if (retorno == 1) {
                     request.setAttribute("mensagem", "Alteração realizada com sucesso!");
                 } else if (retorno == 0) {

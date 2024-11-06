@@ -7,6 +7,7 @@
 --%>
 <%@ page import="com.example.servletviajou.DAO.AdminDAO" %>
 <%@ page import="com.example.servletviajou.Model.Admin" %>
+<%@ page import="com.example.servletviajou.Servlet.ValidarData" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 
@@ -113,9 +114,7 @@
             </div>
 
             <div class="botoes">
-                <button>
-                    <a href="listar_excursao.jsp">Voltar</a>
-                </button>
+                <a href="listar_excursao.jsp">Voltar</a>
             </div>
         </form>
 
@@ -159,6 +158,23 @@
             <div class="campo">
                 <label for="data-termino">Nova data de término da excursão:</label>
                 <input type="text" name="data-termino" id="data-termino" placeholder="Formato: aaaa-mm-dd">
+                <input type="hidden" id="url" value="alterar_excursao.jsp">
+                <%
+                    try {
+                        ValidarData validarData = new ValidarData();
+                        request.getParameter("data_inicio");
+                        request.getParameter("data_termino");
+
+                        String invalido = (String) request.getAttribute("invalido");
+
+                        if (invalido != null){
+                %>
+                <p class="erro">Inválido! <%=invalido%></p>
+                <% } // fim do if
+                    String valido = (String) request.getAttribute("valido");
+                    if (valido != null){
+                %>
+
             </div>
 
             <br>
@@ -182,9 +198,11 @@
     </div>
 </div>
 
-<br><br>
-<a href="listar_excursao.jsp">
-    <button>Voltar</button>
-</a>
+<% } // fim do segundo if
+} catch (NullPointerException npe){
+    request.setAttribute("erro", "Valores nulos!");
+    request.getRequestDispatcher("error.jsp").forward(request, response);
+}%>
+
 </body>
 </html>
