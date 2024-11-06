@@ -31,7 +31,6 @@
 </header>
 
 <aside>
-    <!-- Barra de navegação lateral com links para diferentes páginas de CRUD -->
     <nav>
         <ul>
             <li><a href="listar_admin.jsp"><img src="images/icone-user-crud.svg" alt="">Admin</a></li>
@@ -40,7 +39,7 @@
             <li><a href="listar_excursao.jsp"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
             <li><a href="listar_atracao.jsp"><img src="images/icone-eventos-crud.svg" alt="">Atração</a></li>
             <li><a href="listar_tour_virtual.jsp"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
-            <li><a href="https://area-restrita-main.onrender.com">Área Restrita</a></li>
+            <li><a href="https://area-restrita-main.onrender.com"><img src="images/cadeado.svg" alt="">Área Restrita</a></li>            </ul>
         </ul>
     </nav>
 </aside>
@@ -49,6 +48,10 @@
     <h1>Excursão</h1>
 
     <div class="button-group">
+<<<<<<< HEAD
+=======
+        <a href="inserir_excursao.jsp">
+>>>>>>> 22754fe9df973ce2ad7181c904655c1bed8eae17
         <!-- Botão para adicionar uma nova excursão -->
         <a href="InserirExcursao-servlet">
             <button class="inserir">Adicionar</button>
@@ -117,13 +120,13 @@
                 <td><%=busca.getDate("data_atualizacao")%></td>
                 <td>
                     <!-- Link para alterar excursão -->
-                    <a href="alterar_excursao.jsp?id=<%=busca.getInt("id")%>nome=<%=busca.getString("nome")%>nome_empresa=<%=busca.getString("nome_empresa")%>site=<%=busca.getString("site")%>capacidade=<%=busca.getInt("capacidade")%>duracao=<%=busca.getString("duracao")%>preco=<%=busca.getDouble("preco_total")%>data_inicio=<%=busca.getDate("data_inicio")%>data_termino=<%=busca.getDate("data_termino")%>data_atualizacao=<%=busca.getDate("data_atualizacao")%>">
+                    <a href="alterar_excursao.jsp?id=<%=busca.getInt("id")%>&nome=<%=busca.getString("nome")%>&nome_empresa=<%=busca.getString("nome_empresa")%>&site=<%=busca.getString("site")%>&capacidade=<%=busca.getInt("capacidade")%>&duracao=<%=busca.getString("duracao")%>&preco=<%=busca.getDouble("preco_total")%>&data_inicio=<%=busca.getDate("data_inicio")%>&data_termino=<%=busca.getDate("data_termino")%>&data_atualizacao=<%=busca.getDate("data_atualizacao")%>">
                         <button class="deletar">
                             <img src="images/lapis.svg">
                         </button>
                     </a>
                     <!-- Link para deletar excursão, com confirmação -->
-                    <a href="DeletarExcursao-servlet?="<%= excursaoId%> onclick="return confirm('Tem certeza que deseja deletar este evento?')">
+                    <a href="DeletarExcursao-servlet?id="<%= excursaoId%> onclick="return confirm('Tem certeza que deseja deletar este evento?')">
                         <button class="deletar">
                             <img src="images/lixeira.svg">
                         </button>

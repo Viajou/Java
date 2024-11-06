@@ -1,11 +1,13 @@
 package com.example.servletviajou.Servlet;
 
 import com.example.servletviajou.DAO.AdminDAO;
+import com.example.servletviajou.Model.Admin;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -23,6 +25,7 @@ public class AlterarAdmin extends HttpServlet {
             // Instanciando o DAO para alterar os dados
             AdminDAO adminDAO = new AdminDAO();
 
+            String hashedPassword = BCrypt.hashpw(novaSenha, BCrypt.gensalt());
 
 
             // Verifica cada campo antes de atualizar
@@ -33,7 +36,7 @@ public class AlterarAdmin extends HttpServlet {
                 adminDAO.alterarUrlImagem(id, url);
             }
             if (novaSenha != null && !novaSenha.isEmpty()) {
-                adminDAO.alterarSenha(id, novaSenha);
+                adminDAO.alterarSenha(id, hashedPassword);
             }
             if (nome != null && !nome.isEmpty()) {
                 adminDAO.alterarNome(id, nome);

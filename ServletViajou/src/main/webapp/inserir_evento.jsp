@@ -25,13 +25,12 @@
         <nav>
             <ul>
                 <li><a href="listar_admin.jsp"><img src="images/icone-user-crud.svg" alt="">Admin</a></li>
-                <li><a href="#"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
+                <li><a href="listar_eventos.jsp"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
                 <li><a href="listar_plano.jsp"><img src="images/icone-panos-crud.svg" alt="">Planos</a></li>
-                <li><a href="#"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
-                <li><a href="#"><img src="images/icone-eventos-crud.svg" alt="">Atração</a></li>
-                <li><a href="#"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
-                <li><a href="https://area-restrita-main.onrender.com">Área Restrita</a></li>
-            </ul>
+                <li><a href="listar_excursao.jsp"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
+                <li><a href="listar_atracao.jsp"><img src="images/icone-eventos-crud.svg" alt="">Atração</a></li>
+                <li><a href="listar_tour_virtual.jsp"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
+                <li><a href="https://area-restrita-main.onrender.com"><img src="images/cadeado.svg" alt="">Área Restrita</a></li>            </ul>
         </nav>
     </aside>
     <main>
@@ -41,6 +40,28 @@
                 <label for="faixa-etaria">Faixa Etária do evento:</label>
                 <input type="text" name="faixa-etaria" id="faixa-etaria" placeholder="Ex: +16">
                 <br>
+                <fieldset>
+                    <legend >Faixa etaria</legend>
+                    <br>
+                    <label for="nova-faixa-etaria">livre</label>
+                    <input type="radio" name="nova-faixa-etaria" id="nova-faixa-etaria" value="livre">
+                    <br>
+                    <label for="nova-faixa-etaria">+10</label>
+                    <input type="radio" name="nova-faixa-etaria" id="nova-faixa-etaria" value="10+">
+                    <br>
+                    <label for="nova-faixa-etaria">+12</label>
+                    <input type="radio" name="nova-faixa-etaria" id="nova-faixa-etaria" value="12+">
+                    <br>
+                    <label for="nova-faixa-etaria">+14</label>
+                    <input type="radio" name="nova-faixa-etaria" id="nova-faixa-etaria" value="14+">
+                    <br>
+                    <label for="nova-faixa-etaria">+16</label>
+                    <input type="radio" name="nova-faixa-etaria" id="nova-faixa-etaria" value="16+">
+                    <br>
+                    <label for="nova-faixa-etaria">+18</label>
+                    <input type="radio" name="nova-faixa-etaria" id="nova-faixa-etaria" value="18+">
+                    <br>
+                </fieldset>
                 <label for="descricao">Descrição do evento:</label>
                 <input type="text" name="descricao" id="descricao" placeholder="Ex: Evento de música ao vivo">
                 <br>
