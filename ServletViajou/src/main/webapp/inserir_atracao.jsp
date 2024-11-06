@@ -17,13 +17,13 @@
 <h1>Inserir atração</h1>
     <form action="InserirAtracao-servlet" method="post">
         <label for="nome">Nome da atração: </label>
-        <input type="text" name="nome" id="nome" placeholder="Ex:Catavento">
+        <input type="text" name="nome" id="nome" placeholder="Ex:Catavento" required>
         <br><br>
         <label for="descricao">Descrição da atração: </label>
-        <input type="text" name="descricao" id="descricao" placeholder="Ex:Museu">
+        <input type="text" name="descricao" id="descricao" placeholder="Ex:Museu" required>
         <br><br>
         <label for="endereco">Endereço da atração: </label>
-        <input type="text" name="endereco" id="endereco" placeholder="Ex: Av.Getulio vagas">
+        <input type="text" name="endereco" id="endereco" placeholder="Ex: Av.Getulio vagas" required>
         <br><br>
         <label>Acessibilidade da atração: </label>
         <label>
@@ -34,7 +34,7 @@
         </label>
         <br><br>
         <label for="categoria">Categoria da atração: </label>
-        <input type="text" name="categoria" id="categoria" placeholder="Ex: Exposições">
+        <input type="text" name="categoria" id="categoria" placeholder="Ex: Exposições" required>
         <br>
         <input type="submit" value="Inserir atração">
     </form>
