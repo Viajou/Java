@@ -16,60 +16,64 @@ import java.sql.Time;
 public class AlterarEvento extends HelloServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            // obntendo valores do formulário
 
-        // ontendo valores do formulário
+            int id = Integer.parseInt(request.getParameter("id"));
+            String faixaEtaria = request.getParameter("nova-faixa-etaria");
+            String descricao = request.getParameter("nova-descricao");
+            String Stringcapacidade = request.getParameter("nova-capacidade");
+            String Stringhorario = request.getParameter("novo-horario");
+            String StringdataInicio = request.getParameter("nova-data-inicial");
+            String StringdataTermino = request.getParameter("nova-data-termino");
+            String StringprecoPessoa = request.getParameter("novo-preco-pessoa");
 
-        int id = Integer.parseInt(request.getParameter("id"));
-        int idAtracao = Integer.parseInt(request.getParameter("idAtracao"));
-        String faixaEtaria = request.getParameter("novaFaixa_Etaria");
-        String descricao = request.getParameter("novaDescricao");
-        String Stringcapacidade = request.getParameter("novaCapacidade");
-        String Stringhorario = request.getParameter("novoHorario");
-        String StringdataInicio = request.getParameter("novaData_inicial");
-        String StringdataTermino = request.getParameter("novaData_Termino");
-        String StringprecoPessoa = request.getParameter("novoPreco_Pessoa");
-
-        //instanciando a classe EventosDAO
-        EventosDAO eventosDAO = new EventosDAO();
+            //instanciando a classe EventosDAO
+            EventosDAO eventosDAO = new EventosDAO();
 
 
-        // Verifica cada campo antes de atualizar
+            // Verifica cada campo antes de atualizar
 
-        if ( faixaEtaria!= null && !faixaEtaria.isEmpty()) {
-            eventosDAO.alterarFaixaEtaria(id,faixaEtaria);
-        }
-        if (descricao != null && !descricao.isEmpty()) {
-            eventosDAO.alterarDescricao(id,descricao);
-        }
-        if (Stringcapacidade != null && !Stringcapacidade.isEmpty()) {
-            try {
-                int capacidade = Integer.parseInt(Stringcapacidade);
-                eventosDAO.alterarCapacidade(id,capacidade);
-            }catch (NumberFormatException e) {
-                request.setAttribute("mensagem", "Erro ao alterar admin: " + e.getMessage());
+            if (faixaEtaria != null && !faixaEtaria.isEmpty()) {
+                eventosDAO.alterarFaixaEtaria(id, faixaEtaria);
             }
-        }
-        if (Stringhorario != null && !Stringhorario.isEmpty()) {
-            if (Stringhorario.length() == 5){
-                Stringhorario += "00";
+            if (descricao != null && !descricao.isEmpty()) {
+                eventosDAO.alterarDescricao(id, descricao);
             }
-            Time horario = Time.valueOf(Stringhorario);
-            eventosDAO.alterarHorario(id,horario);
-        }
-        if (StringdataInicio != null && !StringdataInicio.isEmpty()) {
-            Date dataInicio = Date.valueOf(StringdataInicio);
-            eventosDAO.alterarDataInicio(id,dataInicio);
-        }
-        if (StringdataTermino != null && !StringdataTermino.isEmpty()) {
-            Date dataTermino = Date.valueOf(StringdataTermino);
-            eventosDAO.alterarDataTermino(id,dataTermino);
-        }
-        if (StringprecoPessoa != null && !StringprecoPessoa.isEmpty()) {
-            double precoPessoa = Double.parseDouble(StringprecoPessoa);
-            eventosDAO.alterarPrecoPessoa(id,precoPessoa);
+            if (Stringcapacidade != null && !Stringcapacidade.isEmpty()) {
+                try {
+                    int capacidade = Integer.parseInt(Stringcapacidade);
+                    eventosDAO.alterarCapacidade(id, capacidade);
+                } catch (NumberFormatException e) {
+                    request.setAttribute("mensagem", "Erro ao alterar admin: " + e.getMessage());
+                }
+            }
+            if (Stringhorario != null && !Stringhorario.isEmpty()) {
+                if (Stringhorario.length() == 5) {
+                    Stringhorario += ":00";
+                }
+                Time horario = Time.valueOf(Stringhorario);
+                eventosDAO.alterarHorario(id, horario);
+            }
+            if (StringdataInicio != null && !StringdataInicio.isEmpty()) {
+                Date dataInicio = Date.valueOf(StringdataInicio);
+                eventosDAO.alterarDataInicio(id, dataInicio);
+            }
+            if (StringdataTermino != null && !StringdataTermino.isEmpty()) {
+                Date dataTermino = Date.valueOf(StringdataTermino);
+                eventosDAO.alterarDataTermino(id, dataTermino);
+            }
+            if (StringprecoPessoa != null && !StringprecoPessoa.isEmpty()) {
+                double precoPessoa = Double.parseDouble(StringprecoPessoa);
+                eventosDAO.alterarPrecoPessoa(id, precoPessoa);
+            }
+        }catch (Exception e){
+            request.setAttribute("mensagem", "Erro ao alterar eventos: " + e.getMessage());
+
         }
 
-
+        request.getRequestDispatcher("listar_eventos.jsp").forward(request, response);
     }
-    
+
+
 }

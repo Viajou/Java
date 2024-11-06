@@ -116,7 +116,7 @@
                 <td><%= busca.getString("faixa_etaria") %></td>
                 <td>
                     <!-- Link para alterar o evento -->
-                    <a href="alterar_evento.jsp?id=<%= busca.getInt("id") %>&idAtracao=<%= busca.getString("id_atracao") %>&nome=<%= busca.getString("nome") %>&descricao=<%= busca.getString("descricao") %>&capacidade=<%= busca.getInt("capacidade")%>&data_inicio=<%= busca.getDate("data_inicio")%>&data_termino=<%= busca.getDate("data_termino")%>&preco_pessoa=<%= busca.getDouble("preco_pessoa") %>&faixa_etaria=<%= busca.getString("faixa_etaria") %>">
+                    <a href="alterar_evento.jsp?id=<%= busca.getInt("id") %>&nome=<%= busca.getString("nome") %>&descricao=<%= busca.getString("descricao") %>&capacidade=<%= busca.getInt("capacidade")%>&data_inicio=<%= busca.getDate("data_inicio")%>&data_termino=<%= busca.getDate("data_termino")%>&preco_pessoa=<%= busca.getDouble("preco_pessoa") %>&faixa_etaria=<%= busca.getString("faixa_etaria") %>">
                         <button class="deletar">
                             <img src="images/lapis.svg" alt="">
                         </button>
