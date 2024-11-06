@@ -11,6 +11,7 @@
     <link rel="shortcut icon" type="image/svg+xml" href="images/icone-viajou.svg">
     <title>Listar Eventos</title>
     <link rel="stylesheet" href="CSS/crud.css">
+    <link rel="stylesheet" href="CSS/encontrado.css">
 </head>
 <body>
 <header>

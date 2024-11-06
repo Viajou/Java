@@ -37,12 +37,9 @@
         <h1>Inserir um novo evento</h1>
         <form action="InserirEvento-servlet" method="post">
             <div class="form-container">
-                <label for="faixa-etaria">Faixa Etária do evento:</label>
-                <input type="text" name="faixa-etaria" id="faixa-etaria" placeholder="Ex: +16">
-                <br>
                 <div class="campo">
-                    <label for="nova-faixa-etaria">Faixa etária:</label>
-                    <select class="entrada" id="nova-faixa-etaria" name="nova-faixa-etaria" required>
+                    <label for="faixa-etaria">Faixa etária:</label>
+                    <select class="entrada" id="faixa-etaria" name="nova-faixa-etaria" required>
                         <option value="" disabled selected>Escolha uma opção</option>
                         <option value="livre">Livre</option>
                         <option value="12+">12+</option>

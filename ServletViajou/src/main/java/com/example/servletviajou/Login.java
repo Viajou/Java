@@ -44,10 +44,10 @@ public class Login extends HttpServlet {
             } else {
                 // Define a mensagem de erro e redireciona para a página de login
                 request.setAttribute("errorMessage", "Senha incorreta ou email não encontrado.");
-                request.getRequestDispatcher("listar_admin.jsp").forward(request, response);
+                request.getRequestDispatcher("index.jsp").forward(request, response);
             }
-        } catch (SQLException e) {
-            e.printStackTrace(); // Trate exceções adequadamente
+        } catch (SQLException sqle) {
+            sqle.printStackTrace(); // Trate exceções adequadamente
         }
     }
 }

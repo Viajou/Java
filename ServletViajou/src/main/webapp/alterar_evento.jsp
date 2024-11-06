@@ -108,7 +108,7 @@
         </div>
         <div class="campo">
             <label for="nova-faixa-etaria">Nova faixa etária:</label>
-            <select class="entrada" id="nova-faixa-etaria" name="nova-faixa-etaria" required>
+            <select class="entrada" id="nova-faixa-etaria" name="nova-faixa-etaria">
                 <option value="" disabled selected>Escolha uma opção</option>
                 <option value="livre">Livre</option>
                 <option value="12+">12+</option>
