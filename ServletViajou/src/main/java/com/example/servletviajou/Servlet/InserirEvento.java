@@ -49,12 +49,7 @@ public class InserirEvento extends HttpServlet {
             if (busca.next()){
                 int inserir = eventosDAO.inserirEvento(eventos);
                 if (inserir == 1){
-                    if (inserir == 1) {
-                        request.setAttribute("mensagem", "Evento inserido com sucesso!");
-                    }else {
-                        request.setAttribute("erro", "Erro ao inserir o evento no banco de dados. ");
-
-                    }
+                    request.setAttribute("mensagem", "Evento inserido com sucesso!");
                 }
                 else if (inserir == 0) {
                     request.setAttribute("mensagem", "not found");
