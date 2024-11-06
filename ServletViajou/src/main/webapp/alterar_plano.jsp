@@ -10,6 +10,7 @@
 <head>
     <title>Alterar Plano</title>
     <link rel="stylesheet" href="CSS/Alterar.css">
+    <link rel="stylesheet" href="CSS/alterar2.css">
     <link rel="stylesheet" href="CSS/crud.css">
     <link rel="stylesheet" href="CSS/encontrado.css">
 </head>
@@ -62,11 +63,11 @@
             </div>
             <div class="campo">
                 <label for="nomeAtual">Nome atual</label>
-                <input class="entrada" type="text" id="nomeAtual" name="nomeAtual" disabled value="<%request.getParameter("nome");%>">
+                <input class="entrada" type="text" id="nomeAtual" name="nomeAtual" disabled value="<%=request.getParameter("nome")%>">
             </div>
             <div class="campo">
                 <label for="precoAtual">Preço atual</label>
-                <input class="entrada" type="text" id="precoAtual" name="precoAtual" disabled value="<%request.getParameter("preco");%>">
+                <input class="entrada" type="text" id="precoAtual" name="precoAtual" disabled value="<%=request.getParameter("preco")%>">
             </div>
 
             <div class="botoes">
@@ -88,7 +89,7 @@
                     <input class="entrada" type="radio" name="novoLivrePropaganda" value="true">Sim
                 </label>
                 <label>
-                    <input class="entrada" type="radio" name="novoLivrePropaganda" value="true">Não
+                    <input class="entrada" type="radio" name="novoLivrePropaganda" value="false">Não
                 </label>
             </div>
             <div class="campo">
@@ -105,7 +106,7 @@
             </div>
         </form>
     </div>
-</div>>
+</div>
 
 </body>
 </html>

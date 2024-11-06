@@ -11,63 +11,61 @@ import java.io.IOException;
 @WebServlet(name = "AlterarPlano", value = "/AlterarPlano-servlet")
 public class AlterarPlano extends HttpServlet {
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
 
         try{
             //Obtendo os dados do formulario
             int id = Integer.parseInt(request.getParameter("id"));
-            String novaDescricao  = request.getParameter("descricao");
-            boolean novoLivrePropaganda = Boolean.parseBoolean(request.getParameter("livrePropaganda"));
-            String novoNome = request.getParameter("nome");
-            double novoPreco = Double.parseDouble(request.getParameter("preco"));
+            String descricao  = request.getParameter("novaDescricao");
+            boolean livrePropaganda = Boolean.parseBoolean(request.getParameter("novoLivrePropaganda"));
+            String nome = request.getParameter("novoNome");
+            double preco = Double.parseDouble(request.getParameter("novoPreco"));
 
             //Instanciando o DAO para alterar os dados
             PlanoDAO planoDAO = new PlanoDAO();
-            //alterar descrição
-            int retorno = planoDAO.alterarDescricao(id,novaDescricao);
-            if(retorno == 1){
-                request.setAttribute("mensagem", "Descrição alterada com sucesso!");
+
+            int retorno;
+            if(descricao!=null && !descricao.isEmpty()){
+                retorno=planoDAO.alterarDescricao(id, descricao);
+                if (retorno == 1) {
+                    request.setAttribute("mensagem", "Alteração realizada com sucesso!");
+                } else if (retorno == 0) {
+                    request.setAttribute("mensagem", "Não foi possível alterar nesse momento");
+                } else if (retorno == -1) {
+                    request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração");
+                }
             }
-            else if(retorno == 0){
-                request.setAttribute("mensagem", "Não foi possível alterar a descrição nesse momento");
-            } else if (retorno==-1) {
-                request.setAttribute("erro", "Erro ao alterar descrição");
+            retorno = planoDAO.alterarLivrePropaganda(id, livrePropaganda);
+            if (retorno == 1) {
+                request.setAttribute("mensagem", "Alteração realizada com sucesso!");
+            } else if (retorno == 0) {
+                request.setAttribute("mensagem", "Não foi possível alterar nesse momento");
+            } else if (retorno == -1) {
+                request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração");
             }
-            //alterar livre propaganda
-            retorno = planoDAO.alterarLivrePropaganda(id,novoLivrePropaganda);
-            if(retorno == 1){
-                request.setAttribute("mensagem", "Livre propaganda alterado com sucesso!");
+            if(nome!=null && !nome.isEmpty()){
+                retorno=planoDAO.alterarNome(id,nome);
+                if (retorno == 1) {
+                    request.setAttribute("mensagem", "Alteração realizada com sucesso!");
+                } else if (retorno == 0) {
+                    request.setAttribute("mensagem", "Não foi possível alterar nesse momento");
+                } else if (retorno == -1) {
+                    request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração");
+                }
             }
-            else if(retorno == 0){
-                request.setAttribute("mensagem", "Não foi possível alterar o livre propaganda nesse momento");
-            } else if (retorno==-1) {
-                request.setAttribute("erro", "Erro ao alterar o livre propaganda");
-            }
-            //alterar nome
-            retorno = planoDAO.alterarNome(id, novoNome);
-            if(retorno == 1){
-                request.setAttribute("mensagem", "Nome alterado com sucesso!");
-            }
-            else if(retorno == 0){
-                request.setAttribute("mensagem", "Não foi possível alterar o nome nesse momento");
-            } else if (retorno==-1) {
-                request.setAttribute("erro", "Erro ao alterar o nome");
-            }
-            //alterar preço
-            retorno = planoDAO.alterarPreco(id, novoPreco);
-            if(retorno == 1){
-                request.setAttribute("mensagem", "Preço alterado com sucesso!");
-            }
-            else if(retorno == 0){
-                request.setAttribute("mensagem", "Não foi possível alterar o preço nesse momento");
-            } else if (retorno==-1) {
-                request.setAttribute("erro", "Erro ao alterar o preço");
+            retorno=planoDAO.alterarPreco(id,preco);
+            if (retorno == 1) {
+                request.setAttribute("mensagem", "Alteração realizada com sucesso!");
+            } else if (retorno == 0) {
+                request.setAttribute("mensagem", "Não foi possível alterar nesse momento");
+            } else if (retorno == -1) {
+                request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração");
             }
         }
         catch (Exception e) {
             request.setAttribute("mensagem", "Erro ao alterar o plano: " + e.getMessage());
         }
-        request.getRequestDispatcher("/WEB-INF/jsp/plano.jsp").forward(request, response);
+        request.getRequestDispatcher("listar_plano.jsp").forward(request, response);
     }
 }
