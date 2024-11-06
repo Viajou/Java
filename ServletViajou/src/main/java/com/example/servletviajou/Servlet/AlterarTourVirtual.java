@@ -22,11 +22,11 @@ public class AlterarTourVirtual extends HttpServlet {
             int id = Integer.parseInt(request.getParameter("id"));
             String descricao = request.getParameter("nova-descricao");
             String video = request.getParameter("novo-video");
-            double mediaClassificacao = Double.parseDouble(request.getParameter("nova-media-classificacao"));
-            int qntClassificacao = Integer.parseInt(request.getParameter("nova-qnt-classificacao"));
-            double preco = Double.parseDouble(request.getParameter("novo-preco"));
-            int idAtracao = Integer.parseInt(request.getParameter("novo-id-atracao"));
-            int idFigurinhas = Integer.parseInt(request.getParameter("novo-id-figurinhas"));
+            String strMediaClassificacao = request.getParameter("nova-media-classificacao");
+            String strQntClassificacao = request.getParameter("nova-qnt-classificacao");
+            String preco = request.getParameter("novo-preco");
+            String strIdAtracao = request.getParameter("novo-id-atracao");
+            String strIdFigurinhas = request.getParameter("novo-id-figurinhas");
 
             // instanciando um objeto da classe tourVirtualDAO
             TourVirtualDAO tourVirtualDAO = new TourVirtualDAO();
@@ -47,90 +47,89 @@ public class AlterarTourVirtual extends HttpServlet {
                 }
             }
 
-            // alterarPreco
-            retorno = tourVirtualDAO.alterarPreco(id, preco);
+            // alterarVideo
+            if (video != null && !video.isEmpty()) {
+                retorno = tourVirtualDAO.alterarVideo(id, video);
+                if (retorno == 1) {
+                    request.setAttribute("mensagem", "Alteração realizada com sucesso!");
+                } else if (retorno == 0) {
+                    request.setAttribute("mensagem", "Não foi possível alterar nesse momento");
+                } else if (retorno == -1) {
+                    request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração");
+                }
+            }
 
-            if (retorno == 1) {
-                request.setAttribute("mensagem", "Alteração realizada com sucesso!");
-            }
-            else if (retorno == 0) {
-                request.setAttribute("mensagem", "Não foi possível alterar nesse momento");
-            }
-            else if (retorno == -1) {
-                request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração");
-            }
 
             // alterarMediaClassificacao
-            retorno = tourVirtualDAO.alterarMediaClassificacao(id, mediaClassificacao);
-
-            if (retorno == 1) {
-                request.setAttribute("mensagem", "Alteração realizada com sucesso!");
-            }
-            else if (retorno == 0) {
-                request.setAttribute("mensagem", "Não foi possível alterar nesse momento");
-            }
-            else if (retorno == -1) {
-                request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração");
+            if (strMediaClassificacao != null && !strMediaClassificacao.isEmpty()) {
+                double mediaClassificacao = Double.parseDouble(strMediaClassificacao);
+                retorno = tourVirtualDAO.alterarMediaClassificacao(id, mediaClassificacao);
+                if (retorno == 1) {
+                    request.setAttribute("mensagem", "Alteração realizada com sucesso!");
+                } else if (retorno == 0) {
+                    request.setAttribute("mensagem", "Não foi possível alterar nesse momento");
+                } else if (retorno == -1) {
+                    request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração");
+                }
             }
 
             // alterarQntClassificacao
-            retorno = tourVirtualDAO.alterarQntClassificacao(id, qntClassificacao);
+            if (strQntClassificacao != null && !strQntClassificacao.isEmpty()) {
+                int qntClassificacao = Integer.parseInt(strQntClassificacao);
+                retorno = tourVirtualDAO.alterarQntClassificacao(id, qntClassificacao);
+                if (retorno == 1) {
+                    request.setAttribute("mensagem", "Alteração realizada com sucesso!");
+                } else if (retorno == 0) {
+                    request.setAttribute("mensagem", "Não foi possível alterar nesse momento");
+                } else if (retorno == -1) {
+                    request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração");
+                }
+            }
 
-            if (retorno == 1) {
-                request.setAttribute("mensagem", "Alteração realizada com sucesso!");
-            }
-            else if (retorno == 0) {
-                request.setAttribute("mensagem", "Não foi possível alterar nesse momento");
-            }
-            else if (retorno == -1) {
-                request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração");
-            }
-
-            // alterarVideo
-            retorno = tourVirtualDAO.alterarVideo(id, video);
-
-            if (retorno == 1) {
-                request.setAttribute("mensagem", "Alteração realizada com sucesso!");
-            }
-            else if (retorno == 0) {
-                request.setAttribute("mensagem", "Não foi possível alterar nesse momento");
-            }
-            else if (retorno == -1) {
-                request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração");
+            // alterarPreco
+            if (preco != null && !preco.isEmpty()) {
+                retorno = tourVirtualDAO.alterarPreco(id, preco);
+                if (retorno == 1) {
+                    request.setAttribute("mensagem", "Alteração realizada com sucesso!");
+                } else if (retorno == 0) {
+                    request.setAttribute("mensagem", "Não foi possível alterar nesse momento");
+                } else if (retorno == -1) {
+                    request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração");
+                }
             }
 
             // alterarIdAtracao
-            retorno = tourVirtualDAO.alterarIdAtracao(id, idAtracao);
-
-            if (retorno == 1) {
-                request.setAttribute("mensagem", "Alteração realizada com sucesso!");
-            }
-            else if (retorno == 0) {
-                request.setAttribute("mensagem", "Não foi possível alterar nesse momento");
-            }
-            else if (retorno == -1) {
-                request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração");
+            if (strIdAtracao != null && !strIdAtracao.isEmpty()) {
+                int idAtracao = Integer.parseInt(strIdAtracao);
+                retorno = tourVirtualDAO.alterarIdAtracao(id, idAtracao);
+                if (retorno == 1) {
+                    request.setAttribute("mensagem", "Alteração realizada com sucesso!");
+                } else if (retorno == 0) {
+                    request.setAttribute("mensagem", "Não foi possível alterar nesse momento");
+                } else if (retorno == -1) {
+                    request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração");
+                }
             }
 
             // alterarIdFigurinhas
-            retorno = tourVirtualDAO.alterarIdFigurinhas(id, idFigurinhas);
-
-            if (retorno == 1) {
-                request.setAttribute("mensagem", "Alteração realizada com sucesso!");
-            }
-            else if (retorno == 0) {
-                request.setAttribute("mensagem", "Não foi possível alterar nesse momento");
-            }
-            else if (retorno == -1) {
-                request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração");
+            if (strIdFigurinhas != null && !strIdFigurinhas.isEmpty()) {
+                int idFigurinhas = Integer.parseInt(strIdFigurinhas);
+                retorno = tourVirtualDAO.alterarIdFigurinhas(id, idFigurinhas);
+                if (retorno == 1) {
+                    request.setAttribute("mensagem", "Alteração realizada com sucesso!");
+                } else if (retorno == 0) {
+                    request.setAttribute("mensagem", "Não foi possível alterar nesse momento");
+                } else if (retorno == -1) {
+                    request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração");
+                }
             }
 
             // enviando os dados para a página JSP
-            request.getRequestDispatcher("tourVirtual.jsp").forward(request, response);
+            request.getRequestDispatcher("listar_tour_virtual.jsp").forward(request, response);
 
         } catch (NumberFormatException nfe) {
-            request.setAttribute("erro", "Erro ao alterar tour virtual:" + nfe.getMessage());
-            request.getRequestDispatcher("erro.jsp").forward(request, response);
+            request.setAttribute("erro", "Erro ao alterar tour virtual: " + nfe.getMessage());
+            request.getRequestDispatcher("error.jsp").forward(request, response);
 
         }
 
