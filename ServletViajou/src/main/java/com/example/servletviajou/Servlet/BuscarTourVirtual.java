@@ -44,6 +44,7 @@ public class BuscarTourVirtual extends HttpServlet {
             // Captura exceções quando o ID inserido pelo usuário não é um número válido
             String erro = nfe.getMessage();
             request.setAttribute("errorMessage", erro);
+            request.setAttribute("caminho", "listar_atracao.jsp");
             request.getRequestDispatcher("error.jsp").forward(request, response);
         } catch (SQLException sqle) {
             // Imprime a exceção SQL para facilitar o rastreamento de erros

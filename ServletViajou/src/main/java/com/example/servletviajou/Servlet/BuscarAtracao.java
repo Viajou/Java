@@ -35,6 +35,7 @@ public class BuscarAtracao extends HttpServlet {
             // Trata o caso onde o ID não é um número válido
             String erro = nfe.getMessage();
             request.setAttribute("errorMessage", erro);
+            request.setAttribute("caminho", "listar_atracao.jsp");
             request.getRequestDispatcher("error.jsp").forward(request, response);
         } catch (SQLException sqle) {
             sqle.printStackTrace();

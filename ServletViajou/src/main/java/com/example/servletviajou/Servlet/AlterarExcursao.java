@@ -40,6 +40,9 @@ import java.util.Date;
         } catch (Exception e) {
             request.setAttribute("mensagem", "Erro ao alterar a excursão: " + e.getMessage());
         }
-        request.getRequestDispatcher("/WEB-INF/jsp/excursao.jsp").forward(request, response);
+
+        request.setAttribute("caminho", "listar_excursao.jsp");
+        request.setAttribute("sucessMessage", "sucesso");
+        request.getRequestDispatcher("sucesso.jsp").forward(request, response);
     }
 }

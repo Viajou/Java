@@ -59,10 +59,10 @@
                 <input type="text" name="horario" id="horario" placeholder="Ex: 15:30" required>
                 <br>
                 <label for="data-inicio">Data de início do evento:</label>
-                <input type="text" name="data-inicio" id="data-inicio" placeholder="Formato: aaaa-mm-dd" required>
+                <input type="text" name="data-inicio" id="data-inicio" placeholder="Formato: aaaa-mm-dd" pattern="\d{4}-\d{2}-\d{2}" required>
                 <br>
                 <label for="data-termino">Data de término do evento:</label>
-                <input type="text" name="data-termino" id="data-termino" placeholder="Formato: aaaa-mm-dd" required>
+                <input type="text" name="data-termino" id="data-termino" placeholder="Formato: aaaa-mm-dd" pattern="\d{4}-\d{2}-\d{2}" required>
                 <br>
                 <label for="preco-pessoa">Preço por pessoa:</label>
                 <input type="text" name="preco-pessoa" id="preco-pessoa" placeholder="Ex: 34.50" required>

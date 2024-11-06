@@ -51,7 +51,8 @@ import java.sql.SQLException;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        request.getRequestDispatcher("/listar_atracao.jsp").forward(request, response);
-
+        request.setAttribute("caminho", "listar_atracao.jsp");
+        request.setAttribute("sucessMessage", "sucesso");
+        request.getRequestDispatcher("sucesso.jsp").forward(request, response);
     }
 }

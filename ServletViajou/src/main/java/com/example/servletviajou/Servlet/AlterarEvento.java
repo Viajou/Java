@@ -121,7 +121,10 @@ public class AlterarEvento extends HttpServlet {
 
         }
 
-        request.getRequestDispatcher("listar_eventos.jsp").forward(request, response);
+
+        request.setAttribute("caminho", "listar_eventos.jsp");
+        request.setAttribute("sucessMessage", "sucesso");
+        request.getRequestDispatcher("sucesso.jsp").forward(request, response);
     }
 
 

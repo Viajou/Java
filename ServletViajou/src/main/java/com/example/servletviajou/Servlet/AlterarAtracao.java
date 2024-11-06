@@ -56,6 +56,9 @@ import java.util.InputMismatchException;
             request.setAttribute("mensagem", "Erro ao alterar admin: " + e.getMessage());
 
         }
-        request.getRequestDispatcher("listar_atracao.jsp").forward(request, response);
+
+        request.setAttribute("caminho", "listar_atracao.jsp");
+        request.setAttribute("sucessMessage", "sucesso");
+        request.getRequestDispatcher("sucesso.jsp").forward(request, response);
     }
 }

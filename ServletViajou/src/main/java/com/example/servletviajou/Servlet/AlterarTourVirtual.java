@@ -126,7 +126,10 @@ public class AlterarTourVirtual extends HttpServlet {
             }
 
             // enviando os dados para a página JSP
-            request.getRequestDispatcher("tourVirtual.jsp").forward(request, response);
+
+            request.setAttribute("caminho", "listar_tour_vitual.jsp");
+            request.setAttribute("sucessMessage", "sucesso");
+            request.getRequestDispatcher("sucesso.jsp").forward(request, response);
 
         } catch (NumberFormatException nfe) {
             request.setAttribute("erro", "Erro ao alterar tour virtual:" + nfe.getMessage());

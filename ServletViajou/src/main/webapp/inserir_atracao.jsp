@@ -17,6 +17,22 @@
 </head>
 <body>
 
+<header>
+    <img src="images/Viajou logo pequena.svg" alt="Viajou Logo" id="Viajou-logo">
+    <%
+        // Recupera a URL da imagem e nome do admin armazenados na sessão
+        HttpSession sessao = request.getSession();
+        String urlImagem = (String) sessao.getAttribute("urlImagem");
+        String nomeAdmin = (String) sessao.getAttribute("nomeAdmin");
+    %>
+
+    <!-- Adiciona a imagem do admin logado, se existir -->
+    <div class="usuario">
+        <img src="<%= urlImagem %>" alt="" class="admin-image">
+        <h3 class="admin-name"><%= nomeAdmin %></h3>
+    </div>
+</header>
+
 <aside>
     <nav>
         <ul>

@@ -18,5 +18,6 @@ public class DeletarAdmin extends HttpServlet {
         // Obtendo os dados da URL (Query String)
         int id = Integer.parseInt(request.getParameter("id"));
 
+
     }
 }

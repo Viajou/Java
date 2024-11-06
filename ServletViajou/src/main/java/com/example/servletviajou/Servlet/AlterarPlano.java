@@ -68,6 +68,9 @@ public class AlterarPlano extends HttpServlet {
         catch (Exception e) {
             request.setAttribute("mensagem", "Erro ao alterar o plano: " + e.getMessage());
         }
-        request.getRequestDispatcher("/WEB-INF/jsp/plano.jsp").forward(request, response);
+
+        request.setAttribute("caminho", "listar_plano.jsp");
+        request.setAttribute("sucessMessage", "sucesso");
+        request.getRequestDispatcher("sucesso.jsp").forward(request, response);
     }
 }

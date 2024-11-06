@@ -26,7 +26,7 @@
     %>
 
     <div class="usuario">
-        <img src="<%= urlImagem %>" alt="Imagem do Admin" class="admin-image">
+        <img src="<%= urlImagem %>" alt="" class="admin-image">
         <h3 class="admin-name"><%= nomeAdmin %></h3>
     </div>
 </header>
@@ -52,7 +52,7 @@
         </a>
 
         <form action="BuscarAdminPorIdServlet" method="get" class="search-form">
-            <input type="text" name="search" placeholder="Buscar admin..." required>
+            <input type="text" name="search" pattern="^\d+$" title="Digite apenas números inteiros" placeholder="Buscar admin..." required>
             <button type="submit">Buscar</button>
         </form>
         <a href="listar_admin.jsp">

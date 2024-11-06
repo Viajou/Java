@@ -16,6 +16,18 @@
 <body>
 <header>
     <img src="images/Viajou logo pequena.svg" alt="Viajou Logo" id="Viajou-logo">
+    <%
+        // Recupera a URL da imagem e nome do admin armazenados na sessão
+        HttpSession sessao = request.getSession();
+        String urlImagem = (String) sessao.getAttribute("urlImagem");
+        String nomeAdmin = (String) sessao.getAttribute("nomeAdmin");
+    %>
+
+    <!-- Adiciona a imagem do admin logado, se existir -->
+    <div class="usuario">
+        <img src="<%= urlImagem %>" alt="" class="admin-image">
+        <h3 class="admin-name"><%= nomeAdmin %></h3>
+    </div>
 </header>
 <aside>
     <nav>
@@ -78,10 +90,10 @@
             <%
                 try {
                     while (busca.next()) {
-                        int atracaoId = busca.getInt("id");
+
             %>
             <tr>
-                <td><%= atracaoId %></td>
+                <td><%= busca.getInt("id") %></td>
                 <td><%= busca.getString("nome") %></td>
                 <td><%= busca.getString("descricao") %></td>
                 <td><%= busca.getString("endereco") %></td>
@@ -96,7 +108,7 @@
                             <img src="images/lapis.svg" alt="">
                         </button>
                     </a>
-                    <a href="DeletarAtracao-servlet?id=<%= atracaoId %>" onclick="return confirm('Tem certeza que deseja deletar esta atração?')">
+                    <a href="DeletarAtracao-servlet?id=<%= busca.getInt("id") %>" onclick="return confirm('Tem certeza que deseja deletar esta atração?')">
                         <button class="deletar">
                             <img src="images/lixeira.svg" alt="">
                         </button>

@@ -10,7 +10,7 @@
         <img src="<%= request.getContextPath() %>/images/ImagemLogin.svg" alt="">
       </div>
       <div id="formulario">
-          <form action="<%= request.getContextPath() %>/LoginServlet" id="meuFormulario" method="post">
+          <form action="LoginServlet" id="meuFormulario" method="post">
               <label for="email">Email:</label>
               <input type="email" id="email" name="email" placeholder="Exemplo: user@gmail.com" required>
 
