@@ -24,15 +24,15 @@ public class AlterarPlano extends HttpServlet {
             double preco = Double.parseDouble(request.getParameter("novoPreco"));
             String precoString = request.getParameter("novoPreco");
 
-            //Instanciando o DAO para alterar os dados
+            // instanciando um objeto da classe planoDAO
 
             PlanoDAO planoDAO = new PlanoDAO();
 
-            //verificando cada campo antes de atualizar
+            // Verifiica cada campo antes de atualizar
 
             int retorno;
 
-            //verificando e alterando descricao
+            //verifica e altera a descricao
             if(descricao!=null && !descricao.isEmpty()){
                 retorno=planoDAO.alterarDescricao(id, descricao);
                 if (retorno == 1) {
@@ -44,7 +44,7 @@ public class AlterarPlano extends HttpServlet {
                 }
             }
 
-            //verificando e alterando o campo de propaganda
+            //verifica e altera o livre propaganda
             retorno = planoDAO.alterarLivrePropaganda(id, livrePropaganda);
             if (retorno == 1) {
                 request.setAttribute("mensagem", "Alteração realizada com sucesso!");
@@ -54,7 +54,7 @@ public class AlterarPlano extends HttpServlet {
                 request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração");
             }
 
-            //verificando e alterando o nome
+            //verifica e altera o nome
             if(nome!=null && !nome.isEmpty()){
                 retorno=planoDAO.alterarNome(id,nome);
                 if (retorno == 1) {
@@ -66,7 +66,7 @@ public class AlterarPlano extends HttpServlet {
                 }
             }
 
-            // verificando e alterando o preço
+            // verifica e altera o preço
             retorno=planoDAO.alterarPreco(id,precoString);
             if (retorno == 1) {
                 request.setAttribute("mensagem", "Alteração realizada com sucesso!");
@@ -77,12 +77,12 @@ public class AlterarPlano extends HttpServlet {
             }
         }
 
-        // tratamento de esceção
+        // tratamento de exceção
         catch (Exception e) {
             request.setAttribute("mensagem", "Erro ao alterar o plano: " + e.getMessage());
         }
 
-        // dando o caminho de retorno do servlet
+        // enviando os dados para a página JSP
         request.getRequestDispatcher("listar_plano.jsp").forward(request, response);
     }
 }

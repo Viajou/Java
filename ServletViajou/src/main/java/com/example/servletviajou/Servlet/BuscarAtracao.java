@@ -1,8 +1,8 @@
+// Declara o pacote da classe
 package com.example.servletviajou.Servlet;
 
-import com.example.servletviajou.DAO.AdminDAO;
+// Importa as classes necessárias para a manipulação de dados e a criação do servlet
 import com.example.servletviajou.DAO.AtracaoDAO;
-import com.example.servletviajou.DAO.ExcursaoDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -11,42 +11,43 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 @WebServlet(name = "buscarAtracao", value = "/buscarAtracao-servlet")
 public class BuscarAtracao extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
 
-            // armazena o id obtido no formulário
+            // Obtém o valor do parâmetro de busca fornecido pelo usuário
             String id = request.getParameter("search");
 
-            //instancia a classe DAO
+            // Converte o valor de busca para um inteiro, assumindo que se trata de um ID
             AtracaoDAO atracaoDAO = new AtracaoDAO();
 
-            //converte o tipo para int e passa como parâmetro
+            // Executa a busca do evento no banco de dados usando o ID
             int atracaoId = Integer.parseInt(id);
             ResultSet busca = atracaoDAO.buscar(atracaoId);
 
             // Verifica se o ResultSet está vazio
             if (busca.next()) { // Se não há resultados
-                ResultSet certo = atracaoDAO.buscar(atracaoId);
+                ResultSet certo = atracaoDAO.buscar(atracaoId);// Realiza novamente a busca para obter os dados completos
 
-                //retorna a busca feita
-                request.setAttribute("resultados", certo);
+                request.setAttribute("resultados", certo);// Atribui o resultado da busca à requisição
 
-                // Redireciona para a página de listagem
+                // Encaminha o usuário para a página de listagem, agora com a atração encontrada
                 request.getRequestDispatcher("listar_atracao.jsp").forward(request, response);
             } else {
-                // se der erro redireciona a página de erros
+                // Caso o evento não seja encontrado, define uma mensagem de erro e encaminha para a listagem
                 request.setAttribute("naoEncontrado", "Atração não encontrada...");
                 request.getRequestDispatcher("error.jsp").forward(request, response);
             }
 
         } catch (NumberFormatException nfe) {
-            // Trata o caso onde o ID não é um número válido
+            // Captura exceções quando o ID inserido pelo usuário não é um número válido
             String erro = nfe.getMessage();
             request.setAttribute("errorMessage", erro);
             request.getRequestDispatcher("error.jsp").forward(request, response);
         } catch (SQLException sqle) {
+            // Imprime a exceção SQL para facilitar o rastreamento de erros
             sqle.printStackTrace();
         }
     }
