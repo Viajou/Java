@@ -5,7 +5,7 @@
 
 <html>
 <head>
-    <!-- Define o charset e propriedades de visualização para dispositivos móveis -->
+    <!-- Configuração do charset, propriedades de visualização para dispositivos móveis e ícone do site -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/svg+xml" href="images/icone-viajou.svg">
@@ -46,31 +46,32 @@
 
 <main>
     <h1>Eventos</h1>
+    <!-- Botão para adicionar um novo evento -->
 
     <div class="button-group">
         <a href="inserir_evento.jsp">
             <button class="inserir">Adicionar</button>
         </a>
 
-        <!-- Formulário para buscar evento por nome -->
+        <!-- Formulário de busca de eventos -->
         <form action="BuscarEvento-servlet" method="get" class="search-form">
             <input type="text" name="search" placeholder="Buscar evento...">
             <button type="submit">Buscar</button>
         </form>
 
-        <!-- Botão para exibir todos os eventos -->
+        <!-- Botão para listar todos os eventos -->
         <a href="listar_eventos.jsp">
             <button class="all">ALL</button>
         </a>
     </div>
 
     <%
-        // Verifica se a variável de erro "naoEncontrado" foi definida
+        // Verifica se há uma mensagem de "não encontrado"
         String naoEncontrado = (String) request.getAttribute("naoEncontrado");
         if (naoEncontrado == null) {
     %>
     <section class="table-section">
-        <!-- Tabela para listar as informações dos eventos -->
+        <!-- Tabela para listar os eventos -->
         <table>
             <thead>
             <tr>
@@ -90,7 +91,7 @@
 
             <tbody>
             <%
-                // Recupera o conjunto de resultados da busca ou consulta o banco de dados se não estiver na requisição
+                // Recupera o ResultSet de eventos ou consulta o banco de dados se não houver resultados na requisição
                 ResultSet busca = (ResultSet) request.getAttribute("resultados");
                 if (busca == null){
                     EventosDAO eventosDAO = new EventosDAO();
@@ -99,7 +100,7 @@
             %>
             <%
                 try {
-                    // Itera sobre os resultados da busca para exibir cada evento
+                    // Itera sobre os resultados da busca para exibir os eventos
                     while (busca.next()){
             %>
 
@@ -115,13 +116,13 @@
                 <td><%= busca.getDate("data_termino") %></td>
                 <td><%= busca.getString("faixa_etaria") %></td>
                 <td>
-                    <!-- Link para alterar o evento -->
+                    <!-- Link para alterar evento -->
                     <a href="alterar_evento.jsp?id=<%= busca.getInt("id") %>&nome=<%= busca.getString("nome") %>&descricao=<%= busca.getString("descricao") %>&capacidade=<%= busca.getInt("capacidade")%>&data_inicio=<%= busca.getDate("data_inicio")%>&data_termino=<%= busca.getDate("data_termino")%>&preco_pessoa=<%= busca.getDouble("preco_pessoa") %>&faixa_etaria=<%= busca.getString("faixa_etaria") %>">
                         <button class="deletar">
                             <img src="images/lapis.svg" alt="">
                         </button>
                     </a>
-                    <!-- Link para deletar o evento, com confirmação -->
+                    <!-- Link para deletar evento, com confirmação -->
                     <a href="DeletarEventos-servelet?id=<%= busca.getInt("id") %>" onclick="return confirm('Tem certeza que deseja deletar este evento?')">
                         <button class="deletar">
                             <img src="images/lixeira.svg" alt="Deletar">
@@ -130,14 +131,14 @@
                 </td>
             </tr>
             <%
-                    }
+                    }//fim do while
                 } catch (SQLException sqle) {
-                    // Imprime a stack trace em caso de erro de SQL
+                        // Exibe o erro em caso de exceção SQL
                    response.sendRedirect("error.jsp");
                 }
                 catch (NumberFormatException nfne){
                     response.sendRedirect("erro.jsp");
-                }
+                }//fim do try
             %>
             </tbody>
         </table>
@@ -145,7 +146,7 @@
     <%
     } else {
     %>
-    <!-- Exibe mensagem de "não encontrado" se a variável for definida -->
+    <!-- Exibe uma mensagem de "não encontrado" se não houver resultados -->
     <p class="naoEncontrado"><%= naoEncontrado %></p>
     <%
         }

@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- Configurações de charset, viewport e favicon -->
+    <!-- Configuração do charset, propriedades de visualização para dispositivos móveis e ícone do site -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="imagex/svg" href="images/icone-viajou.svg">
@@ -24,8 +24,8 @@
         String urlImagem = (String) sessao.getAttribute("urlImagem");
         String nomeAdmin = (String) sessao.getAttribute("nomeAdmin");
     %>
-
     <!-- Exibe a imagem e o nome do admin no cabeçalho -->
+
     <div class="usuario">
         <img src="<%= urlImagem %>" alt="Imagem do Admin" class="admin-image">
         <h3 class="admin-name"><%= nomeAdmin %></h3>
@@ -68,12 +68,12 @@
     </div>
 
     <%
-        // Verifica se há uma mensagem de "não encontrado" para exibir
+        // Verifica se há uma mensagem de "não encontrado"
         String naoEncontrado = (String) request.getAttribute("naoEncontrado");
         if (naoEncontrado == null) {
     %>
     <section class="table-section">
-        <!-- Tabela para exibir a lista de planos -->
+        <!-- Tabela para listar os planos-->
         <table>
             <thead>
             <tr>
@@ -90,7 +90,7 @@
             </thead>
             <tbody>
             <%
-                // Recupera o ResultSet de planos ou consulta o banco de dados se não houver resultados
+                // Recupera o ResultSet de planos ou consulta o banco de dados se não houver resultados na requisição
                 ResultSet busca = (ResultSet) request.getAttribute("resultados");
                 if (busca == null) {
                     PlanoDAO planoDAO = new PlanoDAO();
@@ -128,11 +128,11 @@
                 </td>
             </tr>
             <%
-                    }
+                    }//fim do while
                 } catch (SQLException sqle) {
                     // Exibe o erro em caso de exceção SQL
                     sqle.printStackTrace();
-                }
+                }//fim do try
             %>
             </tbody>
         </table>

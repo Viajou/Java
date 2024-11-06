@@ -19,6 +19,7 @@
             String nomeAdmin = (String) sessao.getAttribute("nomeAdmin");
         %>
         <div class="usuario">
+            <!-- Adiciona a imagem do admin logado, se existir -->
             <img src="<%= urlImagem %>" alt="Imagem do Admin" class="admin-image">
             <h3 class="admin-name"><%= nomeAdmin %></h3>
         </div>
