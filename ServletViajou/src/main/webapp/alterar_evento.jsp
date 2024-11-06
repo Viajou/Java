@@ -81,42 +81,54 @@
             <div class="campo">
                 <p>Para altetrar nome e categoria se dirija ate atrações</p>
             </div>
-        </form>
+<<<<<<< HEAD
+=======
+        </form> <!-- Fechamento do primeiro form -->
 
-        <form method="post" action="AlterarEventos-servlet?id=<%= request.getParameter("id") %>">
-            <h2>Novo</h2>
-            <div class="campo">
-                <label for="nova-descricao">Nova descrição:</label>
-                <input class="entrada" type="text" id="nova-descricao" name="nova-descricao" placeholder="Novo descrição">
-            </div>
-            <div class="campo">
-                <label for="nova-capacidade">Nova capacidade:</label>
-                <input class="entrada" type="text" id="nova-capacidade" name="nova-capacidade" placeholder="Nova capacidade" >
-            </div>
-            <div class="campo">
-                <label for="novo-preco-pessoa">Novo preço por pessoa:</label>
-                <input class="entrada" type="text" id="novo-preco-pessoa" name="novo-preco-pessoa" placeholder="Ex: 15.90">
-            </div>
-
-            <div class="campo">
-                <label for="novo-horario">Novo horario:</label>
-                <input class="entrada" type="text" id="novo-horario" name="novo-horario" placeholder="Ex: hh:mm:ss ou hh:mm">
-            </div>
-            <div class="campo">
-                <label for="nova-data-inicial">Nova data de inicio:</label>
-                <input class="entrada" type="text" id="nova-data-inicial" name="nova-data-inicial" placeholder="Ex: (aaaa-mm-dd)">
-            </div>
-            <div class="campo">
-                <label for="nova-data-termino">Data de Termino atual:</label>
-                <input class="entrada" type="text" id="nova-data-termino" name="nova-data-termino" placeholder="Ex: (aaaa-mm-dd)" >
-            </div>
-            <div class="campo">
-                <label for="nova-faixa-etaria">Nova faixa etaria:</label>
-                <input class="entrada" type="text" id="nova-faixa-etaria" name="nova-faixa-etaria" placeholder="opções: livre, 12+,14+, 16+, 18+">
-            </div>
-            <input type="submit" value="Alterar">
-            </form>
+    <form method="post" action="AlterarEventos-servlet?id=<%= request.getParameter("id") %>">
+        <h2>Novo</h2>
+        <div class="campo">
+            <label for="nova-descricao">Nova descrição:</label>
+            <input class="entrada" type="text" id="nova-descricao" name="nova-descricao" placeholder="Novo descrição">
         </div>
+        <div class="campo">
+            <label for="nova-capacidade">Nova capacidade:</label>
+            <input class="entrada" type="text" id="nova-capacidade" name="nova-capacidade" placeholder="Nova capacidade" >
+        </div>
+        <div class="campo">
+            <label for="novo-preco-pessoa">Novo preço por pessoa:</label>
+            <input class="entrada" type="text" id="novo-preco-pessoa" name="novo-preco-pessoa" placeholder="Ex: 15.90">
+        </div>
+
+        <div class="campo">
+            <label for="novo-horario">Novo horario:</label>
+            <input class="entrada" type="text" id="novo-horario" name="novo-horario" placeholder="Ex: hh:mm:ss ou hh:mm">
+        </div>
+        <div class="campo">
+            <label for="nova-data-inicial">Nova data de inicio:</label>
+            <input class="entrada" type="text" id="nova-data-inicial" name="nova-data-inicial" placeholder="Ex: (aaaa-mm-dd)">
+        </div>
+        <div class="campo">
+            <label for="nova-data-termino">Data de Termino atual:</label>
+            <input class="entrada" type="text" id="nova-data-termino" name="nova-data-termino" placeholder="Ex: (aaaa-mm-dd)" >
+        </div>
+        <div class="campo">
+            <label for="nova-faixa-etaria">Nova faixa etária:</label>
+            <select class="entrada" id="nova-faixa-etaria" name="nova-faixa-etaria">
+                <option value="" disabled selected>Escolha uma opção</option>
+                <option value="livre">Livre</option>
+                <option value="12+">12+</option>
+                <option value="14+">14+</option>
+                <option value="16+">16+</option>
+                <option value="18+">18+</option>
+            </select>
+        </div>
+
+        <input type="submit" value="Alterar">
+>>>>>>> 7f5e715b5f5274ad0f82b34f9769800965742bb3
+        </form>
     </div>
+</div>
+
 </body>
 </html>
