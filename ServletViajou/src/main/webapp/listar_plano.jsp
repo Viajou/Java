@@ -113,6 +113,12 @@
                 <td><%= busca.getString("data_criacao") %></td>
                 <td><%= busca.getString("data_atualizacao") %></td>
                 <td>
+                    <!--Link para alterar o plano-->
+                    <a href="alterar_plano.jsp?id=<%=busca.getInt("id")%>&descricao=<%=busca.getString("descricao")%>&livrePropaganda=<%=busca.getBoolean("livreDescricao")%>&nome=<%=busca.getString("nome")%>&preco=<%=busca.getDouble("preco")%>">
+                        <button class="deletar">
+                            <img src="images/lapis.svg" alt="">
+                        </button>
+                    </a>
                     <!-- Link para deletar o plano, com confirmação -->
                     <a href="DeletarPlano-servlet?id=<%= planoId %>" onclick="return confirm('Tem certeza que deseja deletar este admin?')">
                         <button class="deletar">
