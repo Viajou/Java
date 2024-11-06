@@ -51,7 +51,7 @@
             <button class="inserir">Adicionar</button>
         </a>
 
-        <form action=BuscarTourVirtual-servlet method="get" class="search-form">
+        <form action="BuscarTourVirtual-servlet" method="get" class="search-form">
             <input type="text" name="search" placeholder="Buscar tour..." required>
             <button type="submit">Buscar</button>
         </form>

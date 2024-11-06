@@ -48,12 +48,8 @@
     <form class="alteracao">
         <h2>Atual</h2>
         <div class="campo">
-            <label for="id">Id:</label>
-            <input class="entrada" type="number" id="id" name="id" disabled value="<%= request.getParameter("id") %>">
-        </div>
-        <div class="campo">
             <label for="descricao-atual">Descrição atual:</label>
-            <input class="entrada" type="text" id="descricao-atual" name="descricao-atual" disabled value="<%= request.getParameter("descricao") %> " >
+            <input class="entrada" type="text" id="descricao-atual" name="descricao-atual" disabled value="<%= request.getParameter("descricao")%> " >
         </div>
         <div class="campo">
             <label for="video-atual">Vídeo atual:</label>
@@ -77,40 +73,46 @@
 
         </div>
         <div class="campo">
-            <label for="id-atracao-atual">ID da figurinhas:</label>
-            <input class="entrada" type="text" name="id-atracao-atual" id="id-figurinhas-atual" disabled value="<%= request.getParameter("id_figurinha")%>">
+            <label for="id-atracao-atual">ID da figurinha: </label>
+            <input class="entrada" type="text" name="id-atracao-atual" id="id-figurinhas-atual" disabled value="<%= request.getParameter("id_figurinhas")%>">
 
         </div>
     </form>
 
-    <form method="post" action="/AlterarTourVirtual-servlet?id=<%= request.getParameter("id") %>">
+    <form method="post" action="AlterarTourVirtual-servlet?id=<%= request.getParameter("id") %>">
         <h2>Novo</h2>
         <div class="campo">
-            <label for="novoNome">Novo nome:</label>
-            <input class="entrada" type="text" id="novoNome" name="novoNome" placeholder="Novo nome">
+            <label for="nova-descricao">Nova descrição</label>
+            <input class="entrada" type="text" id="nova-descricao" name="descricao-atual" placeholder="Exemplo: Praça com exposição de artes">
         </div>
         <div class="campo">
-            <label for="novoEmail">Novo email:</label>
-            <input class="entrada" type="text" id="novoEmail" name="novoEmail" placeholder="Novo email">
+            <label for="video-atual">Novo vídeo:</label>
+            <input class="entrada" type="text" id="-novo-video" name="novo-video">
         </div>
         <div class="campo">
-            <label for="novaFoto">Nova foto:</label>
-            <input class="entrada" type="text" id="novaFoto" name="novaFoto" placeholder="URL da nova foto" maxlength="1000">
+            <label for="nova-media-classificacao">Nova média das avaliações:</label>
+            <input class="entrada" type="text" id="nova-media-classificacao" name="nova-media-classificacao" pattern="^\d+(\.\d{1,2})?$" placeholder="Exemplo: 4.52" title="Digite um número com até duas casas decimais, utilizando '.' como separador" >
+        </div>
+
+        <div class="campo">
+            <label for="nova-qnt-classificacao">Nova quantidade de avaliações:</label>
+            <input class="entrada" type="text" id="nova-qnt-classificacao" name="nova-qnt-classificacao" placeholder="Exemplo: 150">
         </div>
         <div class="campo">
-            <label for="novaSenha">Nova senha:</label>
-            <input class="entrada" type="text" id="novaSenha" name="novaSenha" placeholder="Nova senha">
+            <label for="novo-preco">Novo preço:</label>
+            <input class="entrada" type="text" name="preco-atual" id="novo-preco" pattern="^\d+(\.\d{1,2})?$" placeholder="Exemplo: 12.56" title="Digite um número com até duas casas decimais, utilizando '.' como separador">
+        </div>
+        <div class="campo">
+            <label for="novo-id-atracao">Novo ID da atração:</label>
+            <input class="entrada" type="text" name="novo-id-atracao" id="novo-id-atracao" placeholder="Exemplo: 3">
+        </div>
+        <div class="campo">
+            <label for="novo-id-atracao">Novo ID da figurinhas:</label>
+            <input class="entrada" type="text" name="novo-id-atracao" id="novo-id-figurinhas" placeholder="Exemplo: 20">
         </div>
 
         <input type="submit" value="Alterar">
-
     </form>
-</div>
-
-<div class="botoes">
-    <button>
-        <a href="listar_tour_virtual.jsp">Voltar</a>
-    </button>
 </div>
 </body>
 </html>

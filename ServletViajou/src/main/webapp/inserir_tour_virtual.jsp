@@ -67,10 +67,6 @@
     </div>
     <input type="submit" value="Inserir tour">
   </form>
-  <br><br>
-  <a href="listar_tour_virtual.jsp">
-    <button>Voltar</button>
-  </a>
 </main>
 </body>
 </html>
