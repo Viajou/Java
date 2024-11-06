@@ -46,6 +46,7 @@ public class InserirTourVirtual extends HttpServlet {
         } catch(Exception e){
             throw new RuntimeException(e);
         }
+
         // Redirecionando para uma página de confirmação ou erro
         request.getRequestDispatcher("/listar_tour_virtual.jsp").forward(request, response);
 

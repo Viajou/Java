@@ -89,3 +89,8 @@ input[type="submit"] {
 .botoes2{
     display: flex;
 }
+
+.erro{
+    font-family: Levenim, sans-serif;
+    color: red;
+}

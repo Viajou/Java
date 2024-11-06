@@ -47,7 +47,9 @@
                 <input class="entrada" type="text" name="email" id="email" placeholder="Ex: usuario@gmail.com" required>
 
                 <label for="senha">Senha do admin:</label>
-                <input class="entrada" type="text" name="senha" id="senha" placeholder="Ex: 12345" required>
+                <input class="entrada" type="text" name="senha" id="senha"
+                       pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$_#&])[A-Za-z\d@$#&_]{8,20}$"
+                       placeholder="Ex: 12345" required>
 
                 <label for="url">Foto do admin:</label>
                 <input class="entrada" type="text" name="url" id="url" placeholder="Ex: https://imagem-usuario">
