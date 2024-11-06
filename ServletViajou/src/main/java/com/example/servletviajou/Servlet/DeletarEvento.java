@@ -14,13 +14,14 @@ import java.io.IOException;
 public class DeletarEvento extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         response.setContentType("text/html");
 
+        // obtendo os dados do formulário
         int id = Integer.parseInt(request.getParameter("id"));
         EventosDAO eventosDAO = new EventosDAO();
 
         try {
+            // chamando o método deletar
             eventosDAO.deletarEvento(id); // Método deletar implementado no DAO para remover o admin
             request.getRequestDispatcher("/listar_eventos.jsp").forward(request, response);
         } catch (Exception e) {

@@ -14,6 +14,7 @@ import java.sql.SQLException;
 public class BuscarPlano extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            // Obtém o valor do parâmetro de busca fornecido pelo usuário
             String search = request.getParameter("search");
             PlanoDAO planoDAO = new PlanoDAO();
 
