@@ -1,5 +1,6 @@
 package com.example.servletviajou.Servlet;
 
+import com.example.servletviajou.DAO.EventosDAO;
 import com.example.servletviajou.DAO.TourVirtualDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -17,44 +18,36 @@ public class BuscarTourVirtual extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException  {
 
         try {
-            // obtendo os dados do formulário
-            int id = Integer.parseInt(request.getParameter("id"));
+            // Obtém o valor do parâmetro de busca fornecido pelo usuário
+            String search = request.getParameter("search");
+            TourVirtualDAO tourVirtualDAO = new TourVirtualDAO(); // Cria uma instância de EventosDAO para acesso aos dados
 
-            // instanciando um objeto da classe tourVirtualDAO
-            TourVirtualDAO tourVirtualDAO = new TourVirtualDAO();
+            // Converte o valor de busca para um inteiro, assumindo que se trata de um ID
+            int tourVirtualId = Integer.parseInt(search);
 
-            // chamando os métodos buscar
+            // Executa a busca do evento no banco de dados usando o ID
+            ResultSet busca = tourVirtualDAO.buscar(tourVirtualId);
+            // Verifica se o ResultSet está vazio (se o evento existe)
+            if (busca.next()) { // Se há resultados
+                ResultSet certo = tourVirtualDAO.buscar(tourVirtualId); // Realiza novamente a busca para obter os dados completos
+                request.setAttribute("resultados", certo); // Atribui o resultado da busca à requisição
 
-            // buscar com id
-            ResultSet rsComId = tourVirtualDAO.buscar(id);
-
-            if (rsComId.next()) {
-                request.setAttribute("mensagem", tourVirtualDAO.buscar(id));
-                request.getRequestDispatcher("tourVirtualDetalhes.jsp").forward(request, response);
-            } else{
-               request.setAttribute("erro", "Tour virtual não encontrado!");
-               request.getRequestDispatcher("error.jsp").forward(request, response);
+                // Encaminha o usuário para a página de listagem, agora com o evento encontrado
+                request.getRequestDispatcher("listar_tour_virtual.jsp").forward(request, response);
+            } else {
+                // Caso o evento não seja encontrado, define uma mensagem de erro e encaminha para a listagem
+                request.setAttribute("naoEncontrado", "Tour virtual não encontrado...");
+                request.getRequestDispatcher("listar_tour_virtual.jsp").forward(request, response);
             }
 
-            // buscar sem id
-            ResultSet rsSemId = tourVirtualDAO.buscar();
-
-            if(rsSemId.next()) {
-                request.setAttribute("mensagem", tourVirtualDAO.buscar());
-                request.getRequestDispatcher("tourVirtualDetalhes.jsp").forward(request, response);
-            } else{
-                request.setAttribute("erro", "Tour virtual não encontrado!");
-                request.getRequestDispatcher("error.jsp").forward(request, response);
-            }
-
-        } catch (NumberFormatException nfe){
+        } catch (NumberFormatException nfe) {
+            // Captura exceções quando o ID inserido pelo usuário não é um número válido
             String erro = nfe.getMessage();
             request.setAttribute("errorMessage", erro);
             request.getRequestDispatcher("error.jsp").forward(request, response);
-        } catch (SQLException sqle){
-            request.setAttribute("erro", "Erro! SQLException: " + sqle.getMessage());
-            request.getRequestDispatcher("error.jsp").forward(request, response);
+        } catch (SQLException sqle) {
+            // Imprime a exceção SQL para facilitar o rastreamento de erros
+            sqle.printStackTrace();
         }
-
     }
 }
