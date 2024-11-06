@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/Inserir.css">
+    <link rel="stylesheet" href="CSS/inserir2.css">
     <link rel="stylesheet" href="CSS/crud.css">
     <title>Crud</title>
 </head>
@@ -41,24 +41,23 @@
         <form action="inserirAdmin-servlet" method="post">
             <div class="form-container">
                 <label for="nome">Nome do admin:</label>
-                <input type="text" name="nome" id="nome" placeholder="Ex: Joao" required>
+                <input class="entrada" type="text" name="nome" id="nome" placeholder="Ex: Joao" required>
 
                 <label for="email">Email do admin:</label>
-                <input type="text" name="email" id="email" placeholder="Ex: usuario@gmail.com" required>
+                <input class="entrada" type="text" name="email" id="email" placeholder="Ex: usuario@gmail.com" required>
 
                 <label for="senha">Senha do admin:</label>
-                <input type="text" name="senha" id="senha" placeholder="Ex: 12345" required>
+                <input class="entrada" type="text" name="senha" id="senha" placeholder="Ex: 12345" required>
 
                 <label for="url">Foto do admin:</label>
-                <input type="text" name="url" id="url" placeholder="Ex: https://imagem-usuario">
+                <input class="entrada" type="text" name="url" id="url" placeholder="Ex: https://imagem-usuario">
             </div>
 
-            <input type="submit" value="Adicionar">
+            <div class="botoes2">
+                <a  class="voltar" href="listar_admin.jsp">Voltar</a>
+                <input type="submit" value="Inserir tour">
+            </div>
         </form>
-        <br><br>
-        <a href="listar_admin.jsp">
-            <button>Voltar</button>
-        </a>
     </main>
 </body>
 </html>

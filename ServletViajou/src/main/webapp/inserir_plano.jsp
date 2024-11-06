@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/crud.css">
-    <link rel="stylesheet" href="CSS/Inserir.css">
+    <link rel="stylesheet" href="CSS/inserir2.css">
     <title>Crud</title>
 </head>
 <body>
@@ -67,7 +67,10 @@
             <input class="entrada" type="text" name="duracao" id="duracao" placeholder="Ex: 6 meses" required>
 
         </div>
-        <input type="submit" value="Inserir plano">
+        <div class="botoes2">
+            <a  class="voltar" href="listar_plano.jsp">Voltar</a>
+            <input type="submit" value="Inserir tour">
+        </div>
     </form>
 </main>
 </body>

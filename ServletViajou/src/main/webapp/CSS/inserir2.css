@@ -47,11 +47,12 @@ input[type="submit"], .voltar {
     background-color: #805CD8;
     color: #ffffff;
     border: none;
-    padding: 10px 20px;
-    font-size: 14px;
-    border-radius: 15px;
+    font-size: 1rem;
     cursor: pointer;
-    margin: 5px;
+    padding: 0.6rem;
+    border-radius: 5px;
+    width: 10vw;
+    text-align: center;
     transition: background-color 0.3s ease;
 }
 

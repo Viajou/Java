@@ -13,9 +13,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inserir atração</title>
     <link rel="stylesheet" href="CSS/crud.css">
-    <link rel="stylesheet" href="CSS/Inserir.css">
+    <link rel="stylesheet" href="CSS/inserir2.css">
 </head>
 <body>
+
+<header>
+    <img src="images/Viajou logo pequena.svg" alt="Viajou Logo" id="Viajou-logo">
+    <%
+        // Recupera a URL da imagem e nome do admin armazenados na sessão
+        HttpSession sessao = request.getSession();
+        String urlImagem = (String) sessao.getAttribute("urlImagem");
+        String nomeAdmin = (String) sessao.getAttribute("nomeAdmin");
+    %>
+
+    <!-- Adiciona a imagem do admin logado, se existir -->
+    <div class="usuario">
+        <img src="<%= urlImagem %>" alt="Imagem do Admin" class="admin-image">
+        <h3 class="admin-name"><%= nomeAdmin %></h3>
+    </div>
+</header>
 
 <aside>
     <nav>
@@ -32,27 +48,33 @@
 
 <h1>Inserir atração</h1>
     <form action="InserirAtracao-servlet" method="post">
-        <label for="nome">Nome da atração: </label>
-        <input type="text" name="nome" id="nome" placeholder="Ex:Catavento" required>
-        <br><br>
-        <label for="descricao">Descrição da atração: </label>
-        <input type="text" name="descricao" id="descricao" placeholder="Ex:Museu" required>
-        <br><br>
-        <label for="endereco">Endereço da atração: </label>
-        <input type="text" name="endereco" id="endereco" placeholder="Ex: Av.Getulio vagas" required>
-        <br><br>
-        <label>Acessibilidade da atração: </label>
-        <label>
-            <input type="radio" name="acessibilidade" value="true" required> Sim
-        </label>
-        <label>
-            <input type="radio" name="acessibilidade" value="false" required> Não
-        </label>
-        <br><br>
-        <label for="categoria">Categoria da atração: </label>
-        <input type="text" name="categoria" id="categoria" placeholder="Ex: Exposições" required>
-        <br>
-        <input type="submit" value="Inserir atração">
+        <div class="form-container">
+            <label for="nome">Nome da atração: </label>
+            <input class="entrada" type="text" name="nome" id="nome" placeholder="Ex:Catavento" required>
+
+            <label for="descricao">Descrição da atração: </label>
+            <input class="entrada" type="text" name="descricao" id="descricao" placeholder="Ex:Museu" required>
+
+            <label for="endereco">Endereço da atração: </label>
+            <input class="entrada" type="text" name="endereco" id="endereco" placeholder="Ex: Av.Getulio vagas" required>
+
+            <label>Acessibilidade da atração: </label>
+            <label>
+                <input class="entrada" type="radio" name="acessibilidade" value="true" required> Sim
+            </label>
+
+            <label>
+                <input class="entrada" type="radio" name="acessibilidade" value="false" required> Não
+            </label>
+
+            <label for="categoria">Categoria da atração: </label>
+            <input class="entrada" type="text" name="categoria" id="categoria" placeholder="Ex: Exposições" required>
+
+        </div>
+        <div class="botoes2">
+            <a  class="voltar" href="listar_atracao.jsp">Voltar</a>
+            <input class="entrada" type="submit" value="Inserir tour">
+        </div>
     </form>
 </body>
 </html>

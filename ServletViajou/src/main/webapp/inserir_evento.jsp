@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inserir Evento</title>
     <link rel="stylesheet" href="CSS/crud.css">
-    <link rel="stylesheet" href="CSS/Inserir.css">
+    <link rel="stylesheet" href="CSS/inserir2.css">
 </head>
 <body>
     <header>
@@ -38,32 +38,6 @@
         <h1>Inserir um novo evento</h1>
         <form action="InserirEvento-servlet" method="post">
             <div class="form-container">
-
-                <br>
-<<<<<<< HEAD
-                <fieldset>
-                    <legend >Faixa etaria</legend>
-                    <br>
-                    <label for="nova-faixa-etaria">livre</label>
-                    <input type="radio" name="nova-faixa-etaria" id="faixa-etaria" value="livre">
-                    <br>
-                    <label for="nova-faixa-etaria">+10</label>
-                    <input type="radio" name="nova-faixa-etaria" id="nova-faixa-etaria" value="10+">
-                    <br>
-                    <label for="nova-faixa-etaria2">+12</label>
-                    <input type="radio" name="nova-faixa-etaria2" id="nova-faixa-etaria2" value="12+">
-                    <br>
-                    <label for="nova-faixa-etaria3">+14</label>
-                    <input type="radio" name="nova-faixa-etaria3" id="nova-faixa-etaria3" value="14+">
-                    <br>
-                    <label for="nova-faixa-etaria4">+16</label>
-                    <input type="radio" name="nova-faixa-etaria4" id="nova-faixa-etaria4" value="16+">
-                    <br>
-                    <label for="nova-faixa-etaria5">+18</label>
-                    <input type="radio" name="nova-faixa-etaria5" id="nova-faixa-etaria5" value="18+">
-                    <br>
-                </fieldset>
-=======
                 <div class="campo">
                     <label for="nova-faixa-etaria">Faixa etária:</label>
                     <select class="entrada" id="nova-faixa-etaria" name="nova-faixa-etaria" required>
@@ -75,39 +49,36 @@
                         <option value="18+">18+</option>
                     </select>
                 </div>
-
->>>>>>> ba95ab7b2f130e8c2d2784db0d27dbf158623a35
                 <label for="descricao">Descrição do evento:</label>
-                <input type="text" name="descricao" id="descricao" placeholder="Ex: Evento de música ao vivo" required>
+                <input class="entrada" type="text" name="descricao" id="descricao" placeholder="Ex: Evento de música ao vivo" required>
                 <br>
                 <label for="capacidade">Capacidade do evento:</label>
-                <input type="text" name="capacidade" id="capacidade" placeholder="Ex: 1500" required>
+                <input class="entrada" type="text" name="capacidade" id="capacidade" placeholder="Ex: 1500" required>
                 <br>
                 <label for="horario">Horário do evento:</label>
-                <input type="text" name="horario" id="horario" placeholder="Ex: 15:30" required>
+                <input class="entrada" type="text" name="horario" id="horario" placeholder="Ex: 15:30" required>
                 <br>
                 <label for="data-inicio">Data de início do evento:</label>
-                <input type="text" name="data-inicio" id="data-inicio" placeholder="Formato: aaaa-mm-dd" required>
+                <input class="entrada" type="text" name="data-inicio" id="data-inicio" placeholder="Formato: aaaa-mm-dd" required>
                 <br>
                 <label for="data-termino">Data de término do evento:</label>
-                <input type="text" name="data-termino" id="data-termino" placeholder="Formato: aaaa-mm-dd" required>
+                <input class="entrada" type="text" name="data-termino" id="data-termino" placeholder="Formato: aaaa-mm-dd" required>
                 <br>
                 <label for="preco-pessoa">Preço por pessoa:</label>
-                <input type="text" name="preco-pessoa" id="preco-pessoa" placeholder="Ex: 34.50" required>
+                <input class="entrada" type="text" name="preco-pessoa" id="preco-pessoa" placeholder="Ex: 34.50" required>
                 <br>
                 <label for="id-tour">ID do tour virtual:</label>
-                <input type="text" name="id-tour" id="id-tour" placeholder="Ex: 76" required>
+                <input class="entrada" type="text" name="id-tour" id="id-tour" placeholder="Ex: 76" required>
                 <br>
                 <label for="id-atracao">ID da atração:</label>
-                <input type="text" name="id-atracao" id="id-atracao" placeholder="Ex: 76" required>
+                <input class="entrada" type="text" name="id-atracao" id="id-atracao" placeholder="Ex: 76" required>
             </div>
 
-            <input type="submit" value="Inserir novo evento">
+            <div class="botoes2">
+                <a  class="voltar" href="listar_eventos.jsp">Voltar</a>
+                <input type="submit" value="Inserir tour">
+            </div>
         </form>
-        <br>
-        <a href="listar_eventos.jsp">
-            <button>Voltar</button>
-        </a>
     </main>
 </body>
 </html>
