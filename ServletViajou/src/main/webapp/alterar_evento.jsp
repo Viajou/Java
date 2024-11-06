@@ -46,7 +46,6 @@
 
 <h1>Alterar eventos</h1>
 
-<<<<<<< HEAD
 <div class="fundo">
     <div class="formulario">
         <form class="alteracao">
@@ -82,7 +81,8 @@
             <div class="campo">
                 <p>Para altetrar nome e categoria se dirija ate atrações</p>
             </div>
-=======
+        </form> <!-- Fechamento do primeiro form -->
+
     <form method="post" action="AlterarEventos-servlet?id=<%= request.getParameter("id") %>">
         <h2>Novo</h2>
         <div class="campo">
@@ -123,43 +123,9 @@
         </div>
 
         <input type="submit" value="Alterar">
->>>>>>> ba95ab7b2f130e8c2d2784db0d27dbf158623a35
         </form>
-
-        <form method="post" action="AlterarEventos-servlet?id=<%= request.getParameter("id") %>">
-            <h2>Novo</h2>
-            <div class="campo">
-                <label for="nova-descricao">Nova descrição:</label>
-                <input class="entrada" type="text" id="nova-descricao" name="nova-descricao" placeholder="Novo descrição">
-            </div>
-            <div class="campo">
-                <label for="nova-capacidade">Nova capacidade:</label>
-                <input class="entrada" type="text" id="nova-capacidade" name="nova-capacidade" placeholder="Nova capacidade" >
-            </div>
-            <div class="campo">
-                <label for="novo-preco-pessoa">Novo preço por pessoa:</label>
-                <input class="entrada" type="text" id="novo-preco-pessoa" name="novo-preco-pessoa" placeholder="Ex: 15.90">
-            </div>
-
-            <div class="campo">
-                <label for="novo-horario">Novo horario:</label>
-                <input class="entrada" type="text" id="novo-horario" name="novo-horario" placeholder="Ex: hh:mm:ss ou hh:mm">
-            </div>
-            <div class="campo">
-                <label for="nova-data-inicial">Nova data de inicio:</label>
-                <input class="entrada" type="text" id="nova-data-inicial" name="nova-data-inicial" placeholder="Ex: (aaaa-mm-dd)">
-            </div>
-            <div class="campo">
-                <label for="nova-data-termino">Data de Termino atual:</label>
-                <input class="entrada" type="text" id="nova-data-termino" name="nova-data-termino" placeholder="Ex: (aaaa-mm-dd)" >
-            </div>
-            <div class="campo">
-                <label for="nova-faixa-etaria">Nova faixa etaria:</label>
-                <input class="entrada" type="text" id="nova-faixa-etaria" name="nova-faixa-etaria" placeholder="opções: livre, 12+,14+, 16+, 18+">
-            </div>
-            <input type="submit" value="Alterar">
-            </form>
-        </div>
     </div>
+</div>
+
 </body>
 </html>
