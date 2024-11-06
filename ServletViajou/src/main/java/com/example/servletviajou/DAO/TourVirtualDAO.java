@@ -195,7 +195,7 @@ public class TourVirtualDAO {
         }
     }
 
-    public int alterarPreco(int id, double preco){
+    public int alterarPreco(int id, String preco){
         // Instanciando os objetos
         Conexao conexao = new Conexao();
 
@@ -208,8 +208,8 @@ public class TourVirtualDAO {
             // Verificando se a busca teve resultados
             if (busca.next()) {
                 Connection conn = conexao.getConn();
-                PreparedStatement pstmt = conn.prepareStatement("UPDATE tour_virtual SET preco = ? WHERE id = ?");
-                pstmt.setDouble(1, preco);
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE tour_virtual SET preco = CAST(? AS MONEY) WHERE id = ?");
+                pstmt.setString(1, preco);
                 pstmt.setInt(2, id);
                 pstmt.execute();
                 return 1;

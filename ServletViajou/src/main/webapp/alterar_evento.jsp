@@ -137,7 +137,7 @@
                 <option value="18+">18+</option>
             </select>
         </div>
-
+            <input type="submit" value="Alterar">
         <div class="botoes">
             <button>
                 <a href="listar_admin.jsp">Voltar</a>
