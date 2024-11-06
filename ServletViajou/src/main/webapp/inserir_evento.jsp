@@ -1,3 +1,4 @@
+<%@ page import="com.example.servletviajou.Servlet.ValidarData" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -63,6 +64,22 @@
                 <br>
                 <label for="data-termino">Data de término do evento:</label>
                 <input class="entrada" type="text" name="data-termino" id="data-termino" placeholder="Formato: aaaa-mm-dd" required>
+                <input type="hidden" id="url" value="inserir_evento.jsp">
+                <%
+                    try {
+                        ValidarData validarData = new ValidarData();
+                        request.getParameter("data_inicio");
+                        request.getParameter("data_termino");
+
+                        String invalido = (String) request.getAttribute("invalido");
+
+                        if (invalido != null){
+                %>
+                <p class="erro">A data inserida está errada! A data de término não pode ser maior que a de início</p>
+                <% } // fim do if
+                    String valido = (String) request.getAttribute("valido");
+                    if (valido != null){
+                %>
                 <br>
                 <label for="preco-pessoa">Preço por pessoa:</label>
                 <input class="entrada" type="text" name="preco-pessoa" id="preco-pessoa" placeholder="Ex: 34.50" required>
@@ -80,5 +97,11 @@
             </div>
         </form>
     </main>
+    <% } // fim do if
+    } catch (NullPointerException npe){
+        request.setAttribute("erro", "Valores nulos!");
+        request.getRequestDispatcher("error.jsp").forward(request, response);
+    }
+    %>
 </body>
 </html>
