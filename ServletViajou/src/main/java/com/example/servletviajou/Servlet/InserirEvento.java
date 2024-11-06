@@ -47,9 +47,8 @@ public class InserirEvento extends HttpServlet {
             ResultSet busca = atracaoDAO.buscar(id_atracao);
 
             if (busca.next()){
-                int inserirEvento = eventosDAO.inserirEvento(eventos);
-                if (inserirEvento == 1){
-                    int inserir = eventosDAO.inserirEvento(eventos);
+                int inserir = eventosDAO.inserirEvento(eventos);
+                if (inserir == 1){
                     if (inserir == 1) {
                         request.setAttribute("mensagem", "Evento inserido com sucesso!");
                     }else {
@@ -57,7 +56,7 @@ public class InserirEvento extends HttpServlet {
 
                     }
                 }
-                else if (inserirEvento == 0) {
+                else if (inserir == 0) {
                     request.setAttribute("mensagem", "not found");
                 }
                 else {

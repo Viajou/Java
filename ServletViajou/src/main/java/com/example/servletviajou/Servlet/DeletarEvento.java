@@ -22,7 +22,7 @@ public class DeletarEvento extends HttpServlet {
 
         try {
             eventosDAO.deletarEvento(id); // Método deletar implementado no DAO para remover o admin
-            request.getRequestDispatcher("/listar_evento.jsp").forward(request, response);
+            request.getRequestDispatcher("/listar_eventos.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Erro ao deletar administrador.");

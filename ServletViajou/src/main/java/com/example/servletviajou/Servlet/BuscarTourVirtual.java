@@ -48,7 +48,8 @@ public class BuscarTourVirtual extends HttpServlet {
             }
 
         } catch (NumberFormatException nfe){
-            request.setAttribute("erro", "Erro! ID inválido!");
+            String erro = nfe.getMessage();
+            request.setAttribute("errorMessage", erro);
             request.getRequestDispatcher("error.jsp").forward(request, response);
         } catch (SQLException sqle){
             request.setAttribute("erro", "Erro! SQLException: " + sqle.getMessage());

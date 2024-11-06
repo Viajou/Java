@@ -30,16 +30,15 @@
 </header>
 
 <aside>
-    <!-- Barra de navegação lateral com links para diferentes páginas de CRUD -->
     <nav>
         <ul>
             <li><a href="listar_admin.jsp"><img src="images/icone-user-crud.svg" alt="">Admin</a></li>
-            <li><a href="#"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
+            <li><a href="listar_eventos.jsp"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
             <li><a href="listar_plano.jsp"><img src="images/icone-panos-crud.svg" alt="">Planos</a></li>
             <li><a href="listar_excursao.jsp"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
             <li><a href="listar_atracao.jsp"><img src="images/icone-eventos-crud.svg" alt="">Atração</a></li>
             <li><a href="listar_tour_virtual.jsp"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
-            <li><a href="https://area-restrita-main.onrender.com">Área Restrita</a></li>
+            <li><a href="https://area-restrita-main.onrender.com"><img src="images/cadeado.svg" alt="">Área Restrita</a></li>
         </ul>
     </nav>
 </aside>
@@ -116,7 +115,7 @@
                 <td><%= busca.getString("faixa_etaria") %></td>
                 <td>
                     <!-- Link para alterar o evento -->
-                    <a href="alterar_evento.jsp?id=<%= busca.getInt("id") %>&idAtracao=<%= busca.getString("id_atracao") %>&nome=<%= busca.getString("nome") %>&descricao=<%= busca.getString("descricao") %>&capacidade=<%= busca.getInt("capacidade")%>&data_inicio=<%= busca.getDate("data_inicio")%>&data_termino=<%= busca.getDate("data_termino")%>&preco_pessoa=<%= busca.getDouble("preco_pessoa") %>&faixa_etaria=<%= busca.getString("faixa_etaria") %>">
+                    <a href="alterar_evento.jsp?id=<%= busca.getInt("id") %>&nome=<%= busca.getString("nome") %>&descricao=<%= busca.getString("descricao") %>&capacidade=<%= busca.getInt("capacidade")%>&data_inicio=<%= busca.getDate("data_inicio")%>&data_termino=<%= busca.getDate("data_termino")%>&preco_pessoa=<%= busca.getDouble("preco_pessoa") %>&faixa_etaria=<%= busca.getString("faixa_etaria") %>">
                         <button class="deletar">
                             <img src="images/lapis.svg" alt="">
                         </button>
@@ -133,7 +132,10 @@
                     }
                 } catch (SQLException sqle) {
                     // Imprime a stack trace em caso de erro de SQL
-                    sqle.printStackTrace();
+                   response.sendRedirect("error.jsp");
+                }
+                catch (NumberFormatException nfne){
+                    response.sendRedirect("erro.jsp");
                 }
             %>
             </tbody>

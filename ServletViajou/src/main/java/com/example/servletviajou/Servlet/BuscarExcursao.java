@@ -16,13 +16,14 @@ import java.sql.SQLException;
 @WebServlet(name = "buscarExcursao", value = "/BuscarExcursao-servlet")
 public class BuscarExcursao extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String search = request.getParameter("search");
-        ExcursaoDAO excursaoDAO = new ExcursaoDAO();
 
-        int excursaoId = Integer.parseInt(search);
-        ResultSet busca = excursaoDAO.buscar(excursaoId);
 
         try {
+            String search = request.getParameter("search");
+            ExcursaoDAO excursaoDAO = new ExcursaoDAO();
+
+            int excursaoId = Integer.parseInt(search);
+            ResultSet busca = excursaoDAO.buscar(excursaoId);
             // Verifica se o ResultSet está vazio
             if (busca.next()) { // Se não há resultados
                 ResultSet certo = excursaoDAO.buscar(excursaoId);
@@ -36,8 +37,9 @@ public class BuscarExcursao extends HttpServlet {
 
         } catch (NumberFormatException nfe) {
             // Trata o caso onde o ID não é um número válido
-            request.setAttribute("errorMessage", "Por favor, insira um ID válido.");
-            request.getRequestDispatcher("listar_excursao.jsp").forward(request, response);
+            String erro = nfe.getMessage();
+            request.setAttribute("errorMessage", erro);
+            request.getRequestDispatcher("error.jsp").forward(request, response);
         } catch (SQLException sqle) {
             sqle.printStackTrace();
         }

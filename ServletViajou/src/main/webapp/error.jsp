@@ -5,14 +5,15 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-        <link rel="stylesheet" href="CSS/erro.css">
+        <link rel="stylesheet" href="./CSS/error.css">
         <%@ page isErrorPage="true" %>
     </head>
     <body>
     <div>
-        <img src="<%= request.getContextPath() %>/images/erro.svg" alt="">
+        <img src="./images/erro.svg" alt="">
         <h1>Ops, parece que tivemos algum problema</h1>
         <p>Tente novamente mais tarde</p>
+        <p><%= request.getAttribute("errorMessage")%></p>
     </div>
     </body>
 </html>

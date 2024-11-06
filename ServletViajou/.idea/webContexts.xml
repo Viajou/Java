@@ -3,6 +3,7 @@
   <component name="WebContextManager">
     <option name="state">
       <map>
+<<<<<<< HEAD
         <entry key="file://$PROJECT_DIR$/src/main/webapp/AlterarAdmin.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/BuscarAdminPorId.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/ListarAdmins.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
@@ -16,6 +17,9 @@
         <entry key="file://$PROJECT_DIR$/src/main/webapp/listar_tour_virtual.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/mebros.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/membros.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+=======
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/inserir_plano.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+>>>>>>> 0b1f504b2d41f21dae545c4595a9c0ac6a10a529
       </map>
     </option>
   </component>

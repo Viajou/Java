@@ -29,12 +29,12 @@
     <nav>
         <ul>
             <li><a href="listar_admin.jsp"><img src="images/icone-user-crud.svg" alt="">Admin</a></li>
-            <li><a href="#"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
+            <li><a href="listar_eventos.jsp"><img src="images/icone-eventos-crud.svg" alt="">Eventos</a></li>
             <li><a href="listar_plano.jsp"><img src="images/icone-panos-crud.svg" alt="">Planos</a></li>
-            <li><a href="#"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
-            <li><a href="#"><img src="images/icone-eventos-crud.svg" alt="">Atração</a></li>
-            <li><a href="#"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
-            <li><a href="https://area-restrita-main.onrender.com">Área Restrita</a></li>
+            <li><a href="listar_excursao.jsp"><img src="images/icone-excursao-crud.svg" alt="">Excursão</a></li>
+            <li><a href="listar_atracao.jsp"><img src="images/icone-eventos-crud.svg" alt="">Atração</a></li>
+            <li><a href="listar_tour_virtual.jsp"><img src="images/icone-viagemVirtual-crud.svg" alt="">Tour Virtual</a></li>
+            <li><a href="https://area-restrita-main.onrender.com"><img src="images/cadeado.svg" alt="">Área Restrita</a></li>            </ul>
         </ul>
     </nav>
 </aside>
@@ -54,10 +54,10 @@
 
             <label> Livre de propaganda? </label>
             <label>
-                <input class="entrada" type="radio" name="livre_propaganda" value="true" required> Sim
+                <input class="entrada" type="radio" name="livrePropaganda" value="true" required> Sim
             </label>
             <label>
-                <input class="entrada" type="radio" name="livre_propaganda" value="false" required> Não
+                <input class="entrada" type="radio" name="livrePropaganda" value="false" required> Não
             </label>
 
             <label for="preco">Preço do plano: </label>
