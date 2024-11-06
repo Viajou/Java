@@ -130,14 +130,6 @@
             </tbody>
         </table>
     </section>
-    <%
-        } else {
-    %>
-    <!-- Exibe uma mensagem de "não encontrado" se não houver resultados -->
-    <p class="naoEncontrado"><%= request.getAttribute("naoEncontrado") %></p>
-    <%
-        }
-    %>
 </main>
 </body>
 </html>
