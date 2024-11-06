@@ -21,7 +21,7 @@ public class AlterarPlano extends HttpServlet {
             boolean livrePropaganda = Boolean.parseBoolean(request.getParameter("novoLivrePropaganda"));
             String nome = request.getParameter("novoNome");
             double preco = Double.parseDouble(request.getParameter("novoPreco"));
-
+            String precoString = request.getParameter("novoPreco");
             //Instanciando o DAO para alterar os dados
             PlanoDAO planoDAO = new PlanoDAO();
 
@@ -54,7 +54,7 @@ public class AlterarPlano extends HttpServlet {
                     request.setAttribute("erro", "Houve um erro no Banco de Dados. Não foi possível realizar a alteração");
                 }
             }
-            retorno=planoDAO.alterarPreco(id,preco);
+            retorno=planoDAO.alterarPreco(id,precoString);
             if (retorno == 1) {
                 request.setAttribute("mensagem", "Alteração realizada com sucesso!");
             } else if (retorno == 0) {
