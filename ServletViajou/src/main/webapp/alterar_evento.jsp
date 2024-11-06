@@ -81,11 +81,7 @@
             <div class="campo">
                 <p>Para altetrar nome e categoria se dirija ate atrações</p>
             </div>
-<<<<<<< HEAD
         </form>
-x    <form method="post" action="AlterarEventos-servlet?id=<%= request.getParameter("id") %>">
-=======
-        </form> <!-- Fechamento do primeiro form -->
 
     <form method="post" action="AlterarEventos-servlet?id=<%= request.getParameter("id") %>">
         <h2>Novo</h2>
