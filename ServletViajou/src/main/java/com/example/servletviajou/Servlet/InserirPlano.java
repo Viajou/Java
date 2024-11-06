@@ -24,20 +24,22 @@ public class InserirPlano extends HttpServlet {
         String duracao = request.getParameter("duracao");
 
 
-        // Criando o objeto Atracao
+        // Criando o objeto Plano
         PlanoDAO planoDAO = new PlanoDAO();
 
-        //Criando objeto de excursao
+        //Criando objeto de plano
         Plano novoPlano = new Plano(nome,descricao,livrePropaganda,preco,duracao);
 
         try {
-            // Verificando se o email já está cadastrado
-
-            // Inserindo o novo admin
+            // Inserindo o novo plano
             int resultado = planoDAO.inserirPlano(novoPlano);
             if (resultado == 1) {
                 request.setAttribute("retorno", "certo");
-            } else {
+            }
+            else if (resultado == 0) {
+                request.setAttribute("retorno", "not found");
+            }
+            else {
                 request.setAttribute("retorno", "erro");
             }
 

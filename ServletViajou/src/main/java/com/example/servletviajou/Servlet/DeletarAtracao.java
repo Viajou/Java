@@ -15,12 +15,14 @@ import java.util.InputMismatchException;
 @WebServlet(name = "DeletarAtracao", value = "/DeletarAtracao-servlet")
     public class DeletarAtracao extends HttpServlet {
         public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+            // obtendo os dados do formulário
             AtracaoDAO atracaoDAO = new AtracaoDAO();
             try {
+                // instanciando um objeto da classe tourVirtualDAO
                 int id = Integer.parseInt(request.getParameter("id"));
-                // Redirecionando para a página de confirmação
                 try {
-                    int resultado = atracaoDAO.deletarAtracao(id); // Método deletar implementado no DAO para remover o admin
+                    // chamando o método deletar
+                    int resultado = atracaoDAO.deletarAtracao(id);
                     if (resultado ==1) {
                         request.getRequestDispatcher("/listar_atracao.jsp").forward(request, response);
                     }
