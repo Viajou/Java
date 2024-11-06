@@ -120,7 +120,7 @@
                         </button>
                     </a>
                     <!-- Link para deletar o plano, com confirmação -->
-                    <a href="DeletarPlano-servlet?id=<%= planoId %>" onclick="return confirm('Tem certeza que deseja deletar este admin?')">
+                    <a href="DeletarPlano-servlet?id=<%= planoId %>" onclick="return confirm('Tem certeza que deseja deletar este plano?')">
                         <button class="deletar">
                             <img src="images/lixeira.svg" alt="Deletar"></img>
                         </button>
