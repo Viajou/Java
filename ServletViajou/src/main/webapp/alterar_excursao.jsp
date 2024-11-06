@@ -88,7 +88,7 @@
             <br>
 
             <div class="campo">
-                <label for="inicio">Data de início do evento:</label>
+                <label for="inicio">Data de início do excursão:</label>
                 <input type="text" id="inicio" name="inicio"  disabled value="<%= request.getParameter("data_inicio")%>" >
             </div>
 
