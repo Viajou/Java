@@ -46,8 +46,10 @@ import java.sql.SQLException;
         // Redirecionando para a página de confirmação
         try {
             ResultSet rs = excursaoDAO.buscar(novoIdAtracao);
-            if (!rs.next()) {
+            if (!rs.next()) { //se não existir
                 int num = excursaoDAO.inserirExcursao(novaExcursao);
+
+                //verifica os retornos do método
                 if (num == 1) {
                     request.setAttribute("retorno", "certo");
                 } else if (num == 0) {
@@ -58,6 +60,8 @@ import java.sql.SQLException;
             } else {
                 request.setAttribute("retorno", "existente");  // Categoria já existe
             }
+
+        // tratamento de esceção
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
