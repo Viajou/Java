@@ -15,9 +15,15 @@ import java.sql.SQLException;
 public class BuscarAdminPorIdServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        // Obtém o valor do parâmetro de busca fornecido pelo usuário
         String search = request.getParameter("search");
+
+        // instancia a classe DAO
         AdminDAO adminDAO = new AdminDAO();
         int adminId;
+
+        // converte o o valor adquirido para int e passa como parâmetro de buscar
         adminId = Integer.parseInt(search);
         ResultSet busca = adminDAO.buscar(adminId);
 
@@ -26,15 +32,19 @@ public class BuscarAdminPorIdServlet extends HttpServlet {
             if (busca.next()) { // Se não há resultados
                 ResultSet certo = adminDAO.buscar(adminId);
                 request.setAttribute("resultados", certo);
+
                 // Redireciona para a página de listagem
                 request.getRequestDispatcher("listar_admin.jsp").forward(request, response);
             } else {
+
+                //caso contrário, redireciona para a listagem com a mensagem abaixo
                 request.setAttribute("naoEncontrado", "Admin não encontrado...");
                 request.getRequestDispatcher("listar_admin.jsp").forward(request, response);
             }
 
-
+        // tratamento de exceções
         } catch (NumberFormatException nfe) {
+
             // Trata o caso onde o ID não é um número válido
             request.setAttribute("errorMessage", "Por favor, insira um ID válido.");
             request.getRequestDispatcher("error.jsp").forward(request, response);

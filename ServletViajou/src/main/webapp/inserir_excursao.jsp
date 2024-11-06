@@ -54,16 +54,16 @@
 
     <div class="form-container">
         <label for="nome">Nome da excursao: </label>
-        <input class="entrada" type="text" name="nome" id="nome" placeholder="Ex:Catavento">
+        <input class="entrada" type="text" name="nome" id="nome" placeholder="Ex:Catavento" required>
 
         <label for="nome_empresa">Nome da empresa: </label>
-        <input class="entrada" type="text" name="descricao" id="nome_empresa" placeholder="Ex:Museu">
+        <input class="entrada" type="text" name="descricao" id="nome_empresa" placeholder="Ex:Museu" required>
 
         <label for="site">Site da empresa: </label>
-        <input class="entrada" type="text" name="endereco" id="site" placeholder="Ex: Av.Getulio vagas">
+        <input class="entrada" type="text" name="endereco" id="site" placeholder="Ex: Av.Getulio vagas" required>
 
         <label for="capacidade">Capacidade: </label>
-        <input class="entrada" type="text" name="acessibilidade" id="capacidade" placeholder="Ex: true/false">
+        <input class="entrada" type="text" name="acessibilidade" id="capacidade" placeholder="Ex: true/false" required>
         <input hidden="hidden" value="/inserir_excursao">
         <label for="duracao">duração:</label>
         <input class="entrada" type="text" name="categoria" id="duracao" placeholder="Ex: Exposições">

@@ -35,14 +35,17 @@ public class InserirTourVirtual extends HttpServlet {
         TourVirtual novoTourVirtual = new TourVirtual(descricao, video, qntClassificacao, mediaClassificacao, preco, idAtracao, idFigurinhas);
 
         try{
+
+            //armezena o resultado retornado no método e verifica
             int resultado = tourVirtualDAO.inserirTourVirtual(novoTourVirtual);
             if(resultado==1){
-                request.setAttribute("retorno", "certo");
+                request.setAttribute("retorno", "certo"); // retona mensagem ao jsp
             }
             else {
-                request.setAttribute("retorno", "erro");
+                request.setAttribute("retorno", "erro"); // retorna mensagem ao jsp
             }
 
+        // tratamento de exceções
         } catch(Exception e){
             throw new RuntimeException(e);
         }
