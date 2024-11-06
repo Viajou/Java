@@ -22,7 +22,7 @@ public class TourVirtualDAO {
             Connection conn = conexao.getConn();
 
             conexao.conectar();
-            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM tour_virtual");
+            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM tour_virtual order by id");
             rset = pstmt.executeQuery();
             return rset;
         } catch (SQLException e){

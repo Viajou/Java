@@ -41,14 +41,12 @@ label {
 }
 
 .entrada {
-    padding: 10px;
     border: 2px solid #d1d5db;
     border-radius: 10px;
     font-size: 14px;
-    color: #4b5563;
     transition: border-color 0.3s ease;
-    width: 90%; /* Faz o input ocupar toda a largura disponível */
-
+    width: 98%; /* Faz o input ocupar toda a largura disponível */
+    padding: 0.6rem;
 }
 
 .entrada:focus {
@@ -56,11 +54,6 @@ label {
     border-color: #8b5cf6;
 }
 
-input[type="text"]{
-    border: solid 2px gray;
-    border-radius: 5px;
-    padding: 0.6rem;
-}
 
 input[type="submit"],
 button{

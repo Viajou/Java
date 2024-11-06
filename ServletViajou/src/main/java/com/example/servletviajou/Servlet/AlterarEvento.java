@@ -2,9 +2,9 @@ package com.example.servletviajou.Servlet;
 
 import com.example.servletviajou.DAO.AtracaoDAO;
 import com.example.servletviajou.DAO.EventosDAO;
-import com.example.servletviajou.HelloServlet;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -13,7 +13,7 @@ import java.sql.Date;
 import java.sql.Time;
 
 @WebServlet(name = "AlterarEventos", value = "/AlterarEventos-servlet")
-public class AlterarEvento extends HelloServlet {
+public class AlterarEvento extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {

@@ -52,27 +52,27 @@
                 <h2>Atual</h2>
 
                 <label for="nome">Nome da atração: </label>
-                <input type="text" name="nome" id="nome" placeholder="Ex:Catavento">
+                <input class="entrada" type="text" name="nome" id="nome" value="<%= request.getParameter("nome")%>" disabled>
 
                 <br><br>
 
                 <label for="descricao">Descrição da atração: </label>
-                <input type="text" name="descricao" id="descricao" placeholder="Ex:Museu">
+                <input class="entrada" type="text" name="descricao" id="descricao" value="<%= request.getParameter("descricao")%>" disabled>
 
                 <br><br>
 
                 <label for="endereco">Endereço da atração: </label>
-                <input type="text" name="endereco" id="endereco" placeholder="Ex: Av.Getulio vagas">
+                <input class="entrada" type="text" name="endereco" id="endereco" value="<%= request.getParameter("endereco")%>" disabled>
 
                 <br><br>
 
                 <label for="acessibilidade">Acessibilidade da atração: </label>
-                <input type="text" name="acessibilidade" id="acessibilidade" placeholder="Ex: true/false">
+                <input class="entrada" type="text" name="acessibilidade" id="acessibilidade" value="<%= request.getParameter("acessibilidade")%>" disabled>
 
                 <br><br>
 
                 <label for="categoria">Categoria da atração: </label>
-                <input type="text" name="categoria" id="categoria" placeholder="Ex: Exposições">
+                <input class="entrada" type="text" name="categoria" id="categoria" value="<%= request.getParameter("categoria")%>" disabled>
             </form>
 
 
@@ -81,27 +81,33 @@
                 <h2>Novo</h2>
 
                 <label for="novo_nome">Novo nome da atração: </label>
-                <input type="text" name="nome" id="novo_nome" placeholder="Ex:Catavento">
+                <input class="entrada" type="text" name="novoNome" id="novo_nome" placeholder="Ex:Catavento">
 
                 <br><br>
 
                 <label for="nova_descricao">Nova descrição da atração: </label>
-                <input type="text" name="descricao" id="Nova_descricao" placeholder="Ex:Museu">
+                <input class="entrada" type="text" name="novaDescricao" id="nova_descricao" placeholder="Ex:Museu">
 
                 <br><br>
 
                 <label for="novo_endereco">Novo endereço da atração: </label>
-                <input type="text" name="endereco" id="novo_endereco" placeholder="Ex: Av.Getulio vagas">
+                <input class="entrada" type="text" name="novoEndereco" id="novo_endereco" placeholder="Ex: Av.Getulio vagas">
 
                 <br><br>
 
-                <label for="nova_acessibilidade">Nova acessibilidade da atração: </label>
-                <input type="text" name="acessibilidade" id="nova_acessibilidade" placeholder="Ex: true/false">
+
+                <label>Acessibilidade</label>
+                <label>
+                    <input class="entrada" type="radio" name="novaAcessibilidade" value="true">Sim
+                </label>
+                <label>
+                    <input class="entrada" type="radio" name="novaAcessibilidade" value="true">Não
+                </label>
 
                 <br><br>
 
                 <label for="nova_categoria">Nova categoria da atração: </label>
-                <input type="text" name="categoria" id="nova_categoria" placeholder="Ex: Exposições">
+                <input class="entrada" type="text" name="novaCategoria" id="nova_categoria" placeholder="Ex: Exposições">
             </form>
 
 

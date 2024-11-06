@@ -107,9 +107,17 @@
             <input class="entrada" type="text" id="nova-data-termino" name="nova-data-termino" placeholder="Ex: (aaaa-mm-dd)" >
         </div>
         <div class="campo">
-            <label for="nova-faixa-etaria">Nova faixa etaria:</label>
-            <input class="entrada" type="text" id="nova-faixa-etaria" name="nova-faixa-etaria" placeholder="opções: livre, 12+,14+, 16+, 18+">
+            <label for="nova-faixa-etaria">Nova faixa etária:</label>
+            <select class="entrada" id="nova-faixa-etaria" name="nova-faixa-etaria" required>
+                <option value="" disabled selected>Escolha uma opção</option>
+                <option value="livre">Livre</option>
+                <option value="12+">12+</option>
+                <option value="14+">14+</option>
+                <option value="16+">16+</option>
+                <option value="18+">18+</option>
+            </select>
         </div>
+
         <input type="submit" value="Alterar">
         </form>
     </div>

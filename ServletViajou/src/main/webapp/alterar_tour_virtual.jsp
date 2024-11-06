@@ -47,6 +47,10 @@
     <form class="alteracao">
         <h2>Atual</h2>
         <div class="campo">
+            <label for="id">Id atual:</label>
+            <input class="entrada" type="number" id="id" name="id" disabled value="<%= request.getParameter("id") %>">
+        </div>
+        <div class="campo">
             <label for="descricao-atual">Descrição atual:</label>
             <input class="entrada" type="text" id="descricao-atual" name="descricao-atual" disabled value="<%= request.getParameter("descricao")%> " >
         </div>
