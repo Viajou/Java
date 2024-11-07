@@ -25,10 +25,10 @@ public class BuscarAtracao extends HttpServlet {
 
             // Executa a busca do evento no banco de dados usando o ID
             int atracaoId = Integer.parseInt(id);
-            ResultSet busca = atracaoDAO.buscar(atracaoId);
+            ResultSet rset = atracaoDAO.buscar(atracaoId);
 
             // Verifica se o ResultSet está vazio
-            if (busca.next()) { // Se não há resultados
+            if (rset.next()) { // Se não há resultados
                 ResultSet certo = atracaoDAO.buscar(atracaoId);// Realiza novamente a busca para obter os dados completos
 
                 request.setAttribute("resultados", certo);// Atribui o resultado da busca à requisição

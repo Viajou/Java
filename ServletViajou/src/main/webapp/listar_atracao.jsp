@@ -89,36 +89,36 @@
             <tbody>
             <%
                 // Recupera o ResultSet de atrações ou consulta o banco de dados se não houver resultados na requisição
-                ResultSet busca = (ResultSet) request.getAttribute("resultados");
-                if (busca == null) {
+                ResultSet rset = (ResultSet) request.getAttribute("resultados");
+                if (rset == null) {
                     AtracaoDAO atracaoDAO = new AtracaoDAO();
-                    busca = atracaoDAO.buscar();
+                    rset = atracaoDAO.buscar();
                 }
             %>
             <%
                 try {
                     // Itera sobre os resultados para exibir as atrações
-                    while (busca.next()) {
+                    while (rset.next()) {
 
             %>
             <tr>
-                <td><%= busca.getInt("id") %></td>
-                <td><%= busca.getString("nome") %></td>
-                <td><%= busca.getString("descricao") %></td>
-                <td><%= busca.getString("endereco") %></td>
-                <td><%= busca.getBoolean("acessibilidade") %></td>
-                <td><%= busca.getString("categoria") %></td>
-                <td><%= busca.getString("data_criacao") %></td>
-                <td><%= busca.getString("data_atualizacao") %></td>
+                <td><%= rset.getInt("id") %></td>
+                <td><%= rset.getString("nome") %></td>
+                <td><%= rset.getString("descricao") %></td>
+                <td><%= rset.getString("endereco") %></td>
+                <td><%= rset.getBoolean("acessibilidade") %></td>
+                <td><%= rset.getString("categoria") %></td>
+                <td><%= rset.getString("data_criacao") %></td>
+                <td><%= rset.getString("data_atualizacao") %></td>
 
                 <td>
                     <!-- Link para alterar atração -->
-                    <a href="alterar_atracao.jsp?id=<%= busca.getInt("id") %>&nome=<%= busca.getString("nome") %>&descricao=<%= busca.getString("descricao") %>&endereco=<%= busca.getString("endereco") %>&acessibilidade=<%= busca.getBoolean("acessibilidade") %>&categoria=<%= busca.getString("categoria") %>">
+                    <a href="alterar_atracao.jsp?id=<%= rset.getInt("id") %>&nome=<%= rset.getString("nome") %>&descricao=<%= rset.getString("descricao") %>&endereco=<%= rset.getString("endereco") %>&acessibilidade=<%= rset.getBoolean("acessibilidade") %>&categoria=<%= rset.getString("categoria") %>">
                         <button class="deletar">
                             <img src="images/lapis.svg" alt="">
                         </button>
                     </a>
-                    <a href="DeletarAtracao-servlet?id=<%= busca.getInt("id") %>" onclick="return confirm('Tem certeza que deseja deletar esta atração?')">
+                    <a href="DeletarAtracao-servlet?id=<%= rset.getInt("id") %>" onclick="return confirm('Tem certeza que deseja deletar esta atração?')">
 
                         <button class="deletar">
                             <img src="images/lixeira.svg" alt="">
@@ -140,11 +140,11 @@
         }else {
     %>
     <!-- Exibe uma mensagem de "não encontrado" se não houver resultados -->
-    <p class="naoEncontrado"><%= naoEncontrado %></p>
+    <p class="nao-encontrado"><%= naoEncontrado %></p>
     <%
         }
     %>
-    %>
+
 </main>
 </body>
 </html>

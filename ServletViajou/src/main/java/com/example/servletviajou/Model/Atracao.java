@@ -22,10 +22,6 @@ public class Atracao {
         this.categoria = categoria;
     }
 
-    // Construtor Vazio
-    public Atracao() {
-    }
-
 //  Métodos Getters e Setters
     // O ID não pode ser alterado, então apenas o método get é criado para acessá-lo
     public int getId() { return this.id; }

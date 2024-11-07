@@ -118,10 +118,10 @@ public class AtracaoDAO {
         conexao.conectar();
         try{
             // Verificando se o atração existe
-            ResultSet busca = buscar(id);
+            ResultSet rset = buscar(id);
 
             // Verificando se a busca teve resultados
-            if (busca.next()) {
+            if (rset.next()) {
                 Connection conn = conexao.getConn();
                 // Obtendo a data atual
                 Date dataAtual = Date.valueOf(LocalDate.now());
@@ -151,10 +151,10 @@ public class AtracaoDAO {
         conexao.conectar();
         try{
             // Verificando se o atração existe
-            ResultSet busca = buscar(id);
+            ResultSet rset = buscar(id);
 
             // Verificando se a busca teve resultados
-            if (busca.next()) {
+            if (rset.next()) {
                 Connection conn = conexao.getConn();
                 // Obtendo a data atual
                 Date dataAtual = Date.valueOf(LocalDate.now());
@@ -185,10 +185,10 @@ public class AtracaoDAO {
         conexao.conectar();
         try{
             // Verificando se o atracao existe
-            ResultSet busca = buscar(id);
+            ResultSet rset = buscar(id);
 
             // Verificando se a busca teve resultados
-            if (busca.next()) {
+            if (rset.next()) {
                 Connection conn = conexao.getConn();
                 // Obtendo a data atual
                 Date dataAtual = Date.valueOf(LocalDate.now());
@@ -218,10 +218,10 @@ public class AtracaoDAO {
         conexao.conectar();
         try{
             // Verificando se a atração existe
-            ResultSet busca = buscar(id);
+            ResultSet rset = buscar(id);
 
             // Verificando se a busca teve resultados
-            if (busca.next()) {
+            if (rset.next()) {
                 Connection conn = conexao.getConn();
                 // Obtendo a data atual
                 Date dataAtual = Date.valueOf(LocalDate.now());
@@ -250,10 +250,10 @@ public class AtracaoDAO {
         conexao.conectar();
         try {
             // Verificando se a a busca teve resultados
-            ResultSet busca = buscar(id);
+            ResultSet rset = buscar(id);
 
             // Verificando se a busca teve resultados
-            if (busca.next()) {
+            if (rset.next()) {
                 Connection conn = conexao.getConn();
                 PreparedStatement pstmt = conn.prepareStatement("DELETE FROM atracao WHERE id = ?");
                 pstmt.setInt(1,id);

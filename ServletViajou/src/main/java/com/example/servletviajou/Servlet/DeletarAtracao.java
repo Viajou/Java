@@ -24,7 +24,6 @@ import java.util.InputMismatchException;
         AtracaoDAO atracaoDAO = new AtracaoDAO();
 
         try {
-            atracaoDAO.deletarAtracao(id); // Método deletar implementado no DAO para remover o admin
             int resultado = atracaoDAO.deletarAtracao(id); // Método deletar implementado no DAO para remover o admin
 
             //armazena o valor retornado pelo método e o verifica
@@ -34,11 +33,11 @@ import java.util.InputMismatchException;
 
             } else if (resultado == 0) {
                 request.setAttribute("erro", "Erro! Não foi possível excluir esta atração!");
-                response.sendRedirect("error.jsp"); // quando der erro, redireciona para a página jsp de erro
+                request.getRequestDispatcher("error.jsp"); // quando der erro, redireciona para a página jsp de erro
 
             } else if (resultado == -1) {
                 request.setAttribute("erro", "Erro! Não foi possível excluir esta atração!");
-                request.getRequestDispatcher("erro.jsp").forward(request, response); // retorna o erro para a página de erro
+                request.getRequestDispatcher("error.jsp").forward(request, response); // retorna o erro para a página de erro
             }
         }catch (Exception e){
             e.printStackTrace();
