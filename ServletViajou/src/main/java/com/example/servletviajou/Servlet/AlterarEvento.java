@@ -18,7 +18,7 @@ public class AlterarEvento extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            // obntendo valores do formulário
+            // obtendo valores do formulário
 
             int id = Integer.parseInt(request.getParameter("id"));
             String faixaEtaria = request.getParameter("nova-faixa-etaria");
@@ -29,11 +29,11 @@ public class AlterarEvento extends HttpServlet {
             String StringdataTermino = request.getParameter("nova-data-termino");
             String StringprecoPessoa = request.getParameter("novo-preco-pessoa");
 
-            //instanciando a classe EventosDAO
+            //instanciando um objeto da classe EventosDAO
             EventosDAO eventosDAO = new EventosDAO();
 
 
-            //verificando e alterando faixa etária
+            //verifica e altera faixa etária
             if (faixaEtaria != null && !faixaEtaria.isEmpty()) { // se não for vazio
                 int situacao = eventosDAO.alterarFaixaEtaria(id, faixaEtaria);
 
@@ -47,7 +47,7 @@ public class AlterarEvento extends HttpServlet {
                 }
             }
 
-            // verificando e alterando descricao
+            // verifica e altera descricao
             if (descricao != null && !descricao.isEmpty()) { // se não for vazio
                 int situacao = eventosDAO.alterarDescricao(id, descricao);
 
@@ -61,7 +61,7 @@ public class AlterarEvento extends HttpServlet {
                 }
             }
 
-            //verificando e alterando a capacidade
+            //verifica e altera a capacidade
             if (Stringcapacidade != null && !Stringcapacidade.isEmpty()) { // se não for vazio
                 try {
                     int capacidade = Integer.parseInt(Stringcapacidade);
@@ -80,7 +80,7 @@ public class AlterarEvento extends HttpServlet {
                 }
             }
 
-            // verificando e alterando o horiário
+            // verifica e altera o horiário
             if (Stringhorario != null && !Stringhorario.isEmpty()) { // se não for vazio
                 if (Stringhorario.length() == 5) {
                     Stringhorario += ":00";
@@ -98,7 +98,7 @@ public class AlterarEvento extends HttpServlet {
                 }
             }
 
-            //verificando e alterando a data de início
+            //verifica e altera a data de início
             if (StringdataInicio != null && !StringdataInicio.isEmpty()) { // se não for vazio
                 Date dataInicio = Date.valueOf(StringdataInicio);
                 int situacao = eventosDAO.alterarDataInicio(id, dataInicio);
@@ -113,7 +113,7 @@ public class AlterarEvento extends HttpServlet {
                 }
             }
 
-            //verificando e alterando a data de término
+            //verifica e altera a data de término
             if (StringdataTermino != null && !StringdataTermino.isEmpty()) { // se não for vazio
                 Date dataTermino = Date.valueOf(StringdataTermino);
                 int situacao = eventosDAO.alterarDataTermino(id, dataTermino);
@@ -128,7 +128,7 @@ public class AlterarEvento extends HttpServlet {
                 }
             }
 
-            //verificando e alterando o preco por pessoa
+            //verifica e altera o preco por pessoa
             if (StringprecoPessoa != null && !StringprecoPessoa.isEmpty()) { // se não for vazio
                 double precoPessoa = Double.parseDouble(StringprecoPessoa);
                 int situacao = eventosDAO.alterarPrecoPessoa(id, precoPessoa);
@@ -143,14 +143,16 @@ public class AlterarEvento extends HttpServlet {
                 }
             }
 
-        //tratamento de ecxeção
+        //tratamento de exceção
         }catch (Exception e){
             request.setAttribute("mensagem", "Erro ao alterar eventos: " + e.getMessage());
 
         }
 
-        // dando o caminho de resposta do servlet
-        request.getRequestDispatcher("alterar_eventos.jsp").forward(request, response);
+        request.setAttribute("caminho", "listar_eventos.jsp");
+        request.setAttribute("sucessMessage", "sucesso");
+        request.getRequestDispatcher("sucesso.jsp").forward(request, response);
+
     }
 
 

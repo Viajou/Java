@@ -49,8 +49,8 @@ import java.io.IOException;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        // Redirecionando para uma página de confirmação ou erro
-        request.getRequestDispatcher("/listar_atracao.jsp").forward(request, response);
-
+        request.setAttribute("caminho", "listar_atracao.jsp");
+        request.setAttribute("sucessMessage", "sucesso");
+        request.getRequestDispatcher("sucesso.jsp").forward(request, response);
     }
 }

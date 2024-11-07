@@ -24,6 +24,13 @@
         String urlImagem = (String) sessao.getAttribute("urlImagem");
         String nomeAdmin = (String) sessao.getAttribute("nomeAdmin");
     %>
+
+    <!-- Adiciona a imagem do admin logado, se existir -->
+    <div class="usuario">
+        <img src="<%= urlImagem %>" alt="" class="admin-image">
+        <h3 class="admin-name"><%= nomeAdmin %></h3>
+    </div>
+
 </header>
 <aside>
     <nav>
@@ -92,10 +99,10 @@
                 try {
                     // Itera sobre os resultados para exibir as atrações
                     while (busca.next()) {
-                        int atracaoId = busca.getInt("id");
+
             %>
             <tr>
-                <td><%= atracaoId %></td>
+                <td><%= busca.getInt("id") %></td>
                 <td><%= busca.getString("nome") %></td>
                 <td><%= busca.getString("descricao") %></td>
                 <td><%= busca.getString("endereco") %></td>
@@ -111,8 +118,8 @@
                             <img src="images/lapis.svg" alt="">
                         </button>
                     </a>
-                    <!-- Link para deletar atração, com confirmação -->
-                    <a href="DeletarAtracao-servlet?id=<%= atracaoId %>" onclick="return confirm('Tem certeza que deseja deletar esta atração?')">
+                    <a href="DeletarAtracao-servlet?id=<%= busca.getInt("id") %>" onclick="return confirm('Tem certeza que deseja deletar esta atração?')">
+
                         <button class="deletar">
                             <img src="images/lixeira.svg" alt="">
                         </button>

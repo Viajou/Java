@@ -57,7 +57,9 @@ public class AlterarAdmin extends HttpServlet {
 
         }
 
-        //direcionando caminho da resposta
-        request.getRequestDispatcher("listar_admin.jsp").forward(request, response);
+        request.setAttribute("caminho", "listar_admin.jsp");
+        request.setAttribute("sucessMessage", "sucesso");
+        request.getRequestDispatcher("sucesso.jsp").forward(request, response);
+
     }
 }

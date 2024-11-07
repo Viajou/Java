@@ -24,7 +24,7 @@
 
     <!-- Adiciona a imagem do admin logado, se existir -->
     <div class="usuario">
-        <img src="<%= urlImagem %>" alt="Imagem do Admin" class="admin-image">
+        <img src="<%= urlImagem %>" alt="" class="admin-image">
         <h3 class="admin-name"><%= nomeAdmin %></h3>
     </div>
 </header>
@@ -130,9 +130,8 @@
                 </div>
 
             </form>
-
-
        </div>
+
 
   </div>
 </body>

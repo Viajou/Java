@@ -8,7 +8,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alterar Administrador</title>
     <link rel="stylesheet" href="CSS/Alterar.css">
     <title>Alterar Evento</title>
     <link rel="stylesheet" href="CSS/alterar2.css">
@@ -26,7 +25,7 @@
 
     <!-- Adiciona a imagem do admin logado, se existir -->
     <div class="usuario">
-        <img src="<%= urlImagem %>" alt="Imagem do Admin" class="admin-image">
+        <img src="<%= urlImagem %>" alt="" class="admin-image">
         <h3 class="admin-name"><%= nomeAdmin %></h3>
     </div>
 </header>
@@ -80,7 +79,7 @@
                 <input class="entrada" type="text" id="faixa_etariaAtual" name="faixa_etariaAtual" disabled value=" <%= request.getParameter("faixa_etaria")%>" >
             </div>
             <div class="campo">
-                <p>Para altetrar nome e categoria se dirija ate atrações</p>
+                <p>Para alterar nome e categoria vá até atrações</p>
             </div>
         </form> <!-- Fechamento do primeiro form -->
 

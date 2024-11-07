@@ -22,7 +22,7 @@ import java.util.InputMismatchException;
             String endereco = request.getParameter("novoEndereco");
             String Stringacessibilidade = request.getParameter("novaAcessibilidade");
             String categoria = request.getParameter("novaCategoria");
-            // Instanciando o DAO para alterar os dados
+            //instanciando um objeto da classe AtracaoDAO
             AtracaoDAO atracaoDAO = new AtracaoDAO();
 
 
@@ -60,12 +60,16 @@ import java.util.InputMismatchException;
             if (categoria != null && !categoria.isEmpty()) {
                 atracaoDAO.alterarCategoria(id, categoria);
             }
+            request.setAttribute("caminho", "listar_atracao.jsp");
+            request.setAttribute("sucessMessage", "sucesso");
+            request.getRequestDispatcher("sucesso.jsp").forward(request, response);
 
         // tratamento de exceção
         }catch (Exception e){
             request.setAttribute("mensagem", "Erro ao alterar admin: " + e.getMessage());
-
         }
-        request.getRequestDispatcher("listar_atracao.jsp").forward(request, response);
+
+
+
     }
 }

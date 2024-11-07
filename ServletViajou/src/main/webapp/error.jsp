@@ -7,6 +7,7 @@
         <title>Document</title>
         <link rel="stylesheet" href="./CSS/error.css">
         <%@ page isErrorPage="true" %>
+        <meta http-equiv="refresh" content="5; URL='<%= request.getAttribute("caminho")%>'" />
     </head>
     <body>
     <div>

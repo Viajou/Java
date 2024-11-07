@@ -126,6 +126,10 @@ import java.sql.Date;
         } catch (Exception e) {
             request.setAttribute("mensagem", "Erro ao alterar a excursão: " + e.getMessage());
         }
-        request.getRequestDispatcher("alterar_excursao.jsp").forward(request, response);
+
+        request.setAttribute("caminho", "listar_excursao.jsp");
+        request.setAttribute("sucessMessage", "sucesso");
+        request.getRequestDispatcher("sucesso.jsp").forward(request, response);
+
     }
 }

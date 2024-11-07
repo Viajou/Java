@@ -21,6 +21,7 @@ public class DeletarPlano extends HttpServlet {
         PlanoDAO planoDAO = new PlanoDAO();
 
         try {
+<<<<<<< HEAD
             int resultado = planoDAO.deletarPlano(id); // Método deletar implementado no DAO para remover o admin
 
             //armazena o valor retornado pelo método e o verifica
@@ -41,6 +42,11 @@ public class DeletarPlano extends HttpServlet {
             request.getRequestDispatcher("/listar_plano.jsp").forward(request, response);
 
             //tratamento de exceção
+=======
+            // chamando o método deletar
+            planoDAO.deletarPlano(id);
+            request.getRequestDispatcher("listar_plano.jsp").forward(request, response);
+>>>>>>> eb423f62b67a92629230d1f62e9bf79a7467eb83
         } catch (Exception e) {
             e.printStackTrace();
             response.sendRedirect("Erro ao deletar administrador.");

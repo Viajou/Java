@@ -1,17 +1,4 @@
-<%@ page import="java.time.LocalDate" %>
-<%@ page import="java.time.DateTimeException" %>
-<%@ page import="java.util.Date" %>
-<%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="com.example.servletviajou.Servlet.ValidarData" %><%--
-  Created by IntelliJ IDEA.
-  User: biancaclarindo-ieg
-  Date: 03/11/2024
-  Time: 19:31
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
-<html lang="pt-BR">
+<%@ page import="com.example.servletviajou.Servlet.ValidarData" %>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

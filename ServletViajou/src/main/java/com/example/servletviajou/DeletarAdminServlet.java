@@ -21,12 +21,19 @@ public class DeletarAdminServlet extends HttpServlet {
         AdminDAO adminDAO = new AdminDAO();
 
         try {
+            adminDAO.deletarAdmin(id); // Método deletar implementado no DAO para remover o admin
             int resultado = adminDAO.deletarAdmin(id); // Método deletar implementado no DAO para remover o admin
+
 
             //armazena o valor retornado pelo método e o verifica
             if(resultado == 1){
+<<<<<<< HEAD
                 request.setAttribute("mensagem", "Admin excluído com sucesso!");
                 request.setAttribute("caminho","paginaSucesso.jsp"); // retorna a mensagem de sucess
+=======
+                request.setAttribute("caminho", "listar_admin.jsp");
+                request.getRequestDispatcher("sucesso.jsp").forward(request, response);
+>>>>>>> eb423f62b67a92629230d1f62e9bf79a7467eb83
             }
             else if(resultado == 0){
                 request.setAttribute("erro", "Erro! Não foi possível excluir este admin!");
@@ -34,11 +41,8 @@ public class DeletarAdminServlet extends HttpServlet {
             }
             else if(resultado == -1){
                 request.setAttribute("erro", "Erro! Não foi possível excluir este admin!");
-                request.getRequestDispatcher("erro.jsp").forward(request, response); // retorna o erro para a página de erro
+                request.getRequestDispatcher("error.jsp").forward(request, response); // retorna o erro para a página de erro
             }
-
-            //redireciona de volta ao listar
-            request.getRequestDispatcher("/listar_admin.jsp").forward(request, response);
 
         //tratamento de exceção
         } catch (Exception e) {
