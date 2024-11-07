@@ -35,49 +35,20 @@ public class AlterarEvento extends HttpServlet {
 
             //verifica e altera faixa etária
             if (faixaEtaria != null && !faixaEtaria.isEmpty()) { // se não for vazio
-                int situacao = eventosDAO.alterarFaixaEtaria(id, faixaEtaria);
+                eventosDAO.alterarFaixaEtaria(id, faixaEtaria);
 
-                //veriifca o retorno dos métodos das classes DAO
-                if (situacao == 1) {
-                    request.setAttribute("mensagem", "Alterado com sucesso!");
-                }else if (situacao == 0) {
-                    request.setAttribute("mensagem", "Erro no alterar faixa étaria, verique sefoi colocado no formato correto.");
-                }else {
-                    request.setAttribute("mensagem", "Erro no alterar faixa étaria, verique sefoi colocado no formato correto.");
-                }
             }
 
             // verifica e altera descricao
             if (descricao != null && !descricao.isEmpty()) { // se não for vazio
-                int situacao = eventosDAO.alterarDescricao(id, descricao);
-
-                //veriifca o retorno dos métodos das classes DAO
-                if (situacao == 1) {
-                    request.setAttribute("mensagem", "Alterado com sucesso!");
-                }else if (situacao == 0) {
-                    request.setAttribute("mensagem", "Erro no alterar descricao, verique sefoi colocado no formato correto.");
-                }else {
-                    request.setAttribute("mensagem", "Erro no alterar alterar descricao, verique sefoi colocado no formato correto.");
-                }
+                eventosDAO.alterarDescricao(id, descricao);
             }
 
             //verifica e altera a capacidade
             if (Stringcapacidade != null && !Stringcapacidade.isEmpty()) { // se não for vazio
-                try {
-                    int capacidade = Integer.parseInt(Stringcapacidade);
-                    int situacao = eventosDAO.alterarCapacidade(id, capacidade);
 
-                    //veriifca o retorno dos métodos das classes DAO
-                    if (situacao == 1) {
-                        request.setAttribute("mensagem", "Alterado com sucesso!");
-                    }else if (situacao == 0) {
-                        request.setAttribute("mensagem", "Erro no alterar data de inicio, verique sefoi colocado no formato correto.");
-                    }else {
-                        request.setAttribute("mensagem", "Erro no alterar data de inicio, verique sefoi colocado no formato correto.");
-                    }
-                } catch (NumberFormatException e) {
-                    request.setAttribute("mensagem", "Erro ao alterar admin: " + e.getMessage());
-                }
+                int capacidade = Integer.parseInt(Stringcapacidade);
+                eventosDAO.alterarCapacidade(id, capacidade);
             }
 
             // verifica e altera o horiário
@@ -86,61 +57,29 @@ public class AlterarEvento extends HttpServlet {
                     Stringhorario += ":00";
                 }
                 Time horario = Time.valueOf(Stringhorario);
-                int situacao = eventosDAO.alterarHorario(id, horario);
+                eventosDAO.alterarHorario(id, horario);
 
-                //veriifca o retorno dos métodos das classes DAO
-                if (situacao == 1) {
-                    request.setAttribute("mensagem", "Alterado com sucesso!");
-                }else if (situacao == 0) {
-                    request.setAttribute("mensagem", "Erro no alterar horário, verique se foi colocado no formato correto.");
-                }else {
-                    request.setAttribute("mensagem", "Erro no alterar horário, verique se foi colocado no formato correto.");
-                }
             }
 
             //verifica e altera a data de início
             if (StringdataInicio != null && !StringdataInicio.isEmpty()) { // se não for vazio
                 Date dataInicio = Date.valueOf(StringdataInicio);
-                int situacao = eventosDAO.alterarDataInicio(id, dataInicio);
+                eventosDAO.alterarDataInicio(id, dataInicio);
 
-                //veriifca o retorno dos métodos das classes DAO
-                if (situacao == 1) {
-                    request.setAttribute("mensagem", "Alterado com sucesso!");
-                }else if (situacao == 0) {
-                    request.setAttribute("mensagem", "Erro no alterar data de inicio, verique se foi colocado no formato correto.");
-                }else {
-                    request.setAttribute("mensagem", "Erro no alterar data de inicio, verique se foi colocado no formato correto.");
-                }
             }
 
             //verifica e altera a data de término
             if (StringdataTermino != null && !StringdataTermino.isEmpty()) { // se não for vazio
                 Date dataTermino = Date.valueOf(StringdataTermino);
-                int situacao = eventosDAO.alterarDataTermino(id, dataTermino);
+                eventosDAO.alterarDataTermino(id, dataTermino);
 
-                //veriifca o retorno dos métodos das classes DAO
-                if (situacao == 1) {
-                    request.setAttribute("mensagem", "Alterado com sucesso!");
-                }else if (situacao == 0) {
-                    request.setAttribute("mensagem", "Erro no alterar data de termino, verique se foi colocado no formato correto.");
-                }else {
-                    request.setAttribute("mensagem", "Erro no alterar data de termino, verique se foi colocado no formato correto.");
-                }
             }
 
             //verifica e altera o preco por pessoa
             if (StringprecoPessoa != null && !StringprecoPessoa.isEmpty()) { // se não for vazio
                 double precoPessoa = Double.parseDouble(StringprecoPessoa);
-                int situacao = eventosDAO.alterarPrecoPessoa(id, precoPessoa);
+                eventosDAO.alterarPrecoPessoa(id, precoPessoa);
 
-                //veriifca o retorno dos métodos das classes DAO
-                if (situacao == 1) {
-                    request.setAttribute("mensagem", "Alterado com sucesso!");
-                }else if (situacao == 0) {
-                    request.setAttribute("mensagem", "Erro no alterar preço por pessoa, verique se foi colocado no formato correto.");
-                }else {
-                    request.setAttribute("mensagem", "Erro no alterar preço por pessoa, verique se foi colocado no formato correto.");
-                }
             }
 
         //tratamento de exceção

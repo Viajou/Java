@@ -38,11 +38,13 @@
     </aside>
     <main>
         <h1>Inserir um novo evento</h1>
-        <form action="InserirEvento-servlet" method="post">
+        <form action="InserirEvento-servlet" method="post" >
+
             <div class="form-container">
+
                 <div class="campo">
                     <label for="faixa-etaria">Faixa etária:</label>
-                    <select class="entrada" id="faixa-etaria" name="nova-faixa-etaria" required>
+                    <select class="entrada" id="faixa-etaria" name="faixa-etaria" required>
                         <option value="" disabled selected>Escolha uma opção</option>
                         <option value="livre">Livre</option>
                         <option value="12+">12+</option>
@@ -51,43 +53,34 @@
                         <option value="18+">18+</option>
                     </select>
                 </div>
+
                 <label for="descricao">Descrição do evento:</label>
                 <input class="entrada" type="text" name="descricao" id="descricao" placeholder="Ex: Evento de música ao vivo" required>
+
                 <br>
                 <label for="capacidade">Capacidade do evento:</label>
                 <input class="entrada" type="text" name="capacidade" id="capacidade" placeholder="Ex: 1500" required>
+
                 <br>
                 <label for="horario">Horário do evento:</label>
                 <input class="entrada" type="text" name="horario" id="horario" placeholder="Ex: 15:30" required>
+
                 <br>
                 <label for="data-inicio">Data de início do evento:</label>
-                <input type="text" name="data-inicio" id="data-inicio" placeholder="Formato: aaaa-mm-dd" pattern="\d{4}-\d{2}-\d{2}" required>
+                <input class="entrada" type="text" name="data-inicio" id="data-inicio" placeholder="Formato: aaaa-mm-dd" pattern="\d{4}-\d{2}-\d{2}" required>
+
                 <br>
                 <label for="data-termino">Data de término do evento:</label>
-                <input type="text" name="data-termino" id="data-termino" placeholder="Formato: aaaa-mm-dd" pattern="\d{4}-\d{2}-\d{2}" required>
-                <br>
-                <input type="hidden" id="url" value="inserir_evento.jsp">
-                <%
-                    try {
-                        ValidarData validarData = new ValidarData();
-                        request.getParameter("data_inicio");
-                        request.getParameter("data_termino");
+                <input class="entrada" type="text" name="data-termino" id="data-termino" placeholder="Formato: aaaa-mm-dd" pattern="\d{4}-\d{2}-\d{2}" required>
 
-                        String invalido = (String) request.getAttribute("invalido");
-
-                        if (invalido != null){
-                %>
-                <p class="erro">A data inserida está errada! A data de término não pode ser maior que a de início</p>
-                <% } // fim do if
-                    String valido = (String) request.getAttribute("valido");
-                    if (valido != null){
-                %>
                 <br>
                 <label for="preco-pessoa">Preço por pessoa:</label>
                 <input class="entrada" type="text" name="preco-pessoa" id="preco-pessoa" placeholder="Ex: 34.50" required>
+
                 <br>
                 <label for="id-tour">ID do tour virtual:</label>
                 <input class="entrada" type="text" name="id-tour" id="id-tour" placeholder="Ex: 76" required>
+
                 <br>
                 <label for="id-atracao">ID da atração:</label>
                 <input class="entrada" type="text" name="id-atracao" id="id-atracao" placeholder="Ex: 76" required>
@@ -95,15 +88,10 @@
 
             <div class="botoes2">
                 <a  class="voltar" href="listar_eventos.jsp">Voltar</a>
-                <input type="submit" value="Inserir tour">
+                <input type="submit" value="Inserir">
             </div>
         </form>
     </main>
-    <% } // fim do if
-    } catch (NullPointerException npe){
-        request.setAttribute("erro", "Valores nulos!");
-        request.getRequestDispatcher("error.jsp").forward(request, response);
-    }
-    %>
+
 </body>
 </html>
