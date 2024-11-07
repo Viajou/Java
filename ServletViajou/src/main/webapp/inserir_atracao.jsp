@@ -18,7 +18,7 @@
 <body>
 
 <header>
-    <img src="images/Viajou logo pequena.svg" alt="Viajou Logo" id="Viajou-logo">
+    <img src="images/Viajou logo pequena.svg" alt="Viajou Logo" id="viajou-logo">
     <%
         // Recupera a URL da imagem e nome do admin armazenados na sessão
         HttpSession sessao = request.getSession();

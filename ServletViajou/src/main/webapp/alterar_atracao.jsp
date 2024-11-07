@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="CSS/encontrado.css">
 </head>
 <header>
-    <img src="images/Viajou logo pequena.svg" alt="Viajou Logo" id="Viajou-logo">
+    <img src="images/Viajou logo pequena.svg" alt="Viajou Logo" id="viajou-logo">
     <%
         // Recupera a URL da imagem e nome do admin armazenados na sessão
         HttpSession sessao = request.getSession();
@@ -96,33 +96,33 @@
                 <h2>Novo</h2>
 
                 <div class="campo">
-                    <label for="novo_nome">Novo nome da atração: </label>
-                    <input class="entrada" type="text" name="novoNome" id="novo_nome" placeholder="Ex:Catavento">
+                    <label for="novo-nome">Novo nome da atração: </label>
+                    <input class="entrada" type="text" name="novo-nome" id="novo-nome" placeholder="Ex:Catavento">
                 </div>
 
                 <div class="campo">
-                    <label for="nova_descricao">Nova descrição da atração: </label>
-                    <input class="entrada" type="text" name="novaDescricao" id="nova_descricao" placeholder="Ex:Museu">
+                    <label for="nova-descricao">Nova descrição da atração: </label>
+                    <input class="entrada" type="text" name="nova-descricao" id="nova-descricao" placeholder="Ex:Museu">
                 </div>
 
                 <div class="campo">
-                    <label for="novo_endereco">Novo endereço da atração: </label>
-                    <input class="entrada" type="text" name="novoEndereco" id="novo_endereco" placeholder="Ex: Av.Getulio vagas">
+                    <label for="novo-endereco">Novo endereço da atração: </label>
+                    <input class="entrada" type="text" name="novo-endereco" id="novo-endereco" placeholder="Ex: Av.Getulio vagas">
                 </div>
 
                 <div class="campo">
                     <label>Acessibilidade</label>
                     <label>
-                        <input class="entrada" type="radio" name="novaAcessibilidade" value="true">Sim
+                        <input class="entrada" type="radio" name="nova-acessibilidade" value="true">Sim
                     </label>
                     <label>
-                        <input class="entrada" type="radio" name="novaAcessibilidade" value="true">Não
+                        <input class="entrada" type="radio" name="nova-acessibilidade" value="true">Não
                     </label>
                 </div>
 
                 <div class="campo">
-                    <label for="nova_categoria">Nova categoria da atração: </label>
-                    <input class="entrada" type="text" name="novaCategoria" id="nova_categoria" placeholder="Ex: Exposições">
+                    <label for="nova-categoria">Nova categoria da atração: </label>
+                    <input class="entrada" type="text" name="nova-categoria" id="nova-categoria" placeholder="Ex: Exposições">
                 </div>
 
                 <div class="botoes">

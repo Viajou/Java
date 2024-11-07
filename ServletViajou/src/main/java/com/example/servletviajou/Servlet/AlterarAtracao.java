@@ -20,7 +20,7 @@ import java.util.InputMismatchException;
             String nome = request.getParameter("novoNome");
             String descricao = request.getParameter("novaDescricao");
             String endereco = request.getParameter("novoEndereco");
-            String Stringacessibilidade = request.getParameter("novaAcessibilidade");
+            String strAcessibilidade = request.getParameter("novaAcessibilidade");
             String categoria = request.getParameter("novaCategoria");
             //instanciando um objeto da classe AtracaoDAO
             AtracaoDAO atracaoDAO = new AtracaoDAO();
@@ -39,7 +39,7 @@ import java.util.InputMismatchException;
             }
 
             //verifica e altera a acessibilidade
-            if (Stringacessibilidade != null && !Stringacessibilidade.isEmpty()) {
+            if (strAcessibilidade != null && !strAcessibilidade.isEmpty()) {
 
                 // tratamento de exceção devido a mudança de tipo da variável
                 try {
