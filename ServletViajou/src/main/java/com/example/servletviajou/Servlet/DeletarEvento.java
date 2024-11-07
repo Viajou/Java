@@ -27,8 +27,8 @@ public class DeletarEvento extends HttpServlet {
 
             //armazena o valor retornado pelo método e o verifica
             if(resultado == 1){
-                request.setAttribute("mensagem", "Evento excluído com sucesso!");
-                request.setAttribute("caminho","paginaSucesso.jsp"); // retorna a mensagem de sucess
+                request.setAttribute("mensagem", "listar_eventos.jsp");
+                request.setAttribute("caminho","sucesso.jsp"); // retorna a mensagem de sucess
             }
             else if(resultado == 0){
                 request.setAttribute("erro", "Erro! Não foi possível excluir este evento!");
@@ -36,11 +36,11 @@ public class DeletarEvento extends HttpServlet {
             }
             else if(resultado == -1){
                 request.setAttribute("erro", "Erro! Não foi possível excluir este evento!");
-                request.getRequestDispatcher("erro.jsp").forward(request, response); // retorna o erro para a página de erro
+                request.getRequestDispatcher("error.jsp").forward(request, response); // retorna o erro para a página de erro
             }
 
             //redireciona de volta ao listar
-            request.getRequestDispatcher("/listar_evento.jsp").forward(request, response);
+            request.getRequestDispatcher("/listar_eventos.jsp").forward(request, response);
 
             //tratamento de exceção
         } catch (Exception e) {

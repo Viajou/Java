@@ -22,7 +22,6 @@ public class Eventos {
 
     // Construtor com todos os atributos da classe, exceto o ID por ser serial
     public Eventos( int capacidade,  Date dataInicio, Date dataTermino, String descricao, String faixaEtaria, Time horario, int idAtracao, int idTourVirtual, double precoPessoa) {
-        this.id = id;
         this.capacidade = capacidade;
         this.dataInicio = dataInicio;
         this.dataTermino = dataTermino;
