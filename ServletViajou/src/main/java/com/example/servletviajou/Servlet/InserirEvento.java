@@ -21,10 +21,9 @@ public class InserirEvento extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
 
-            //obtendo os valores do formulário
-
+            // Criando o objeto Eventos
             EventosDAO eventosDAO = new EventosDAO();
-
+            //Obtendo os dados da URL (Query String)
             String faixaEtaria = request.getParameter("faixa-etaria");
             String descricao = request.getParameter("descricao");
             int capacidade = Integer.parseInt(request.getParameter("capacidade"));
@@ -40,23 +39,24 @@ public class InserirEvento extends HttpServlet {
             int id_atracao = Integer.parseInt(request.getParameter("id-atracao"));
             int id_tourVirtual = Integer.parseInt(request.getParameter("id-tour"));
 
-
+            //Criando objeto de Eventos
             Eventos eventos = new Eventos( capacidade,  dataInicio, dataTermino, descricao,
                     faixaEtaria, horario, id_atracao, id_tourVirtual, precoPessoa);
             AtracaoDAO atracaoDAO = new AtracaoDAO();
             ResultSet busca = atracaoDAO.buscar(id_atracao);
 
             if (busca.next()){
-                int inserir = eventosDAO.inserirEvento(eventos);
-                if (inserir == 1){
-                    if (inserir == 1) {
+                //Inserindo o novo Evento
+                int resultado = eventosDAO.inserirEvento(eventos);
+                if (resultado == 1){
+                    if (resultado == 1) {
                         request.setAttribute("mensagem", "Evento inserido com sucesso!");
                     }else {
                         request.setAttribute("erro", "Erro ao inserir o evento no banco de dados. ");
 
                     }
                 }
-                else if (inserir == 0) {
+                else if (resultado == 0) {
                     request.setAttribute("mensagem", "not found");
                 }
                 else {
@@ -69,6 +69,7 @@ public class InserirEvento extends HttpServlet {
         } catch (SQLException sqle){
             request.setAttribute("erro", "Erro ao inserir o evento no banco de dados: " + sqle.getMessage());
         }
+        // Redirecionando para uma página de confirmação ou erro
         request.getRequestDispatcher("listar_eventos.jsp").forward(request, response);
     }
 }

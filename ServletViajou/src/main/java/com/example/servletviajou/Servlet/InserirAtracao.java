@@ -8,8 +8,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 
 @WebServlet(name = "InserirAtracao", value = "/InserirAtracao-servlet")
@@ -23,7 +21,7 @@ import java.sql.SQLException;
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
 
-        // Obtendo os dados do formulário
+        //Obtendo os dados da URL (Query String)
         String descricao = request.getParameter("descricao");
         String nome = request.getParameter("nome");
         String endereco = request.getParameter("endereco");
@@ -34,16 +32,16 @@ import java.sql.SQLException;
         // Criando o objeto Atracao
         AtracaoDAO atracaoDAO = new AtracaoDAO();
 
-        //Criando objeto atracao
+        //Criando objeto de atracao
         Atracao novaAtracao = new Atracao(descricao, nome, endereco, acessibilidade, categoria);
 
         // Redirecionando para a página de confirmação
         try {
-                int num = atracaoDAO.inserirAtracao(novaAtracao);
-                if (num == 1) {
+                int resultado = atracaoDAO.inserirAtracao(novaAtracao);
+                if (resultado == 1) {
                     request.setAttribute("retorno", "certo");
-                } else if (num == 0) {
-                    request.setAttribute("retorno", "notfound");
+                } else if (resultado == 0) {
+                    request.setAttribute("retorno", "not found");
                 } else {
                     request.setAttribute("retorno", "erro");
                 }

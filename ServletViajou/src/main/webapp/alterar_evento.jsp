@@ -79,7 +79,7 @@
                 <input class="entrada" type="text" id="faixa_etariaAtual" name="faixa_etariaAtual" disabled value=" <%= request.getParameter("faixa_etaria")%>" >
             </div>
             <div class="campo">
-                <p>Para altetrar nome e categoria se dirija ate atrações</p>
+                <p>Para alterar nome e categoria vá até atrações</p>
             </div>
         </form> <!-- Fechamento do primeiro form -->
 

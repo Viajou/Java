@@ -132,11 +132,19 @@
                         // Exibe o erro em caso de exceção SQL
                         sqle.printStackTrace();
                 }//fim do try
-                }
             %>
             </tbody>
         </table>
     </section>
+    <%
+        }else {
+    %>
+    <!-- Exibe uma mensagem de "não encontrado" se não houver resultados -->
+    <p class="naoEncontrado"><%= naoEncontrado %></p>
+    <%
+        }
+    %>
+    %>
 </main>
 </body>
 </html>
