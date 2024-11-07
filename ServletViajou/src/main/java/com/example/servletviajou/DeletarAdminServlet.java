@@ -27,13 +27,10 @@ public class DeletarAdminServlet extends HttpServlet {
 
             //armazena o valor retornado pelo método e o verifica
             if(resultado == 1){
-<<<<<<< HEAD
+
                 request.setAttribute("mensagem", "Admin excluído com sucesso!");
                 request.setAttribute("caminho","paginaSucesso.jsp"); // retorna a mensagem de sucess
-=======
-                request.setAttribute("caminho", "listar_admin.jsp");
                 request.getRequestDispatcher("sucesso.jsp").forward(request, response);
->>>>>>> eb423f62b67a92629230d1f62e9bf79a7467eb83
             }
             else if(resultado == 0){
                 request.setAttribute("erro", "Erro! Não foi possível excluir este admin!");

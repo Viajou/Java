@@ -40,13 +40,12 @@ public class DeletarPlano extends HttpServlet {
             //redireciona de volta ao listar
             request.getRequestDispatcher("/listar_plano.jsp").forward(request, response);
 
+            
             //tratamento de exceção
-            // chamando o método deletar
-            planoDAO.deletarPlano(id);
-            request.getRequestDispatcher("listar_plano.jsp").forward(request, response);
+
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect("Erro ao deletar administrador.");
+            request.getRequestDispatcher("Erro ao deletar administrador.");
         }
     }
     
