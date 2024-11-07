@@ -1,107 +1,199 @@
-.missao{
+.missao {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     margin-bottom: 20px;
+    padding: 20px;
 }
 
-.missao > .textoT{
+.missao > .texto-missao {
     text-align: center;
     margin-top: 100px;
+    width: 100%;
 }
 
-.missao > .textoT > h6{
+.missao > .texto-missao > h6 {
     font-family: LevenimBold;
     font-size: 30px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
+    color: rgba(65, 55, 82, 1);
 }
 
-.missao > .textoT > p{
+.missao > .texto-missao > p {
     font-family: Levenim;
     font-size: 25px;
     width: 700px;
+    margin: 0 auto;
 }
 
-/* Estilo do cont_tela */
-.cont_tela{  
-    flex-wrap: wrap;
-    background-image: url(../../images/icone_loc_pagApp.svg);
+/* Container com Objetivo e Metodologia */
+.container-objetivo {
+    background-image: url(/images/icone_loc_pagApp.svg);
     background-size: 1300px;
     background-repeat: no-repeat;
     height: 2100px;
+    padding: 20px;
 }
 
-/* Estilo do cont_telaIn */
-.cont_telaIn{
+/* Flex layout para objetivo e metodologia */
+.container-objetivo > .objetivo,
+.container-objetivo > .metodologia {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     position: relative;
     top: 150px;
+    width: 100%;
 }
-.cont_telaIn > img{
+
+.container-objetivo > .objetivo > img,
+.container-objetivo > .metodologia > img {
     height: 30%;
-    flex-wrap: wrap;
     width: 45%;
     margin-top: 80px;
+    min-width: 450px;
+    object-fit: contain;
 }
 
-.cont_telaIn{
-    display: flex;
-    flex-wrap: wrap;
-    z-index: 1;
-}
-
-/* Estilo do texto na cont_telaIn */
-.texto{
+.texto-objetivo,
+.texto-metodologia {
     margin-top: 250px;
     text-align: center;
     vertical-align: middle;
 }
 
-.texto > h6{
+.texto-objetivo > h6,
+.texto-metodologia > h6 {
     font-size: 30px;
     font-family: LevenimBold;
     margin-bottom: 5px;
+    color: rgba(65, 55, 82, 1);
 }
 
-.texto > p{
+.texto-objetivo > p,
+.texto-metodologia > p {
     font-size: 25px;
     font-family: Levenim;
     width: 500px;
+    margin: 0 auto;
 }
 
-/* Estilo do cont_telaIn2 */
-.cont_telaIn2{
+/* Informações de Turismo */
+.informacoes-turismo {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    margin-top: 300px;
-    position: relative;
-    bottom: 100px;
+    margin: 0 200px; 
+    flex-wrap: wrap;
+    padding: 20px;
 }
 
-.cont_telaIn2 > img{
-    padding-top: 100px;
-    height: 25%;
-    width: 60%;
+.informacoes-turismo > img {
+    width: 40vw; 
+    min-width: 500px; 
+    max-width: 100%; 
+    margin-right: 20px; 
 }
 
-/* Estilo do texto2 */
-.texto2{
-    margin-top: 300px;
-    text-align: center;
-    vertical-align: middle;
-}
-
-.texto2 > h6{
-    font-size: 30px;
-    font-family: LevenimBold;
-    margin-bottom: 5px;
-}
-
-.texto2 > p{
-    font-size: 25px;
+.texto-informacoes {
+    margin: 70px 20px 0 20px;
     font-family: Levenim;
-    width: 500px;
+    display: flex;
+    flex-direction: column;
+    flex: 1; 
 }
+
+.texto-informacoes > h1 {
+    font-family: LevenimBold;
+    margin: 0 0 20px 0;
+    color: rgba(65, 55, 82, 1);
+}
+
+/* Media Queries para telas pequenas e médias (max-width: 728px) */
+@media (max-width: 728px) {
+    .missao {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .missao > .texto-missao > p {
+        font-size: 18px;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+
+    .texto-objetivo,
+    .texto-metodologia {
+        margin-top: 30px;
+    }
+
+    .texto-objetivo > p,
+    .texto-metodologia > p {
+        width: 80%;
+        font-size: 18px;
+    }
+
+    /* Informações de Turismo */
+    .informacoes-turismo {
+        flex-direction: column;
+        margin: 20px 0;
+        padding: 10px;
+    }
+
+    .informacoes-turismo > img {
+        width: 80vw;
+        margin-right: 0;
+    }
+
+    .texto-informacoes {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .texto-informacoes > h1 {
+        font-size: 30px;
+    }
+    .container-objetivo {
+        height: auto; /* Ajusta a altura conforme o conteúdo */
+        background-size: cover; /* Faz a imagem de fundo caber sem cortar */
+        background-size: 1000px;
+    }
+
+    .container-objetivo > .objetivo > img,
+    .container-objetivo > .metodologia > img {
+        width: 80%;
+        height: auto;
+        margin: 10px 0;
+    }
+
+    .informacoes-turismo {
+        margin: 0 20px; 
+        flex-direction: column;
+        text-align: center; 
+    }
+
+    .informacoes-turismo > img {
+        width: 70vw; 
+        min-width: 300px; 
+        margin-bottom: 20px; 
+        margin: 100px 0 0 30px;
+    }
+
+    .texto-informacoes {
+        margin: 30px 0; 
+    }
+
+    .texto-informacoes > h1 {
+        font-size: 24px; 
+    }
+
+    .texto-informacoes > p {
+        font-size: 16px;
+    }
+
+
+
+}
+
+
+

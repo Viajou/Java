@@ -1,0 +1,89 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+    font-family: LevenimBold;
+    src: url("/Fonte/levenim-mt-bold.ttf");
+}
+
+@font-face {
+    font-family: Levenim;
+    src: url("/Fonte/levenim-mt-2.ttf");
+}
+
+.container{
+    width: 100%;
+    height: 740px;
+    background-image: url(/images/fundo-crud2.svg);
+    background-repeat: no-repeat;
+}
+
+form{
+    height: 550px;
+    width: 650px;
+    display: flex;
+    flex-direction: column;
+    float: inline-end;
+    justify-content: flex-end;
+
+    label{
+        font-family: Levenim;
+        font-size: 25px;
+        color: aliceblue;
+    }
+    input{
+        width: 350px;
+        height: 35px;
+        border-radius: 15px;
+        border: solid 1px rgb(31, 1, 60);
+        margin-top: 15px;
+        margin-bottom: 15px;
+        padding: 5px;
+    }
+
+    button{
+        height: 40px;
+        width: 355px;
+        border-radius: 15px;
+        margin-top: 20px;
+        font-family: Levenim;
+        background-color: rgb(140, 108, 171);
+        color: aliceblue;
+        border: solid 1px rgb(193, 174, 211);
+        font-size: 18px;
+
+        a{
+            text-decoration: none;
+            color: aliceblue;
+        }
+    }
+}
+
+.texto{
+    h1{
+        font-family: LevenimBold;
+        font-size: 80px;
+        line-height: 75px;
+        color: aliceblue;
+        margin-bottom: 35px;
+    }
+
+    span{
+        color: rgb(206, 174, 235);
+        display: flex;
+    }
+}
+
+.pontilhado{
+    position: relative;
+    top: 475px;
+    width: 550px;
+}
+
+.logo{
+    position: relative;
+    bottom: 200px;
+    width: 100px;
+}

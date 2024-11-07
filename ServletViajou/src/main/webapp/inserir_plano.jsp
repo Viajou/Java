@@ -69,7 +69,7 @@
         </div>
         <div class="botoes2">
             <a  class="voltar" href="listar_plano.jsp">Voltar</a>
-            <input type="submit" value="Inserir tour">
+            <input type="submit" value="Inserir plano">
         </div>
     </form>
 </main>

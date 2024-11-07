@@ -1,109 +1,116 @@
-
-
-.tela{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-bottom: 200px;
-}
-
-/* Estilo do título principal */
-.titulo{
+@font-face {
     font-family: LevenimBold;
-
+    src: url("./Fonte/levenim-mt-bold.ttf");
 }
 
-.titulo > .sj{
+@font-face {
+    font-family: Levenim;
+    src: url("./Fonte/levenim-mt-2.ttf");
+}
+
+.home-screen {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 200px;
+    padding: 20px;
+}
+
+.header {
+    font-family: LevenimBold;
+    max-width: 50%; 
+    margin: 60px 0 0 100px;
+    flex: 1;
+}
+
+.header > .main-title {
     color: rgba(65, 55, 82, 1);
-    font-size: 76px;
-    width: 500px;
-    margin: 10px;
-    padding: 0px;
+    font-size: 85px;
 }
 
-/* Estilo do subtítulo */
-.titulo > .subtitulo{
+.header > h2 {
+    color: #8E70D6;
+}
+
+.subtitle {
     color: gray;
-    padding-left: 15px;
-    width: 490px;
+    font-family: Levenim;
+    width: 100%;
+    max-width: 490px;
+    margin-top: 20px;
 }
 
-/* Estilo da imagem na tela principal */
-.imagem_inicio{
-    padding-right: 50px;
-    width: 500px;
-    height: 550px;
-    padding-top: 30px;
+.initial-image {
+    width: 60%;
+    max-width: 500px;
+    margin: 60px 5vw 0 0;
 }
 
-/* Estilo do botão "começar" */
-.comecar{
-    background-color: rgba(56,36,105,1);
+.start-button {
+    background-color: #8E70D6;
     color: white;
     padding: 10px;
-    border-radius: 50px;
+    border-radius: 15px;
     width: 120px;
-    margin-left: 10px;
-    margin-right: 20px;
-    margin-top: 10px;
+    cursor: pointer;
+    margin-top: 20px;
     font-size: 18px;
     font-family: LevenimBold;
+    border: none;
+    transition: 0.2s;
 }
 
-/* Estilo do container de blocos */
-.container_bloco{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+.start-button:active {
+    background-color: #7960b5;
 }
 
-/* Estilo dos blocos */
-.bloco{
-    background-color:#9BDAD3;
-    border-radius: 10px;
-    height: 250px;
-    width: 1400px;
-    margin-left: 30px;
-    margin-top: 50px;
+.start-button:hover {
+    box-shadow: 0px 0px 15px rgba(142, 112, 214, 0.7);
+    transition: 0.2s;
 }
 
-.bloco > h5{
-    font-size: 30px;
-    margin-bottom: 0px;
-    padding-top: 20px;
-    padding-left: 20px;
-    font-family: LevenimBold;
-}
 
-.bloco > .subtitulo{
-    font-size: 23px;
-    padding-top: 0px;
-    margin-top: 0px;
-    padding-left: 20px;
-    width: 280px;
-    font-family: Levenim;
-}
+@media (max-width: 728px) {
+    .home-screen {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 50px;
+    }
 
-/* Estilo dos botões dentro dos blocos */
-.botoes{
-    display: flex;
-    font-size: 16px;
-}
+    .header {
+        max-width: 100%;
+        margin: 20px 0;
+        text-align: center;
+    }
 
-.botoes > .botao{
-    background-color: white;
-    height: 25px;
-    width: 100px;
-    padding-left: 10px;
-    margin-left: 20px;
-    border-radius: 8px;
-}
+    .header > .main-title {
+        font-size: 50px;
+        margin-bottom: 20px;
+    }
 
-.botoes > .botao2{
-    background-color: white;
-    height: 25px;
-    width: 100px;
-    padding-left: 10px;
-    margin-left: 20px;
-    border-radius: 8px;
+    .header > h2 {
+        font-size: 25px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+        width: auto;
+        max-width: 100%;
+        margin-left: 0;
+    }
+
+    .initial-image {
+        width: 80%;
+        max-width: 400px;
+        margin-top: 20px;
+    }
+
+    .start-button {
+        width: 160px;
+        padding: 12px;
+        font-size: 20px;
+        margin-top: 30px;
+    }
 }

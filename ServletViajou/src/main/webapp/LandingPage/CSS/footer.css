@@ -1,61 +1,61 @@
-footer{
+footer {
     background-color: #382469;
     height: 100%;
 }
 
-#viajou_pequena{
+.logo-viajou {
     margin-top: 60px;
 }
 
-#texto{
+.footer-descricao {
     width: 300px;
     margin-left: 70px;
     color: rgba(142, 112, 214, 1);
     font-family: Levenim;
 }
 
-hr{
+hr {
     margin-left: 60px;
     margin-right: 60px;
     margin-bottom: 20px;
     border: 1px solid rgba(142, 112, 214, 1);
 }
 
-h4{
+h4 {
     padding-bottom: 20px;
-    font-family: Levenim ;
+    font-family: Levenim;
     text-align: center;
     color: rgba(142, 112, 214, 1);
 }
 
-#final{
+.footer-final {
     padding-top: 200px;
 }
 
-.container{
+.footer-container {
     display: flex;
     justify-content: center;
 }
 
-#lista{
+.footer-links {
     width: 600px;
     margin-top: 100px;
     margin-left: 200px;
 }
 
-#lista>ul{
+.footer-links > ul {
     display: flex;
     justify-content: space-around;
     list-style: none; 
 }
 
-#lista>ul>li{
+.footer-links > ul > li {
     font-family: LevenimBold;
     color: #E9E2EE;
     font-size: 20px;
 }
 
-.lista_identada{
+.sub-lista {
     margin-top: 5px;
     list-style: none;
     font-family: Levenim;
@@ -63,13 +63,77 @@ h4{
     color: rgba(142, 112, 214, 1);
 }
 
-.redes{
+.social-icon {
     width: 35px;
 }
 
-#contatos{
+.social-links {
     display: flex;
     justify-content: space-between;
     width: 140px;
     padding-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-links > ul {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        list-style: none;
+        align-items: center;
+    }
+
+    .social-icon {
+        width: 35px;
+    }
+
+    .footer-links {
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    .footer-descricao {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+    }
+
+    .footer-descricao > p {
+        display: none;
+    }
+
+    .footer-links > ul > li {
+        margin: 10px 0 0 0;
+    }
+
+    .social-links {
+        width: 100%; /* Ajusta a largura para ocupar 100% do contêiner */
+        justify-content: space-evenly;
+        padding: 20px 0; /* Adiciona padding superior e inferior para espaçamento */
+    }
+}
+
+.logos {
+    display: flex;
+    margin: 0 0 20px 0;
+}
+
+.logo-systeam {
+    width: 70px;
+    margin-top: auto;
+}
+
+.sub-lista>li>a{
+    text-decoration: none;
+    color: rgba(142, 112, 214, 1);
 }

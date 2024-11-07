@@ -1,0 +1,96 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+#fundo{
+    background-image: url(/images/Fundo_roxo.svg);
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+@font-face {
+    font-family: LevenimBold;
+    src: url("/Fonte/levenim-mt-bold.ttf");
+}
+
+@font-face {
+    font-family: Levenim;
+    src: url("/Fonte/levenim-mt-2.ttf");
+}
+
+.imgLogo{
+    width: 90vw;
+    height: 40vh;
+    margin-top: 100px;
+    transition: 0.3s;
+}
+
+form {
+    width: 20vw;
+}
+    
+label {
+    display: block;
+    margin-top: 20px;
+    font-family: LevenimBold;
+    color: white;
+}
+    
+input{
+    width: 18vw;
+    height: 5vh;
+    border: none;
+    border-radius: 10px;
+    color: #805CD8;
+    font-family: Levenim;
+    transition: 0.3s;
+    padding-left: 2vw;
+}
+
+input:focus {
+    outline: none; /* Remove o contorno padrão */
+    box-shadow: 0 0 5px #805CD8; /* Adiciona uma sombra azul */
+}
+
+button:active {
+    background-color: #544086;
+}
+
+button{
+    background-color: #805CD8;
+    color: white;
+    width: 20vw;
+    height: 5vh;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: 0.3s;
+    font-family: LevenimBold;
+}
+    
+@media(max-width: 768px) {
+
+    .imgLogo{
+        width: 30vw;
+    }
+
+    label{
+        font-size: 0.8rem;
+    }
+
+    button{
+        font-size: 0.8rem;
+    }
+}
+
+.formulario {
+    display: flex;
+    justify-content: center;
+}

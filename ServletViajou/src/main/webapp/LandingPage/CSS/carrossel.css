@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.time-titulo {
+  text-align: center;
+  margin: 130px 0 20px 0;
+  font-family: LevenimBold;
+}
+
+.carousel-container-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 130px;
+}
+
+.carousel-container {
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+  gap: 20px;
+  padding: 10px;
+}
+
+.card {
+  flex: 1 0 200px; /* Aumenta o tamanho mínimo do card */
+  padding: 25px;
+  text-align: center;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  border-radius: 20px;
+}
+
+.card img {
+  width: 180px; /* Tamanho maior da imagem */
+  height: 180px; /* Tamanho maior da imagem */
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.carousel-btn {
+  background-color: #8E70D6;
+  color: #fff;
+  border: none;
+  padding: 10px 15px; /* Botões um pouco maiores */
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 100%;
+}
+
+.card > h3 {
+  font-family: LevenimBold;
+  color: #8E70D6;
+  font-size: 20px; /* Tamanho de texto maior */
+}
+
+.card > p {
+  font-family: Levenim;
+  font-size: 16px; /* Tamanho de texto maior */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 1024px) {
+  .carousel-container {
+    max-width: 80%;
+  }
+
+  .card {
+    flex: 1 0 220px; /* Aumenta a largura do card nas telas médias */
+  }
+
+  .card img {
+    width: 160px;
+    height: 160px;
+  }
+
+  .carousel-btn {
+    font-size: 18px;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-container {
+    max-width: 95%;
+  }
+
+  .card {
+    flex: 1 0 180px; /* Ajusta para telas menores */
+  }
+
+  .card img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .carousel-btn {
+    font-size: 16px;
+    padding: 6px 10px;
+  }
+
+  .time-titulo {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-container-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .card {
+    flex: 1 0 150px; /* Menor para telas muito pequenas */
+    padding: 15px;
+  }
+
+  .card img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .carousel-btn {
+    font-size: 14px;
+    padding: 5px 8px;
+  }
+}

@@ -1,62 +1,97 @@
-.func{
-    display: flex;
-    justify-content: center;
-    font-size: 50px;
+.func {
     font-family: LevenimBold;
+    text-align: center;
 }
 
-/* Estilo da seção de funcionalidades */
-.funcionalidades{
-    background-color: rgb(228, 228, 228);
-    padding: 20px;
+.funcionalidades {
+    background-color: #E9E2EE;
+    margin: 100px 0 0 0;
+    padding: 60px 0;
+    color: rgba(65, 55, 82, 1);
 }
 
-/* Estilo do container de funcionalidades */
-.container_func{
+.funcionalidades > p {
+    font-family: Levenim;
+    text-align: center;
+}
+
+.titulo-funcionalidades{
+    font-family: LevenimBold;
+    text-align: center;
+}
+
+.container-blocos {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    padding-left: 200px;
-    padding-right: 200px;
+    justify-content: center;
 }
 
-/* Estilo dos blocos de funcionalidades */
-.bloco_func{
-    background-color: rgb(255, 255, 255);
-    justify-items: center;
-    height: 200px;
-    width: 250px;
-    border-radius: 8px;
-    border: 3px solid #9BDAD3;
-    padding: 10px;
-    margin: 10px;
+.bloco {
+    background-color: #f9f1feb2;
+    width: 100%;
+    max-width: 300px;
+    height: 240px;
+    border-radius: 20px;
+    font-family: Levenim;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: 0.3s;
+    margin: 20px;
 }
 
-.bloco_func:hover{
-    background-color: rgb(241, 241, 241);
+.conteudo-funcionalidade>p{
+    font-size: 13px;
+}
+
+.bloco:hover {
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+}
+
+.verde-agua:hover>.conteudo-funcionalidade>h3{
+    color: #6EC9BF;
     transition: 0.5s;
 }
 
-/* Estilo dos círculos dentro dos blocos de funcionalidades */
-.circulo{
-    background-color: #9BDAD3;
-    color: #9BDAD3;
-    text-align: center;
-    width: 50px;
-    height: 50px;
-    margin-bottom: 20px;
-    border-radius: 80px;
+.roxo-claro:hover>.conteudo-funcionalidade>h3{
+    color: #8E70D6;
+    transition: 0.5s;
 }
 
-.bloco_func > h6{
-    font-size: 20px;
+.roxo-escuro:hover>.conteudo-funcionalidade>h3{
+    color: #382469;
+    transition: 0.5s;
+}
+
+.conteudo-funcionalidade > h3 {
     font-family: LevenimBold;
-    margin-bottom: 2px;
-    margin-top: 0px;
+    margin-top: 10px;
 }
 
-.bloco_func > p{
-    font-size: 16px;
-    font-family: Levenim;
-    margin-top: 0px;
+.circulo {
+    background-color: #E9E2EE;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.verde-agua {
+    border: 4px solid #6EC9BF;
+    transition: 0.5s;
+}
+
+.roxo-claro {
+    border: 4px solid #8E70D6;
+    transition: 0.5s;
+}
+
+.roxo-escuro {
+    border: 4px solid #382469;
+    transition: 0.5s;
+}
+
+

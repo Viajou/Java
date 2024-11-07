@@ -1,43 +1,71 @@
-.fundo_cinza {
+.fundo-cinza {
     display: flex;
-    height: 74.63vh; /* 806px -> 74.63vh, baseado numa altura de 1080px */
+    height: 74.63vh;
     background-color: #E9E2EE;
     justify-content: center;
-}
-
-#splash {
-    display: flex;
     align-items: center;
+    padding: 20px; /* Padding para evitar bordas */
+    flex-direction: column; /* Layout em coluna para telas menores */
 }
 
-.fundo_cinza > .titulo > h1 {
+.splash-image,
+.download-section {
+    text-align: center; /* Centraliza o conteúdo nas telas pequenas */
+    margin-bottom: 15px; /* Espaço entre elementos em telas pequenas */
+}
+
+.app-image {
+    width: 80vw; /* Reduz imagem para telas pequenas */
+    max-width: 180px; /* Limita o tamanho da imagem */
+}
+
+.download-section {
+    width: 90vw; /* Largura para telas menores */
+    max-width: 500px; /* Limite para telas maiores */
+}
+
+.download-section > h1 {
     font-family: LevenimBold;
     color: #413752;
-    font-size: 2.6vw; /* 50px -> 2.6vw, baseado numa largura de 1920px */
     letter-spacing: 0.15px;
-    margin-left: 3.125vw; /* 60px -> 3.125vw */
+    margin: 0; /* Remove margem extra */
 }
 
-.fundo_cinza > .titulo > p {
+.download-section > p {
     font-family: Levenim;
     color: #413752;
     letter-spacing: 0.15px;
-    margin-left: 3.125vw; /* 60px -> 3.125vw */
+    margin: 10px 0; /* Espaçamento vertical */
 }
 
-.titulo {
-    width: 26.04vw; /* 500px -> 26.04vw */
-    float: right;
-    padding-top: 18.52vh; /* 200px -> 18.52vh */
+.google-play-icon {
+    width: 60vw; 
+    max-width: 150px;
+    margin-top: 15px;
 }
 
-#play {
-    width: 10.42vw; /* 200px -> 10.42vw */
-    margin-left: 3.125vw; /* 60px -> 3.125vw */
-    padding-top: 5.56vh; /* 60px -> 5.56vh */
-}
+/* Media Queries */
+@media (min-width: 768px) { 
+    .fundo-cinza {
+        flex-direction: row; 
+        padding: 40px;
+    }
 
-#imagemCelular {
-    max-height: 90vh;
-    max-width: 20vw;
+    .splash-image,
+    .download-section {
+        margin-bottom: 0; 
+    }
+
+    .app-image {
+        width: 200px; 
+    }
+
+    .download-section {
+        width: 50vw; 
+
+    }
+
+    .google-play-icon {
+        width: 150px; 
+    }
 }

@@ -98,7 +98,7 @@
             </div>
             <div class="campo">
                 <label for="novoPreco">Novo Preço</label>
-                <input class="entrada" type="text" id="novoPreco" name="novoPreco" placeholder="Novo preço">
+                <input class="entrada" type="text" id="novoPreco" name="novoPreco" placeholder="Novo preço" pattern="^\d+(\.\d{1,2})?$" placeholder="Exemplo: 12.50" title="Digite um número com até duas casas decimais, utilizando '.'como separador">
             </div>
 
             <div class="botoes">
