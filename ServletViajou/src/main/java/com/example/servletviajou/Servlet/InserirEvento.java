@@ -42,25 +42,14 @@ public class InserirEvento extends HttpServlet {
             //Criando objeto de Eventos
             Eventos eventos = new Eventos( capacidade,  dataInicio, dataTermino, descricao,
                     faixaEtaria, horario, id_atracao, id_tourVirtual, precoPessoa);
-            AtracaoDAO atracaoDAO = new AtracaoDAO();
-            ResultSet busca = atracaoDAO.buscar(id_atracao);
+
+            ResultSet busca = eventosDAO.buscar(id_atracao);
 
             if (busca.next()){
-<<<<<<< HEAD
-                int inserir = eventosDAO.inserirEvento(eventos);
-                if (inserir == 1){
-                    request.setAttribute("mensagem", "Evento inserido com sucesso!");
-=======
                 //Inserindo o novo Evento
                 int resultado = eventosDAO.inserirEvento(eventos);
                 if (resultado == 1){
-                    if (resultado == 1) {
-                        request.setAttribute("mensagem", "Evento inserido com sucesso!");
-                    }else {
-                        request.setAttribute("erro", "Erro ao inserir o evento no banco de dados. ");
-
-                    }
->>>>>>> 5a3063a0c655ca605cb03a0672100d95ed010dd6
+                    request.setAttribute("mensagem", "Evento inserido com sucesso!");
                 }
                 else if (resultado == 0) {
                     request.setAttribute("mensagem", "not found");

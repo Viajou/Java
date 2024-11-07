@@ -1,5 +1,6 @@
 package com.example.servletviajou.Servlet;
 
+import com.example.servletviajou.DAO.AdminDAO;
 import com.example.servletviajou.DAO.ExcursaoDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -12,21 +13,40 @@ import java.io.IOException;
 @WebServlet(name = "DeletarExcursao", value = "/DeletarExcursao-servlet")
     public class DeletarExcursao extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        ExcursaoDAO excursaoDAO = new ExcursaoDAO();
+        response.setContentType("text/html");
 
+        // obtém o id correspondente a o que irá ser apagado
         int id = Integer.parseInt(request.getParameter("id"));
 
-        // Atualizando o nome da empresa no banco de dados
-        int resultado = excursaoDAO.deletarExcursao(id);
+        //instancia a classe DAO
+        ExcursaoDAO excursaoDAO = new ExcursaoDAO();
 
-        // Redirecionando para a página de confirmação
-        if (resultado > 0) {
-            request.getSession().setAttribute("mensagem", "Nome da empresa alterado com sucesso!");
-            response.sendRedirect("paginaSucesso.jsp");
-        } else {
-            request.getSession().setAttribute("mensagem", "Erro ao alterar nome da empresa.");
-            response.sendRedirect("paginaErro.jsp");
+        try {
+            int resultado = excursaoDAO.deletarExcursao(id); // Método deletar implementado no DAO para remover o admin
+
+            //armazena o valor retornado pelo método e o verifica
+            if(resultado == 1){
+                request.setAttribute("mensagem", "Excursão excluído com sucesso!");
+                request.setAttribute("caminho","paginaSucesso.jsp"); // retorna a mensagem de sucess
+            }
+            else if(resultado == 0){
+                request.setAttribute("erro", "Erro! Não foi possível excluir esta excursão!");
+                request.getRequestDispatcher("error.jsp"); // quando der erro, redireciona para a página jsp de erros
+            }
+            else if(resultado == -1){
+                request.setAttribute("erro", "Erro! Não foi possível excluir este excursão!");
+                request.getRequestDispatcher("erro.jsp").forward(request, response); // retorna o erro para a página de erro
+            }
+
+            //redireciona de volta ao listar
+            request.getRequestDispatcher("/listar_excursão.jsp").forward(request, response);
+
+            //tratamento de exceção
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.sendRedirect("Erro ao deletar administrador.");
         }
+    }
 
     }
 }
